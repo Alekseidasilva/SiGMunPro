@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="9cd14fff-ebf5-4e84-ac6c-0595cb8a9388" ChangeDateTime="04/16/2020 16:16:22">
+    <Property Name="ElementName" Value="[dbo].[TB_UsuarioPerfil].[UsuPerfilId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TB_UsuarioPerfil]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PerfilUsuarioId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="984adea3-a89f-46ae-ab3e-7aa4d57ea9d9" ChangeDateTime="04/16/2020 16:17:04">
+    <Property Name="ElementName" Value="[dbo].[TB_UsuarioPerfil].[UsuIdPerfil]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TB_UsuarioPerfil]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PerfilId" />
+  </Operation>
+</Operations>
