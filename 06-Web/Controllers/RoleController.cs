@@ -17,6 +17,7 @@ namespace _06_Web.Controllers
         public ActionResult Index()
         {
             var Roles = context.Roles.ToList();
+           
             return View(Roles);
         }
         public ActionResult Create()
@@ -27,7 +28,7 @@ namespace _06_Web.Controllers
         [HttpPost]
         public ActionResult Create(IdentityRole Role)
         {
-            context.Roles.Add(Role);
+            //context.Roles.Add(Role);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
