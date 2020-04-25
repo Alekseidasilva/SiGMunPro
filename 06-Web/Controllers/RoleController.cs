@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using System.Web.Security;
 using _06_Web.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace _06_Web.Controllers
@@ -26,9 +28,9 @@ namespace _06_Web.Controllers
             return View(Role);
         }
         [HttpPost]
-        public ActionResult Create(IdentityRole Role)
+        public ActionResult Create(RoleProvider role)
         {
-            //context.Roles.Add(Role);
+            //context.Roles.Add(role);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
