@@ -30,6 +30,7 @@ namespace _06_Web.Controllers
             context.Roles.Add(Role);
             context.SaveChanges();
             return RedirectToAction("Index");
+            //Nada feito aqui
         }
     }
 }
