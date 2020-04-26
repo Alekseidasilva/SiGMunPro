@@ -43,12 +43,23 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="Livros\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Monografias\SahMonografia.docx" />
+    <None Include="Monografias\TFC Final.pdf.pdf" />
+    <None Include="Monografias\TFC-Rosalina-Chanjo-Corrigir.docx" />
+    <None Include="Pesquisas\Introdução ao Asp.net Identity.pdf" />
+    <None Include="Pesquisas\Usando_Identity.zip" />
     <None Include="Word\Monografia.docx" />
     <None Include="Word\Monografia1.docx" />
     <None Include="Word\Monografia2.docx" />
     <None Include="Word\Questionario AMM.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagens\Screenshot_1.png" />
+    <Content Include="Imagens\Screenshot_2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
