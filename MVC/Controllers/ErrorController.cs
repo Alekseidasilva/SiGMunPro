@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace AdminLTE1.Controllers
+namespace MVC.Controllers
 {
     public class ErrorController : Controller
     {
