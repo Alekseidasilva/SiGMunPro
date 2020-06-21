@@ -115,4 +115,7 @@
     <Build Include="Tabelas\TB_Provincias.sql" />
     <Build Include="Tabelas\TB_TiposDocumentos.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SiGMunBD.publish.xml" />
+  </ItemGroup>
 </Project>
