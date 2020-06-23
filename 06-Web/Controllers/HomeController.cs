@@ -2,6 +2,7 @@
 
 namespace _06_Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()

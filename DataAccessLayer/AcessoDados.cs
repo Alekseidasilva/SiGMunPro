@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,9 +10,8 @@ namespace DataAccessLayer
 
         public SqlConnection CriarConexao()
         {
-            //var stringConexao = ConfigurationManager.ConnectionStrings["ConnString"].ToString();
-            //return new SqlConnection(stringConexao);
-            return new SqlConnection();
+            var stringConexao = ConfigurationManager.ConnectionStrings["ConnString"].ToString();
+            return new SqlConnection(stringConexao);           
         }
         //Parametros que vão para o banco de Dados
         private SqlParameterCollection sqlParameterCollection = new SqlCommand().Parameters;

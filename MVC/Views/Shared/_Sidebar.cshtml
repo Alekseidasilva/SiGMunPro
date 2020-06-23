@@ -17,14 +17,30 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">HEADER</li>
             <li class="@Url.IsLinkActive("Index", "Home")">
-                <a href="@Url.Action("Index", "Home")"><i class="fa fa-link"></i> <span>Dashboard</span></a>
+                <a href="@Url.Action("Index", "Home")"><i class="ti-home"></i> <span>Dashboard</span></a>
             </li>
             <li class="@Url.IsLinkActive("AnotherLink", "Home")">
                 <a href="@Url.Action("AnotherLink", "Home")"><i class="fa fa-link"></i> <span>Another Link</span></a>
             </li>
+             @* Menu Municipe *@
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>Multilevel</span>
+                    <i class="fa fa-link"></i> <span>MUNÍCIPE</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Cadastrar</a></li>
+                    <li><a href="#">Alterar Info</a></li>
+                    <li><a href="#">Adicionar Parente</a></li>
+                     <li><a href="#">Consultar</a></li>
+                </ul>
+            </li>
+             @* Menu Secretaria *@
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>SECRETARIA</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -34,9 +50,10 @@
                     <li><a href="#">Link in level 2</a></li>
                 </ul>
             </li>
+             @* Menu Fiscalização *@
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>Multilevel</span>
+                    <i class="fa fa-link"></i> <span>FISCALIZAÇÃO</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -46,9 +63,10 @@
                     <li><a href="#">Link in level 2</a></li>
                 </ul>
             </li>
+             @* Menu Area Tecnica *@
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>Multilevel</span>
+                    <i class="fa fa-link"></i> <span>AREA TECNICA</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -58,6 +76,51 @@
                     <li><a href="#">Link in level 2</a></li>
                 </ul>
             </li>
+             @* Menu Locais *@
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>LOCAIS</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">Link in level 2</a></li>
+                </ul>
+            </li>
+             @* Menu relatorios *@
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>RELATORIOS</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">Link in level 2</a></li>
+                </ul>
+            </li>
+             @* Menu Sistema *@
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>SISTEMA</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">Link in level 2</a></li>
+                </ul>
+            </li>
+
+            <li class="@Url.IsLinkActive("AnotherLink", "Home")">
+                <a href="@Url.Action("AnotherLink", "Home")"><i class="fa fa-wifi"></i> <span>Sair</span></a>
+            </li>
+
+            
         </ul>
         @* END Menu *@
     </section>
