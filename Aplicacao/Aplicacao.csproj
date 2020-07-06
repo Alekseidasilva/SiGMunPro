@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contratos\" />
-    <Folder Include="DTO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

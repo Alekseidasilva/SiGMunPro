@@ -63,10 +63,7 @@
     <Compile Include="Validacoes\helpers\Criptografia.cs" />
     <Compile Include="Validacoes\helpers\EnumeradorEstado.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contratos\" />
-    <Folder Include="Servicos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
