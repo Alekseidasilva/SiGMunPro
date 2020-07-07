@@ -57,8 +57,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexto\Context.cs" />
     <Compile Include="Entidades\Base.cs" />
+    <Compile Include="Entidades\PerfilUsuario\Perfil.cs" />
+    <Compile Include="Entidades\PerfilUsuario\PerfilUsuario.cs" />
+    <Compile Include="Entidades\Usuario\Afirmacoes.cs" />
     <Compile Include="Entidades\Usuario\ApplicationUser.cs" />
+    <Compile Include="Entidades\Usuario\Usuario.cs" />
+    <Compile Include="Entidades\Usuario\UsuarioLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validacoes\helpers\Criptografia.cs" />
     <Compile Include="Validacoes\helpers\EnumeradorEstado.cs" />
