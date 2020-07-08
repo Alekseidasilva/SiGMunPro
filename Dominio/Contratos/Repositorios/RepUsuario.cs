@@ -46,7 +46,7 @@ namespace Dominio.Contratos.Repositorios
             throw new NotImplementedException();
         }
 
-        public void alterarSenha(string senhaAntiga, string senhanova, string confirmarSenha)
+        public void AlterarSenha(string senhaAntiga, string senhanova, string confirmarSenha)
         {
             throw new NotImplementedException();
         }

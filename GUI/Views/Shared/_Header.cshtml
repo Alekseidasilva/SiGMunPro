@@ -2,9 +2,10 @@
     @* BEGIN Logo *@
     <a href="@Url.Action("Index", "Home")" class="logo">
         @* Mini logo for sidebar 50x50 pixels *@
-        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-mini"><b>S</b>GM</span>
         @* Logo for regular state and mobile devices *@
-        <span class="logo-lg"><b>Admin</b>LTE</span>
+        <span class="logo-lg"><b>Si</b>GMun</span>
+       
     </a>
     @* END Logo *@
     @* BEGIN Header *@
@@ -99,14 +100,14 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="~/Content/img/user.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs"> @User.Identity.Name</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="user-header">
                             <img src="~/Content/img/user.jpg" class="img-circle" alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
+                                @User.Identity.Name - Gerente
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>
@@ -125,10 +126,10 @@
                         </li>
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat">Perfil</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="@Url.Action("TerminarSessao","Conta")" class="btn btn-default btn-flat">Terminar Sessão</a>
                             </div>
                         </li>
                     </ul>

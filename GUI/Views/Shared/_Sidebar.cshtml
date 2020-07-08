@@ -15,16 +15,58 @@
         @* END Search *@
         @* BEGIN Menu *@
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">HEADER</li>
-            <li class="@Url.IsLinkActive("Index", "Home")">
-                <a href="@Url.Action("Index", "Home")"><i class="fa fa-link"></i> <span>Home</span></a>
+            <li class="header">Sistema de Gestão de Munícipes</li>
+            @* <li class="@Url.IsLinkActive("Index", "Home")">
+                <a href="@Url.Action("Index", "Home")"><i class="fa fa-link"></i> <span>Dashboard</span></a>
             </li>
-            <li class="@Url.IsLinkActive("AnotherLink", "Home")">
+             <li class="@Url.IsLinkActive("AnotherLink", "Home")">
                 <a href="@Url.Action("AnotherLink", "Home")"><i class="fa fa-link"></i> <span>Another Link</span></a>
-            </li>
+            </li>*@
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>Multilevel</span>
+                    <i class="fa fa-link"></i><span>DASHBOARD</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Suporte</a></li>
+                    <li><a href="#">Sobre</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>MUNÍCIPE</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Cadastrar</a></li>
+                    <li><a href="#">Alterar Dados</a></li>
+                    <li><a href="#">Informações Adicionais</a></li>
+                    <li><a href="#">Consultar</a></li>
+                </ul>
+            </li>
+            
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>SECRETARIA</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Emitir</a></li>
+                    <li><a href="#">Reemitir</a></li>
+                    <li><a href="#">Consultar</a></li>
+                </ul>
+            </li>
+            
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>FISCALIZAÇÃO</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -34,6 +76,34 @@
                     <li><a href="#">Link in level 2</a></li>
                 </ul>
             </li>
+            
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>ÁREA TÉCNICA</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="#">Link in level 2</a></li>
+                </ul>
+            </li>
+            
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i> <span>SISTEMA</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Perfils</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#">Usuário</a></li>
+                </ul>
+            </li>
+
         </ul>
         @* END Menu *@
     </section>
