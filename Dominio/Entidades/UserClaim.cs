@@ -1,6 +1,8 @@
-﻿namespace Dominio.Entidades
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+
+namespace Dominio.Entidades
 {
-   public class UserClaim
+   public class UserClaim:IdentityUserClaim<int>
     {
     }
 }
