@@ -6,7 +6,7 @@ namespace GUI.Controllers
     {
         [HttpGet]
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Dashboard()
         {
             return View();
         }
