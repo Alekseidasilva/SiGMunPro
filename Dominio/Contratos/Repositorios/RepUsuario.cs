@@ -40,5 +40,15 @@ namespace Dominio.Contratos.Repositorios
         {
             throw new NotImplementedException();
         }
+
+        public IUsuario Login(string email, string senha)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void alterarSenha(string senhaAntiga, string senhanova, string confirmarSenha)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Dominio.Entidades
 {
-   public class UserRole:IdentityUserRole<int>
+    public class UserRole:IdentityUserRole<int>
     {
     }
 }
