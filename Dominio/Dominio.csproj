@@ -118,6 +118,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contratos\Interfaces\IBase.cs" />
+    <Compile Include="Contratos\Interfaces\IUsuario.cs" />
+    <Compile Include="Contratos\Repositorios\RepUsuario.cs" />
+    <Compile Include="Entidades\Base.cs" />
     <Compile Include="Entidades\UserLogin.cs" />
     <Compile Include="Entidades\Role.cs" />
     <Compile Include="Entidades\User.cs" />
@@ -125,10 +129,7 @@
     <Compile Include="Entidades\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contratos\Interfaces\" />
-    <Folder Include="Contratos\RegrasNegocio\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
