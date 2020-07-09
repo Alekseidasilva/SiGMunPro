@@ -103,9 +103,9 @@
       <Project>{1009541f-a55c-457b-b090-c57f20ef6ff0}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GUI\GUI.csproj">
-      <Project>{801fcf56-b38a-42ee-9b2d-1c248bb9eb9c}</Project>
-      <Name>GUI</Name>
+    <ProjectReference Include="..\MVC\MVC.csproj">
+      <Project>{8d2c43bb-4859-484c-81b6-edb5f49f74d8}</Project>
+      <Name>MVC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

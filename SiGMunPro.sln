@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SiGMunDB", "SiGMunDB\SiGMunDB.sqlproj", "{1FEAD1E2-9A86-4CEA-A22F-C2A8C2542CF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{801FCF56-B38A-42EE-9B2D-1C248BB9EB9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{8D2C43BB-4859-484C-81B6-EDB5F49F74D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,10 @@ Global
 		{1FEAD1E2-9A86-4CEA-A22F-C2A8C2542CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FEAD1E2-9A86-4CEA-A22F-C2A8C2542CF2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1FEAD1E2-9A86-4CEA-A22F-C2A8C2542CF2}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{801FCF56-B38A-42EE-9B2D-1C248BB9EB9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{801FCF56-B38A-42EE-9B2D-1C248BB9EB9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{801FCF56-B38A-42EE-9B2D-1C248BB9EB9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{801FCF56-B38A-42EE-9B2D-1C248BB9EB9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D2C43BB-4859-484C-81B6-EDB5F49F74D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D2C43BB-4859-484C-81B6-EDB5F49F74D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D2C43BB-4859-484C-81B6-EDB5F49F74D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D2C43BB-4859-484C-81B6-EDB5F49F74D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
