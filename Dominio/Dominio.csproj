@@ -79,11 +79,11 @@
     <Compile Include="Contratos\Interfaces\IUsuario.cs" />
     <Compile Include="Contratos\Repositorios\RepUsuario.cs" />
     <Compile Include="Entidades\Base.cs" />
-    <Compile Include="Entidades\UserLogin.cs" />
-    <Compile Include="Entidades\Role.cs" />
-    <Compile Include="Entidades\User.cs" />
-    <Compile Include="Entidades\UserClaim.cs" />
-    <Compile Include="Entidades\UserRole.cs" />
+    <Compile Include="Entidades\Usuario\UserLogin.cs" />
+    <Compile Include="Entidades\Perfil\Role.cs" />
+    <Compile Include="Entidades\Usuario\User.cs" />
+    <Compile Include="Entidades\Usuario\UserClaim.cs" />
+    <Compile Include="Entidades\Usuario\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

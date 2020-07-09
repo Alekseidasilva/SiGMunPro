@@ -1,4 +1,5 @@
 ﻿using Dominio.Entidades;
+using Dominio.Entidades.Usuario;
 using System.Web.Mvc;
 using System.Web.Security;
 

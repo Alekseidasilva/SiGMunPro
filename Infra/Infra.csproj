@@ -83,6 +83,10 @@
     <Compile Include="Migrations\202007080253372_initialize.Designer.cs">
       <DependentUpon>202007080253372_initialize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007091106023_2migracao.cs" />
+    <Compile Include="Migrations\202007091106023_2migracao.designer.cs">
+      <DependentUpon>202007091106023_2migracao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +97,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007080253372_initialize.resx">
       <DependentUpon>202007080253372_initialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007091106023_2migracao.resx">
+      <DependentUpon>202007091106023_2migracao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

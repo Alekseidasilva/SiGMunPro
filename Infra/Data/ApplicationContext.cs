@@ -1,5 +1,7 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.Entidades.Perfil;
+using Dominio.Entidades.Usuario;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 
 namespace Infra.Data
@@ -12,5 +14,13 @@ namespace Infra.Data
         {
 
         }
+        //public virtual DbSet<> TB_Perfils { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<applica>()
+        }
+
     }
 }
