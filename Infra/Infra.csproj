@@ -79,13 +79,9 @@
   <ItemGroup>
     <Compile Include="Data\AcessoDados.cs" />
     <Compile Include="Data\ApplicationContext.cs" />
-    <Compile Include="Migrations\202007080253372_initialize.cs" />
-    <Compile Include="Migrations\202007080253372_initialize.Designer.cs">
-      <DependentUpon>202007080253372_initialize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007091106023_2migracao.cs" />
-    <Compile Include="Migrations\202007091106023_2migracao.designer.cs">
-      <DependentUpon>202007091106023_2migracao.cs</DependentUpon>
+    <Compile Include="Migrations\202007091341471_initialize.cs" />
+    <Compile Include="Migrations\202007091341471_initialize.designer.cs">
+      <DependentUpon>202007091341471_initialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,14 +89,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007080253372_initialize.resx">
-      <DependentUpon>202007080253372_initialize.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007091106023_2migracao.resx">
-      <DependentUpon>202007091106023_2migracao.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -114,6 +102,11 @@
       <Project>{8d2c43bb-4859-484c-81b6-edb5f49f74d8}</Project>
       <Name>MVC</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202007091341471_initialize.resx">
+      <DependentUpon>202007091341471_initialize.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

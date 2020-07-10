@@ -18,8 +18,32 @@ namespace Infra.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //Nomeação das Entidades
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<applica>()
+            modelBuilder.Entity<User>().ToTable("TBUsuarios");
+
+           //modelBuilder.Entity("")
+
+
+
+
+
+
+
+
+
+            modelBuilder.Entity<Role>().ToTable("TBPerfil");
+            //modelBuilder.Entity<UserRole>().ToTable("TBPerfilUsuario");
+            //modelBuilder.Entity<UserLogin>().ToTable("TBUsuarioLogin");
+            //modelBuilder.Entity<UserClaim>().ToTable("TBUsuariosAfirmacoes");
+
+
+
+
+
+
+
+
         }
 
     }
