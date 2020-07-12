@@ -1,10 +1,12 @@
-﻿namespace Dominio.Contratos.Interfaces
+﻿using Dominio.Entidades.Usuario;
+
+namespace Dominio.Contratos.Interfaces
 {
-    public interface IUsuario:IBase<IUsuario>
+    public interface IUsuario:IBase<User>
    {
-       IUsuario BuscarPorEmail(string email);
-       IUsuario BuscarPorNome(string nome);
-       IUsuario Login(string email, string senha);
+       User BuscarPorEmail(string email);
+       User BuscarPorNome(string nome);
+       User Login(string email, string senha);
        void AlterarSenha(string senhaAntiga, string senhanova, string confirmarSenha);
 
    }

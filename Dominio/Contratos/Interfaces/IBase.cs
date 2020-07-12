@@ -4,9 +4,10 @@ namespace Dominio.Contratos.Interfaces
 {
     public interface IBase<TEntidade>
     {
-        int Cadastrar(TEntidade entidade);
+        string Cadastrar(TEntidade entidade);
+        string Alterar(TEntidade entidade);
         void Excluir(int id);
-        void Excluir(TEntidade entidade);
+          TEntidade SelecionarPorNome(int id);
         TEntidade SelecionarPorId(int id);
         IEnumerable<TEntidade> SelecionarTodos();
     }

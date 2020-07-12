@@ -1,4 +1,4 @@
-﻿namespace Infra.Migrations
+﻿namespace Dominio.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -8,30 +8,31 @@
         public override void Up()
         {
             CreateTable(
-                "dbo.TBPerfil",
+                "dbo.TB_Perfil",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Estado = c.Boolean(nullable: false),
                         Name = c.String(nullable: false, maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
             CreateTable(
-                "dbo.AspNetUserRoles",
+                "dbo.TB_PerfilUsuario",
                 c => new
                     {
                         UserId = c.Int(nullable: false),
                         RoleId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.TBPerfil", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.TBUsuarios", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.TB_Perfil", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.TB_Usuarios", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
             CreateTable(
-                "dbo.TBUsuarios",
+                "dbo.TB_Usuarios",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -52,7 +53,7 @@
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
-                "dbo.AspNetUserClaims",
+                "dbo.TB_UsuariosAfirmacoes",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -61,11 +62,11 @@
                         ClaimValue = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.TBUsuarios", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.TB_Usuarios", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.AspNetUserLogins",
+                "dbo.TB_UsuarioLogin",
                 c => new
                     {
                         LoginProvider = c.String(nullable: false, maxLength: 128),
@@ -75,28 +76,28 @@
                         Senha = c.String(),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.TBUsuarios", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.TB_Usuarios", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.TBUsuarios");
-            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.TBUsuarios");
-            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.TBUsuarios");
-            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.TBPerfil");
-            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.TBUsuarios", "UserNameIndex");
-            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
-            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
-            DropIndex("dbo.TBPerfil", "RoleNameIndex");
-            DropTable("dbo.AspNetUserLogins");
-            DropTable("dbo.AspNetUserClaims");
-            DropTable("dbo.TBUsuarios");
-            DropTable("dbo.AspNetUserRoles");
-            DropTable("dbo.TBPerfil");
+            DropForeignKey("dbo.TB_PerfilUsuario", "UserId", "dbo.TB_Usuarios");
+            DropForeignKey("dbo.TB_UsuarioLogin", "UserId", "dbo.TB_Usuarios");
+            DropForeignKey("dbo.TB_UsuariosAfirmacoes", "UserId", "dbo.TB_Usuarios");
+            DropForeignKey("dbo.TB_PerfilUsuario", "RoleId", "dbo.TB_Perfil");
+            DropIndex("dbo.TB_UsuarioLogin", new[] { "UserId" });
+            DropIndex("dbo.TB_UsuariosAfirmacoes", new[] { "UserId" });
+            DropIndex("dbo.TB_Usuarios", "UserNameIndex");
+            DropIndex("dbo.TB_PerfilUsuario", new[] { "RoleId" });
+            DropIndex("dbo.TB_PerfilUsuario", new[] { "UserId" });
+            DropIndex("dbo.TB_Perfil", "RoleNameIndex");
+            DropTable("dbo.TB_UsuarioLogin");
+            DropTable("dbo.TB_UsuariosAfirmacoes");
+            DropTable("dbo.TB_Usuarios");
+            DropTable("dbo.TB_PerfilUsuario");
+            DropTable("dbo.TB_Perfil");
         }
     }
 }

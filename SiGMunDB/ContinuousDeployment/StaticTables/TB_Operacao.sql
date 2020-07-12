@@ -15,7 +15,7 @@
 	CONSTRAINT FK_TipoDeDocumentoOperacao FOREIGN  KEY(OperacaoTipoDocumentoId) REFERENCES dbo.TB_TiposDocumentos,
 	CONSTRAINT FK_FinalidadeDoDocumentoOperacao FOREIGN  KEY(OperacaoDocsFinalidadeId) REFERENCES dbo.TB_DocsFinalidades,
 	CONSTRAINT FK_FormaPagamentoDaOperacao FOREIGN  KEY(OperacaoFormaPagamentoId) REFERENCES dbo.TB_FormasPagamento,
-	--CONSTRAINT FK_UsuarioQEfectouAOperacao FOREIGN  KEY(OperacaoUsuarioId) REFERENCES dbo.TB_Usuarios,
+    CONSTRAINT FK_UsuarioQEfectouAOperacao FOREIGN  KEY(OperacaoUsuarioId) REFERENCES dbo.TB_Usuarios,
 
 	
 )

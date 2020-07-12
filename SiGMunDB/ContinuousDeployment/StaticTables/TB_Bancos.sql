@@ -6,6 +6,6 @@
 	BancoEstado bit NOT NULL,
 	BancoUsuarioid INT NOT NULL
 	CONSTRAINT PK_BancoId PRIMARY KEY (BancoId)
-	--CONSTRAINT FK_UsuarioQCadastraOBanco FOREIGN KEY (BancoUsuarioid) REFERENCES dbo.TB_Usuarios
+	CONSTRAINT FK_UsuarioQCadastraOBanco FOREIGN KEY (BancoUsuarioid) REFERENCES dbo.TB_Usuarios
 
 )

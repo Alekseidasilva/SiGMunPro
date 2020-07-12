@@ -1,12 +1,36 @@
 ﻿using Dominio.Contratos.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Dominio.Contexto;
+using Dominio.Entidades.Usuario;
+
 
 namespace Dominio.Contratos.Repositorios
 {
-    public class RepUsuario:IUsuario
+    public class RepUsuario : IUsuario
     {
-        public int Cadastrar(IUsuario entidade)
+        public string Alterar(User entidade)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AlterarSenha(string senhaAntiga, string senhanova, string confirmarSenha)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User BuscarPorEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User BuscarPorNome(string nome)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Cadastrar(User entidade)
         {
             throw new NotImplementedException();
         }
@@ -16,39 +40,35 @@ namespace Dominio.Contratos.Repositorios
             throw new NotImplementedException();
         }
 
-        public void Excluir(IUsuario entidade)
+        public void Excluir(User entidade)
         {
             throw new NotImplementedException();
         }
 
-        public IUsuario SelecionarPorId(int id)
+        public User Login(string email, string senha)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<IUsuario> SelecionarTodos()
+        public User SelecionarPorId(int id)
+        {
+             throw new NotImplementedException();
+        }
+
+        public User SelecionarPorNome(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IUsuario BuscarPorEmail(string email)
+        public IEnumerable<User> SelecionarTodos()
         {
-            throw new NotImplementedException();
-        }
+            var res=new List<User>();
+            using (var ctx=new ApplicationContext())
+            {
+                res = ctx.Users.ToList();
+            }
 
-        public IUsuario BuscarPorNome(string nome)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IUsuario Login(string email, string senha)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AlterarSenha(string senhaAntiga, string senhanova, string confirmarSenha)
-        {
-            throw new NotImplementedException();
+            return res;
         }
     }
 }

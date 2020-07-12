@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dominio, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MVC\Bin\Dominio.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -75,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexto\ApplicationContext.cs" />
     <Compile Include="Contratos\Interfaces\IBase.cs" />
     <Compile Include="Contratos\Interfaces\IUsuario.cs" />
     <Compile Include="Contratos\Repositorios\RepUsuario.cs" />
@@ -84,9 +89,18 @@
     <Compile Include="Entidades\Usuario\User.cs" />
     <Compile Include="Entidades\Usuario\UserClaim.cs" />
     <Compile Include="Entidades\Usuario\UserRole.cs" />
+    <Compile Include="Migrations\202007120812021_initialize.cs" />
+    <Compile Include="Migrations\202007120812021_initialize.designer.cs">
+      <DependentUpon>202007120812021_initialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202007120812021_initialize.resx">
+      <DependentUpon>202007120812021_initialize.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

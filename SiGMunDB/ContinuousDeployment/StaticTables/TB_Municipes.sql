@@ -14,11 +14,11 @@
 	MunicipeTelefone2 int NULL,
 	MunicipeEmail varchar(50) NULL,
 	MunicipeMorada INT NOT NULL,
-	[MunicipeEstado] bit NOT NULL,
+	MunicipeEstado bit NOT NULL,
 	MunicipeUsuarioId int NOT NULL
 	CONSTRAINT PK_MunicipenNumero PRIMARY KEY(MunicipeNM),
 	CONSTRAINT FK_GeneroDoMunicipe FOREIGN KEY (MunicipeGenero)REFERENCES dbo.TB_Generos,
 	CONSTRAINT FK_EstadoCivilDoMunicipe FOREIGN KEY (MunicipeEstadoCivil)REFERENCES dbo.TB_EstadoCivil,
 	CONSTRAINT FK_MoradaDoMunicipe FOREIGN KEY (MunicipeMorada)REFERENCES dbo.TB_Moradas,
-	--CONSTRAINT FK_usuarioQCadastraOMunicipe FOREIGN KEY (MunicipeUsuarioId)REFERENCES dbo.TB_Usuarios,
+	CONSTRAINT FK_usuarioQCadastraOMunicipe FOREIGN KEY (MunicipeUsuarioId)REFERENCES dbo.TB_Usuarios,
 )

@@ -9,6 +9,6 @@ namespace Dominio.Entidades.Perfil
     {
         //public int Id { get; set; }
         //public string Name { get; set; }
-        //public bool Estado { get; set; }
+        public bool Estado { get; set; }
     }
 }

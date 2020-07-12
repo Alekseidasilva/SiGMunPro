@@ -12,6 +12,6 @@
 	CONSTRAINT PK_ParenteMunicipeNM PRIMARY KEY (ParenteMunicipeNM),
 	CONSTRAINT FK_ParenteMunicipeNM FOREIGN KEY (ParenteMunicipeNM) REFERENCES dbo.TB_Municipes(MunicipeNM),
 	CONSTRAINT FK_BancoAssociadoFormaPagamento FOREIGN KEY (ParenteGrauParentescoId) REFERENCES dbo.TB_GrauParentesco,
-	--CONSTRAINT FK_UsuarioQCadastraOParente FOREIGN KEY (ParenteUsuarioId) REFERENCES dbo.TB_Usuarios
+	CONSTRAINT FK_UsuarioQCadastraOParente FOREIGN KEY (ParenteUsuarioId) REFERENCES dbo.TB_Usuarios
 
 )

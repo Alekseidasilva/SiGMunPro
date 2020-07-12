@@ -82,6 +82,12 @@
     <Build Include="ContinuousDeployment\StaticTables\TB_Parente_Municipe.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_Provincias.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_TiposDocumentos.sql" />
+    <Build Include="ContinuousDeployment\Tables\TB_UsuariosAfirmacoes.sql" />
+    <Build Include="ContinuousDeployment\Tables\TB_Usuarios.sql" />
+    <Build Include="ContinuousDeployment\Tables\TB_UsuarioLogin.sql" />
+    <Build Include="ContinuousDeployment\Tables\TB_Perfil.sql" />
+    <Build Include="ContinuousDeployment\Tables\__MigrationHistory.sql" />
+    <Build Include="ContinuousDeployment\Tables\TB_PerfilUsuario.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
@@ -93,5 +99,6 @@
     <None Include="ContinuousDeployment\1.PreDeployment.Updates.sql" />
     <None Include="ContinuousDeployment\3.PostDeployment.Updates.sql" />
     <None Include="ContinuousDeployment\2.PostDeployment.StaticTablesList.sql" />
+    <None Include="SiGMunDB.publish.xml" />
   </ItemGroup>
 </Project>
