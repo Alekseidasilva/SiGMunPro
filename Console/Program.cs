@@ -1,5 +1,4 @@
-﻿using Dominio.Entidades.Perfil;
-using Dominio.Entidades.Usuario;
+﻿using Dominio.Entidades.Usuario;
 
 namespace Console
 {

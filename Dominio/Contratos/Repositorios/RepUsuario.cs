@@ -1,17 +1,35 @@
 ﻿using Dominio.Contratos.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using Dominio.Contexto;
 using Dominio.Entidades.Usuario;
-
+using Infra.Data;
 
 namespace Dominio.Contratos.Repositorios
 {
     public class RepUsuario : IUsuario
     {
+        private   AcessoDados _acessoDados;
+        public RepUsuario(AcessoDados acessoDados)
+        {
+            _acessoDados = acessoDados;
+        }
         public string Alterar(User entidade)
         {
+            try
+            {
+                _acessoDados.LimparParametro();
+                _acessoDados.AdicionarParametros("",entidade.Id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            _acessoDados.LimparParametro();
+            _acessoDados.AdicionarParametros("",);
             throw new NotImplementedException();
         }
 
@@ -62,6 +80,25 @@ namespace Dominio.Contratos.Repositorios
 
         public IEnumerable<User> SelecionarTodos()
         {
+            _acessoDados.LimparParametro();
+           DataTable usuarios= _acessoDados.ExecutarConsulta(CommandType.StoredProcedure, "");
+           
+           foreach (DataRow linha in usuarios.Rows)
+           {
+               User user = new User();
+               user.Id = Convert.ToInt32(linha["Id"]);
+               user.UserName = Convert.ToString(linha["UserName"]);
+               user.Email = Convert.ToString(linha["Email"]);
+               user.PhoneNumber = Convert.ToString(linha["PhoneNumber"]);
+               user.Estado = Convert.ToBoolean(linha["Estado"]);
+               
+                
+           }
+
+
+
+
+
             var res=new List<User>();
             using (var ctx=new ApplicationContext())
             {
