@@ -12,12 +12,16 @@ namespace Dominio.Contratos.Repositorios
     public class RepUsuario : IUsuario
     {
         private   AcessoDados _acessoDados;
+
+       
+
         public RepUsuario(AcessoDados acessoDados)
         {
             _acessoDados = acessoDados;
         }
         public string Alterar(User entidade)
         {
+            
             try
             {
                 _acessoDados.LimparParametro();
@@ -28,9 +32,8 @@ namespace Dominio.Contratos.Repositorios
                 Console.WriteLine(e);
                 throw;
             }
-            _acessoDados.LimparParametro();
-            _acessoDados.AdicionarParametros("",);
-            throw new NotImplementedException();
+            string res="";
+            return res;
         }
 
         public void AlterarSenha(string senhaAntiga, string senhanova, string confirmarSenha)
@@ -87,12 +90,11 @@ namespace Dominio.Contratos.Repositorios
            {
                User user = new User();
                user.Id = Convert.ToInt32(linha["Id"]);
+               user.NomeCompleto = Convert.ToString(linha["NomeCompleto"]);
                user.UserName = Convert.ToString(linha["UserName"]);
                user.Email = Convert.ToString(linha["Email"]);
                user.PhoneNumber = Convert.ToString(linha["PhoneNumber"]);
                user.Estado = Convert.ToBoolean(linha["Estado"]);
-               
-                
            }
 
 

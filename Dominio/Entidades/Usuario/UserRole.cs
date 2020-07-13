@@ -4,5 +4,6 @@ namespace Dominio.Entidades.Usuario
 {
     public class UserRole:IdentityUserRole<int>
     {
+
     }
 }

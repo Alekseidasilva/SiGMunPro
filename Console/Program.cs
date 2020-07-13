@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades.Usuario;
+﻿using Dominio.Contratos.Repositorios;
+using Dominio.Entidades.Usuario;
 
 namespace Console
 {
@@ -6,7 +7,9 @@ namespace Console
     {
         static void Main(string[] args)
         {
-           User user=new User {};
+
+            
+
 
         }
     }

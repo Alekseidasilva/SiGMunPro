@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades.Usuario;
+﻿using System;
+using Dominio.Entidades.Usuario;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 
@@ -10,5 +11,6 @@ namespace Dominio.Entidades.Perfil
         //public int Id { get; set; }
         //public string Name { get; set; }
         public bool Estado { get; set; }
+         public DateTime DataCadastro { get; set; }
     }
 }

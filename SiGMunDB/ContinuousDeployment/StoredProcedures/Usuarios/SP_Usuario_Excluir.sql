@@ -3,5 +3,7 @@
 AS
 BEGIN
     DELETE dbo.TB_Usuarios
-	WHERE UsuId=@UsuId
+	WHERE Id=@UsuId
 END
+
+  

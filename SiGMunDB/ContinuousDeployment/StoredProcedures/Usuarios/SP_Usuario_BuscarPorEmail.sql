@@ -1,16 +1,23 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Usuario_BuscarPorEmail]
-	@UsuEmail VARCHAR(200)	
+	@Email VARCHAR(200)	
 AS
 BEGIN
     SELECT 	
-	UsuId,
-	UsuEmail,
-	UsuNomeCompleto,
-	UsuEmail,UsuSenha,
-	UsuPerfilId,
-	UsuDataCadastro,
-	UsuIdUsuario,
-	UsuEstado  FROM dbo.TB_Usuarios	
-	where UsuEmail=@UsuEmail
+	Id,
+  NomeCompleto,
+  Estado,
+  DataCadastro,
+  Email,
+  EmailConfirmed,
+  PasswordHash,
+  SecurityStamp,
+  PhoneNumber,
+  PhoneNumberConfirmed,
+  TwoFactorEnabled,
+  LockoutEndDateUtc,
+  LockoutEnabled,
+  AccessFailedCount,
+  UserName  FROM dbo.TB_Usuarios	
+	where Email=@Email
 	
 END

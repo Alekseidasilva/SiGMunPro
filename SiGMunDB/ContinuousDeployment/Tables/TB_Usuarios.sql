@@ -1,6 +1,8 @@
 ﻿CREATE TABLE dbo.TB_Usuarios (
   Id int IDENTITY,
+  NomeCompleto nvarchar(max) NULL,
   Estado bit NOT NULL,
+  DataCadastro datetime NOT NULL,
   Email nvarchar(256) NULL,
   EmailConfirmed bit NOT NULL,
   PasswordHash nvarchar(max) NULL,

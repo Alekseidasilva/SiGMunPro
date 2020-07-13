@@ -13,6 +13,7 @@
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Estado = c.Boolean(nullable: false),
+                        DataCadastro = c.DateTime(nullable: false),
                         Name = c.String(nullable: false, maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
@@ -36,7 +37,9 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        NomeCompleto = c.String(),
                         Estado = c.Boolean(nullable: false),
+                        DataCadastro = c.DateTime(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),

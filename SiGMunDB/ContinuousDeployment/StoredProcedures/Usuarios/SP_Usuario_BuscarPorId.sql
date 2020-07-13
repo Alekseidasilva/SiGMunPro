@@ -3,14 +3,21 @@
 AS
 BEGIN
     SELECT 
-	UsuId,
-	UsuEmail,
-	UsuNomeCompleto,
-	UsuEmail,UsuSenha,
-	UsuPerfilId,
-	UsuDataCadastro,
-	UsuIdUsuario,
-	UsuEstado  FROM dbo.TB_Usuarios	
-	where UsuId=@UsuId
+	Id,
+  NomeCompleto,
+  Estado,
+  DataCadastro,
+  Email,
+  EmailConfirmed,
+  PasswordHash,
+  SecurityStamp,
+  PhoneNumber,
+  PhoneNumberConfirmed,
+  TwoFactorEnabled,
+  LockoutEndDateUtc,
+  LockoutEnabled,
+  AccessFailedCount,
+  UserName  FROM dbo.TB_Usuarios	
+	where Id=@UsuId
 	
 END
