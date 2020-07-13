@@ -62,6 +62,15 @@
     <Folder Include="ContinuousDeployment\StoredProcedures" />
     <Folder Include="Scripts" />
     <Folder Include="ContinuousDeployment\Tables" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Municipe" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Bairros" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Bancos" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Comunas" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\DocsFinalidade" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Morada" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Usuarios" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Perfis" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Permissoes" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="ContinuousDeployment\StoredProcedures\sp_generate_merge.sql" />
@@ -88,6 +97,42 @@
     <Build Include="ContinuousDeployment\Tables\TB_Perfil.sql" />
     <Build Include="ContinuousDeployment\Tables\__MigrationHistory.sql" />
     <Build Include="ContinuousDeployment\Tables\TB_PerfilUsuario.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_Municipe_Alterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_Municipe_CarregarTodos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_Municipe_Excluir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_Municipe_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Bairros\SP_Bairro_Alterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Bairros\SP_Bairro_CarregarTodos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Bairros\SP_Bairro_Excluir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Bairros\SP_Bairro_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Bancos\SP_Banco_Alterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Bancos\SP_Banco_CarregarTodos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Bancos\SP_Banco_Excluir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Bancos\SP_Banco_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Comunas\SP_Comuna_Alterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Comunas\SP_Comuna_CarregarTodas.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Comunas\SP_Comuna_Excluir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Comunas\SP_Comuna_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\DocsFinalidade\SP_DocsFinalidades_Alterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\DocsFinalidade\SP_DocsFinalidades_CarregarTodos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\DocsFinalidade\SP_DocsFinalidades_Excluir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\DocsFinalidade\SP_DocsFinalidades_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_Morada_Alterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_Morada_Excluir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_Morada_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Permissoes\SP_Permissao_CarregarPorPerfil.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Usuario_Alterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Usuario_CarregarPorUsuario.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Usuario_CarregarTodos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Usuario_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Alterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_AlterarSenha.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarPorEmail.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarPorId.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_CarregarTodos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Excluir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Login.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
