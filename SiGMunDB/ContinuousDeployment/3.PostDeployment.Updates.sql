@@ -50,22 +50,22 @@ CREATE UNIQUE INDEX RoleNameIndex
 
 GO
 
--- Create index [IX_RoleId] on table [dbo].[TB_PerfilUsuario]
+-- Create index [IX_RoleId] on table [dbo].[TB_Permissoes]
 --
-PRINT (N'Create index [IX_RoleId] on table [dbo].[TB_PerfilUsuario]')
+PRINT (N'Create index [IX_RoleId] on table [dbo].[TB_Permissoes]')
 GO
 CREATE INDEX IX_RoleId
-  ON dbo.TB_PerfilUsuario (RoleId)
+  ON dbo.TB_Permissoes (RoleId)
   ON [PRIMARY]
 GO
 
 --
--- Create index [IX_UserId] on table [dbo].[TB_PerfilUsuario]
+-- Create index [IX_UserId] on table [dbo].[TB_Permissoes]
 --
-PRINT (N'Create index [IX_UserId] on table [dbo].[TB_PerfilUsuario]')
+PRINT (N'Create index [IX_UserId] on table [dbo].[TB_Permissoes]')
 GO
 CREATE INDEX IX_UserId
-  ON dbo.TB_PerfilUsuario (UserId)
+  ON dbo.TB_Permissoes (UserId)
   ON [PRIMARY]
 GO
 -- 
@@ -81,10 +81,10 @@ GO
 PRINT (N'Dumping data for table TB_Perfil')
 -- Table SiGMunDB.dbo.TB_Perfil does not contain any data (it is empty)
 -- 
--- Dumping data for table TB_PerfilUsuario
+-- Dumping data for table TB_Permissoes
 --
-PRINT (N'Dumping data for table TB_PerfilUsuario')
--- Table SiGMunDB.dbo.TB_PerfilUsuario does not contain any data (it is empty)
+PRINT (N'Dumping data for table TB_Permissoes')
+-- Table SiGMunDB.dbo.TB_Permissoes does not contain any data (it is empty)
 -- 
 -- Dumping data for table TB_UsuarioLogin
 --
@@ -126,21 +126,21 @@ ALTER TABLE dbo.TB_UsuariosAfirmacoes
 GO
 
 --
--- Create foreign key [FK_dbo.TB_PerfilUsuario_dbo.TB_Perfil_RoleId] on table [dbo].[TB_PerfilUsuario]
+-- Create foreign key [FK_dbo.TB_Permissoes_dbo.TB_Perfil_RoleId] on table [dbo].[TB_Permissoes]
 --
-PRINT (N'Create foreign key [FK_dbo.TB_PerfilUsuario_dbo.TB_Perfil_RoleId] on table [dbo].[TB_PerfilUsuario]')
+PRINT (N'Create foreign key [FK_dbo.TB_Permissoes_dbo.TB_Perfil_RoleId] on table [dbo].[TB_Permissoes]')
 GO
-ALTER TABLE dbo.TB_PerfilUsuario
-  ADD CONSTRAINT [FK_dbo.TB_PerfilUsuario_dbo.TB_Perfil_RoleId] FOREIGN KEY (RoleId) REFERENCES dbo.TB_Perfil (Id) ON DELETE CASCADE
+ALTER TABLE dbo.TB_Permissoes
+  ADD CONSTRAINT [FK_dbo.TB_Permissoes_dbo.TB_Perfil_RoleId] FOREIGN KEY (RoleId) REFERENCES dbo.TB_Perfil (Id) ON DELETE CASCADE
 GO
 
 --
--- Create foreign key [FK_dbo.TB_PerfilUsuario_dbo.TB_Usuarios_UserId] on table [dbo].[TB_PerfilUsuario]
+-- Create foreign key [FK_dbo.TB_Permissoes_dbo.TB_Usuarios_UserId] on table [dbo].[TB_Permissoes]
 --
-PRINT (N'Create foreign key [FK_dbo.TB_PerfilUsuario_dbo.TB_Usuarios_UserId] on table [dbo].[TB_PerfilUsuario]')
+PRINT (N'Create foreign key [FK_dbo.TB_Permissoes_dbo.TB_Usuarios_UserId] on table [dbo].[TB_Permissoes]')
 GO
-ALTER TABLE dbo.TB_PerfilUsuario
-  ADD CONSTRAINT [FK_dbo.TB_PerfilUsuario_dbo.TB_Usuarios_UserId] FOREIGN KEY (UserId) REFERENCES dbo.TB_Usuarios (Id) ON DELETE CASCADE
+ALTER TABLE dbo.TB_Permissoes
+  ADD CONSTRAINT [FK_dbo.TB_Permissoes_dbo.TB_Usuarios_UserId] FOREIGN KEY (UserId) REFERENCES dbo.TB_Usuarios (Id) ON DELETE CASCADE
 GO
 SET NOEXEC OFF
 GO

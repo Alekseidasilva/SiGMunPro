@@ -20,7 +20,7 @@
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
             CreateTable(
-                "dbo.TB_PerfilUsuario",
+                "dbo.TB_Permissoes",
                 c => new
                     {
                         UserId = c.Int(nullable: false),
@@ -86,20 +86,20 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.TB_PerfilUsuario", "UserId", "dbo.TB_Usuarios");
+            DropForeignKey("dbo.TB_Permissoes", "UserId", "dbo.TB_Usuarios");
             DropForeignKey("dbo.TB_UsuarioLogin", "UserId", "dbo.TB_Usuarios");
             DropForeignKey("dbo.TB_UsuariosAfirmacoes", "UserId", "dbo.TB_Usuarios");
-            DropForeignKey("dbo.TB_PerfilUsuario", "RoleId", "dbo.TB_Perfil");
+            DropForeignKey("dbo.TB_Permissoes", "RoleId", "dbo.TB_Perfil");
             DropIndex("dbo.TB_UsuarioLogin", new[] { "UserId" });
             DropIndex("dbo.TB_UsuariosAfirmacoes", new[] { "UserId" });
             DropIndex("dbo.TB_Usuarios", "UserNameIndex");
-            DropIndex("dbo.TB_PerfilUsuario", new[] { "RoleId" });
-            DropIndex("dbo.TB_PerfilUsuario", new[] { "UserId" });
+            DropIndex("dbo.TB_Permissoes", new[] { "RoleId" });
+            DropIndex("dbo.TB_Permissoes", new[] { "UserId" });
             DropIndex("dbo.TB_Perfil", "RoleNameIndex");
             DropTable("dbo.TB_UsuarioLogin");
             DropTable("dbo.TB_UsuariosAfirmacoes");
             DropTable("dbo.TB_Usuarios");
-            DropTable("dbo.TB_PerfilUsuario");
+            DropTable("dbo.TB_Permissoes");
             DropTable("dbo.TB_Perfil");
         }
     }

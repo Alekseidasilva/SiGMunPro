@@ -89,9 +89,9 @@
     <Compile Include="Entidades\Usuario\User.cs" />
     <Compile Include="Entidades\Usuario\UserClaim.cs" />
     <Compile Include="Entidades\Usuario\UserRole.cs" />
-    <Compile Include="Migrations\202007130618169_initialize.cs" />
-    <Compile Include="Migrations\202007130618169_initialize.designer.cs">
-      <DependentUpon>202007130618169_initialize.cs</DependentUpon>
+    <Compile Include="Migrations\202007142224020_initialize.cs" />
+    <Compile Include="Migrations\202007142224020_initialize.designer.cs">
+      <DependentUpon>202007142224020_initialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,8 +107,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007130618169_initialize.resx">
-      <DependentUpon>202007130618169_initialize.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007142224020_initialize.resx">
+      <DependentUpon>202007142224020_initialize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

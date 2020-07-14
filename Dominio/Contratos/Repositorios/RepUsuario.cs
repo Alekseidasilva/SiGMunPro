@@ -1,4 +1,4 @@
-﻿using Dominio.Contratos.Interfaces;
+﻿ using Dominio.Contratos.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,10 +15,10 @@ namespace Dominio.Contratos.Repositorios
 
        
 
-        public RepUsuario(AcessoDados acessoDados)
-        {
-            _acessoDados = acessoDados;
-        }
+        //public RepUsuario(AcessoDados acessoDados)
+        //{
+        //    _acessoDados = acessoDados;
+        //}
         public string Alterar(User entidade)
         {
             
@@ -85,7 +85,7 @@ namespace Dominio.Contratos.Repositorios
         {
             _acessoDados.LimparParametro();
            DataTable usuarios= _acessoDados.ExecutarConsulta(CommandType.StoredProcedure, "");
-           
+           IList<User>users=new List<User>();
            foreach (DataRow linha in usuarios.Rows)
            {
                User user = new User();
@@ -101,13 +101,13 @@ namespace Dominio.Contratos.Repositorios
 
 
 
-            var res=new List<User>();
-            using (var ctx=new ApplicationContext())
-            {
-                res = ctx.Users.ToList();
-            }
+            //var res=new List<User>();
+            //using (var ctx=new ApplicationContext())
+            //{
+            //    res = ctx.Users.ToList();
+            //}
 
-            return res;
+            return users;
         }
     }
 }

@@ -96,7 +96,7 @@
     <Build Include="ContinuousDeployment\Tables\TB_UsuarioLogin.sql" />
     <Build Include="ContinuousDeployment\Tables\TB_Perfil.sql" />
     <Build Include="ContinuousDeployment\Tables\__MigrationHistory.sql" />
-    <Build Include="ContinuousDeployment\Tables\TB_PerfilUsuario.sql" />
+    <Build Include="ContinuousDeployment\Tables\TB_Permissoes.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_Municipe_Alterar.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_Municipe_CarregarTodos.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_Municipe_Excluir.sql" />
@@ -121,10 +121,9 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_Morada_Excluir.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_Morada_Inserir.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Permissoes\SP_Permissao_CarregarPorPerfil.sql" />
-    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Usuario_Alterar.sql" />
-    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Usuario_CarregarPorUsuario.sql" />
-    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Usuario_CarregarTodos.sql" />
-    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Usuario_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Alterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_CarregarTodos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Inserir.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Alterar.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_AlterarSenha.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarPorEmail.sql" />
@@ -133,6 +132,7 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Excluir.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Inserir.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Login.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Excluir.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
