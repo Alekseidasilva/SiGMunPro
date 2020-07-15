@@ -3,7 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Dominio.Contexto;
+ using System.Runtime.Remoting.Messaging;
+ using Dominio.Contexto;
 using Dominio.Entidades.Usuario;
 using Infra.Data;
 
@@ -70,9 +71,26 @@ namespace Dominio.Contratos.Repositorios
             throw new NotImplementedException();
         }
 
-        public void Excluir(int id)
+        public string Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _acessoDados.LimparParametro();
+                _acessoDados.AdicionarParametros("@Id",id);
+                string Res = _acessoDados.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Excluir").ToString();
+                if (Res != string.Empty)
+                {
+                    Res = Res;
+                }
+                
+                return Res;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public User Login(string email, string senha)

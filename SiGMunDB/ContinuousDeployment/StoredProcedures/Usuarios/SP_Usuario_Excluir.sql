@@ -1,9 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Usuario_Excluir]
-@UsuId int
+@Id int
 AS
 BEGIN
     DELETE dbo.TB_Usuarios
-	WHERE Id=@UsuId
+	WHERE Id=@Id
+
+	--SELECT UserName AS retorno
+	
 END
 
   

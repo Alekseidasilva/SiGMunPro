@@ -6,7 +6,7 @@ namespace Dominio.Contratos.Interfaces
     {
         string Cadastrar(TEntidade entidade);
         string Alterar(TEntidade entidade);
-        void Excluir(int id);
+        string Excluir(int id);
         List<TEntidade> BuscarPorNome(string nome);
         TEntidade BuscarPorId(int id);
         IEnumerable<TEntidade> SelecionarTodos();
