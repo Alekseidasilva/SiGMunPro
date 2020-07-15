@@ -11,7 +11,7 @@ namespace Infra.Data
         {
             //var stringConexao = ConfigurationManager.ConnectionStrings["ConnString"].ToString();
             var stringConexao = "server=SOFTDEV;User Id=sa; Password=049222Xp12; database=SiGMunDB;";
-            return new SqlConnection("stringConexao");
+            return new SqlConnection(stringConexao);
         }
         //Parametros que vão para o banco de Dados
         private SqlParameterCollection sqlParameterCollection = new SqlCommand().Parameters;

@@ -133,6 +133,7 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Inserir.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Login.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Excluir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarPorNome.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
