@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace Infra.Data
 {
-    public class AcessoDados
+    public class Conexao
     {
+
         public SqlConnection CriarConexao()
         {
             //var stringConexao = ConfigurationManager.ConnectionStrings["ConnString"].ToString();

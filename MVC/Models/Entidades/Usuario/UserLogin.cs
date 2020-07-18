@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Dominio.Entidades.Usuario
+namespace MVC.Models.Entidades.Usuario
 {
-    public class UserLogin:IdentityUserLogin<int>
+    public class UserLogin : IdentityUserLogin<int>
     {
         public string Email { get; set; }
         public string Senha { get; set; }

@@ -1,36 +1,38 @@
-﻿using Dominio.Entidades.Usuario;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
 
 namespace MVC.Controllers
 {
     public class ContaController : Controller
     {
+
+        
         // GET: Conta
 
         public ActionResult Login()
         {
+
             return View();
         }
         [HttpPost]
-        public ActionResult Login(UserLogin login, string ReturnUrl)
+        public ActionResult Login(string nome)
         {
 
             while (ModelState.IsValid)
             {
-                if (ValidarUsuario(login))
-                {
-                    FormsAuthentication.SetAuthCookie(login.Email, false);
-                    if (ReturnUrl != null)
-                    {
-                        return Redirect(ReturnUrl);
-                    }
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    return View();
-                }
+                //if (ValidarUsuario(login))
+                //{
+                //    FormsAuthentication.SetAuthCookie(login.Email, false);
+                //    if (ReturnUrl != null)
+                //    {
+                //        return Redirect(ReturnUrl);
+                //    }
+                //    return RedirectToAction("Index", "Home");
+                //}
+                //else
+                //{
+                //    return View();
+                //}
             }
             return View();
         }
@@ -41,10 +43,14 @@ namespace MVC.Controllers
             return Redirect("/Conta/login");
         }
 
-        private bool ValidarUsuario(UserLogin user)
+        private bool ValidarUsuario(string login, string senha)
         {
             //
-            return (user.Email == "teste" && user.Senha == "teste");
+            
+            //if (repUsuario.Login(login, senha);)
+            return true;
+            
+            
         }
     }
 }

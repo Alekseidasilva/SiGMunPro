@@ -1,0 +1,302 @@
+﻿@model IEnumerable<MVC.Models.Entidades.Usuario.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+    <div class="box box-info">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                  
+
+               @for (int contador = 0; contador < Model.Count(); contador++)
+               {
+                   
+                       <div class="col-lg-3 col-6">
+                       <!-- small box -->
+                       <div class="small-box bg-aqua">
+                           <div class="inner">
+                               <h3>@Model.</h3>
+                               <p>New Orders</p>
+                           </div>
+                           <div class="icon">
+                               <i class="ion ion-bag"></i>
+                           </div>
+                           <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                       </div>
+                   </div>
+                   
+                   
+
+
+               }   
+
+                       
+                           
+
+                       
+
+
+
+
+
+
+                
+                
+
+                   
+                    
+
+
+
+
+
+
+
+
+
+                 
+
+                    <!-- right col -->
+                </div>
+        
+            <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+    </section>
+</div>
+
+<section class="content active">
+        <p>
+            <button class="btn btn-success" id="@Url.Action("")"> <i class="fa fa-2x fa-user-plus"></i> Adicionar</button>
+        </p>
+        <table>
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="col-lg-4 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                @{
+                                    char[] delimitador = { ' ' };
+                                    string[] pedacos = item.NomeCompleto.Split(delimitador);
+                                    int tamanho = pedacos.Length;
+                                    int res = tamanho - 2;
+                                }
+
+                                <h2>@pedacos.First()   @pedacos.Last()</h2>
+                                <p> <b>Email: </b>@item.Email</p>
+
+                                <p>
+                                <small>    <b>Perfíl:</b> &nbsp; &nbsp; &nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   <b>Estado:</b>
+                                    @if (item.Estado)
+                                    {
+                                        <i class="fa fa-hand-o-up"></i>
+                                        <x>Activado</x>
+                                    }
+                                    else
+                                    {<i class="fa fa-hand-o-down"></i>
+                                        <x>Desativado</x>
+                                        
+                                    }
+                                    </small>
+
+
+                                </p>
+                                <p>
+                                    <b>Data Cadastro:</b> @item.DataCadastro.ToShortDateString()
+                                </p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion-usb"></i>
+                            </div>
+
+                            <a href="#" class="small-box-footer">
+                                <button class="btn btn-warning" type="button" value="@item.Id" onclick="location.href='@Url.Action("Alterar")'"><i class="fa fa-1x fa-edit"></i> Editar</button>|
+                                <button class="btn btn-danger"><i class="fa fa-1x fa-trash"></i> Excluir</button>
+                            </a>
+
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </table>
+      
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeCompleto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PasswordHash)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecurityStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LockoutEndDateUtc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LockoutEnabled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessFailedCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeCompleto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataCadastro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PasswordHash)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecurityStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumberConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TwoFactorEnabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LockoutEnabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessFailedCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>*@

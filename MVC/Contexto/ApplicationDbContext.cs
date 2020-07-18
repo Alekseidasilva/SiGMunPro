@@ -1,14 +1,13 @@
-﻿using System.Data.Entity;
-using Dominio.Entidades.Perfil;
-using Dominio.Entidades.Usuario;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using MVC.Models.Entidades.Perfils;
+using MVC.Models.Entidades.Usuario;
+using System.Data.Entity;
 
-namespace Dominio.Contexto
+namespace MVC.Contexto
 {
-    public class ApplicationContext
-     : IdentityDbContext<User, Role, int, UserLogin, UserRole, UserClaim>
+    public class ApplicationDbContext : IdentityDbContext<User, Role, int, UserLogin, UserRole, UserClaim>
     {
-        public ApplicationContext()
+        public ApplicationDbContext()
             : base("server=SOFTDEV;User Id=sa; Password=049222Xp12; database=SiGMunDB;")
         {
 

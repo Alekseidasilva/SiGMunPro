@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace Dominio.Entidades.Usuario
+namespace MVC.Models.Entidades.Usuario
 {
     public class UserRole:IdentityUserRole<int>
     {
-
     }
 }

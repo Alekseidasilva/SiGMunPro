@@ -1,4 +1,4 @@
-﻿namespace Dominio.Migrations
+namespace MVC.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
