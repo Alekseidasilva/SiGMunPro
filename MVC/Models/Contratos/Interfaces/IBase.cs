@@ -13,7 +13,7 @@ namespace MVC.Models.Contratos.Interfaces
         string Alterar(TEntidade entidade);
         string Excluir(int id);
         DataTable BuscarPorNome(string nome);
-        DataTable BuscarPorEmail(string email);
+     
         DataTable BuscarPorId(int id);
         List<TEntidade> SelecionarTodos();
     }

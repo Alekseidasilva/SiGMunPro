@@ -148,7 +148,8 @@ GO
 
 -------------------------Inserir Perfil------------------------------------
 EXEC SP_Perfil_Inserir @Name = 'Admin',@Estado = 1,@DataCadastro = '2020-07-14'
-go
+GO
+
 ---------------------------Inserir Usuario------------------------------------
 EXEC SP_Usuario_Inserir @NomeCompleto = 'Admin',@Estado = 1,@DataCadastro = '2020-07-14',@Email = 'alekseidasilva@hotmail.com'
 ,@EmailConfirmed = 0     ,@PasswordHash = '0000'
@@ -163,6 +164,9 @@ EXEC SP_Usuario_Inserir @NomeCompleto = 'Admin',@Estado = 1,@DataCadastro = '202
 GO
 ------------------Estado Civil----------------------------
 INSERT dbo.TB_EstadoCivil(EstadoCivilId,EstadoCivilNome)VALUES(1,'SOLTEIRO'),(2,'CASADO'),(3,'DIVORCIADO'),(4,'VIÚVO')
+GO
+-----------------------------INSERIR PERMISSAO--------------------------------------
+EXEC SP_Permissao_Inserir @UserId = 1,@RoleId = 1
 go
 ---------------------------------Generos-----------------------------------------
 INSERT dbo.TB_Generos(GeneroId,GeneroNome)VALUES(1,'MASCULINO'),(2,'FEMENINO')
