@@ -34,8 +34,8 @@ namespace MVC.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Erro","Dados Inválivos");
-                    return View();
+                    //ModelState.AddModelError("Erro","Dados Inválivos");
+                    return View(userLogin);
                 }
             }
             return View();
