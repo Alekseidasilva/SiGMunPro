@@ -1,8 +1,11 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
+using MVC.Models.Contratos.Repositorios;
+using MVC.Models.Entidades.Usuario;
 
 namespace MVC.Controllers
 {
+   
     public class ContaController : Controller
     {
 
@@ -15,27 +18,29 @@ namespace MVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string nome)
+        public ActionResult Login(UserLogin userLogin)
         {
 
             while (ModelState.IsValid)
             {
-                //if (ValidarUsuario(login))
-                //{
-                //    FormsAuthentication.SetAuthCookie(login.Email, false);
-                //    if (ReturnUrl != null)
-                //    {
-                //        return Redirect(ReturnUrl);
-                //    }
-                //    return RedirectToAction("Index", "Home");
-                //}
-                //else
-                //{
-                //    return View();
-                //}
+                if (VerificarUsuario(userLogin.Email,userLogin.Senha))
+                {
+                    FormsAuthentication.SetAuthCookie(userLogin.Email, false);
+                    if (userLogin.ReturnUrl != null)
+                    {
+                        return Redirect(userLogin.ReturnUrl);
+                    }
+                    return RedirectToAction("Dashboard", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("Erro","Dados Inválivos");
+                    return View();
+                }
             }
             return View();
         }
+         [Authorize]
 
         public ActionResult TerminarSessao()
         {
@@ -43,14 +48,22 @@ namespace MVC.Controllers
             return Redirect("/Conta/login");
         }
 
-        private bool ValidarUsuario(string login, string senha)
+        private bool VerificarUsuario(string login, string senha)
         {
-            //
-            
-            //if (repUsuario.Login(login, senha);)
-            return true;
-            
-            
+            RepUsuario repUsuario=new RepUsuario();
+          
+             User user=repUsuario.Login(login, senha);
+             if (login == user.Email && senha == user.PasswordHash)
+                 return true;
+             else
+                 return false;
+
+
+        }
+
+        private string Criptografar(string senhaAcriptografar)
+        {
+            return "";
         }
     }
 }

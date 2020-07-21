@@ -42,6 +42,31 @@ namespace MVC.Models.Contratos.Repositorios
 
         public User Login(string email, string senha)
         {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Email",email);
+                _conexao.AdicionarParametros("@Senha",senha);
+                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_Login");
+                User user=new User();
+                foreach (DataRow item in users.Rows)
+                {
+                    user.Id = Convert.ToInt32(item["Id"]);
+                    user.UserName = Convert.ToString(item["UserName"]);
+                    user.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
+                    user.Email = Convert.ToString(item["Email"]);
+                    user.PasswordHash = Convert.ToString(item["PasswordHash"]);
+                    user.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
+                    user.Estado = Convert.ToBoolean(item["Estado"]);
+                }
+                
+                return user;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
             throw new NotImplementedException();
         }
 

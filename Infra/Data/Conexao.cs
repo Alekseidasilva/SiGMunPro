@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,8 +10,8 @@ namespace Infra.Data
 
         public SqlConnection CriarConexao()
         {
-            //var stringConexao = ConfigurationManager.ConnectionStrings["ConnString"].ToString();
-            var stringConexao = "server=SOFTDEV;User Id=sa; Password=049222Xp12; database=SiGMunDB;";
+            var stringConexao = ConfigurationManager.ConnectionStrings["ConnString"].ToString();
+            //var stringConexao = "server=SOFTDEV;User Id=sa; Password=049222Xp12; database=SiGMunDB;";
             return new SqlConnection(stringConexao);
         }
         //Parametros que vão para o banco de Dados

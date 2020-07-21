@@ -6,6 +6,7 @@ using MVC.Models.Entidades.Usuario;
 
 namespace MVC.Controllers
 {
+     [Authorize]
     public class UsuarioController : Controller
     {
         RepUsuario Usuario=new RepUsuario();

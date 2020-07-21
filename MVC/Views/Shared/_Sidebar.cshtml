@@ -24,7 +24,7 @@
             </li>*@
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i><span>DASHBOARD</span>
+                    <i class="fa fa-home"></i><span>DASHBOARD</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -52,7 +52,7 @@
             
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>SECRETARIA</span>
+                    <i class="fa fa-file"></i> <span>SECRETARIA</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -89,10 +89,9 @@
                     <li><a href="#">Link in level 2</a></li>
                 </ul>
             </li>
-            
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>SISTEMA</span>
+                    <i class="fa fa-book"></i> <span>RELATÓRIOS</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -100,9 +99,41 @@
                 <ul class="treeview-menu">
                     <li><a href="#">Perfils</a></li>
                     <li><a href="#"></a></li>
-                    <li><a href="#">Usuário</a></li>
+                    <li><a href="@Url.Action("index","Usuario")"><i class="fa fa-users"></i>Usuário</a></li>
                 </ul>
             </li>
+            
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-asterisk"></i> <span>DEFINIÇÕES</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Perfils</a></li>
+                    <li><a href="@Url.Action("index","Usuario")"><i class="fa fa-users"></i>Usuário</a></li>
+                    <li><a href="@Url.Action("TerminarSessao","Conta")"> <i class="fa fa-close"></i>Sair</a></li>
+                </ul>
+            </li>
+            
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-weibo"></i> <span>SISTEMA</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Perfils</a></li>
+                   
+                    <li><a href="@Url.Action("index","Usuario")"><i class="fa fa-users"></i>Usuário</a></li>
+                    <li class="divider">-</li>
+                    <li><a href="@Url.Action("TerminarSessao","Conta")"> <i class="fa fa-close"></i>Sair</a></li>
+                </ul>
+            </li>
+            
 
         </ul>
         @* END Menu *@

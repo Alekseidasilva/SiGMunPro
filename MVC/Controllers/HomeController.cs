@@ -2,6 +2,7 @@
 
 namespace MVC.Controllers
 {
+     [Authorize]
     public class HomeController : Controller
     {
         [HttpGet]

@@ -5756,7 +5756,7 @@
     <Content Include="Extras\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
-    <Content Include="Views\Conta\Login.cshtml" />
+    <Content Include="Views\Conta\Login123.cshtml" />
     <Content Include="Views\Home\Suporte.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Extras\bower_components\bootstrap-colorpicker\.bower.json" />
@@ -6351,6 +6351,7 @@
     <Content Include="Extras\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Cadastrar.cshtml" />
+    <Content Include="Views\Conta\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

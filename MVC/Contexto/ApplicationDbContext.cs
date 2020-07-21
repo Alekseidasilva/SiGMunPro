@@ -8,7 +8,7 @@ namespace MVC.Contexto
     public class ApplicationDbContext : IdentityDbContext<User, Role, int, UserLogin, UserRole, UserClaim>
     {
         public ApplicationDbContext()
-            : base("server=SOFTDEV;User Id=sa; Password=049222Xp12; database=SiGMunDB;")
+            : base("ConnString")
         {
 
         }
@@ -27,5 +27,6 @@ namespace MVC.Contexto
 
         }
 
+        public System.Data.Entity.DbSet<MVC.Models.Entidades.Usuario.UserLogin> UserLogins { get; set; }
     }
 }
