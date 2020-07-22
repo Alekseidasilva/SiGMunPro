@@ -71,6 +71,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
@@ -6364,6 +6365,7 @@
     <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="helpers\Criptografia.cs" />
     <Compile Include="Migrations\202007172315520_initialize.cs" />
     <Compile Include="Migrations\202007172315520_initialize.Designer.cs">
       <DependentUpon>202007172315520_initialize.cs</DependentUpon>

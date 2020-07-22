@@ -6,7 +6,7 @@ using MVC.Models.Entidades.Usuario;
 
 namespace MVC.Controllers
 {
-     [Authorize]
+     //[Authorize]
     public class UsuarioController : Controller
     {
         RepUsuario Usuario=new RepUsuario();
@@ -22,6 +22,8 @@ namespace MVC.Controllers
 
         public ActionResult Cadastrar(User user)
         {
+            
+
             return View();
         }
     }
