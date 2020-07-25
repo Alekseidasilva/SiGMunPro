@@ -19,10 +19,17 @@ namespace MVC.Controllers
             return View(Usuario.SelecionarTodos());
             
         }
-
-        public ActionResult Cadastrar(User user)
+        [HttpGet]
+        public ActionResult Cadastrar()
         {
             
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Cadastrar(User user)
+        {
+
 
             return View();
         }

@@ -9,31 +9,145 @@
 
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
-      @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+ @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+ <section class="col-lg-7 connectedSortable">
+     <div class="box box-info">
+        <div class="box-header">
+            <i class="fa fa-user-circle"></i>
+            <h2 class="box-title">Preencha os campos...</h2>
+        </div>
+         <div class="box-body">
+             <div class="small-box">
+                 <div class="input-group">
+                     <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+                     @Html.EditorFor(model => model.NomeCompleto, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Nome Completo"}})
+                     <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
+                 </div>
+             </div>
+             <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+                 @Html.EditorFor(model => model.UserName, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Login"}})
+                 <small>@Html.ValidationMessageFor(model => model.UserName, "", new {@class = "text-danger"})</small>
+             </div>
+         </div>
+         <div class="box-body">
+             <div class="small-box">
+                 <div class="input-group">
+                     <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+                     @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Email"}})
+                     <small>@Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})</small>
+                 </div>
+             </div>
+             <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+                 @Html.EditorFor(model => model.PasswordHash, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Senha"}})
+                 <small>@Html.ValidationMessageFor(model => model.PasswordHash, "", new {@class = "text-danger"})</small>
+             </div>
+         </div>
+         <div class="box-body">
+             <div class="small-box">
+                 <div class="input-group">
+                     <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+                     @Html.PasswordFor(model => model.PasswordHash, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Confirmar senha"}})
+                     <small>@Html.ValidationMessageFor(model => model.PasswordHash, "", new {@class = "text-danger"})</small>
+                 </div>
+             </div>
+             <div class="input-group">
+                 <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+                 @Html.EditorFor(model => model.PhoneNumber, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Telefone"}})
+                 <small>@Html.ValidationMessageFor(model => model.PhoneNumber, "", new {@class = "text-danger"})</small>
+             </div>
+         </div>
+         
+         
+         
+         
+         <div class="box-body">
+       
+            <div class="input-group">
+              @Html.LabelFor(model=>model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+              <div class="small-box">
+              @Html.CheckBoxFor(model => model.Estado, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Nome Completo"}})
+                <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
+              </div>
+            </div>
+        
+            <div class="input-group">
+                
+                <label>Perfil </label>  <select class="select2" ></select>
+                
+                <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
+            </div>
+          </div>
+         
 
-<p></p>
+             
+          
+     </div>
+        <div class="box-footer clearfix">
+            
+            <button type="submit" class="pull-right btn btn-danger" id="sendEmail"><i class="fa fa-remove"></i> Cancelar</button> 
+            <button type="button" class="pull-left btn btn-success" onclick="@Url.Action("Index")" id="sendEmail"><i class="fa fa-save"></i> Gravar</button>
+         </div>
+     
+ </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<p></p>
     <div class="box box-info">
-    <!-- Main content -->
-    <section class="content">
+        <section class="content">
         <div class="container-fluid">
             <div class="row">
                  <div class="col-xs-12 col-md-6">
                      <div class="small-box">
                          <div class="input-group">
-                 
-                   
+
+
+
+
+
+
+
+
+
+
+
                          </div>
                     </div>
-                 </div><!-- /.container-fluid -->
-        </div>
+                 </div> 
+            </div>
      </div>
  </section>
-</div>
+</div>*@
+
+
+
 }
 
-  @*<div class="form-group">
+
+
+
+
+
+
+
+    
+ 
+
+@*<div class="form-group">
       <div class="col-md-offset-2 col-md-10">
           <input type="submit" value="Create" class="btn btn-default" />
       </div>
