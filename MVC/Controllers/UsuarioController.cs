@@ -10,12 +10,12 @@ namespace MVC.Controllers
     public class UsuarioController : Controller
     {
         RepUsuario Usuario=new RepUsuario();
+        RepPerfil perfil = new RepPerfil();
        
         // GET: Usuario
         public ActionResult Index(IdentityUser user)
         {
-            //RepPerfil perfil=new RepPerfil();
-            //ViewBag.Perfil = perfil.CarregarPorUsuario(int.Parse(user.Id));
+            
             return View(Usuario.SelecionarTodos());
             
         }
@@ -23,7 +23,8 @@ namespace MVC.Controllers
         public ActionResult Cadastrar()
         {
             
-
+            var perfis = perfil.SelecionarTodos();
+            ViewBag.perfil = new SelectList(perfis, "Id", "Name");
             return View();
         }
         [HttpPost]

@@ -37,7 +37,31 @@ namespace MVC.Models.Contratos.Repositorios
 
         public List<Role> SelecionarTodos()
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+               DataTable perfil= _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Perfil_CarregarTodos");
+               List<Role>roles=new List<Role>();
+               foreach (DataRow item in perfil.Rows)
+               {
+                   Role role=new Role
+                   {
+                       Id = Convert.ToInt32(item["Id"]),
+                       Name = Convert.ToString(item["Name"]),
+                       Estado = Convert.ToBoolean(item["Estado"]),
+                       DataCadastro = Convert.ToDateTime(item["DataCadastro"]),
+                       
+                   };
+                   roles.Add(role);
+               }
+
+               return roles;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public string CarregarPorUsuario(int Userid)

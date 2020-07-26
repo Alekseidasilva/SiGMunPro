@@ -8,6 +8,7 @@ namespace MVC.Models.Entidades.Usuario
         public string NomeCompleto { get; set; }
         public bool Estado { get; set; }
         public DateTime DataCadastro { get; set; }
+        public virtual int PerfilId { get; set; }
 
 
     }

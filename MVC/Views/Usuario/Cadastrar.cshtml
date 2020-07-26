@@ -1,4 +1,5 @@
-﻿@using System.Web.UI.WebControls
+﻿@using System.Net.Mime
+@using System.Web.UI.WebControls
 @model MVC.Models.Entidades.Usuario.User
 
 @{
@@ -50,7 +51,7 @@
              <div class="small-box">
                  <div class="input-group">
                      <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
-                     @Html.PasswordFor(model => model.PasswordHash, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Confirmar senha"}})
+                     @Html.EditorFor(model => model.PasswordHash, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Confirmar senha"}})
                      <small>@Html.ValidationMessageFor(model => model.PasswordHash, "", new {@class = "text-danger"})</small>
                  </div>
              </div>
@@ -64,23 +65,48 @@
          
          
          
+         
+         
+         
+         
+         
+
+         
+         
+         
          <div class="box-body">
+             <div class="input-group">
+                 
+
+                 
+                 
+
+
+                 <label>Perfil </label>
+                 @Html.DropDownListFor(model=>model.PerfilId,new List<SelectListItem>(ViewBag.perfil),"Selecione o Perfil")
+                 <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
+
+                 
+                 <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
+                 <fieldset>
+                     <legend>Estado</legend>
+                     @Html.RadioButtonFor(m=>m.Estado,"true",htmlAttributes: new {@class="form-inline", type="radio"}) Activado<br/>
+                     @Html.RadioButtonFor(m=>m.Estado,"false") Desativado 
+                 </fieldset>
+                 
+                 
+               
+                 
+                 
+                 
+                 <small>@Html.ValidationMessageFor(model => model.Estado, "", new {@class = "text-danger"})</small>
+                 
+                 
+
+
+             </div>
+         </div>
        
-            <div class="input-group">
-              @Html.LabelFor(model=>model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
-              <div class="small-box">
-              @Html.CheckBoxFor(model => model.Estado, new {htmlAttributes = new {@class = "form-control", PlaceHolder="Nome Completo"}})
-                <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
-              </div>
-            </div>
-        
-            <div class="input-group">
-                
-                <label>Perfil </label>  <select class="select2" ></select>
-                
-                <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
-            </div>
-          </div>
          
 
              
@@ -88,8 +114,8 @@
      </div>
         <div class="box-footer clearfix">
             
-            <button type="submit" class="pull-right btn btn-danger" id="sendEmail"><i class="fa fa-remove"></i> Cancelar</button> 
-            <button type="button" class="pull-left btn btn-success" onclick="@Url.Action("Index")" id="sendEmail"><i class="fa fa-save"></i> Gravar</button>
+            <button type="button" class="pull-right btn btn-danger" id="#"><i class="fa fa-remove"></i> Cancelar</button> 
+            <button type="submit" class="pull-left btn btn-success"  id="#"><i class="fa fa-save"></i> Gravar</button>
          </div>
      
  </section>
