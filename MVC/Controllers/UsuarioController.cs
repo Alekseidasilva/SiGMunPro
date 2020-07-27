@@ -30,7 +30,11 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult Cadastrar(User user)
         {
-
+            
+            if (ModelState.IsValid)
+            {
+                
+            }
 
             return View();
         }

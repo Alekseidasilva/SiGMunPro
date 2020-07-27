@@ -16,43 +16,46 @@
         @* BEGIN Menu *@
          <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Sistema de Gestão de Munícipes</li>
-            @* <li class="@Url.IsLinkActive("Index", "Home")">
+             @* <li class="@Url.IsLinkActive("Index", "Home")">
                 <a href="@Url.Action("Index", "Home")"><i class="fa fa-link"></i> <span>Dashboard</span></a>
             </li>
              <li class="@Url.IsLinkActive("AnotherLink", "Home")">
                 <a href="@Url.Action("AnotherLink", "Home")"><i class="fa fa-link"></i> <span>Another Link</span></a>
             </li>*@
-            <li class="treeview">
+               <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-home"></i><span>DASHBOARD</span>
+                    <i class="glyphicon glyphicon-home"></i> <span>DASHBOARD</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Suporte</a></li>
-                    <li><a href="#">Sobre</a></li>
+                    <li><a href="@Url.Action("Suporte","Home")"><i class="fa fa-question-circle"></i>Suporte</a></li>
+                    <li><a href="@Url.Action("Sobre","Home")"> <i class="fa fa-info-circle"></i>Sobre</a></li>
                 </ul>
             </li>
 
-            <li class="treeview">
+             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>MUNÍCIPE</span>
+                    <i class="glyphicon glyphicon-user"></i> <span>MUNICIPE</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Cadastrar</a></li>
-                    <li><a href="#">Alterar Dados</a></li>
-                    <li><a href="#">Informações Adicionais</a></li>
-                    <li><a href="#">Consultar</a></li>
+                    
+                    <li><a href="@Url.Action("","")"><i class="fa fa-plus-circle"></i>Cadastrar</a></li>
+                    <li><a href="@Url.Action("","")"> <i class="fa fa-close"></i>Alterar Dados</a></li>
+                    <li><a href="@Url.Action("","")"> <i class="fa fa-info-circle"></i>Info Adicionais</a></li>
+                    <li><a href="@Url.Action("","")"> <i class="fa  fa-search"></i>Consultar</a></li>
                 </ul>
             </li>
+
+            
             
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-file"></i> <span>SECRETARIA</span>
+                    <i class="glyphicon glyphicon-check"></i> <span>SECRETARIA</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -60,13 +63,13 @@
                 <ul class="treeview-menu">
                     <li><a href="#">Emitir</a></li>
                     <li><a href="#">Reemitir</a></li>
-                    <li><a href="#">Consultar</a></li>
+                    <li><i class="glyphicon glyphicon-search"></i> <a href="#">Consultar</a></li>
                 </ul>
             </li>
             
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>FISCALIZAÇÃO</span>
+                    <i class="glyphicon glyphicon-transfer"></i> <span>FISCALIZAÇÃO</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -79,7 +82,7 @@
             
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-link"></i> <span>ÁREA TÉCNICA</span>
+                    <i class="glyphicon glyphicon-wrench"></i> <span>ÁREA TÉCNICA</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -91,7 +94,7 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-book"></i> <span>RELATÓRIOS</span>
+                    <i class="glyphicon glyphicon-folder-close"></i> <span>RELATÓRIOS</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -103,33 +106,32 @@
                 </ul>
             </li>
             
+             
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-asterisk"></i> <span>DEFINIÇÕES</span>
+                    <i class="glyphicon glyphicon-cog"></i> <span>DEFINIÇÕES</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Perfils</a></li>
-                    <li><a href="@Url.Action("index","Usuario")"><i class="fa fa-users"></i>Usuário</a></li>
-                    <li><a href="@Url.Action("TerminarSessao","Conta")"> <i class="fa fa-close"></i>Sair</a></li>
+                    <li><a href="@Url.Action("index","Usuario")"><i class="fa fa-users"></i>Gestor Maximo</a></li>
+                    <li><a href="@Url.Action("index","Usuario")"><i class="fa fa-users"></i>Gestor Adjunto</a></li>
+                    <li><a href="@Url.Action("TerminarSessao","Conta")"> <i class="fa fa-close"></i>Entidade</a></li>
                 </ul>
             </li>
             
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-weibo"></i> <span>SISTEMA</span>
+                    <i class="glyphicon glyphicon-compressed"></i> <span>SISTEMA</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Perfils</a></li>
-                   
+                    <li><a href="@Url.Action("","")"><i class="fa fa-unlock"></i>Perfil</a></li>
                     <li><a href="@Url.Action("index","Usuario")"><i class="fa fa-users"></i>Usuário</a></li>
-                    <li class="divider">-</li>
                     <li><a href="@Url.Action("TerminarSessao","Conta")"> <i class="fa fa-close"></i>Sair</a></li>
                 </ul>
             </li>
