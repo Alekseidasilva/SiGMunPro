@@ -17,7 +17,7 @@
      <div class="box box-info">
         <div class="box-header">
             <i class="fa fa-user-circle"></i>
-            <h2 class="box-title">Preencha os campos...</h2>
+            <h5 class="box-title">Preencha os campos...</h5>
         </div>
          <div class="box-body">
              <div class="small-box">
@@ -61,27 +61,8 @@
                  <small>@Html.ValidationMessageFor(model => model.PhoneNumber, "", new {@class = "text-danger"})</small>
              </div>
          </div>
-         
-         
-         
-         
-         
-         
-         
-         
-         
-
-         
-         
-         
          <div class="box-body">
              <div class="input-group">
-                 
-
-                 
-                 
-
-
                  <label>Perfil </label>
                  @Html.DropDownListFor(model=>model.PerfilId,new List<SelectListItem>(ViewBag.perfil),"Selecione o Perfil")
                  <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
@@ -92,27 +73,12 @@
                      <legend>Estado</legend>
                      @Html.RadioButtonFor(m=>m.Estado,"true",htmlAttributes: new {@class="form-inline", type="radio"}) Activado<br/>
                      @Html.RadioButtonFor(m=>m.Estado,"false") Desativado 
+                     <small>@Html.ValidationMessageFor(model => model.Estado, "", new {@class = "text-danger"})</small>
                  </fieldset>
-                 
-                 
-               
-                 
-                 
-                 
-                 <small>@Html.ValidationMessageFor(model => model.Estado, "", new {@class = "text-danger"})</small>
-                 
-                 
-
-
              </div>
          </div>
-       
-         
-
-             
-          
      </div>
-        <div class="box-footer clearfix">
+        <div class="box-footer fixed">
             
             <button type="button" class="pull-right btn btn-danger" id="#"><i class="fa fa-remove"></i> Cancelar</button> 
             <button type="submit" class="pull-left btn btn-success"  id="#"><i class="fa fa-save"></i> Gravar</button>
