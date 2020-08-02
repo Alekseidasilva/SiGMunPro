@@ -135,6 +135,8 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarPorNome.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_PerfilDoUsuario.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Permissoes\SP_Permissao_Inserir.sql" />
+    <None Include="ContinuousDeployment\InsercaoDeDados.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_CarregarTodosComPerfilId.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

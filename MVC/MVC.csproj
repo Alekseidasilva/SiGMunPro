@@ -6494,6 +6494,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Usuario\Alterar.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -6654,7 +6656,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Perfil\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Extras\bower_components\moment\moment.d.ts" />

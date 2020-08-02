@@ -12,9 +12,9 @@ namespace MVC.Models.Contratos.Interfaces
         string Cadastrar(TEntidade entidade);
         string Alterar(TEntidade entidade);
         string Excluir(int id);
-        DataTable BuscarPorNome(string nome);
+        List<TEntidade> BuscarPorNome(string nome);
      
-        DataTable BuscarPorId(int id);
+        TEntidade BuscarPorId(int id);
         List<TEntidade> SelecionarTodos();
     }
 }

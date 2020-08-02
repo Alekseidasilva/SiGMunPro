@@ -3,7 +3,7 @@
 @model MVC.Models.Entidades.Usuario.User
 
 @{
-    ViewBag.Title = "Cadastrar Usuário";
+    ViewBag.Title = "Alterar Usuário";
 }
 @using (Html.BeginForm())
 {
@@ -32,18 +32,18 @@
                 <div class="small-box">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control inactive", PlaceHolder = "Email"}})
+                        @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control", PlaceHolder = "Email"}})
                         <small>@Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})</small>
                     </div>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-                    @Html.EditorFor(model => model.PasswordHash, new {htmlAttributes = new {@class = "form-control", PlaceHolder = "Senha padrão é :000000"}})
+                    @Html.EditorFor(model => model.PasswordHash, new {htmlAttributes = new {@class = "form-control", PlaceHolder = "a senha será resetada para a senha padrão"}})
                     <small>@Html.ValidationMessageFor(model => model.PasswordHash, "", new {@class = "text-danger"})</small>
                 </div>
             </div>
             <div class="box-body">
-                
+              
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
                     @Html.EditorFor(model => model.PhoneNumber, new {htmlAttributes = new {@class = "form-control", PlaceHolder = "Telefone"}})
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="box-footer fixed-bottom">
-            <a href="@Url.Action("Index")" class="pull-right btn btn-danger"><i class="glyphicon glyphicon-remove"></i>Cancelar</a>
+             <a href="@Url.Action("Index")" class="pull-right btn btn-danger"><i class="glyphicon glyphicon-remove"></i>Cancelar</a>
             <button type="submit" class="pull-left btn btn-success" id="#"><i class="glyphicon glyphicon-floppy-disk"></i> Gravar</button>
         </div>
 

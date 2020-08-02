@@ -25,12 +25,12 @@ namespace MVC.Models.Contratos.Repositorios
             throw new System.NotImplementedException();
         }
 
-        public DataTable BuscarPorId(int id)
+        public Role BuscarPorId(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public DataTable BuscarPorNome(string nome)
+        public List<Role> BuscarPorNome(string nome)
         {
             throw new System.NotImplementedException();
         }
@@ -64,14 +64,24 @@ namespace MVC.Models.Contratos.Repositorios
             }
         }
 
-        public string CarregarPorUsuario(int Userid)
+        public List<Role> CarregarPorUsuario(int userId)
         {
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserId",Userid);
-                string res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_PerfilDoUsuario").ToString();
-                return res;
+                _conexao.AdicionarParametros("@UserId",userId);
+                var res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_PerfilDoUsuario");
+               List<Role>roles=new List<Role>();
+                foreach (DataRow item in res.Rows)
+                {Role role=new Role
+                    {
+                        Id =Convert.ToInt32(item["Id"]),
+                        Name = Convert.ToString(item["Name"])
+                    };
+                roles.Add(role);
+                }
+
+                return roles;
             }
             catch (Exception e)
             {

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MVC.Models.Entidades.Usuario.User>
+﻿@using MVC.Models.Entidades.Perfils
+@model IEnumerable<MVC.Models.Entidades.Usuario.User>
 
 @{
     ViewBag.Title = "Lista de Usuários";
@@ -13,8 +14,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                 
-               @foreach (var item in Model)
+                @foreach (var item in Model)
                {
                    if (item.Estado)
                    {
@@ -33,21 +33,24 @@
                                    <p><b>Login:</b> @item.UserName</p>
                                    <p> <b>@item.Email</b><small> </small></p>
                                    <p><b>Telefone:</b> @item.PhoneNumber</p>
-                                    <p><b>Data Cadastro:</b> @item.DataCadastro.ToShortDateString()</p>
+                                    <p><b>Cadastrado aos:</b> @item.DataCadastro.ToShortDateString()</p>
                                </div>
                                <div class="icon">
                                    <i class="ion ion-bag"></i>
                                </div>
-                               <a href="#" class="small-box-footer">@ViewBag.Perfil<i class="fas fa-arrow-circle-right"></i></a>
-                               <div class="divider">
-                                   @*<a href="#" class="small-box-footer">*@
-                                   <a href="#" class="small-box">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn-outline btn-sm bg-yellow-gradient" type="button" value="@item.Id" onclick="location.href = '@Url.Action("Alterar")'"><i class="fa fa-1x fa-edit"></i> Editar</button>|
-                                       <button class="btn-outline btn-sm bg-red-gradient"><i class="fa fa-1x fa-trash"></i> Excluir</button>
-
-
-                                   </a>
-                               </div>
+                               @foreach (var profile in(List<Role>)ViewData["Profile"])
+                               {
+                                   if (item.PerfilId==profile.Id)
+                                   {
+                                      <a href="#" class="small-box-footer">@profile.Name.ToUpper() <i class="fa fa-arrow-circle-right"></i></a>
+                                   }
+                                  
+                               }
+                           <div class="divider">
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Alterar","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})&nbsp;&nbsp;
+                              
+                               @Html.ActionLink("Excluir","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-red-gradient"})
+                           </div>
                               
                            </div>
                        </div>
@@ -68,22 +71,24 @@
                                    <p><b>Login:</b> @item.UserName</p>
                                    <p> <b>@item.Email</b><small> </small></p>
                                    <p><b>Telefone:</b> @item.PhoneNumber</p>
-                                    <p><b>Data Cadastro:</b> @item.DataCadastro.ToShortDateString()</p>
+                                    <p><b>Cadastrado aos:</b> @item.DataCadastro.ToShortDateString()</p>
                                </div>
                                <div class="icon">
                                    <i class="ion ion-bag"></i>
                                </div>
-                               <a href="#" class="small-box-footer">@ViewBag.Perfil<i class="fas fa-arrow-circle-right"></i></a>
-                               <div class="divider">
-                                   @*<a href="#" class="small-box-footer">*@
-                                   <a href="#" class="small-box">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn-outline btn-sm bg-yellow-gradient" type="button" value="@item.Id" onclick="location.href = '@Url.Action("Alterar")'"><i class="fa fa-1x fa-edit"></i> Editar</button>|
-                                       <button class="btn-outline btn-sm bg-red-gradient"><i class="fa fa-1x fa-trash"></i> Excluir</button>
-
-
-                                   </a>
-                               </div>
+                               @foreach (var profile in(List<Role>)ViewData["Profile"])
+                               {
+                                   if (item.PerfilId==profile.Id)
+                                   {
+                                      <a href="#" class="small-box-footer">@profile.Name.ToUpper() <i class="fa fa-arrow-circle-right"></i></a>
+                                   }
+                                  
+                               }
+                              <div class="divider">
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Alterar","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})&nbsp;&nbsp;
                               
+                               @Html.ActionLink("Excluir","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-red-gradient"})
+                           </div>
                            </div>
                        </div>
                        

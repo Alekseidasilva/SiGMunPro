@@ -1,9 +1,10 @@
-﻿using MVC.Models.Entidades.Perfils;
+﻿using System.Collections.Generic;
+using MVC.Models.Entidades.Perfils;
 
 namespace MVC.Models.Contratos.Interfaces
 {
    public interface IPerfil:IBase<Role>
    {
-       string CarregarPorUsuario(int Userid);
+       List<Role> CarregarPorUsuario(int UserId);
    }
 }

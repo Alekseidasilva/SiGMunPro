@@ -144,33 +144,40 @@ ALTER TABLE dbo.TB_Permissoes
 GO
 SET NOEXEC OFF
 GO
---fim---------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------fim---------------------------------------------------------------------------------------------------------------------------
+
+
 
 -------------------------Inserir Perfil------------------------------------
 EXEC SP_Perfil_Inserir @Name = 'Admin',@Estado = 1,@DataCadastro = '2020-07-14'
 GO
 
 ---------------------------Inserir Usuario------------------------------------
-EXEC SP_Usuario_Inserir @NomeCompleto = 'Admin',@Estado = 1,@DataCadastro = '2020-07-14',@Email = 'alekseidasilva@hotmail.com'
-,@EmailConfirmed = 0     ,@PasswordHash = '0000'
-                       ,@SecurityStamp = ''
-                       ,@PhoneNumber = ''
-                       ,@PhoneNumberConfirmed = 0
-                       ,@TwoFactorEnabled = 0
-                       ,@LockoutEndDateUtc = '2020-07-14'
-                       ,@LockoutEnabled = 0
-                       ,@AccessFailedCount = 0
-                       ,@UserName = 'Aleksei.Silva'
+EXEC SP_Usuario_Inserir 
+ @NomeCompleto = 'Administrador'
+,@Estado = 1
+,@DataCadastro = '2020-07-29'
+,@Email = 'alekseidasilva@hotmail.com'
+,@EmailConfirmed = 0
+,@PasswordHash = '0000'
+,@SecurityStamp = '0'
+,@PhoneNumber = '98520'
+,@PhoneNumberConfirmed =1
+,@TwoFactorEnabled = 1
+,@LockoutEndDateUtc = '2020-07-29'
+,@LockoutEnabled = 1
+,@AccessFailedCount = 1
+,@UserName = 'Aleksei.Silva'
+,@PerfilId = 1
 GO
 ------------------Estado Civil----------------------------
 INSERT dbo.TB_EstadoCivil(EstadoCivilId,EstadoCivilNome)VALUES(1,'SOLTEIRO'),(2,'CASADO'),(3,'DIVORCIADO'),(4,'VIÚVO')
 GO
 -----------------------------INSERIR PERMISSAO--------------------------------------
-EXEC SP_Permissao_Inserir @UserId = 1,@RoleId = 1
+--EXEC SP_Permissao_Inserir @UserId = 1,@RoleId = 1
 go
 ---------------------------------Generos-----------------------------------------
 INSERT dbo.TB_Generos(GeneroId,GeneroNome)VALUES(1,'MASCULINO'),(2,'FEMENINO')
-
 go
 ------------------------------Grau Parentesco-------------------------
 INSERT dbo.TB_GrauParentesco(GrauParentescoId,GrauParentescoIdNome)
@@ -277,6 +284,5 @@ INSERT dbo.TB_Municipios(MunicipioNome,MunicipioProvinciaId)VALUES
 
 -----ZAIRE
 ('CUIMBA', 18),('M´BANZA KONGO', 18),('NOQUI', 18),('N´ZETO', 18),('SOYO',18),('TOMBOCO',18)
-
 
 

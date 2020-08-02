@@ -1,13 +1,23 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MVC.Models.Entidades.Usuario
 {
     public class User : IdentityUser<int, UserLogin, UserRole, UserClaim>
     {
+         [Required]
         public string NomeCompleto { get; set; }
+         [Required(ErrorMessage = "Email requerido")]
+         [DataType(DataType.EmailAddress,ErrorMessage = "Email inválido")]
+        public string Email { get; set; }
+         [Required]
+        public string UserName { get; set; }
+         [Required]
         public bool Estado { get; set; }
         public DateTime DataCadastro { get; set; }
+
+        [Required]
         public virtual int PerfilId { get; set; }
 
 
