@@ -10,11 +10,11 @@ namespace MVC.Models.Entidades.Usuario
         public string NomeCompleto { get; set; }
          [Required(ErrorMessage = "Email requerido")]
          [DataType(DataType.EmailAddress,ErrorMessage = "Email inválido")]
-        public string Email { get; set; }
+        public virtual string Email { get; set; }
          [Required]
-        public string UserName { get; set; }
+        public virtual string UserName { get; set; }
          [Required]
-        public bool Estado { get; set; }
+        public  bool Estado { get; set; }
         public DateTime DataCadastro { get; set; }
 
         [Required]

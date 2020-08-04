@@ -70,8 +70,14 @@
         </div>
         <div class="box-footer fixed-bottom">
             <a href="@Url.Action("Index")" class="pull-right btn btn-danger"><i class="glyphicon glyphicon-remove"></i>Cancelar</a>
-            <button type="submit" class="pull-left btn btn-success" id="#"><i class="glyphicon glyphicon-floppy-disk"></i> Gravar</button>
+            <button onclick="#" type="submit" class="pull-left btn btn-success" id="#"><i class="glyphicon glyphicon-floppy-disk"></i> Gravar</button>
         </div>
 
     </section>
 }
+<script>
+    function Alertar() {
+        toastr.success('Com sucesso', 'Aviso');
+    }
+    
+</script>

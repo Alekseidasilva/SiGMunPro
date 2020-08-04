@@ -74,7 +74,18 @@ namespace MVC.Models.Contratos.Repositorios
 
         public string Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserId", id);
+                string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Excluir").ToString();
+                return res;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public User BuscarPorId(int id)

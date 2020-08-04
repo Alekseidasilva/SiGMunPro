@@ -98,6 +98,16 @@ namespace MVC.Controllers
             return View();
         }
 
+        public ActionResult Excluir(int id)
+        {
+            var res= _usuario.Excluir(id);
+            if (res!=string.Empty)
+            {
+                return RedirectToAction("Index");
+            }
+            return null;
+        }
+
 
 
 

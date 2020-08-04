@@ -9,95 +9,182 @@
     <a class="btn bg-gray-active" href="@Url.Action("Cadastrar")"><i class="fa fa-2x fa-user-plus"></i> Cadastrar</a>
 </div>
 <p></p>
-    <div class="box box-info">
+<div class="box box-info">
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 @foreach (var item in Model)
-               {
-                   if (item.Estado)
-                   {
+                {
+                    if (item.Estado)
+                    {
 
-                       <div class="col-lg-3">
-                           <!-- small box -->
-                           <div class="small-box bg-aqua-gradient">
-                               <div class="inner">
-                                   @{
-                                       char[] delimitador = {' '};
-                                       string[] pedacos = item.NomeCompleto.Split(delimitador);
-                                       int tamanho = pedacos.Length;
-                                       int res = tamanho - 2;
-                                   }
-                                   <h2>@pedacos.First()        @if (pedacos.Last() != pedacos.First()){@pedacos.Last();}</h2>
-                                   <p><b>Login:</b> @item.UserName</p>
-                                   <p> <b>@item.Email</b><small> </small></p>
-                                   <p><b>Telefone:</b> @item.PhoneNumber</p>
-                                    <p><b>Cadastrado aos:</b> @item.DataCadastro.ToShortDateString()</p>
-                               </div>
-                               <div class="icon">
-                                   <i class="ion ion-bag"></i>
-                               </div>
-                               @foreach (var profile in(List<Role>)ViewData["Profile"])
-                               {
-                                   if (item.PerfilId==profile.Id)
-                                   {
-                                      <a href="#" class="small-box-footer">@profile.Name.ToUpper() <i class="fa fa-arrow-circle-right"></i></a>
-                                   }
-                                  
-                               }
-                           <div class="divider">
-                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Alterar","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})&nbsp;&nbsp;
-                              
-                               @Html.ActionLink("Excluir","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-red-gradient"})
-                           </div>
-                              
-                           </div>
-                       </div>
-                   }
-                   else
-                   {
-                       <div class="col-lg-3">
-                           <!-- small box -->
-                           <div class="small-box bg-red-gradient">
-                               <div class="inner">
-                                   @{
-                                       char[] delimitador = {' '};
-                                       string[] pedacos = item.NomeCompleto.Split(delimitador);
-                                       int tamanho = pedacos.Length;
-                                       int res = tamanho - 2;
-                                   }
+                        <div class="col-lg-3">
+                            <!-- small box -->
+                            <div class="small-box bg-aqua-gradient">
+                                <div class="inner">
+                                    @{
+                                        char[] delimitador = {' '};
+                                        string[] pedacos = item.NomeCompleto.Split(delimitador);
+                                        int tamanho = pedacos.Length;
+                                        int res = tamanho - 2;
+                                    }
                                     <h2>@pedacos.First()        @if (pedacos.Last() != pedacos.First()){@pedacos.Last();}</h2>
-                                   <p><b>Login:</b> @item.UserName</p>
-                                   <p> <b>@item.Email</b><small> </small></p>
-                                   <p><b>Telefone:</b> @item.PhoneNumber</p>
+                                    <p><b>Login:</b> @item.UserName</p>
+                                    <p> <b>@item.Email</b><small> </small></p>
+                                    <p><b>Telefone:</b> @item.PhoneNumber</p>
                                     <p><b>Cadastrado aos:</b> @item.DataCadastro.ToShortDateString()</p>
-                               </div>
-                               <div class="icon">
-                                   <i class="ion ion-bag"></i>
-                               </div>
-                               @foreach (var profile in(List<Role>)ViewData["Profile"])
-                               {
-                                   if (item.PerfilId==profile.Id)
-                                   {
-                                      <a href="#" class="small-box-footer">@profile.Name.ToUpper() <i class="fa fa-arrow-circle-right"></i></a>
-                                   }
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-bag"></i>
+                                </div>
+                                @foreach (var profile in(List<Role>)ViewData["Profile"])
+                                {
+                                    if (item.PerfilId==profile.Id)
+                                    {
+                                        <a href="#" class="small-box-footer">@profile.Name.ToUpper() <i class="fa fa-arrow-circle-right"></i></a>
+                                    }
                                   
-                               }
-                              <div class="divider">
-                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Alterar","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})&nbsp;&nbsp;
+                                }
+                                <div class="divider">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Alterar","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})&nbsp;&nbsp;
                               
-                               @Html.ActionLink("Excluir","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-red-gradient"})
-                           </div>
-                           </div>
-                       </div>
+                                    <button class="btn-outline btn-sm bg-red-gradient" onclick="ExcluirUsuario('@item.Id','@item.UserName')"><i class="fa fa-trash"></i> Excluir</button>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-lg-3">
+                            <!-- small box -->
+                            <div class="small-box bg-red-gradient">
+                                <div class="inner">
+                                    @{
+                                        char[] delimitador = {' '};
+                                        string[] pedacos = item.NomeCompleto.Split(delimitador);
+                                        int tamanho = pedacos.Length;
+                                        int res = tamanho - 2;
+                                    }
+                                    <h2>@pedacos.First()        @if (pedacos.Last() != pedacos.First()){@pedacos.Last();}</h2>
+                                    <p><b>Login:</b> @item.UserName</p>
+                                    <p> <b>@item.Email</b><small> </small></p>
+                                    <p><b>Telefone:</b> @item.PhoneNumber</p>
+                                    <p><b>Cadastrado aos:</b> @item.DataCadastro.ToShortDateString()</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-bag"></i>
+                                </div>
+                                @foreach (var profile in(List<Role>)ViewData["Profile"])
+                                {
+                                    if (item.PerfilId==profile.Id)
+                                    {
+                                        <a href="#" class="small-box-footer">@profile.Name.ToUpper() <i class="fa fa-arrow-circle-right"></i></a>
+                                    }
+                                  
+                                }
+                                <div class="divider">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Alterar","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})&nbsp;&nbsp;
+                                    <button class="btn-outline btn-sm bg-red-gradient" onclick="ExcluirUsuario('@item.Id','@item.UserName')"><i class="fa fa-trash-o"></i> Excluir</button>
+                                </div>
+                            </div>
+                        </div>
                        
-                   }
-               }
-               <!-- right col -->
-                </div>
+                    }
+                }
+                <!-- right col -->
+            </div>
         
             <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
     </section>
 </div>
+
+
+
+<div data-id="0" class="modal modal-danger fade" id="modal-danger">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Excluir Usuário</h4>
+              </div>
+              <div class="modal-body">
+                <p>Confirma a exclusão do usuário :<strong> <span id="nomeUsuarioModal"></span></strong> &hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Sair</button>
+                <button  onclick="ConfirmarExclusao()" type="button" class="btn btn-outline">Confirmar</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+</div>
+        <!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function ExcluirUsuario(id, username)
+    {
+        //var resp = confirm('Deseja Excluir o Usuário : '+ username +' ?');
+        //if (resp)
+        //{
+        //    //console.log('Excluir usuario com Id ' + id);
+        //    ConfirmarExclusao(id);
+        //}
+        $('#nomeUsuarioModal').text(username);
+        $('#modal-danger').data('id',id).modal('show');
+    }
+
+    //$('#ConfirDelModal').click(function() {
+       
+    //    ConfirmarExclusao(_id);
+    //});
+
+    function ConfirmarExclusao()
+    {
+         var _id = $('#modal-danger').data('id');
+        //XMLHTTPRequest
+        var xhr = new XMLHttpRequest();
+        var url = `/Usuario/Excluir/${_id}`;
+        xhr.onreadystatechange = function ()
+        {
+            if (this.readyState === 4&& this.status===404)
+            {
+                $('#modal-danger').data('id', '').modal('hide');
+                alert('Usuário não encontrado');
+            }
+            if (this.readyState === 4 && this.status === 200)
+            {
+                //Remover do Html
+                $('#modal-danger').data('id','_id').modal('hide');
+                let tr = document.querySelector($('#modal-danger').data('id'));
+                if (tr !== null){
+                    tr.remove();
+                }
+                alert('Usuário excluido com sucesso!');
+               
+            }
+        }
+        xhr.open('get', url);
+        xhr.send();
+
+    }
+</script>
