@@ -108,6 +108,17 @@ namespace MVC.Controllers
             return null;
         }
 
+        public ActionResult Detalhes(int id)
+        {
+            var user = _usuario.BuscarPorId(id);
+            var perfis = perfil.SelecionarTodos();
+            ViewBag.perfil = new SelectList(perfis, "Id", "Name");
+            if (user is null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
 
 
 

@@ -22,11 +22,15 @@
                         <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
                     </div>
                 </div>
-                <div class="input-group">
+                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     @Html.EditorFor(model => model.UserName, new {htmlAttributes = new {@class = "form-control", PlaceHolder = "Login de Usuário"}})
                     <small>@Html.ValidationMessageFor(model => model.UserName, "", new {@class = "text-danger"})</small>
+                    <span class="input-group-btn">
+                        <button onclick="CriarUserName()" id="btnCriar" type="button" class="btn btn-default btn-flat">Criar</button>
+                    </span>
                 </div>
+
             </div>
             <div class="box-body">
                 <div class="small-box">

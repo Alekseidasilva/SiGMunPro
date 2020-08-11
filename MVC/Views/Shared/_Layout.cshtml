@@ -50,7 +50,32 @@
    
      @Scripts.Render("~/Bundles/js")
      @RenderSection("ViewSpecificJavascript", required: false)
- <script src="~/Scripts/toastr.min.js"></script>
+<script src="~/Scripts/toastr.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.5.1.min.js"  charset="utf-8"></script>
+<script type="text/javascript" src="/Scripts/jquery.maskedinput.min.js"></script>
+
+<script type="text/javascript">
+        $(function () {
+            $("#phone").mask("(999) 999-999");
+        });
+
+
+        /*Função para criar nome de usuario baseado no nome completo do Usuario*/
+        function CriarUserName() {
+        
+        let nomeCompleto = $("#NomeCompleto").val();
+        let palavras = nomeCompleto.split(" ");
+        var tamanho = palavras.length;
+            tamanho = tamanho - 1;
+            if (tamanho !== 0) {
+                $("#UserName").val(palavras[0]+'.'+palavras[tamanho]);
+            } else {
+                $("#UserName").val(palavras[0]);
+            }
+        
+    }
+    </script>
  @*}*@
 </body>
 </html>

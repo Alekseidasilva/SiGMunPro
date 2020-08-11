@@ -15,6 +15,12 @@ namespace MVC.Models.Entidades.Usuario
         public virtual string UserName { get; set; }
          [Required]
         public  bool Estado { get; set; }
+
+        //[DisplayName("Contact Phone")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$", ErrorMessage = "o número não é válido")]
+        [Required(ErrorMessage = "introduza o nº telefone")]
+        public virtual string PhoneNumber { get; set; }
         public DateTime DataCadastro { get; set; }
 
         [Required]

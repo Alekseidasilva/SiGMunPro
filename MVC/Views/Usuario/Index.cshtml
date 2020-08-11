@@ -24,12 +24,12 @@
                             <div class="small-box bg-aqua-gradient">
                                 <div class="inner">
                                     @{
-                                        char[] delimitador = {' '};
+                                        char[] delimitador = { ' ' };
                                         string[] pedacos = item.NomeCompleto.Split(delimitador);
                                         int tamanho = pedacos.Length;
                                         int res = tamanho - 2;
                                     }
-                                    <h2>@pedacos.First()        @if (pedacos.Last() != pedacos.First()){@pedacos.Last();}</h2>
+                                    <h2>@pedacos.First()        @if (pedacos.Last() != pedacos.First()) {@pedacos.Last(); }</h2>
                                     <p><b>Login:</b> @item.UserName</p>
                                     <p> <b>@item.Email</b><small> </small></p>
                                     <p><b>Telefone:</b> @item.PhoneNumber</p>
@@ -38,18 +38,21 @@
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                @foreach (var profile in(List<Role>)ViewData["Profile"])
+                                @foreach (var profile in (List<Role>)ViewData["Profile"])
                                 {
-                                    if (item.PerfilId==profile.Id)
+                                    if (item.PerfilId == profile.Id)
                                     {
                                         <a href="#" class="small-box-footer">@profile.Name.ToUpper() <i class="fa fa-arrow-circle-right"></i></a>
                                     }
-                                  
+
                                 }
-                                <div class="divider">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Alterar","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})&nbsp;&nbsp;
-                              
-                                    <button class="btn-outline btn-sm bg-red-gradient" onclick="ExcluirUsuario('@item.Id','@item.UserName')"><i class="fa fa-trash"></i> Excluir</button>
+                                <div class="center">  
+                                   <ul class="nav nav-justified">
+                                      @*<li><a href="@Html.ActionLink("Detalhes","Detalhes",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})">informações </a></li>*@
+                                   <li> <a itemid="1"  id="@item.Id" href="@Url.Action("Detalhes")">  Info</a></li>
+                                   </ul>
+
+                                    @*@Html.ActionLink("Detalhes","Detalhes",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})*@  
                                 </div>
                               
                             </div>
