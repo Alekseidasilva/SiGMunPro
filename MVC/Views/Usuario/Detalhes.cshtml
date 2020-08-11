@@ -1,4 +1,5 @@
-﻿@model MVC.Models.Entidades.Usuario.User
+﻿@using MVC.Models.Entidades.Perfils
+@model MVC.Models.Entidades.Usuario.User
 
 @{
     ViewBag.Title = "Detalhes";
@@ -9,29 +10,59 @@
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-black">
+            <div class="widget-user-header bg-blue">
               <div class="widget-user-image">
-                <img class="img-circle" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
+                <img class="img-circle" src="~/Imagens/user_128px.png" alt="User Avatar">
               </div>
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username">@Model.NomeCompleto</h3>
-              <h5 class="widget-user-desc">@Model.PerfilId</h5>
+                 @foreach (var profile in (List<Role>)ViewData["Profile"])
+                 {
+                    if (Model.PerfilId == profile.Id)
+                      {
+                       <h5 class="widget-user-desc">@profile.Name</h5>
+                      }
+                 }             
             </div>
             <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
-                <li><a href="#">Projects <span class="pull-right badge bg-blue">31</span></a></li>
-                <li><a href="#">Tasks <span class="pull-right badge bg-aqua">5</span></a></li>
-                <li><a href="#">Completed Projects <span class="pull-right badge bg-green">12</span></a></li>
-                <li><a href="#">Followers <span class="pull-right badge bg-red">842</span></a></li>
-                <li><a href="#">Followers <span class="pull-right badge bg-red">842</span></a></li>
-                <li><a href="#">Followers <span class="pull-right badge bg-red">842</span></a></li>
+                <li><a href="#">Nome de Utilizador <span class="pull-right badge bg-blue">@Model.UserName</span></a></li>
+                <li><a href="#">Email <span class="pull-right badge bg-aqua">@Model.Email</span></a></li>
+                <li><a href="#">Telefone <span class="pull-right badge bg-white">@Model.PhoneNumber</span></a></li>
+                  @if(Model.Estado)
+                  {
+                      <li><a href="#">Estado <span class="pull-right badge bg-green-gradient">Ativo</span></a></li>
+                  }                
+                else
+                  {
+                  <li><a href="#">Estado <span class="pull-right badge bg-red">Inativo</span></a></li>
+                  }
+                <li><a href="#">Data Cadastro <span class="pull-right badge bg-white">@Model.DataCadastro.ToShortDateString()</span></a></li>
+                <li><a href="#">Cadastrado Por <span class="pull-right badge bg-white">842</span></a></li>
               </ul>
             </div>
               <div class="footer">
-                @Html.ActionLink("Alterar","Alterar","", htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})
-                              
-               <button class="btn-outline btn-sm bg-red-gradient" ><i class="fa fa-trash"></i> Excluir</button>
+                  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-sm btn-warning" id="@Model.Id" itemid="2" onclick="location.href='@Url.Action("Alterar")'"><i class="glyphicon glyphicon-pencil"></i> Editar</button>
+                  <button class="btn btn-sm btn-success"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+                  <button class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i> Excluir</button>                                 
+            
+
+
+                  @*@Html.ActionLink("Alterar","Alterar",new {Model.Id}, htmlAttributes:new {@class="btn btn-sm btn-warning",})*@
               </div>
           </div>
           <!-- /.widget-user -->
         </div>
+
+<script>
+    function Editar(id)
+    {
+         
+        //XMLHTTPRequest
+        var xhr = new XMLHttpRequest();
+        var url = `/Usuario/Excluir/${id}`;      
+        
+        xhr.open('get', url);
+        xhr.send();
+</script>

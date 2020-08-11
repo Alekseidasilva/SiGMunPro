@@ -111,8 +111,7 @@ namespace MVC.Controllers
         public ActionResult Detalhes(int id)
         {
             var user = _usuario.BuscarPorId(id);
-            var perfis = perfil.SelecionarTodos();
-            ViewBag.perfil = new SelectList(perfis, "Id", "Name");
+            ViewData["Profile"]=new List<Role>(perfil.SelecionarTodos());
             if (user is null)
             {
                 return HttpNotFound();

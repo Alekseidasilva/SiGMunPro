@@ -5777,6 +5777,7 @@
     <Content Include="Extras\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Imagens\user_128px.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -6659,7 +6660,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagens\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Extras\bower_components\moment\moment.d.ts" />

@@ -46,12 +46,8 @@
                                     }
 
                                 }
-                                <div class="center">  
-                                   <ul class="nav nav-justified">
-                                      @*<li><a href="@Html.ActionLink("Detalhes","Detalhes",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})">informações </a></li>*@
-                                   <li> <a itemid="1"  id="@item.Id" href="@Url.Action("Detalhes")">  Info</a></li>
-                                   </ul>
-
+                                <div class="center">                                  
+                                    <button class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-info-sign"></i> Info</button>
                                     @*@Html.ActionLink("Detalhes","Detalhes",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})*@  
                                 </div>
                               
