@@ -46,9 +46,10 @@
                                     }
 
                                 }
-                                <div class="center">                                  
-                                    <button class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-info-sign"></i> Info</button>
-                                    @*@Html.ActionLink("Detalhes","Detalhes",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})*@  
+                                <div class="center">
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @Html.ActionLink("Info", "Detalhes", new {@item.Id}, htmlAttributes: new {@class = "btn btn-sm btn-warning glyphicon glyphicon-pencil"})
                                 </div>
                               
                             </div>
@@ -83,10 +84,15 @@
                                     }
                                   
                                 }
-                                <div class="divider">
+                                
+                                <div class="center">
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @Html.ActionLink("Info", "Detalhes", new {@item.Id}, htmlAttributes: new {@class = "btn btn-warning glyphicon glyphicon-pencil"})
+                                </div>
+                                @*<div class="divider">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Alterar","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})&nbsp;&nbsp;
                                     <button class="btn-outline btn-sm bg-red-gradient" onclick="ExcluirUsuario('@item.Id','@item.UserName')"><i class="fa fa-trash-o"></i> Excluir</button>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                        

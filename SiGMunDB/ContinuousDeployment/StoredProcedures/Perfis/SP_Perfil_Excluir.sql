@@ -2,5 +2,8 @@
 	@Id int	
 AS	
 BEGIN
-    SELECT Id,Name,Estado,DataCadastro FROM dbo.TB_Perfil
+SELECT Name AS retorno FROM dbo.TB_Perfil   where Id=@Id	
+delete from dbo.TB_Perfil where Id=@Id
+   
+   
 END

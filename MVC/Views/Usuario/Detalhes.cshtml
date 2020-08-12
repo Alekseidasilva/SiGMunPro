@@ -43,26 +43,11 @@
             </div>
               <div class="footer">
                   &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
-                  <button class="btn btn-sm btn-warning" id="@Model.Id" itemid="2" onclick="location.href='@Url.Action("Alterar")'"><i class="glyphicon glyphicon-pencil"></i> Editar</button>
-                  <button class="btn btn-sm btn-success"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
-                  <button class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i> Excluir</button>                                 
-            
-
-
-                  @*@Html.ActionLink("Alterar","Alterar",new {Model.Id}, htmlAttributes:new {@class="btn btn-sm btn-warning",})*@
-              </div>
+                  @Html.ActionLink("Editar", "Alterar", new {Model.Id}, htmlAttributes: new {@class = "btn btn-sm btn-warning glyphicon glyphicon-pencil"})
+                   @Html.ActionLink("Imprimir", "#", new {Model.Id}, htmlAttributes: new {@class = "btn btn-sm btn-success glyphicon glyphicon-print"})
+                   @Html.ActionLink("Excluir", "Excluir", new {Model.Id}, htmlAttributes: new {@class = "btn btn-sm btn-danger glyphicon glyphicon-trash"})
+             </div>
           </div>
           <!-- /.widget-user -->
         </div>
 
-<script>
-    function Editar(id)
-    {
-         
-        //XMLHTTPRequest
-        var xhr = new XMLHttpRequest();
-        var url = `/Usuario/Excluir/${id}`;      
-        
-        xhr.open('get', url);
-        xhr.send();
-</script>

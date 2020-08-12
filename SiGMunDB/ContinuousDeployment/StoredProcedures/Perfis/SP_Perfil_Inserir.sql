@@ -8,4 +8,5 @@ AS
 BEGIN
     INSERT dbo.TB_Perfil(Name,Estado,DataCadastro)
     VALUES (@Name,@Estado,@DataCadastro)
+    SELECT @Name as retorno
 END

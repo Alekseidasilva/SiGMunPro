@@ -12,27 +12,115 @@ namespace MVC.Models.Contratos.Repositorios
         Conexao _conexao=new Conexao();
         public string Cadastrar(Role entidade)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Name", entidade.Name);
+                _conexao.AdicionarParametros("@Estado", entidade.Estado);
+                 _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
+                 string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Perfil_Inserir").ToString();
+                return res;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
+
+        
 
         public string Alterar(Role entidade)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+                 _conexao.AdicionarParametros("@Id", entidade.Id);
+                _conexao.AdicionarParametros("@Name", entidade.Name);
+                _conexao.AdicionarParametros("@Estado", entidade.Estado);
+                _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
+                string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Perfil_Alterar").ToString();
+                return res;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public string Excluir(int id)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Id", id);
+                string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Perfil_Excluir").ToString();
+                return res;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public Role BuscarPorId(int id)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Id",id);
+                DataTable res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Perfil_BuscarPorId");
+                var perfils=new Role();
+                foreach (DataRow item in res.Rows)
+                {
+                    Role role = new Role
+                    {
+                        Id = Convert.ToInt32(item["Id"]),
+                        Name = Convert.ToString(item["Name"]),
+                        Estado = Convert.ToBoolean(item["Estado"]),
+                        DataCadastro = Convert.ToDateTime(item["DataCadastro"])
+                    };
+                    perfils = role;
+                }
+
+                return perfils;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+
+            }
         }
 
         public List<Role> BuscarPorNome(string nome)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Name", nome);
+                DataTable res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Perfil_BuscarPorNome");
+                List<Role> roles = new List<Role>();
+                foreach (DataRow item in res.Rows)
+                {
+                    Role role = new Role
+                    {
+                        Id = Convert.ToInt32(item["Id"]),
+                        Name = Convert.ToString(item["Name"]),
+                        Estado = Convert.ToBoolean(item["Estado"]),
+                        DataCadastro = Convert.ToDateTime(item["DataCadastro"])
+                    };
+                    roles.Add(role);
+                }
+                return roles;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public List<Role> SelecionarTodos()
@@ -50,7 +138,6 @@ namespace MVC.Models.Contratos.Repositorios
                        Name = Convert.ToString(item["Name"]),
                        Estado = Convert.ToBoolean(item["Estado"]),
                        DataCadastro = Convert.ToDateTime(item["DataCadastro"]),
-                       
                    };
                    roles.Add(role);
                }

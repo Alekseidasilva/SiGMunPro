@@ -4,7 +4,120 @@
     ViewBag.Title = "Perfis de Usuário";
 }
 
-<h2>Index</h2>
+<div class="inner">
+    <a class="btn bg-gray-active" href="@Url.Action("Cadastrar")"><i class="fa fa-2x fa-user-plus"></i> Cadastrar</a>
+</div>
+<p></p>
+<div class="box box-info">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+      
+                @foreach (var iten in Model)
+                {
+
+                    <div class="col-md-4">
+                        <!-- Widget: user widget style 1 -->
+                        <div class="box box-widget widget-user-2">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header bg-light-blue-active">
+                                <div class="widget-user-image">
+                                    <img class="img-circle" src="~/Imagens/profile_128px1.png" alt="User Avatar">
+                                </div>
+                                <!-- /.widget-user-image -->
+                                <h3 class="widget-user-username">@iten.Name</h3>
+                                <h5 class="widget-user-desc">Outros</h5>
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    <li><a href="#">Permissões <span class="pull-right badge bg-blue">15</span></a></li>
+                                    @if (iten.Estado)
+                                    {
+                                        <li><a href="#">Estado <span class="pull-right badge bg-green-gradient">Ativado</span></a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#">Estado <span class="pull-right badge bg-red-gradient">Desativado</span></a></li>
+                                    }
+                             
+
+                                    <li><a href="#">Usuários Ativos <span class="pull-right badge bg-green-gradient">1</span></a></li>
+                                    <li><a href="#">Usuários Inativo <span class="pull-right badge bg-red-gradient">2</span></a></li>
+                                    <li><a href="#">Data Cadastro <span class="pull-right badge bg-white">@iten.DataCadastro.ToShortDateString()</span></a></li>
+                                    <li><a href="#"><span class="pull-right badge bg-white"></span></a></li>
+                                    &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+                                    @Html.ActionLink("Editar", "Alterar", new {iten.Id}, htmlAttributes: new {@class = "btn btn-sm btn-warning glyphicon glyphicon-pencil"})
+                                    @Html.ActionLink("Imprimir", "#", new {iten.Id}, htmlAttributes: new {@class = "btn btn-sm btn-success glyphicon glyphicon-print"})
+                                    @Html.ActionLink("Excluir", "Excluir", new {iten.Id}, htmlAttributes: new {@class = "btn btn-sm btn-danger glyphicon glyphicon-trash"})
+                                </ul>
+                            </div>
+              
+                        </div>
+                        <!-- /.widget-user -->
+                    </div>
+
+                }
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -42,4 +155,4 @@
     </tr>
 }
 
-</table>
+</table>*@
