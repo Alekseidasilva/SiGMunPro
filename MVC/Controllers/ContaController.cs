@@ -6,10 +6,10 @@ using MVC.Models.Entidades.Usuario;
 
 namespace MVC.Controllers
 {
-   
+  
     public class ContaController : Controller
     {
-
+         
         
         // GET: Conta
 
@@ -27,10 +27,12 @@ namespace MVC.Controllers
                 if (VerificarUsuario(userLogin.Email,userLogin.Senha))
                 {
                     FormsAuthentication.SetAuthCookie(userLogin.Email, false);
+                    
                     if (userLogin.ReturnUrl != null)
                     {
                         return Redirect(userLogin.ReturnUrl);
                     }
+
                     return RedirectToAction("Dashboard", "Home");
                 }
                 else
@@ -52,11 +54,15 @@ namespace MVC.Controllers
         private bool VerificarUsuario(string login, string senha)
         {
            string senhaCriptografada=Criptografar(senha);
-            RepUsuario repUsuario=new RepUsuario();
+           RepUsuario repUsuario=new RepUsuario();
           
              User user=repUsuario.Login(login, senhaCriptografada);
-             if (login == user.Email && senha == user.PasswordHash)
-                 return true;
+             if (login == user.Email && senhaCriptografada == user.PasswordHash)
+             {
+                repUsuario.SessaoUsuario(login,senhaCriptografada);
+                return true;
+             }
+                 
              else
                  return false;
 

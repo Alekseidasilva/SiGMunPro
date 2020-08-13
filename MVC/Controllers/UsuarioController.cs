@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using MVC.helpers;
 using MVC.Models.Contratos.Repositorios;
 using MVC.Models.Entidades.Perfils;
 using MVC.Models.Entidades.Usuario;
+using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 
 namespace MVC.Controllers
 {
-     //[Authorize]
+    [Authorize]
     public class UsuarioController : Controller
     {
         readonly RepUsuario _usuario=new RepUsuario();
@@ -26,7 +26,7 @@ namespace MVC.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            var perfis = perfil.SelecionarTodos();
+            var perfis = perfil.SelecionarTodosActivos();
             ViewBag.perfil = new SelectList(perfis, "Id", "Name");
             return View();
         }
@@ -39,7 +39,15 @@ namespace MVC.Controllers
                 user.NomeCompleto = Usuario.NomeCompleto;
                 user.UserName = Usuario.UserName;
                 user.Email = Usuario.Email;
-                user.PasswordHash = Criptografar("000000");
+                if (Usuario.PasswordHash==null)
+                {
+                    user.PasswordHash = Criptografar("000000");
+                }
+                else
+                {
+                    user.PasswordHash = Criptografar(Usuario.PasswordHash);
+                }
+                
                 user.PhoneNumber = Usuario.PhoneNumber;
                 user.DataCadastro = DateTime.Now;
                 user.Estado = Usuario.Estado;
@@ -119,10 +127,23 @@ namespace MVC.Controllers
             return View(user);
         }
 
+        public ActionResult TrocarSenha(string senhaActual, string NovaSenha)
+        {
+            
+            return View();
+        }
 
 
+        private bool VerificarSenha(string UserName, string senha)
+        {
+           var res= _usuario.Login(UserName, senha);
+           if (res != null)
+           {
+               return true;
+           }
 
-
+           return false;
+        }
 
         private string Criptografar(string textoAcriptografar)
         {

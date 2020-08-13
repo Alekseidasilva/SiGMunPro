@@ -150,6 +150,33 @@ namespace MVC.Models.Contratos.Repositorios
                 throw;
             }
         }
+        public List<Role> SelecionarTodosActivos()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                DataTable perfil = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Perfil_CarregarActivos");
+                List<Role> roles = new List<Role>();
+                foreach (DataRow item in perfil.Rows)
+                {
+                    Role role = new Role
+                    {
+                        Id = Convert.ToInt32(item["Id"]),
+                        Name = Convert.ToString(item["Name"]),
+                        Estado = Convert.ToBoolean(item["Estado"]),
+                        DataCadastro = Convert.ToDateTime(item["DataCadastro"]),
+                    };
+                    roles.Add(role);
+                }
+
+                return roles;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
 
         public List<Role> CarregarPorUsuario(int userId)
         {

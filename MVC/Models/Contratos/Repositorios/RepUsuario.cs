@@ -4,6 +4,7 @@ using MVC.Models.Entidades.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using MVC.helpers;
 
 namespace MVC.Models.Contratos.Repositorios
 {
@@ -154,12 +155,26 @@ namespace MVC.Models.Contratos.Repositorios
                 Console.WriteLine(e);
                 throw;
             }
-            throw new NotImplementedException();
+           
         }
 
-        public void AlterarSenha(string senhaAntiga, string senhanova, string confirmarSenha)
+        public Boolean AlterarSenha(int id, string senhaAntiga, string senhanova)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Id",id);
+                _conexao.AdicionarParametros("@NovaSenha",senhanova);
+                bool res =Boolean.Parse((_conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_AlterarSenha").ToString()));
+                return res;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            return true;
         }
 
         public List<User> SelecionarTodosComPerfilId()
@@ -219,6 +234,41 @@ namespace MVC.Models.Contratos.Repositorios
                 }
 
                 return users;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public void SessaoUsuario(string email, string senha)
+        {
+            SessaoUsuario sessao = new helpers.SessaoUsuario();
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Email", email);
+                _conexao.AdicionarParametros("@Senha", senha);
+                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_Sessao");
+                foreach (DataRow item in users.Rows)
+                {
+                    helpers.SessaoUsuario.Id = Convert.ToInt32(item["Id"]);
+                    helpers.SessaoUsuario.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
+                     helpers.SessaoUsuario.Estado = Convert.ToBoolean(item["Estado"]);
+                     helpers.SessaoUsuario.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
+                    helpers.SessaoUsuario.Email = Convert.ToString(item["Email"]);
+                    helpers.SessaoUsuario.EmailConfirmed = Convert.ToBoolean(item["EmailConfirmed"]);
+                    helpers.SessaoUsuario.PhoneNumber = Convert.ToString(item["PhoneNumber"]);
+                    helpers.SessaoUsuario.PhoneNumberConfirmed = Convert.ToBoolean(item["PhoneNumberConfirmed"]);
+                    helpers.SessaoUsuario.TwoFactorEnabled = Convert.ToBoolean(item["TwoFactorEnabled"]);
+                    helpers.SessaoUsuario.LockoutEndDateUtc = Convert.ToDateTime(item["LockoutEndDateUtc"]);
+                    helpers.SessaoUsuario.LockoutEnabled = Convert.ToBoolean(item["LockoutEnabled"]);
+                    helpers.SessaoUsuario.AccessFailedCount = Convert.ToInt32(item["AccessFailedCount"]);
+                    helpers.SessaoUsuario.UserName = Convert.ToString(item["UserName"]);
+                    helpers.SessaoUsuario.PerfilId = Convert.ToInt32(item["PerfilId"]);
+                    helpers.SessaoUsuario.PerfilNome = Convert.ToString(item["PerfilNome"]);
+                }
             }
             catch (Exception e)
             {

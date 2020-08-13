@@ -6518,6 +6518,7 @@
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="helpers\Criptografia.cs" />
+    <Compile Include="helpers\SessaoUsuario.cs" />
     <Compile Include="Migrations\202007172315520_initialize.cs" />
     <Compile Include="Migrations\202007172315520_initialize.Designer.cs">
       <DependentUpon>202007172315520_initialize.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MVC.Models.Entidades.Usuario;
 using System.Data;
 
@@ -8,7 +9,7 @@ namespace MVC.Models.Contratos.Interfaces
     {
         DataTable BuscarPorEmail(string email);
         User Login(string email, string senha);
-        void AlterarSenha(string senhaAntiga, string senhanova, string confirmarSenha);
+        Boolean AlterarSenha(int id,string senhaAntiga, string senhanova );
         List<User> SelecionarTodosComPerfilId();
 
     }

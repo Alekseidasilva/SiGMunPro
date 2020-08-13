@@ -1,4 +1,5 @@
-﻿<header class="main-header">
+﻿@using MVC.helpers
+<header class="main-header">
     @* BEGIN Logo *@
     <a href="@Url.Action("Dashboard", "Home")" class="logo">
         @* Mini logo for sidebar 50x50 pixels *@
@@ -106,8 +107,9 @@
                             <img src="~/Content/img/user.jpg" class="img-circle" alt="User Image">
 
                             <p>
-                                @User.Identity.Name - Gerente
-                                <small>Member since Nov. 2012</small>
+                               <strong>@User.Identity.Name</strong>
+                                <small>@SessaoUsuario.PerfilNome.ToUpper()</small>
+                                <small>@SessaoUsuario.DataCadastro.ToShortDateString()</small>
                             </p>
                         </li>
                         <li class="user-body">
@@ -125,7 +127,8 @@
                         </li>
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                              
+                                @Html.ActionLink("Perfil", "Detalhes", "Usuario",new {SessaoUsuario.Id}, htmlAttributes: new {@class = "btn btn-default btn-flat"})
                             </div>
                             <div class="pull-right">
                                  <a href="@Url.Action("TerminarSessao","Conta")" class="btn btn-default btn-flat">Terminar Sessão</a>
