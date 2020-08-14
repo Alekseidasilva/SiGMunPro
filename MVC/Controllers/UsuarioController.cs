@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace MVC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "ADMINISTRADOR")]
     public class UsuarioController : Controller
     {
         readonly RepUsuario _usuario=new RepUsuario();
@@ -47,7 +47,6 @@ namespace MVC.Controllers
                 {
                     user.PasswordHash = Criptografar(Usuario.PasswordHash);
                 }
-                
                 user.PhoneNumber = Usuario.PhoneNumber;
                 user.DataCadastro = DateTime.Now;
                 user.Estado = Usuario.Estado;
@@ -61,9 +60,8 @@ namespace MVC.Controllers
                 user.LockoutEndDateUtc = DateTime.Now;
                 user.AccessFailedCount = 0;
                 string res = _usuario.Cadastrar(user);
-                 return RedirectToAction("Index","Usuario");
-                    
-                }
+                return RedirectToAction("Index","Usuario");
+            }
             ModelState.AddModelError("X","Erro");
             return RedirectToAction("Cadastrar");
         }
@@ -77,20 +75,20 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Alterar(User Usuario)
+        public ActionResult Alterar(User usuario)
         {
             if (ModelState.IsValid)
             {
                 User user = new User();
-                user.Id = Usuario.Id;
-                user.NomeCompleto = Usuario.NomeCompleto;
-                user.UserName = Usuario.UserName;
-                user.Email = Usuario.Email;
+                user.Id = usuario.Id;
+                user.NomeCompleto = usuario.NomeCompleto;
+                user.UserName = usuario.UserName;
+                user.Email = usuario.Email;
                 user.PasswordHash = Criptografar("000000");
-                user.PhoneNumber = Usuario.PhoneNumber;
+                user.PhoneNumber = usuario.PhoneNumber;
                 user.DataCadastro = DateTime.Now;
-                user.Estado = Usuario.Estado;
-                user.PerfilId = Usuario.PerfilId;
+                user.Estado = usuario.Estado;
+                user.PerfilId = usuario.PerfilId;
 
                 user.EmailConfirmed = false;
                 user.SecurityStamp = "";

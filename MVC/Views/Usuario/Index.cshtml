@@ -16,91 +16,51 @@
             <div class="row">
                 @foreach (var item in Model)
                 {
-                    if (item.Estado)
-                    {
-
-                        <div class="col-lg-3">
-                            <!-- small box -->
-                            <div class="small-box bg-aqua-gradient">
-                                <div class="inner">
-                                    @{
-                                        char[] delimitador = { ' ' };
-                                        string[] pedacos = item.NomeCompleto.Split(delimitador);
-                                        int tamanho = pedacos.Length;
-                                        int res = tamanho - 2;
-                                    }
-                                    <h2>@pedacos.First()        @if (pedacos.Last() != pedacos.First()) {@pedacos.Last(); }</h2>
-                                    <p><b>Login:</b> @item.UserName</p>
-                                    <p> <b>@item.Email</b><small> </small></p>
-                                    <p><b>Telefone:</b> @item.PhoneNumber</p>
-                                    <p><b>Cadastrado aos:</b> @item.DataCadastro.ToShortDateString()</p>
+                    <div class="col-md-4">
+                        <!-- Widget: user widget style 1 -->
+                        <div class="box box-widget widget-user-2">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header bg-light-blue-active">
+                                <div class="widget-user-image">
+                                    <img class="img-circle" src="~/Imagens/male_user_128px.png" alt="User Avatar">
                                 </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                @foreach (var profile in (List<Role>)ViewData["Profile"])
-                                {
-                                    if (item.PerfilId == profile.Id)
-                                    {
-                                        <a href="#" class="small-box-footer">@profile.Name.ToUpper() <i class="fa fa-arrow-circle-right"></i></a>
-                                    }
-
-                                }
-                                <div class="center">
-                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    @Html.ActionLink("Info", "Detalhes", new {@item.Id}, htmlAttributes: new {@class = "btn btn-sm btn-warning glyphicon glyphicon-pencil"})
-                                </div>
-                              
-                            </div>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="col-lg-3">
-                            <!-- small box -->
-                            <div class="small-box bg-red-gradient">
-                                <div class="inner">
-                                    @{
-                                        char[] delimitador = {' '};
-                                        string[] pedacos = item.NomeCompleto.Split(delimitador);
-                                        int tamanho = pedacos.Length;
-                                        int res = tamanho - 2;
-                                    }
-                                    <h2>@pedacos.First()        @if (pedacos.Last() != pedacos.First()){@pedacos.Last();}</h2>
-                                    <p><b>Login:</b> @item.UserName</p>
-                                    <p> <b>@item.Email</b><small> </small></p>
-                                    <p><b>Telefone:</b> @item.PhoneNumber</p>
-                                    <p><b>Cadastrado aos:</b> @item.DataCadastro.ToShortDateString()</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                @foreach (var profile in(List<Role>)ViewData["Profile"])
+                                <!-- /.widget-user-image -->
+                                <h3 class="widget-user-username">@item.NomeCompleto</h3>
+                                 @foreach (var profile in(List<Role>)ViewData["Profile"])
                                 {
                                     if (item.PerfilId==profile.Id)
-                                    {
-                                        <a href="#" class="small-box-footer">@profile.Name.ToUpper() <i class="fa fa-arrow-circle-right"></i></a>
-                                    }
-                                  
+                                    {<h5 class="widget-user-desc">@profile.Name.ToUpper()</h5>}
                                 }
                                 
-                                <div class="center">
-                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    @Html.ActionLink("Info", "Detalhes", new {@item.Id}, htmlAttributes: new {@class = "btn btn-warning glyphicon glyphicon-pencil"})
-                                </div>
-                                @*<div class="divider">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Alterar","Alterar",new {@item.Id}, htmlAttributes:new {@class="btn-outline btn-sm bg-yellow-gradient"})&nbsp;&nbsp;
-                                    <button class="btn-outline btn-sm bg-red-gradient" onclick="ExcluirUsuario('@item.Id','@item.UserName')"><i class="fa fa-trash-o"></i> Excluir</button>
-                                </div>*@
                             </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    <li><a href="#">Apelido <span class="pull-right badge bg-blue">@item.UserName</span></a></li>
+                                    <li><a href="#">Email <span class="pull-right badge bg-blue">@item.Email</span></a></li>
+                                    <li><a href="#">Telefone <span class="pull-right badge bg-white">@item.PhoneNumber</span></a></li>
+                                    @if (item.Estado)
+                                    {
+                                        <li><a href="#">Estado <span class="pull-right badge bg-green-gradient">Ativado</span></a></li>
+                                    }else
+                                    {
+                                        <li><a href="#">Estado <span class="pull-right badge bg-red-gradient">Desativado</span></a></li>
+                                    }
+
+                                    <li><a href="#">Data Cadastro <span class="pull-right badge bg-white">@item.DataCadastro.ToShortDateString()</span></a></li>
+                                    <li><a href="#"><span class="pull-right badge bg-white"></span></a></li>
+                                    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                    @Html.ActionLink("Editar", "Alterar", new {item.Id}, htmlAttributes: new {@class = "btn btn-sm btn-warning glyphicon glyphicon-pencil"})
+                                    @Html.ActionLink("Imprimir", "#", new {item.Id}, htmlAttributes: new {@class = "btn btn-sm btn-success glyphicon glyphicon-print"})
+                                    @Html.ActionLink("Excluir", "Excluir", new {item.Id}, htmlAttributes: new {@class = "btn btn-sm btn-danger glyphicon glyphicon-trash"})
+                                </ul>
+                            </div>
+              
                         </div>
-                       
-                    }
+                        <!-- /.widget-user -->
+                    </div>
                 }
                 <!-- right col -->
             </div>
-        
             <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
     </section>
@@ -165,7 +125,7 @@
 
     function ConfirmarExclusao()
     {
-         var _id = $('#modal-danger').data('id');
+        var _id = $('#modal-danger').data('id');
         //XMLHTTPRequest
         var xhr = new XMLHttpRequest();
         var url = `/Usuario/Excluir/${_id}`;
@@ -185,7 +145,6 @@
                     tr.remove();
                 }
                 alert('Usuário excluido com sucesso!');
-               
             }
         }
         xhr.open('get', url);
@@ -193,3 +152,19 @@
 
     }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      
+    

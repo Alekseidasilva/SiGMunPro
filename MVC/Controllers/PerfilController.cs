@@ -5,6 +5,7 @@ using MVC.Models.Entidades.Perfils;
 
 namespace MVC.Controllers
 {
+    [Authorize(Roles = "ADMINISTRADOR")]
     public class PerfilController : Controller
     {
         private readonly RepPerfil _perfil = new RepPerfil();
@@ -12,6 +13,7 @@ namespace MVC.Controllers
         public ActionResult Index()
         {
             var perfis = _perfil.SelecionarTodos();
+            
             return View(perfis);
         }
 
@@ -52,8 +54,7 @@ namespace MVC.Controllers
                     {
                         Id =role.Id,
                         Name = role.Name,
-                        Estado = role.Estado,
-                        DataCadastro = role.DataCadastro
+                        Estado = role.Estado
                     };
                     string res = _perfil.Alterar(rolesRole);
                     return RedirectToAction("Index");

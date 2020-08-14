@@ -149,7 +149,7 @@ GO
 
 
 -------------------------Inserir Perfil------------------------------------
-EXEC SP_Perfil_Inserir @Name = 'Admin',@Estado = 1,@DataCadastro = '2020-07-14'
+EXEC SP_Perfil_Inserir @Name = 'ADMINISTRADOR',@Estado = 1,@DataCadastro = '2020-07-14'
 GO
 
 ---------------------------Inserir Usuario------------------------------------
@@ -157,17 +157,17 @@ EXEC SP_Usuario_Inserir
  @NomeCompleto = 'Administrador'
 ,@Estado = 1
 ,@DataCadastro = '2020-07-29'
-,@Email = 'alekseidasilva@hotmail.com'
+,@Email = 'admin@hotmail.com'
 ,@EmailConfirmed = 0
-,@PasswordHash = '0000'
+,@PasswordHash = 'tmn9qEShotvDvtwMD8fJ2Q=='
 ,@SecurityStamp = '0'
-,@PhoneNumber = '98520'
+,@PhoneNumber = '00000000'
 ,@PhoneNumberConfirmed =1
 ,@TwoFactorEnabled = 1
 ,@LockoutEndDateUtc = '2020-07-29'
 ,@LockoutEnabled = 1
 ,@AccessFailedCount = 1
-,@UserName = 'Aleksei.Silva'
+,@UserName = 'Admin'
 ,@PerfilId = 1
 GO
 ------------------Estado Civil----------------------------

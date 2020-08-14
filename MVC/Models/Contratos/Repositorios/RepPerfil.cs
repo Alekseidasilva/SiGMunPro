@@ -9,7 +9,7 @@ namespace MVC.Models.Contratos.Repositorios
 {
     public class RepPerfil:IPerfil
     {
-        Conexao _conexao=new Conexao();
+      private  readonly Conexao _conexao=new Conexao();
         public string Cadastrar(Role entidade)
         {
             try
@@ -27,9 +27,6 @@ namespace MVC.Models.Contratos.Repositorios
                 throw;
             }
         }
-
-        
-
         public string Alterar(Role entidade)
         {
             try
@@ -38,7 +35,7 @@ namespace MVC.Models.Contratos.Repositorios
                  _conexao.AdicionarParametros("@Id", entidade.Id);
                 _conexao.AdicionarParametros("@Name", entidade.Name);
                 _conexao.AdicionarParametros("@Estado", entidade.Estado);
-                _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
+
                 string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Perfil_Alterar").ToString();
                 return res;
             }
@@ -48,7 +45,6 @@ namespace MVC.Models.Contratos.Repositorios
                 throw;
             }
         }
-
         public string Excluir(int id)
         {
             try
@@ -64,7 +60,6 @@ namespace MVC.Models.Contratos.Repositorios
                 throw;
             }
         }
-
         public Role BuscarPorId(int id)
         {
             try
@@ -94,7 +89,6 @@ namespace MVC.Models.Contratos.Repositorios
 
             }
         }
-
         public List<Role> BuscarPorNome(string nome)
         {
             try
@@ -122,7 +116,6 @@ namespace MVC.Models.Contratos.Repositorios
                 throw;
             }
         }
-
         public List<Role> SelecionarTodos()
         {
             try
@@ -177,7 +170,6 @@ namespace MVC.Models.Contratos.Repositorios
                 throw;
             }
         }
-
         public List<Role> CarregarPorUsuario(int userId)
         {
             try
@@ -201,6 +193,70 @@ namespace MVC.Models.Contratos.Repositorios
             {
                 Console.WriteLine(e);
                 throw;
+            }
+        }
+        public string BuscarPerfilDoUsuario(string username)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Email", username);
+                var res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_BuscarPerfilDoUsuario");
+                string perfis="";
+                foreach (DataRow item in res.Rows)
+                {
+                    perfis = Convert.ToString(item["Name"]);
+                }
+
+                return perfis;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        public int UsuarioAtivoNoPerfil(int perfilId)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@PerfilId", perfilId);
+                DataTable res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Perfil_UsuarioAtivos");
+                int Qtde = 0;
+                foreach (DataRow item in res.Rows)
+                {
+                    Qtde = Convert.ToInt32(item["Qtde"]);
+                }
+
+                return Qtde;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+
+            }
+        }
+        public int UsuarioInativoNoPerfil(int perfilId)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@PerfilId", perfilId);
+                DataTable res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Perfil_UsuarioInativos");
+                int Qtde = 0;
+                foreach (DataRow item in res.Rows)
+                {
+                    Qtde = Convert.ToInt32(item["Qtde"]);
+                }
+                return Qtde;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+
             }
         }
     }

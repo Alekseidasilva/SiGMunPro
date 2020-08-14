@@ -7,7 +7,8 @@ namespace MVC.Models.Entidades.Usuario
     public class User : IdentityUser<int, UserLogin, UserRole, UserClaim>
     {
          [Required]
-        public string NomeCompleto { get; set; }
+         public string NomeCompleto { get; set; }
+
          [Required(ErrorMessage = "Email requerido")]
          [DataType(DataType.EmailAddress,ErrorMessage = "Email inválido")]
         public virtual string Email { get; set; }
@@ -18,7 +19,6 @@ namespace MVC.Models.Entidades.Usuario
 
         //[DisplayName("Contact Phone")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$", ErrorMessage = "o número não é válido")]
         [Required(ErrorMessage = "introduza o nº telefone")]
         public virtual string PhoneNumber { get; set; }
         public DateTime DataCadastro { get; set; }

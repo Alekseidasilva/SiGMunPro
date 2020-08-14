@@ -7,7 +7,7 @@
 }
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+    @Html.ValidationSummary(true)
     <section class="col-lg-7 connectedSortable">
         <div class="box box-info">
             <div class="box-header">
@@ -18,58 +18,58 @@
                 <div class="small-box">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                        @Html.EditorFor(model => model.NomeCompleto, new {htmlAttributes = new {@class = "form-control", PlaceHolder = "Nome Completo" }})
-                        <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new {@class = "text-danger"})</small>
+                        @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Nome Completo" } })
+                        <small>@Html.ValidationMessageFor(model => model.NomeCompleto, "", new { @class = "text-danger" })</small>
                     </div>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    @Html.EditorFor(model => model.UserName, new {htmlAttributes = new {@class = "form-control", PlaceHolder = "Login de Usuário"}})
-                    <small>@Html.ValidationMessageFor(model => model.UserName, "", new {@class = "text-danger"})</small>
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Login de Usuário" } })
+                    <small>@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })</small>
                     <span class="input-group-btn">
                         <button onclick="CriarUserName()" id="btnCriar" type="button" class="btn btn-default btn-flat">Criar</button>
                     </span>
                 </div>
 
-                
+
 
             </div>
             <div class="box-body">
                 <div class="small-box">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control inactive", PlaceHolder = "Email"}})
-                        <small>@Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})</small>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control inactive", PlaceHolder = "Email" } })
+                        <small>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</small>
                     </div>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
-                    @Html.EditorFor(model => model.PasswordHash, new {htmlAttributes = new {@class = "form-control", PlaceHolder = "Senha padrão é :000000"}})
-                    <small>@Html.ValidationMessageFor(model => model.PasswordHash, "", new {@class = "text-danger"})</small>
+                    @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Senha padrão é :000000" } })
+                    <small>@Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })</small>
                 </div>
             </div>
             <div class="box-body">
-                
+
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                    @Html.EditorFor(model => model.PhoneNumber, new {htmlAttributes = new {@class = "form-control", PlaceHolder = "Telefone", @id="phone"}})
-                    <small>@Html.ValidationMessageFor(model => model.PhoneNumber, "", new {@class = "text-danger"})</small>
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Telefone", @id = "phone" } })
+                    <small>@Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })</small>
                 </div>
             </div>
             <div class="box-body">
                 <div class="input-group">
                     <label>Perfil </label>
-                    @Html.DropDownListFor(model => model.PerfilId, new List<SelectListItem>(ViewBag.perfil), "Selecione o Perfil", htmlAttributes: new {@class = ""})
-                    <small>@Html.ValidationMessageFor(model => model.PerfilId, "", new {@class = "text-danger"})</small>
+                    @Html.DropDownListFor(model => model.PerfilId, new List<SelectListItem>(ViewBag.perfil), "Selecione o Perfil", htmlAttributes: new { @class = "" })
+                    <small>@Html.ValidationMessageFor(model => model.PerfilId, "", new { @class = "text-danger" })</small>
 
 
-                    
+
                     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                     <label>Estado</label>
-                    @Html.RadioButtonFor(m => m.Estado, "true", htmlAttributes: new {@class = "icheckbox_flat-green", type = "radio"})&nbsp;Activado
+                    @Html.RadioButtonFor(m => m.Estado, "true", htmlAttributes: new { @class = "icheckbox_flat-green", type = "radio" })&nbsp;Activado
                     @Html.RadioButtonFor(m => m.Estado, "false") Desativado
-                    <small>@Html.ValidationMessageFor(model => model.Estado, "", new {@class = "text-danger"})</small>
+                    <small>@Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })</small>
 
                 </div>
             </div>
@@ -81,15 +81,7 @@
 
     </section>
 }
-<script>
-    //function Alertar() {
-    //    toastr.success('Com sucesso', 'Aviso');
-    //}
+
+   
 
 
-    
-     
-    
-</script>
-
-    

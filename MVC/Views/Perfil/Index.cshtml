@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MVC.Models.Entidades.Perfils.Role>
+﻿@using MVC.Models.Contratos.Repositorios
+@model IEnumerable<MVC.Models.Entidades.Perfils.Role>
 
 @{
     ViewBag.Title = "Perfis de Usuário";
@@ -23,7 +24,7 @@
                             <!-- Add the bg color to the header using any of the bg-* classes -->
                             <div class="widget-user-header bg-light-blue-active">
                                 <div class="widget-user-image">
-                                    <img class="img-circle" src="~/Imagens/profile_128px1.png" alt="User Avatar">
+                                    <img class="img-circle" src="~/Imagens/protect_128px.png" alt="User Avatar">
                                 </div>
                                 <!-- /.widget-user-image -->
                                 <h3 class="widget-user-username">@iten.Name</h3>
@@ -40,10 +41,14 @@
                                     {
                                         <li><a href="#">Estado <span class="pull-right badge bg-red-gradient">Desativado</span></a></li>
                                     }
-                             
-
-                                    <li><a href="#">Usuários Ativos <span class="pull-right badge bg-green-gradient">1</span></a></li>
-                                    <li><a href="#">Usuários Inativo <span class="pull-right badge bg-red-gradient">2</span></a></li>
+                                    @{
+                                        RepPerfil repPerfil=new RepPerfil();
+                                        int a = repPerfil.UsuarioAtivoNoPerfil(@iten.Id);
+                                        int b = repPerfil.UsuarioInativoNoPerfil(@iten.Id);
+                                        <li><a href="#">Usuários Ativos <span class="pull-right badge bg-green-gradient">@a</span></a></li>
+                                        <li><a href="#">Usuários Inativo <span class="pull-right badge bg-red-gradient">@b</span></a></li>
+                                    }
+                                    
                                     <li><a href="#">Data Cadastro <span class="pull-right badge bg-white">@iten.DataCadastro.ToShortDateString()</span></a></li>
                                     <li><a href="#"><span class="pull-right badge bg-white"></span></a></li>
                                     &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;

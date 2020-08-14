@@ -276,5 +276,26 @@ namespace MVC.Models.Contratos.Repositorios
                 throw;
             }
         }
+
+        public int TotalUsuariosCadastrados()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                var Total = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_TotalCadastrado");
+                int nTotal = 0;
+                foreach (DataRow item in Total.Rows)
+                {
+                    nTotal = Convert.ToInt32(item["qtde"]);
+                }
+
+                return nTotal;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
 }

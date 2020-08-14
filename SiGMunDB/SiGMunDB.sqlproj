@@ -135,12 +135,15 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarPorNome.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_PerfilDoUsuario.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Permissoes\SP_Permissao_Inserir.sql" />
-    <None Include="ContinuousDeployment\InsercaoDeDados.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_CarregarTodosComPerfilId.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_BuscarPorId.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_BuscarPorNome.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_CarregarActivos.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Sessao.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_UsuarioAtivos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_UsuarioInativos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_BuscarPerfilDoUsuario.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_TotalCadastrado.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

@@ -5777,10 +5777,10 @@
     <Content Include="Extras\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Imagens\male_user_128px.png" />
     <Content Include="Imagens\profiles_128px.png" />
-    <Content Include="Imagens\profile_128px.png" />
     <Content Include="Imagens\profile_128px1.png" />
-    <Content Include="Imagens\user_128px.png" />
+    <Content Include="Imagens\protect_128px.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -5818,6 +5818,11 @@
     <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="Scripts\jquery.maskedinput.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -6530,6 +6535,7 @@
     <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
     <Compile Include="Models\Entidades\Perfils\Role.cs" />
+    <Compile Include="Models\Entidades\Perfils\UserRoleProvider.cs" />
     <Compile Include="Models\Entidades\Usuario\User.cs" />
     <Compile Include="Models\Entidades\Usuario\UserClaim.cs" />
     <Compile Include="Models\Entidades\Usuario\UserLogin.cs" />
