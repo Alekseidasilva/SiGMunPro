@@ -6510,6 +6510,7 @@
     <Content Include="Views\Usuario\Detalhes.cshtml" />
     <Content Include="Views\Perfil\Cadastrar.cshtml" />
     <Content Include="Views\Perfil\Alterar.cshtml" />
+    <Content Include="Views\Municipe\Listar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -6520,6 +6521,7 @@
   <ItemGroup>
     <Compile Include="Contexto\ApplicationDbContext.cs" />
     <Compile Include="Controllers\ContaController.cs" />
+    <Compile Include="Controllers\MunicipeController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UserRoleProvider.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -6535,6 +6537,8 @@
     <Compile Include="Models\Contratos\Interfaces\IUsuario.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
+    <Compile Include="Models\Entidades\Base.cs" />
+    <Compile Include="Models\Entidades\Municipe\Municipe.cs" />
     <Compile Include="Models\Entidades\Perfils\Role.cs" />
     <Compile Include="Models\Entidades\Usuario\User.cs" />
     <Compile Include="Models\Entidades\Usuario\UserClaim.cs" />

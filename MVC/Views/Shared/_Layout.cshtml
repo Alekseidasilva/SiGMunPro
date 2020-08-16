@@ -17,57 +17,59 @@
 <link href="~/Content/toastr.min.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
- @*@if (User.Identity.IsAuthenticated)
+@*@if (User.Identity.IsAuthenticated)
  {*@
-     <div class="wrapper">
-         @Html.Partial("_Header")
-         @Html.Partial("_Sidebar")
+<div class="wrapper">
+    @Html.Partial("_Header")
+    @Html.Partial("_Sidebar")
 
-         <div class="content-wrapper">
-             <section class="content-header">
-                 <h1>
-                     @ViewBag.Title
-                     <small>@ViewBag.Description</small>
-                 </h1>
-             </section>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                @ViewBag.Title
+                <small>@ViewBag.Description</small>
+            </h1>
+        </section>
 
-             <section class="content">
-                 @RenderBody()
-             </section>
-         </div>
+        <section class="content">
+            @RenderBody()
+        </section>
+    </div>
 
-         @Html.Partial("_ControlSidebar")
-     </div>
+    @Html.Partial("_ControlSidebar")
+</div>
 
-     <script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>
-    <script src="@EnumHandler.HandlerUrl"></script>
+<script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>
+<script src="@EnumHandler.HandlerUrl"></script>
    
-     @Scripts.Render("~/Bundles/js")
-     @RenderSection("ViewSpecificJavascript", required: false)
+@Scripts.Render("~/Bundles/js")
+@RenderSection("ViewSpecificJavascript", required: false)
 <script src="~/Scripts/toastr.min.js"></script>
 <script type="text/javascript" src="~/Scripts/jquery-3.5.1.min.js"  charset="utf-8"></script>
 <script type="text/javascript" src="/Scripts/jquery.maskedinput.min.js"></script>
 <script type="text/javascript">
-        $(function () {
-            $("#phone").mask("(999) 999-999");
-        });
+    $(function () {
+        $("#phone").mask("(999) 999-999");
+    });
 
 
-        /*Função para criar nome de usuario baseado no nome completo do Usuario*/
-        function CriarUserName() {
+    /*Função para criar nome de usuario baseado no nome completo do Usuario*/
+    function CriarUserName() {
         
         let nomeCompleto = $("#NomeCompleto").val();
         let palavras = nomeCompleto.split(" ");
         var tamanho = palavras.length;
-            tamanho = tamanho - 1;
-            if (tamanho !== 0) {
-                $("#UserName").val(palavras[0]+'.'+palavras[tamanho]);
-            } else {
-                $("#UserName").val(palavras[0]);
-            }
+        tamanho = tamanho - 1;
+        if (tamanho !== 0) {
+            $("#UserName").val(palavras[0]+'.'+palavras[tamanho]);
+        } else {
+            $("#UserName").val(palavras[0]);
+        }
         
     }
-    </script>
- @*}*@
+</script>
+@*}*@
+
 </body>
+
 </html>

@@ -151,6 +151,10 @@ GO
 -------------------------Inserir Perfil------------------------------------
 EXEC SP_Perfil_Inserir @Name = 'ADMINISTRADOR',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
 GO
+EXEC SP_Perfil_Inserir @Name = 'CHEFE DEPARTAMENTO',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
+GO
+EXEC SP_Perfil_Inserir @Name = 'NORMAL',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
+GO
 
 ---------------------------Inserir Usuario------------------------------------
 EXEC SP_Usuario_Inserir 

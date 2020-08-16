@@ -107,7 +107,7 @@
                             <img src="~/Content/img/user.jpg" class="img-circle" alt="User Image">
 
                             <p>
-                               <strong>@User.Identity.Name</strong>
+                                <strong>@User.Identity.Name</strong>
                                 <small>@SessaoUsuario.PerfilNome</small>
                                 <small>@SessaoUsuario.DataCadastro.ToShortDateString()</small>
                             </p>
@@ -131,7 +131,7 @@
                                 @Html.ActionLink("Perfil", "Detalhes", "Usuario",new {SessaoUsuario.Id}, htmlAttributes: new {@class = "btn btn-default btn-flat"})
                             </div>
                             <div class="pull-right">
-                                 <a href="@Url.Action("TerminarSessao","Conta")" class="btn btn-default btn-flat">Terminar Sessão</a>
+                                <a href="@Url.Action("TerminarSessao","Conta")" class="btn btn-default btn-flat">Terminar Sessão</a>
                             </div>
                         </li>
                     </ul>
@@ -145,4 +145,6 @@
             </ul>
         </div>
     </nav>
+    
 </header>
+
