@@ -8,7 +8,7 @@ namespace MVC.Models.Contratos.Interfaces
     public interface IUsuario : IBase<User>
     {
         DataTable BuscarPorEmail(string email);
-        User Login(string email, string senha);
+        User Login(string userName, string senha);
         Boolean AlterarSenha(int id,string senhaAntiga, string senhanova );
         List<User> SelecionarTodosComPerfilId();
 

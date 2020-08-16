@@ -128,12 +128,12 @@ namespace MVC.Models.Contratos.Repositorios
             throw new NotImplementedException();
         }
 
-        public User Login(string email, string senha)
+        public User Login(string userName, string senha)
         {
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@Email",email);
+                _conexao.AdicionarParametros("@UserName",userName);
                 _conexao.AdicionarParametros("@Senha",senha);
                 var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_Login");
                 User user=new User();
@@ -242,13 +242,13 @@ namespace MVC.Models.Contratos.Repositorios
             }
         }
 
-        public void SessaoUsuario(string email, string senha)
+        public void SessaoUsuario(string UserName, string senha)
         {
             SessaoUsuario sessao = new helpers.SessaoUsuario();
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@Email", email);
+                _conexao.AdicionarParametros("@UserName", UserName);
                 _conexao.AdicionarParametros("@Senha", senha);
                 var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_Sessao");
                 foreach (DataRow item in users.Rows)

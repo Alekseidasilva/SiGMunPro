@@ -69,7 +69,7 @@ namespace MVC.Controllers
         
         public ActionResult Alterar(int id)
         {
-            var perfis = perfil.SelecionarTodos();
+            var perfis = perfil.SelecionarTodosActivos();
             ViewBag.perfil = new SelectList(perfis, "Id", "Name");
             return View(_usuario.BuscarPorId(id));
         }

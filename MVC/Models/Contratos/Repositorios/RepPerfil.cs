@@ -200,7 +200,7 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@Email", username);
+                _conexao.AdicionarParametros("@UserName", username);
                 var res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_BuscarPerfilDoUsuario");
                 string perfis="";
                 foreach (DataRow item in res.Rows)

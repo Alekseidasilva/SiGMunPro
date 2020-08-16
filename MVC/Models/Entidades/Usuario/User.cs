@@ -26,6 +26,8 @@ namespace MVC.Models.Entidades.Usuario
         [Required]
         public virtual int PerfilId { get; set; }
 
+        public int IdCadastrador { get; set; }
+
 
     }
 }

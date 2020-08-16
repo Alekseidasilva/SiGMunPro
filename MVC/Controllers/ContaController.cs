@@ -50,7 +50,7 @@ namespace MVC.Controllers
            RepUsuario repUsuario=new RepUsuario();
           
              User user=repUsuario.Login(login, senhaCriptografada);
-             if (login == user.Email && senhaCriptografada == user.PasswordHash)
+             if (login == user.UserName && senhaCriptografada == user.PasswordHash)
              {
                 repUsuario.SessaoUsuario(login,senhaCriptografada);
                 return true;

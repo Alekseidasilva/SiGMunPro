@@ -6521,6 +6521,7 @@
     <Compile Include="Contexto\ApplicationDbContext.cs" />
     <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\UserRoleProvider.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="helpers\Criptografia.cs" />
     <Compile Include="helpers\SessaoUsuario.cs" />
@@ -6535,7 +6536,6 @@
     <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
     <Compile Include="Models\Entidades\Perfils\Role.cs" />
-    <Compile Include="Models\Entidades\Perfils\UserRoleProvider.cs" />
     <Compile Include="Models\Entidades\Usuario\User.cs" />
     <Compile Include="Models\Entidades\Usuario\UserClaim.cs" />
     <Compile Include="Models\Entidades\Usuario\UserLogin.cs" />

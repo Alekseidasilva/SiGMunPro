@@ -10,5 +10,6 @@ namespace MVC.Models.Entidades.Perfils
         //public string Name { get; set; }
         public bool Estado { get; set; }
         public DateTime DataCadastro { get; set; }
+        public int IdCadastrador { get; set; }
     }
 }

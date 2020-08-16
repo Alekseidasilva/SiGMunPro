@@ -5,6 +5,8 @@ namespace MVC.Models.Entidades.Usuario
 {
     public class UserLogin : IdentityUserLogin<int>
     {
+
+
         [Required]
         public string Email { get; set; }
         [Required]

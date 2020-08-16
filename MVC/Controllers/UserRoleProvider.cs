@@ -1,13 +1,11 @@
-﻿using System.Linq;
-using System.Web.Security;
-using MVC.Contexto;
+﻿using System.Web.Security;
 using MVC.Models.Contratos.Repositorios;
 
-namespace MVC.Models.Entidades.Perfils
+namespace MVC.Controllers
 {
     public class UserRoleProvider:RoleProvider
     {
-        private readonly RepPerfil _perfil=new RepPerfil();
+         private readonly RepPerfil _perfil=new RepPerfil();
         public override bool IsUserInRole(string username, string roleName)
         {
             throw new System.NotImplementedException();
@@ -15,7 +13,7 @@ namespace MVC.Models.Entidades.Perfils
 
         public override string[] GetRolesForUser(string username)
         {
-            string[] roles=new []{_perfil.BuscarPerfilDoUsuario(username)};
+            string[] roles = new[] { _perfil.BuscarPerfilDoUsuario(username) };
             return roles;
         }
 

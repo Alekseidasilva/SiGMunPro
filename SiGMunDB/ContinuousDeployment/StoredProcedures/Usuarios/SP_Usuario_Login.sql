@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Usuario_Login]
-	@Email VARCHAR(200),
+	@UserName VARCHAR(200),
 	@Senha VARCHAR(200)
 AS
 BEGIN
@@ -20,7 +20,7 @@ BEGIN
   AccessFailedCount,
   UserName
 	FROM dbo.TB_Usuarios
-	WHERE Email=@Email AND PasswordHash=@Senha 
+	WHERE Username=@UserName AND PasswordHash=@Senha 
 	--AND UsuEstado=1
 	
 END
