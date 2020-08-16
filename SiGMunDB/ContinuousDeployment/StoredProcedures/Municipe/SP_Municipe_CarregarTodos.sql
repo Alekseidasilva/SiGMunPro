@@ -17,6 +17,6 @@ MunicipeTelefone2,
 MunicipeEmail,
 MunicipeMorada,
 MunicipeEstado,
-MunicipeUsuarioId
+IdCadastrador
 FROM dbo.TB_Municipes
 END

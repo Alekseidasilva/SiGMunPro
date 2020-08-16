@@ -12,7 +12,7 @@
 @MunicipeEmail varchar(50),
 @MunicipeMorada INT,
 @MunicipeEstado bit,
-@MunicipeUsuarioId INT
+@IdCadastrador INT
 AS
 DECLARE @@IdAuto INT
 SELECT @@IdAuto=MAX(MunicipeId) FROM dbo.TB_Municipes
@@ -43,7 +43,7 @@ MunicipeTelefone2,
 MunicipeEmail,
 MunicipeMorada,
 MunicipeEstado,
-MunicipeUsuarioId
+IdCadastrador
 )
     VALUES
 (
@@ -62,7 +62,7 @@ MunicipeUsuarioId
 @MunicipeEmail,
 @MunicipeMorada,
 @MunicipeEstado,
-@MunicipeUsuarioId
+@IdCadastrador
 )
 SELECT @@IdAuto AS retorno
 END

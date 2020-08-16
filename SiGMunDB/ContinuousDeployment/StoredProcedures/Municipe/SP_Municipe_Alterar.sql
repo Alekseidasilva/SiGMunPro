@@ -12,8 +12,7 @@
 @MunicipeTelefone2 int,
 @MunicipeEmail varchar(50),
 @MunicipeMorada INT,
-@MunicipeEstado bit,
-@MunicipeUsuarioId INT
+@MunicipeEstado bit
 AS
 BEGIN
     UPDATE dbo.TB_Municipes SET
@@ -29,7 +28,7 @@ MunicipeTelefone1=@MunicipeTelefone1,
 MunicipeTelefone2=@MunicipeTelefone2,
 MunicipeEmail=@MunicipeEmail,
 MunicipeMorada=@MunicipeMorada,
-MunicipeEstado=@MunicipeEstado,
-MunicipeUsuarioId=@MunicipeUsuarioId
+MunicipeEstado=@MunicipeEstado
+
 WHERE MunicipeNM=@MunicipeNM
 END
