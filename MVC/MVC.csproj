@@ -6525,9 +6525,9 @@
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="helpers\Criptografia.cs" />
     <Compile Include="helpers\SessaoUsuario.cs" />
-    <Compile Include="Migrations\202007172315520_initialize.cs" />
-    <Compile Include="Migrations\202007172315520_initialize.Designer.cs">
-      <DependentUpon>202007172315520_initialize.cs</DependentUpon>
+    <Compile Include="Migrations\202008160747038_initialize.cs" />
+    <Compile Include="Migrations\202008160747038_initialize.designer.cs">
+      <DependentUpon>202008160747038_initialize.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contratos\Interfaces\IBase.cs" />
@@ -6687,8 +6687,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007172315520_initialize.resx">
-      <DependentUpon>202007172315520_initialize.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008160747038_initialize.resx">
+      <DependentUpon>202008160747038_initialize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -14,7 +14,9 @@
   LockoutEnabled bit NOT NULL,
   AccessFailedCount int NOT NULL,
   UserName nvarchar(256) NOT NULL,
-  CONSTRAINT [PK_dbo.TB_Usuarios] PRIMARY KEY CLUSTERED (Id)
+  IdCadastrador INT NOT NULL, 
+    CONSTRAINT [PK_dbo.TB_Usuarios] PRIMARY KEY CLUSTERED (Id),
+    CONSTRAINT FK_UsuarioQCadastraOUsuario FOREIGN KEY(IdCadastrador) REFERENCES dbo.TB_Usuarios(id)
 )
 ON [PRIMARY]
 TEXTIMAGE_ON [PRIMARY]

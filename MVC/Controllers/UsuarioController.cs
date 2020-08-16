@@ -51,6 +51,7 @@ namespace MVC.Controllers
                 user.DataCadastro = DateTime.Now;
                 user.Estado = Usuario.Estado;
                 user.PerfilId = Usuario.PerfilId;
+                user.IdCadastrador = SessaoUsuario.Id;
 
                 user.EmailConfirmed = false;
                 user.SecurityStamp = "";

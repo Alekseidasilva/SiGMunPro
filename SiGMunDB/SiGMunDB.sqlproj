@@ -144,6 +144,7 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_UsuarioInativos.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_BuscarPerfilDoUsuario.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_TotalCadastrado.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarNomeCadastrador.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

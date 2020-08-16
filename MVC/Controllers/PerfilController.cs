@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using MVC.helpers;
 using MVC.Models.Contratos.Repositorios;
 using MVC.Models.Entidades.Perfils;
 
@@ -30,7 +31,9 @@ namespace MVC.Controllers
                 {
                     Name = role.Name,
                     DataCadastro = DateTime.Now.Date,
-                    Estado = role.Estado
+                    Estado = role.Estado,
+                    IdCadastrador = SessaoUsuario.Id
+                    
                 };
                 string res = _perfil.Cadastrar(roles);
                 return RedirectToAction("Index");

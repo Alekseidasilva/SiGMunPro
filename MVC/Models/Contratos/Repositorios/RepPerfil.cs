@@ -18,6 +18,7 @@ namespace MVC.Models.Contratos.Repositorios
                 _conexao.AdicionarParametros("@Name", entidade.Name);
                 _conexao.AdicionarParametros("@Estado", entidade.Estado);
                  _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
+                 _conexao.AdicionarParametros("@Idcadastrador", entidade.IdCadastrador);
                  string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Perfil_Inserir").ToString();
                 return res;
             }

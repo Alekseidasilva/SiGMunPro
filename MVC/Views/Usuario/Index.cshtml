@@ -1,4 +1,6 @@
-﻿@using MVC.Models.Entidades.Perfils
+﻿@using MVC.helpers
+@using MVC.Models.Contratos.Repositorios
+@using MVC.Models.Entidades.Perfils
 @model IEnumerable<MVC.Models.Entidades.Usuario.User>
 
 @{
@@ -25,17 +27,17 @@
                                     <img class="img-circle" src="~/Imagens/male_user_128px.png" alt="User Avatar">
                                 </div>
                                 <!-- /.widget-user-image -->
-                                <h3 class="widget-user-username">@item.NomeCompleto</h3>
+                                <h6 class="widget-user-username">@item.NomeCompleto</h6>
                                  @foreach (var profile in(List<Role>)ViewData["Profile"])
                                 {
                                     if (item.PerfilId==profile.Id)
-                                    {<h5 class="widget-user-desc">@profile.Name.ToUpper()</h5>}
+                                    {<h6 class="widget-user-desc">@profile.Name.ToUpper()</h6>}
                                 }
                                 
                             </div>
                             <div class="box-footer no-padding">
                                 <ul class="nav nav-stacked">
-                                    <li><a href="#">Apelido <span class="pull-right badge bg-blue">@item.UserName</span></a></li>
+                                    <li><a href="#">Apelido <span class="pull-right badge bg-blue">@item.UserName </span></a></li>
                                     <li><a href="#">Email <span class="pull-right badge bg-blue">@item.Email</span></a></li>
                                     <li><a href="#">Telefone <span class="pull-right badge bg-white">@item.PhoneNumber</span></a></li>
                                     @if (item.Estado)
@@ -47,6 +49,12 @@
                                     }
 
                                     <li><a href="#">Data Cadastro <span class="pull-right badge bg-white">@item.DataCadastro.ToShortDateString()</span></a></li>
+                                     @{
+                                        RepUsuario repUsuario=new RepUsuario();
+                                         string a = repUsuario.BuscarNomeDoCadastrador(item.Id);
+                                         <li><a href="#">Cadastrado Por <span class="pull-right badge bg-teal-gradient">@a</span></a></li>
+                                     }
+                                     
                                     <li><a href="#"><span class="pull-right badge bg-white"></span></a></li>
                                     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                                     @Html.ActionLink("Editar", "Alterar", new {item.Id}, htmlAttributes: new {@class = "btn btn-sm btn-warning glyphicon glyphicon-pencil"})

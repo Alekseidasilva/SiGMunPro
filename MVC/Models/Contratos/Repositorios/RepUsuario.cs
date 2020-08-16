@@ -31,6 +31,7 @@ namespace MVC.Models.Contratos.Repositorios
                 _conexao.AdicionarParametros("@DataCadastro",entidade.DataCadastro);
                 _conexao.AdicionarParametros("@Estado",entidade.Estado);
                 _conexao.AdicionarParametros("@PerfilId",entidade.PerfilId);
+                 _conexao.AdicionarParametros("@IdCadastrador",entidade.IdCadastrador);
                 string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Inserir").ToString();
                 return res;
             }
@@ -62,6 +63,7 @@ namespace MVC.Models.Contratos.Repositorios
                 _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
                 _conexao.AdicionarParametros("@Estado", entidade.Estado);
                 _conexao.AdicionarParametros("@PerfilId", entidade.PerfilId);
+                _conexao.AdicionarParametros("@Idcadastrador", entidade.IdCadastrador);
                 string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Alterar").ToString();
                 return res;
             }
@@ -290,6 +292,28 @@ namespace MVC.Models.Contratos.Repositorios
                 }
 
                 return nTotal;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public string BuscarNomeDoCadastrador(int userid)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserId",userid);
+                var nome = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarNomeCadastrador");
+                string userName="";
+                foreach (DataRow item in nome.Rows)
+                {
+                    userName = Convert.ToString(item["Username"]);
+                }
+
+                return userName;
             }
             catch (Exception e)
             {

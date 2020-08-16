@@ -1,4 +1,4 @@
-namespace MVC.Migrations
+﻿namespace MVC.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -14,6 +14,7 @@ namespace MVC.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Estado = c.Boolean(nullable: false),
                         DataCadastro = c.DateTime(nullable: false),
+                        IdCadastrador = c.Int(nullable: false),
                         Name = c.String(nullable: false, maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
@@ -33,24 +34,41 @@ namespace MVC.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.TB_UsuarioLogin",
+                c => new
+                    {
+                        LoginProvider = c.String(nullable: false, maxLength: 128),
+                        ProviderKey = c.String(nullable: false, maxLength: 128),
+                        UserId = c.Int(nullable: false),
+                        Email = c.String(nullable: false),
+                        Senha = c.String(nullable: false),
+                        ReturnUrl = c.String(),
+                    })
+                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
+                .ForeignKey("dbo.TB_Usuarios", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
                 "dbo.TB_Usuarios",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        NomeCompleto = c.String(),
+                        NomeCompleto = c.String(nullable: false),
+                        Email = c.String(nullable: false, maxLength: 256),
+                        UserName = c.String(nullable: false, maxLength: 256),
                         Estado = c.Boolean(nullable: false),
+                        PhoneNumber = c.String(nullable: false),
                         DataCadastro = c.DateTime(nullable: false),
-                        Email = c.String(maxLength: 256),
+                        PerfilId = c.Int(nullable: false),
+                        IdCadastrador = c.Int(nullable: false),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
-                        PhoneNumber = c.String(),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),
                         TwoFactorEnabled = c.Boolean(nullable: false),
                         LockoutEndDateUtc = c.DateTime(),
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
-                        UserName = c.String(nullable: false, maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
@@ -68,20 +86,6 @@ namespace MVC.Migrations
                 .ForeignKey("dbo.TB_Usuarios", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
-            CreateTable(
-                "dbo.TB_UsuarioLogin",
-                c => new
-                    {
-                        LoginProvider = c.String(nullable: false, maxLength: 128),
-                        ProviderKey = c.String(nullable: false, maxLength: 128),
-                        UserId = c.Int(nullable: false),
-                        Email = c.String(),
-                        Senha = c.String(),
-                    })
-                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.TB_Usuarios", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId);
-            
         }
         
         public override void Down()
@@ -90,15 +94,15 @@ namespace MVC.Migrations
             DropForeignKey("dbo.TB_UsuarioLogin", "UserId", "dbo.TB_Usuarios");
             DropForeignKey("dbo.TB_UsuariosAfirmacoes", "UserId", "dbo.TB_Usuarios");
             DropForeignKey("dbo.TB_Permissoes", "RoleId", "dbo.TB_Perfil");
-            DropIndex("dbo.TB_UsuarioLogin", new[] { "UserId" });
             DropIndex("dbo.TB_UsuariosAfirmacoes", new[] { "UserId" });
             DropIndex("dbo.TB_Usuarios", "UserNameIndex");
+            DropIndex("dbo.TB_UsuarioLogin", new[] { "UserId" });
             DropIndex("dbo.TB_Permissoes", new[] { "RoleId" });
             DropIndex("dbo.TB_Permissoes", new[] { "UserId" });
             DropIndex("dbo.TB_Perfil", "RoleNameIndex");
-            DropTable("dbo.TB_UsuarioLogin");
             DropTable("dbo.TB_UsuariosAfirmacoes");
             DropTable("dbo.TB_Usuarios");
+            DropTable("dbo.TB_UsuarioLogin");
             DropTable("dbo.TB_Permissoes");
             DropTable("dbo.TB_Perfil");
         }

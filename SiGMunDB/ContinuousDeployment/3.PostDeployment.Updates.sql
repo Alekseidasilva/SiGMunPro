@@ -149,15 +149,15 @@ GO
 
 
 -------------------------Inserir Perfil------------------------------------
-EXEC SP_Perfil_Inserir @Name = 'ADMINISTRADOR',@Estado = 1,@DataCadastro = '2020-07-14'
+EXEC SP_Perfil_Inserir @Name = 'ADMINISTRADOR',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
 GO
 
 ---------------------------Inserir Usuario------------------------------------
 EXEC SP_Usuario_Inserir 
- @NomeCompleto = 'Administrador'
+ @NomeCompleto = 'Administrador do Sistema'
 ,@Estado = 1
 ,@DataCadastro = '2020-07-29'
-,@Email = 'admin@hotmail.com'
+,@Email = 'admin@sigmun.co.ao'
 ,@EmailConfirmed = 0
 ,@PasswordHash = 'tmn9qEShotvDvtwMD8fJ2Q=='
 ,@SecurityStamp = '0'
@@ -169,6 +169,7 @@ EXEC SP_Usuario_Inserir
 ,@AccessFailedCount = 1
 ,@UserName = 'Admin'
 ,@PerfilId = 1
+,@IdCadastrador=1
 GO
 ------------------Estado Civil----------------------------
 INSERT dbo.TB_EstadoCivil(EstadoCivilId,EstadoCivilNome)VALUES(1,'SOLTEIRO'),(2,'CASADO'),(3,'DIVORCIADO'),(4,'VIÚVO')
