@@ -3,7 +3,7 @@
     ViewBag.Title = "Lista de Municípes";
 }
 
-      <!-- /.search form -->
+     <!-- /.search form -->
 <!-- /.box -->
 
           <div class="box">
@@ -12,8 +12,8 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead class="bg-black">
+              <table id="example1" class="table table-borderless table-striped table-hover table-responsive">
+                <thead class="bg-aqua-active">
                 <tr>
                     <th scope="col">NM</th>
                     <th scope="col">Nome Completo</th>
@@ -34,6 +34,12 @@
                     <td >Trident</td>
                     <td >Trident</td>
                     <td >Trident</td>
+                    <td >
+                        @Html.ActionLink(" ","Detalhes","Municipe",htmlAttributes: new {@class="glyphicon glyphicon-plus"})
+                        @Html.ActionLink(" ","Detalhes","Municipe",htmlAttributes: new {@class="glyphicon glyphicon-plus"})
+                        @Html.ActionLink(" ","Detalhes","Municipe",htmlAttributes: new {@class="glyphicon glyphicon-plus"})
+
+                    </td>
                 </tr>
                 <tr>
                     <td >Trident</td>
@@ -62,18 +68,8 @@
                     <td >Trident</td>
                     <td >Trident</td>
                 </tr>
- 
-                
                 </tbody>
-                <tfoot>
-                @*<tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>*@
-                </tfoot>
+               
               </table>
             </div>
             <!-- /.box-body -->
