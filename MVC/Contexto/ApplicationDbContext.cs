@@ -28,5 +28,7 @@ namespace MVC.Contexto
         }
 
         public System.Data.Entity.DbSet<MVC.Models.Entidades.Usuario.UserLogin> UserLogins { get; set; }
+
+        public System.Data.Entity.DbSet<MVC.Models.Entidades.Municipe.Municipe> Municipes { get; set; }
     }
 }

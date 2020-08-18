@@ -6512,6 +6512,7 @@
     <Content Include="Views\Perfil\Cadastrar.cshtml" />
     <Content Include="Views\Perfil\Alterar.cshtml" />
     <Content Include="Views\Municipe\Listar.cshtml" />
+    <Content Include="Views\Municipe\Cadastrar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
