@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pesquisados", "Pesquisados"
 		..\..\..\Desktop\Monografia\Pesquisa\Introdução ao Asp.net Identity.pdf = ..\..\..\Desktop\Monografia\Pesquisa\Introdução ao Asp.net Identity.pdf
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monografia", "Monografia\Monografia.csproj", "{CA74CACF-48DD-4605-ADFA-093EBDA3A364}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{8D2C43BB-4859-484C-81B6-EDB5F49F74D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D2C43BB-4859-484C-81B6-EDB5F49F74D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D2C43BB-4859-484C-81B6-EDB5F49F74D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA74CACF-48DD-4605-ADFA-093EBDA3A364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA74CACF-48DD-4605-ADFA-093EBDA3A364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA74CACF-48DD-4605-ADFA-093EBDA3A364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA74CACF-48DD-4605-ADFA-093EBDA3A364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{89BD0E7D-416D-442E-99A1-DC4225A5FA3E} = {D2BAD2C1-1D5E-4D7C-AD2C-6A3FCD1D9519}
 		{CBAADF04-EFF6-427C-95A5-FA68F3943A60} = {D2BAD2C1-1D5E-4D7C-AD2C-6A3FCD1D9519}
 		{6D05AE52-3B16-4C96-9F69-A99322BAAE5B} = {D2BAD2C1-1D5E-4D7C-AD2C-6A3FCD1D9519}
+		{CA74CACF-48DD-4605-ADFA-093EBDA3A364} = {D2BAD2C1-1D5E-4D7C-AD2C-6A3FCD1D9519}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8575FCF-6E7D-4EFA-824F-D78F97AD2B9C}
