@@ -17,28 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-InfraEstrutura", "01-Inf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Apresentacao", "03-Apresentacao", "{59F90EA2-E351-4E58-828D-3D3A80A1C9BA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Word", "Word", "{763D24C7-B8F2-4E9C-A6E2-9DA0CF4EAD51}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\Monografia.docx = ..\..\..\Desktop\Monografia.docx
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Monografias", "Monografias", "{89BD0E7D-416D-442E-99A1-DC4225A5FA3E}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\Monografia\Mono\SahMonografia.docx = ..\..\..\Desktop\Monografia\Mono\SahMonografia.docx
-		..\..\..\Desktop\Monografia\Mono\TFC Final.pdf.pdf = ..\..\..\Desktop\Monografia\Mono\TFC Final.pdf.pdf
-		..\..\..\Desktop\Monografia\Mono\TFC-Rosalina-Chanjo-Corrigir.docx = ..\..\..\Desktop\Monografia\Mono\TFC-Rosalina-Chanjo-Corrigir.docx
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Administração", "Administração", "{CBAADF04-EFF6-427C-95A5-FA68F3943A60}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\Questionario AMM.docx = ..\..\..\Desktop\Questionario AMM.docx
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pesquisados", "Pesquisados", "{6D05AE52-3B16-4C96-9F69-A99322BAAE5B}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Desktop\Monografia\Pesquisa\Introdução ao Asp.net Identity.pdf = ..\..\..\Desktop\Monografia\Pesquisa\Introdução ao Asp.net Identity.pdf
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monografia", "Monografia\Monografia.csproj", "{CA74CACF-48DD-4605-ADFA-093EBDA3A364}"
 EndProject
 Global
@@ -73,10 +51,6 @@ Global
 		{4FD34D08-E34E-403F-B338-621D0D5819EB} = {F851A8E9-9B32-4515-B4B3-06F0FCD1D1E2}
 		{1FEAD1E2-9A86-4CEA-A22F-C2A8C2542CF2} = {1F10A2C7-B152-4EC9-A32F-223B6131904F}
 		{8D2C43BB-4859-484C-81B6-EDB5F49F74D8} = {59F90EA2-E351-4E58-828D-3D3A80A1C9BA}
-		{763D24C7-B8F2-4E9C-A6E2-9DA0CF4EAD51} = {D2BAD2C1-1D5E-4D7C-AD2C-6A3FCD1D9519}
-		{89BD0E7D-416D-442E-99A1-DC4225A5FA3E} = {D2BAD2C1-1D5E-4D7C-AD2C-6A3FCD1D9519}
-		{CBAADF04-EFF6-427C-95A5-FA68F3943A60} = {D2BAD2C1-1D5E-4D7C-AD2C-6A3FCD1D9519}
-		{6D05AE52-3B16-4C96-9F69-A99322BAAE5B} = {D2BAD2C1-1D5E-4D7C-AD2C-6A3FCD1D9519}
 		{CA74CACF-48DD-4605-ADFA-093EBDA3A364} = {D2BAD2C1-1D5E-4D7C-AD2C-6A3FCD1D9519}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
