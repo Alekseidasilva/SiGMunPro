@@ -11,15 +11,15 @@
 	MunicipeNIF varchar(50) NOT NULL,
 	MunicipeGenero int NOT NULL,
 	MunicipeEstadoCivil int NOT NULL,
-	MunicipeTelefone1 int NULL,
-	MunicipeTelefone2 int NULL,
+	MunicipeTelefone1 VARCHAR(15) NOT NULL,
+	MunicipeTelefone2 VARCHAR(15) NULL,
 	MunicipeEmail varchar(50) NULL,
-	MunicipeMorada INT NOT NULL,
 	MunicipeEstado bit NOT NULL,
 	IdCadastrador int NOT NULL
 	CONSTRAINT PK_MunicipenNumero PRIMARY KEY(MunicipeNM),
-	CONSTRAINT FK_GeneroDoMunicipe FOREIGN KEY (MunicipeGenero)REFERENCES dbo.TB_Generos,
-	CONSTRAINT FK_EstadoCivilDoMunicipe FOREIGN KEY (MunicipeEstadoCivil)REFERENCES dbo.TB_EstadoCivil,
-	CONSTRAINT FK_MoradaDoMunicipe FOREIGN KEY (MunicipeMorada)REFERENCES dbo.TB_Moradas,
-	CONSTRAINT FK_UsuarioQCadastraOMunicipe FOREIGN KEY (IdCadastrador)REFERENCES dbo.TB_Usuarios(id),
+	CONSTRAINT FK_TipoDocIdentificacaoDoMunicipe FOREIGN KEY (MunicipeTipoDocIdentificacao)REFERENCES dbo.TB_TipoDocIdentificacao(Id),
+	CONSTRAINT FK_GeneroDoMunicipe FOREIGN KEY (MunicipeGenero)REFERENCES dbo.TB_Generos(GeneroId),
+	CONSTRAINT FK_EstadoCivilDoMunicipe FOREIGN KEY (MunicipeEstadoCivil)REFERENCES dbo.TB_EstadoCivil(EstadoCivilId),
+	
+	CONSTRAINT FK_UsuarioQCadastraOMunicipe FOREIGN KEY (IdCadastrador)REFERENCES dbo.TB_Usuarios(Id),
 )

@@ -1,5 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_Perfil_Inserir]	
-	
+﻿CREATE PROCEDURE dbo.SP_Perfil_Inserir	
     @Name NVARCHAR(256),
     @Estado bit,
     @DataCadastro date,

@@ -1,13 +1,16 @@
-﻿using System.Web.Mvc;
+﻿using MVC.Models.Contratos.Repositorios;
+using System.Web.Mvc;
 
 namespace MVC.Controllers
 {
     public class MunicipeController : Controller
     {
+        private readonly RepMunicipe _municipe = new RepMunicipe();
         // GET: Municipe
         public ActionResult Listar()
         {
-            return View();
+            var municipes = _municipe.SelecionarTodos();
+            return View(municipes);
         }
 
         // GET: Municipe/Details/5
@@ -81,5 +84,7 @@ namespace MVC.Controllers
                 return View();
             }
         }
+
+
     }
 }

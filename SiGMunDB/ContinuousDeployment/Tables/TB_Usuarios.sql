@@ -15,8 +15,8 @@
   AccessFailedCount int NOT NULL,
   UserName nvarchar(256) NOT NULL,
   IdCadastrador INT NOT NULL, 
-    CONSTRAINT [PK_dbo.TB_Usuarios] PRIMARY KEY CLUSTERED (Id),
-    CONSTRAINT FK_UsuarioQCadastraOUsuario FOREIGN KEY(IdCadastrador) REFERENCES dbo.TB_Usuarios(id)
+    CONSTRAINT [PK_TB_Usuarios] PRIMARY KEY CLUSTERED (Id),
+    CONSTRAINT FK_UsuarioQCadastraOUsuario FOREIGN KEY(IdCadastrador) REFERENCES dbo.TB_Usuarios(Id)
 )
 ON [PRIMARY]
 TEXTIMAGE_ON [PRIMARY]

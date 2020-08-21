@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Infra.Data;
+﻿using Infra.Data;
 using MVC.Models.Contratos.Interfaces;
 using MVC.Models.Entidades.Perfils;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace MVC.Models.Contratos.Repositorios
 {
-    public class RepPerfil:IPerfil
+    public class RepPerfil : IPerfil
     {
-      private  readonly Conexao _conexao=new Conexao();
+        private readonly Conexao _conexao = new Conexao();
         public string Cadastrar(Role entidade)
         {
             try
@@ -17,9 +17,9 @@ namespace MVC.Models.Contratos.Repositorios
                 _conexao.LimparParametro();
                 _conexao.AdicionarParametros("@Name", entidade.Name);
                 _conexao.AdicionarParametros("@Estado", entidade.Estado);
-                 _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
-                 _conexao.AdicionarParametros("@Idcadastrador", entidade.IdCadastrador);
-                 string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Perfil_Inserir").ToString();
+                _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
+                _conexao.AdicionarParametros("@Idcadastrador", entidade.IdCadastrador);
+                string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Perfil_Inserir").ToString();
                 return res;
             }
             catch (Exception e)
@@ -33,7 +33,7 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                 _conexao.AdicionarParametros("@Id", entidade.Id);
+                _conexao.AdicionarParametros("@Id", entidade.Id);
                 _conexao.AdicionarParametros("@Name", entidade.Name);
                 _conexao.AdicionarParametros("@Estado", entidade.Estado);
 
@@ -66,9 +66,9 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@Id",id);
+                _conexao.AdicionarParametros("@Id", id);
                 DataTable res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Perfil_BuscarPorId");
-                var perfils=new Role();
+                var perfils = new Role();
                 foreach (DataRow item in res.Rows)
                 {
                     Role role = new Role
@@ -122,21 +122,21 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-               DataTable perfil= _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Perfil_CarregarTodos");
-               List<Role>roles=new List<Role>();
-               foreach (DataRow item in perfil.Rows)
-               {
-                   Role role=new Role
-                   {
-                       Id = Convert.ToInt32(item["Id"]),
-                       Name = Convert.ToString(item["Name"]),
-                       Estado = Convert.ToBoolean(item["Estado"]),
-                       DataCadastro = Convert.ToDateTime(item["DataCadastro"]),
-                   };
-                   roles.Add(role);
-               }
+                DataTable perfil = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Perfil_CarregarTodos");
+                List<Role> roles = new List<Role>();
+                foreach (DataRow item in perfil.Rows)
+                {
+                    Role role = new Role
+                    {
+                        Id = Convert.ToInt32(item["Id"]),
+                        Name = Convert.ToString(item["Name"]),
+                        Estado = Convert.ToBoolean(item["Estado"]),
+                        DataCadastro = Convert.ToDateTime(item["DataCadastro"]),
+                    };
+                    roles.Add(role);
+                }
 
-               return roles;
+                return roles;
             }
             catch (Exception e)
             {
@@ -176,16 +176,17 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserId",userId);
+                _conexao.AdicionarParametros("@UserId", userId);
                 var res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_PerfilDoUsuario");
-               List<Role>roles=new List<Role>();
+                List<Role> roles = new List<Role>();
                 foreach (DataRow item in res.Rows)
-                {Role role=new Role
+                {
+                    Role role = new Role
                     {
-                        Id =Convert.ToInt32(item["Id"]),
+                        Id = Convert.ToInt32(item["Id"]),
                         Name = Convert.ToString(item["Name"])
                     };
-                roles.Add(role);
+                    roles.Add(role);
                 }
 
                 return roles;
@@ -203,7 +204,7 @@ namespace MVC.Models.Contratos.Repositorios
                 _conexao.LimparParametro();
                 _conexao.AdicionarParametros("@UserName", username);
                 var res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_BuscarPerfilDoUsuario");
-                string perfis="";
+                string perfis = "";
                 foreach (DataRow item in res.Rows)
                 {
                     perfis = Convert.ToString(item["Name"]);

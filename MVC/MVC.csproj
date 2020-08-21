@@ -6535,8 +6535,11 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contratos\Interfaces\IBase.cs" />
+    <Compile Include="Models\Contratos\Interfaces\IMunicipe.cs" />
     <Compile Include="Models\Contratos\Interfaces\IPerfil.cs" />
     <Compile Include="Models\Contratos\Interfaces\IUsuario.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepGenerico.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepMunicipe.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
     <Compile Include="Models\Entidades\Base.cs" />

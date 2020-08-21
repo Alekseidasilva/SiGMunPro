@@ -11,7 +11,6 @@
 @MunicipeTelefone1 int,
 @MunicipeTelefone2 int,
 @MunicipeEmail varchar(50),
-@MunicipeMorada INT,
 @MunicipeEstado bit
 AS
 BEGIN
@@ -27,7 +26,6 @@ MunicipeEstadoCivil=@MunicipeEstadoCivil,
 MunicipeTelefone1=@MunicipeTelefone1,
 MunicipeTelefone2=@MunicipeTelefone2,
 MunicipeEmail=@MunicipeEmail,
-MunicipeMorada=@MunicipeMorada,
 MunicipeEstado=@MunicipeEstado
 
 WHERE MunicipeNM=@MunicipeNM

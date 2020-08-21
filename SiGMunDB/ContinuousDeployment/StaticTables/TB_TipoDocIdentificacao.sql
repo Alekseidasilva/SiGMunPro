@@ -1,0 +1,5 @@
+﻿CREATE TABLE dbo.TB_TipoDocIdentificacao
+(
+	Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	Nome VARCHAR(50)NOT NULL
+)

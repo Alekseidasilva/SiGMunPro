@@ -1,37 +1,37 @@
 ﻿using Infra.Data;
+using MVC.helpers;
 using MVC.Models.Contratos.Interfaces;
 using MVC.Models.Entidades.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using MVC.helpers;
 
 namespace MVC.Models.Contratos.Repositorios
 {
-    public class RepUsuario:IUsuario
+    public class RepUsuario : IUsuario
     {
-        Conexao _conexao=new Conexao();
+        Conexao _conexao = new Conexao();
         public string Cadastrar(User entidade)
         {
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@NomeCompleto",entidade.NomeCompleto);
-                _conexao.AdicionarParametros("@UserName",entidade.UserName);
-                _conexao.AdicionarParametros("@Email",entidade.Email);
-                _conexao.AdicionarParametros("@EmailConfirmed",entidade.EmailConfirmed);
-                _conexao.AdicionarParametros("@PasswordHash",entidade.PasswordHash);
-                _conexao.AdicionarParametros("@SecurityStamp",entidade.SecurityStamp);
-                _conexao.AdicionarParametros("@PhoneNumber",entidade.PhoneNumber);
-                _conexao.AdicionarParametros("@PhoneNumberConfirmed",entidade.PhoneNumberConfirmed);
-                _conexao.AdicionarParametros("@TwoFactorEnabled",entidade.TwoFactorEnabled);
-                _conexao.AdicionarParametros("@LockoutEndDateUtc",entidade.LockoutEndDateUtc);
-                _conexao.AdicionarParametros("@LockoutEnabled",entidade.LockoutEnabled);
-                _conexao.AdicionarParametros("@AccessFailedCount",entidade.AccessFailedCount);
-                _conexao.AdicionarParametros("@DataCadastro",entidade.DataCadastro);
-                _conexao.AdicionarParametros("@Estado",entidade.Estado);
-                _conexao.AdicionarParametros("@PerfilId",entidade.PerfilId);
-                 _conexao.AdicionarParametros("@IdCadastrador",entidade.IdCadastrador);
+                _conexao.AdicionarParametros("@NomeCompleto", entidade.NomeCompleto);
+                _conexao.AdicionarParametros("@UserName", entidade.UserName);
+                _conexao.AdicionarParametros("@Email", entidade.Email);
+                _conexao.AdicionarParametros("@EmailConfirmed", entidade.EmailConfirmed);
+                _conexao.AdicionarParametros("@PasswordHash", entidade.PasswordHash);
+                _conexao.AdicionarParametros("@SecurityStamp", entidade.SecurityStamp);
+                _conexao.AdicionarParametros("@PhoneNumber", entidade.PhoneNumber);
+                _conexao.AdicionarParametros("@PhoneNumberConfirmed", entidade.PhoneNumberConfirmed);
+                _conexao.AdicionarParametros("@TwoFactorEnabled", entidade.TwoFactorEnabled);
+                _conexao.AdicionarParametros("@LockoutEndDateUtc", entidade.LockoutEndDateUtc);
+                _conexao.AdicionarParametros("@LockoutEnabled", entidade.LockoutEnabled);
+                _conexao.AdicionarParametros("@AccessFailedCount", entidade.AccessFailedCount);
+                _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
+                _conexao.AdicionarParametros("@Estado", entidade.Estado);
+                _conexao.AdicionarParametros("@PerfilId", entidade.PerfilId);
+                _conexao.AdicionarParametros("@IdCadastrador", entidade.IdCadastrador);
                 string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Inserir").ToString();
                 return res;
             }
@@ -47,7 +47,7 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@Id",entidade.Id);
+                _conexao.AdicionarParametros("@Id", entidade.Id);
                 _conexao.AdicionarParametros("@NomeCompleto", entidade.NomeCompleto);
                 _conexao.AdicionarParametros("@UserName", entidade.UserName);
                 _conexao.AdicionarParametros("@Email", entidade.Email);
@@ -96,7 +96,7 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UsuId",id);
+                _conexao.AdicionarParametros("@UsuId", id);
                 DataTable usuarios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarPorId");
                 User user = new User();
                 foreach (DataRow item in usuarios.Rows)
@@ -135,10 +135,10 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserName",userName);
-                _conexao.AdicionarParametros("@Senha",senha);
+                _conexao.AdicionarParametros("@UserName", userName);
+                _conexao.AdicionarParametros("@Senha", senha);
                 var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_Login");
-                User user=new User();
+                User user = new User();
                 foreach (DataRow item in users.Rows)
                 {
                     user.Id = Convert.ToInt32(item["Id"]);
@@ -149,7 +149,7 @@ namespace MVC.Models.Contratos.Repositorios
                     user.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
                     user.Estado = Convert.ToBoolean(item["Estado"]);
                 }
-                
+
                 return user;
             }
             catch (Exception e)
@@ -157,7 +157,7 @@ namespace MVC.Models.Contratos.Repositorios
                 Console.WriteLine(e);
                 throw;
             }
-           
+
         }
 
         public Boolean AlterarSenha(int id, string senhaAntiga, string senhanova)
@@ -165,9 +165,9 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@Id",id);
-                _conexao.AdicionarParametros("@NovaSenha",senhanova);
-                bool res =Boolean.Parse((_conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_AlterarSenha").ToString()));
+                _conexao.AdicionarParametros("@Id", id);
+                _conexao.AdicionarParametros("@NovaSenha", senhanova);
+                bool res = Boolean.Parse((_conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_AlterarSenha").ToString()));
                 return res;
 
             }
@@ -176,7 +176,7 @@ namespace MVC.Models.Contratos.Repositorios
                 Console.WriteLine(e);
                 throw;
             }
-            return true;
+
         }
 
         public List<User> SelecionarTodosComPerfilId()
@@ -257,8 +257,8 @@ namespace MVC.Models.Contratos.Repositorios
                 {
                     helpers.SessaoUsuario.Id = Convert.ToInt32(item["Id"]);
                     helpers.SessaoUsuario.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
-                     helpers.SessaoUsuario.Estado = Convert.ToBoolean(item["Estado"]);
-                     helpers.SessaoUsuario.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
+                    helpers.SessaoUsuario.Estado = Convert.ToBoolean(item["Estado"]);
+                    helpers.SessaoUsuario.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
                     helpers.SessaoUsuario.Email = Convert.ToString(item["Email"]);
                     helpers.SessaoUsuario.EmailConfirmed = Convert.ToBoolean(item["EmailConfirmed"]);
                     helpers.SessaoUsuario.PhoneNumber = Convert.ToString(item["PhoneNumber"]);
@@ -305,9 +305,9 @@ namespace MVC.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserId",userid);
+                _conexao.AdicionarParametros("@UserId", userid);
                 var nome = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarNomeCadastrador");
-                string userName="";
+                string userName = "";
                 foreach (DataRow item in nome.Rows)
                 {
                     userName = Convert.ToString(item["Username"]);

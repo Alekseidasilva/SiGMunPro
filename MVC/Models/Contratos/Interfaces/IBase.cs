@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MVC.Models.Contratos.Interfaces
 {
@@ -13,7 +8,7 @@ namespace MVC.Models.Contratos.Interfaces
         string Alterar(TEntidade entidade);
         string Excluir(int id);
         List<TEntidade> BuscarPorNome(string nome);
-     
+
         TEntidade BuscarPorId(int id);
         List<TEntidade> SelecionarTodos();
     }

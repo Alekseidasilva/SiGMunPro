@@ -10,7 +10,6 @@
 @MunicipeTelefone1 int,
 @MunicipeTelefone2 int,
 @MunicipeEmail varchar(50),
-@MunicipeMorada INT,
 @MunicipeEstado bit,
 @IdCadastrador INT
 AS
@@ -41,7 +40,6 @@ MunicipeEstadoCivil,
 MunicipeTelefone1,
 MunicipeTelefone2,
 MunicipeEmail,
-MunicipeMorada,
 MunicipeEstado,
 IdCadastrador
 )
@@ -60,7 +58,6 @@ IdCadastrador
 @MunicipeTelefone1,
 @MunicipeTelefone2,
 @MunicipeEmail,
-@MunicipeMorada,
 @MunicipeEstado,
 @IdCadastrador
 )

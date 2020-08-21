@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_Usuario_Alterar]
+﻿CREATE PROCEDURE dbo.SP_Usuario_Alterar
  @Id INT,
  @NomeCompleto NVARCHAR(MAX),
  @Estado bit,

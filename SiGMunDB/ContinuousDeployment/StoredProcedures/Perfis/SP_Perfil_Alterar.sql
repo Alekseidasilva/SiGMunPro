@@ -1,8 +1,7 @@
-﻿CREATE PROCEDURE [dbo].[SP_Perfil_Alterar]
+﻿CREATE PROCEDURE dbo.SP_Perfil_Alterar
 	@Id int ,
 	@Name NVARCHAR(256),
-	@Estado BIT
-	
+	@Estado BIT	
 AS
 BEGIN
     UPDATE dbo.TB_Perfil 

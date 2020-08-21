@@ -71,10 +71,9 @@
     <Folder Include="ContinuousDeployment\StoredProcedures\Usuarios" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Perfis" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Permissoes" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Geral" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="ContinuousDeployment\StoredProcedures\sp_generate_merge.sql" />
-    <Build Include="ContinuousDeployment\StoredProcedures\sp_execute_cd_script.sql" />
     <Build Include="ContinuousDeployment\Tables\__MigrationLog.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_Bairros.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_Bancos.sql" />
@@ -145,6 +144,9 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_BuscarPerfilDoUsuario.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_TotalCadastrado.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarNomeCadastrador.sql" />
+    <Build Include="ContinuousDeployment\StaticTables\TB_TipoDocIdentificacao.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarGeneros.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarGeneroPorId.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
