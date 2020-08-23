@@ -51,6 +51,7 @@
     <None Include="Monografias\TFC-Rosalina-Chanjo-Corrigir.docx" />
     <None Include="Pesquisas\Introdução ao Asp.net Identity.pdf" />
     <None Include="Word\Monografia.docx" />
+    <None Include="Word\Monografia3.docx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

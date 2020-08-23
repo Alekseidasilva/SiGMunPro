@@ -1,11 +1,8 @@
 ﻿@model MVC.Models.Entidades.Municipe.Municipe
 
 @{
-    ViewBag.Title = "Cadastrar";
+    ViewBag.Title = "Cadastrar Municipe";
 }
-
-<h2>Cadastrar</h2>
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -28,19 +25,82 @@
 </ul>
 
 <!-- Tab panes -->
-<div class="tab-content">
-    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        DADOS PESSOAIS
+<div class="tab-content col-md-6">
+    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab" >
+     <hr/>
+     <div class="small-box">
+         <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+             @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Nome Completo" } })
+             <small>@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })</small>
+         </div>
+     </div>
+     <div class="small-box">
+         <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+             @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Filho de...." } })
+             <small>@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })</small>
+         </div>
+     </div>
+     <div class="small-box">
+         <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+             @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "e de....." } })
+             <small>@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })</small>
+         </div>
+     </div>
+     <div class="checkbox">
+         Tipo de Documento 
+         <label>
+              @Html.RadioButtonFor(m => m.MunicipeTipoDocIdentificacao, "true", htmlAttributes: new { @class = "icheckbox_flat-green", type = "radio" })&nbsp;&nbsp;Cédula
+              @Html.RadioButtonFor(m => m.MunicipeTipoDocIdentificacao, "false") B.I&nbsp;&nbsp;
+              @Html.RadioButtonFor(m => m.MunicipeTipoDocIdentificacao, "true", htmlAttributes: new { @class = "icheckbox_flat-green", type = "radio" })&nbsp;&nbsp;Passaporte
+              @Html.RadioButtonFor(m => m.MunicipeTipoDocIdentificacao, "false") Outro
+         </label>
+     </div>
+     <div class="small-box">
+         <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+             @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Nº Documento" } })
+             <small>@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })</small>
+         </div>
+     </div>
+     
+    
+    
+        
+        
+        
         
         
 
-        <div class="box-footer">
+            
+     <div class="box-footer">
             <button onclick="Proximo()" class="pull-right btn btn-default"><i class="glyphicon glyphicon-forward"></i> Avançar</button>
         </div>
     </div>
     <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        DADOS NASCIMENTO
+        @*DADOS NASCIMENTO*@
+        <hr/>
         
+        
+        
+        
+        
+        
+         <div class="small-box">
+           <div class="input-group">
+             <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+             @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Nome Completo" } })
+             <small>@Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })</small>
+           </div>
+         </div>
+        
+        
+        
+        
+        
+
         
         <div class="box-footer">
              <button  class="pull-left btn btn-default"><i class="glyphicon glyphicon-backward"></i> Recuar</button>
@@ -49,7 +109,7 @@
         </div>
     </div>
     <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-        FOTO
+        @*FOTO*@
         
         
         
@@ -60,7 +120,7 @@
         </div>
     </div>
     <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-        MORADA
+        @*MORADA*@
         <div class="box-footer">
             <button  class="btn btn-default"><i class="glyphicon glyphicon-backward"></i> Recuar</button>
             <button type="submit" class="pull-right btn btn-success"><i class="glyphicon glyphicon-floppy-disk"></i> Gravar</button>
@@ -78,9 +138,7 @@
 
 
 
-@*
-
-<script>
+@*<script>
     function Proximo() {
         $('#myTab a[href="#profile"]').on('click', function (e) {
             e.preventDefault();
@@ -88,7 +146,7 @@
         });
     }
     
-</script>
+</script> *
 
 
-    *@
+
