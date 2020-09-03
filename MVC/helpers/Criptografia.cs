@@ -297,12 +297,14 @@ namespace MVC.helpers
             ICryptoTransform cryptoTransform = _algorithm.CreateDecryptor();
 
             try
-            { MemoryStream _memoryStream = new MemoryStream(cryptoByte, 0, cryptoByte.Length);
+            {
+                MemoryStream _memoryStream = new MemoryStream(cryptoByte, 0, cryptoByte.Length);
                 CryptoStream _cryptoStream = new CryptoStream(_memoryStream, cryptoTransform, CryptoStreamMode.Read);
                 // Busca resultado do CryptoStream
                 StreamReader _streamReader = new StreamReader(_cryptoStream);
                 return _streamReader.ReadToEnd();
-            }catch{ return null; }
+            }
+            catch { return null; }
 
         }
 

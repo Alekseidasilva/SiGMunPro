@@ -43,15 +43,31 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Diagramas\Diagrama Lógico.png" />
+    <Content Include="Diagramas\Screenshot_1.png" />
+    <Content Include="Imagens\adonet.jpg" />
+    <Content Include="MiniTools\brModelo.jar" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Administração\Questionario AMM.docx" />
+    <None Include="Diagramas\Classes.eapx" />
+    <None Include="Diagramas\Conceitual.brM3" />
+    <None Include="Diagramas\Diagramas.eapx" />
+    <None Include="Diagramas\Lógico.brM3" />
+    <None Include="Diagramas\MonografiaDiagramas.eapx" />
+    <None Include="Monografias\dicas.docx" />
     <None Include="Monografias\SahMonografia.docx" />
     <None Include="Monografias\TFC Final.pdf.pdf" />
     <None Include="Monografias\TFC-Rosalina-Chanjo-Corrigir.docx" />
+    <None Include="Pesquisas\Atributos de Qualidade.docx" />
+    <None Include="Pesquisas\Extras.docx" />
     <None Include="Pesquisas\Introdução ao Asp.net Identity.pdf" />
+    <None Include="Word\Guia.docx" />
     <None Include="Word\Monografia.docx" />
     <None Include="Word\Monografia1.docx" />
+    <None Include="Word\Monografia31.docx" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
