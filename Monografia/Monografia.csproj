@@ -64,9 +64,7 @@
     <None Include="Pesquisas\Extras.docx" />
     <None Include="Pesquisas\Introdução ao Asp.net Identity.pdf" />
     <None Include="Word\Guia.docx" />
-    <None Include="Word\Monografia.docx" />
-    <None Include="Word\Monografia1.docx" />
-    <None Include="Word\Monografia31.docx" />
+    <None Include="Word\TFC Final.docx" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
