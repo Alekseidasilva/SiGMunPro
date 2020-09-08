@@ -51,11 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Administração\Questionario AMM.docx" />
-    <None Include="Diagramas\Classes.eapx" />
     <None Include="Diagramas\Conceitual.brM3" />
     <None Include="Diagramas\Diagramas.eapx" />
     <None Include="Diagramas\Lógico.brM3" />
-    <None Include="Diagramas\MonografiaDiagramas.eapx" />
+    <None Include="Diagramas\Diagramas.vsdx" />
     <None Include="Monografias\dicas.docx" />
     <None Include="Monografias\SahMonografia.docx" />
     <None Include="Monografias\TFC Final.pdf.pdf" />
