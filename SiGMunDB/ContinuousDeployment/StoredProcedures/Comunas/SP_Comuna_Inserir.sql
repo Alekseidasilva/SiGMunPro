@@ -1,32 +1,30 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Comuna_Inserir]
 @ComunaNome VARCHAR(50),	
-@ComunaMunicipioId INT,
-@ComunaUsuarioId int
+@ComunaMunicipioId INT
+
 AS
-DECLARE @@IdAuto int
-SELECT @@IdAuto=MAX(ComunaId) FROM dbo.TB_Comunas
-IF @@IdAuto IS NULL
-BEGIN
-    SET @@IdAuto=0
-    set @@IdAuto=@@IdAuto+1
-END
-ELSE
-BEGIN
-SET @@IdAuto=@@IdAuto+1
-END
+--DECLARE @@IdAuto int
+--SELECT @@IdAuto=MAX(ComunaId) FROM dbo.TB_Comunas
+--IF @@IdAuto IS NULL
+--BEGIN
+--    SET @@IdAuto=0
+--    set @@IdAuto=@@IdAuto+1
+--END
+--ELSE
+--BEGIN
+--SET @@IdAuto=@@IdAuto+1
+--END
 BEGIN
     INSERT dbo.TB_Comunas
-    (
-    ComunaId,	
+    (   	
 	ComunaNome,	
-	ComunaMunicipioId,	
-	ComunaUsuarioId
+	ComunaMunicipioId	
+	
     )
     VALUES
-    (
-    @@IdAuto,	
+    (   
 	@ComunaNome,	
-	@ComunaMunicipioId,	
-	@ComunaUsuarioId
+	@ComunaMunicipioId	
+	
     )
 END

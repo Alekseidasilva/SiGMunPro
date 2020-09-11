@@ -4,8 +4,8 @@ BEGIN
     SELECT
 	ComunaId,	
 	ComunaNome,	
-	ComunaMunicipioId,	
-	ComunaUsuarioId
+	ComunaMunicipioId	
+	
 	FROM dbo.TB_Comunas
 END
 
