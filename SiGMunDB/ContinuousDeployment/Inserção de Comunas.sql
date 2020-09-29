@@ -1,5 +1,5 @@
 ﻿
---  SELECT tm.MunicipioId,tm.MunicipioNome,tp.ProvinciaNome FROM TB_Municipios tm JOIN TB_Provincias tp ON tm.MunicipioProvinciaId = tp.ProvinciaId    WHERE tm.MunicipioProvinciaId=10
+--  SELECT tm.MunicipioId,tm.MunicipioNome,tp.ProvinciaNome FROM TB_Municipios tm JOIN TB_Provincias tp ON tm.MunicipioProvinciaId = tp.ProvinciaId    WHERE tm.MunicipioProvinciaId=14
 
 
 INSERT TB_Comunas (ComunaNome, ComunaMunicipioId)VALUES
@@ -23,12 +23,12 @@ INSERT TB_Comunas (ComunaNome, ComunaMunicipioId)VALUES
   ,('QUIQUIEMBA',73),('DONDO', 74),('MASSANGANO', 74),('DANGE YA MENHA', 74),('ZENZA DO ITOMBE', 74),('SÃO PEDRO DA QUILEMBA', 74),('NDALATANDO', 75),('CANHOCA', 75),('GOLUNGO ALTO', 76),('CAMBONDO', 76),('CÊRCA', 76),('QUILUANJE', 76),('QUILOMBO DOS DEMBOS', 77),('CAMAME', 77),('CAVUNGA', 77)
   ,('LUCALA', 78),('QUIANGOMBE', 78),('SAMBA CAJÚ', 80),('SAMBA LUCALA', 80),('GABELA', 81),('ASSANGO', 81),('CASSONGUE', 82),('PAMBANGALA', 82),('DUMBI', 82),('ATÓME',82),('SANGA', 83),('WAKU KUNGO', 83),('QUISSANGA CUNJO', 83),('CONDA', 84),('CUNJO', 84)
   ,('EBO', 85),('CONDÉ', 85),('QUISSANJE', 85),('CALULO', 86),('MUNENGA', 86),('CABUTA', 86),('QUISSONGO', 86),('MUSSENDE', 87),('QUIENHA', 87),('SÃO LUCAS', 87),('CAPOLO', 88),('PORTO AMBOIM', 88),('QUIBALA', 89),('DALA CACHIBO', 89),('CARIANGO', 89)
-  ,('LONHE', 89),('QUILENDA',90),('QUIRIMBO', 90),('SELES', 91),('AMBOIVA', 91),('BOTERA', 91),('SUMBE', 92),('GUNGO', 92),('GANGULA', 92),('QUICOMBO', 92),('', 0),('', 0),('', 0),('', 0),('', 0)
-  ,('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0)
-  ,('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0)
-  ,('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0)
-  ,('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0)
-  ,('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0)
+  ,('LONHE', 89),('QUILENDA',90),('QUIRIMBO', 90),('SELES', 91),('AMBOIVA', 91),('BOTERA', 91),('SUMBE', 92),('GUNGO', 92),('GANGULA', 92),('QUICOMBO', 92),('BARRA DO KWANZA', 93),('FUNDA', 94),('CASSONECA',96),('CABIRI', 96)
+  ,('BOM JESUS', 96),('CACULO CAHANGO', 96),('QUIMINHA', 96),('MUXIMA', 98),('DEMBA CHIO', 98),('QUIXINGE', 98),('MUMBONDO', 98),('CABO LEDO', 98),('CALUMBO', 99),('LUIA', 100),('CACHIMO', 100),('CANZAR', 100),('CAMBULO', 100),('CAPENDA-CAMULEMBA', 101),('XINGE', 101)
+  ,('CAMAXILO', 102),('CAUNGILA', 102),('CHITATO', 103),('LUACHIMO', 103),('CUANGO', 104),('LOREMO', 104),('CUÍLO', 105),('CALUANGO', 105),('LUBALO', 106),('LUANGUE', 106),('MUVULUEGE', 106),('LUCAPA', 107),('CAPAIA', 107),('CAMISSOMBO', 107),('XÁ CASSAU', 107)
+  ,('XÁ MUTEBA', 108),('LONGO', 108),('CASSANJE CALUCAA', 108),('XASSENGUE',109),('CUCUMBI', 109),('ALTO CHICAPA',109),('CACOLO', 109),('DALA', 110),('LUMA CASSAI', 110),('CAZAGE', 110),('CHILUAGE', 111),('CASSAI', 111),('MURIEGE', 111),('MUCONDA', 111),('DAURIMO', 112)
+  ,('MONA QUIMBUNDO', 112),('SOMBO', 112),('CACUSO', 113),('LOMBE', 113),('QUIZENGA', 113),('PUNGU A NDONGO', 113),('SOQUECO', 113),('CALANDULA', 114),('CATECO CANGOLA', 114),('COTA', 114),('CUALE', 114),('QUINJE', 114),('TALAMUNGONGO', 115),('CAMBUNDI CATEMBO', 115),('QUITAPA', 115)
+  ,('DUMBA CAMBANGO', 115),('CANGANDALA', 116),('BEMBO', 116),('CULAMAGIA', 116),('CARIBO', 116),('MBANJI YA NGOLA', 117),('CAHOMBO', 117),('CAMBO SUINGINGE', 117),('MICANDA', 117),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0)
   ,('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0)
   ,('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0)
   ,('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0),('', 0)
