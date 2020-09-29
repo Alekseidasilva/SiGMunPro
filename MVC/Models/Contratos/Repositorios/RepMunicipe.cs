@@ -12,6 +12,7 @@ namespace MVC.Models.Contratos.Repositorios
         private readonly Conexao _conexao = new Conexao();
         public string Cadastrar(Municipe entidade)
         {
+            string res;
             throw new NotImplementedException();
         }
 
