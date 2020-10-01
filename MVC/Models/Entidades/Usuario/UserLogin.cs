@@ -7,9 +7,9 @@ namespace MVC.Models.Entidades.Usuario
     {
 
 
-        [Required]
+        [Required(ErrorMessage = "O campo login é requerido")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "O campo senha é requerido")]
         public string Senha { get; set; }
 
         public virtual string ReturnUrl { get; set; }
