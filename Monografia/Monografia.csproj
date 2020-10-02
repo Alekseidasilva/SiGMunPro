@@ -65,6 +65,8 @@
     <None Include="Word\Guia.docx" />
     <None Include="Word\TFC Final.docx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Diagramas\Novos\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
