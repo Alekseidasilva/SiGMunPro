@@ -4,9 +4,7 @@ BEGIN
     SELECT
     BairroId,
     BairroComunaId,
-    BairroNome,
-    BairroUsuarioId,
-    BairroDataCadastro,
-    BairroEstado
+    BairroNome
+    
     from dbo.TB_Bairros
 END

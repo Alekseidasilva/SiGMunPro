@@ -16,7 +16,7 @@
 	MunicipeEmail varchar(50) NULL,
 	MunicipeEstado bit NOT NULL,
 	IdCadastrador int NOT NULL
-	CONSTRAINT PK_MunicipenNumero PRIMARY KEY(MunicipeNM),
+	CONSTRAINT PK_MunicipenNumero PRIMARY KEY([MunicipeNM]),
 	CONSTRAINT FK_TipoDocIdentificacaoDoMunicipe FOREIGN KEY (MunicipeTipoDocIdentificacao)REFERENCES dbo.TB_TipoDocIdentificacao(Id),
 	CONSTRAINT FK_GeneroDoMunicipe FOREIGN KEY (MunicipeGenero)REFERENCES dbo.TB_Generos(GeneroId),
 	CONSTRAINT FK_EstadoCivilDoMunicipe FOREIGN KEY (MunicipeEstadoCivil)REFERENCES dbo.TB_EstadoCivil(EstadoCivilId),

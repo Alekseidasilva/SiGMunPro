@@ -1,10 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Bairro_Inserir]
 
 @BairroComunaId INT,
-@BairroNome VARCHAR(50),
-@BairroUsuarioId INT,
-@BairroDataCadastro DATE,
-@BairroEstado BIT
+@BairroNome VARCHAR(50)
+
 AS
 DECLARE @@IdAuto int
 SELECT @@IdAuto=MAX(BairroId) FROM dbo.TB_Bairros
@@ -22,18 +20,14 @@ BEGIN
     (
     BairroId,
     BairroComunaId,
-    BairroNome,
-    BairroUsuarioId,
-    BairroDataCadastro,
-    BairroEstado    
+    BairroNome
+      
     )
     VALUES
     (
     @@IdAuto,
     @BairroComunaId,
-    @BairroNome,
-    @BairroUsuarioId,
-    @BairroDataCadastro,
-    @BairroEstado
+    @BairroNome
+   
     )
 END

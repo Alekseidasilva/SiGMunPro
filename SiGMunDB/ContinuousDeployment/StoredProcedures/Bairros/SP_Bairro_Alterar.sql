@@ -10,9 +10,7 @@ AS
 	    UPDATE dbo.TB_Bairros
 		SET  
     BairroComunaId=@BairroComunaId,
-    BairroNome=@BairroNome,
-    BairroUsuarioId=@BairroUsuarioId,
-    BairroDataCadastro=@BairroDataCadastro,
-    BairroEstado=@BairroEstado
+    BairroNome=@BairroNome
+    
     WHERE BairroId=@BairroId
 	END
