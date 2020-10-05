@@ -147,6 +147,10 @@
     <Build Include="ContinuousDeployment\StaticTables\TB_TipoDocIdentificacao.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarGeneros.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarGeneroPorId.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_VerificarLogin.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_VerificarSenha.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Tentativas.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarTentativas.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
@@ -159,5 +163,6 @@
     <None Include="ContinuousDeployment\3.PostDeployment.Updates.sql" />
     <None Include="ContinuousDeployment\2.PostDeployment.StaticTablesList.sql" />
     <None Include="SiGMunDB.publish.xml" />
+    <None Include="SiGMunDB_SOFTDEV.publish.xml" />
   </ItemGroup>
 </Project>

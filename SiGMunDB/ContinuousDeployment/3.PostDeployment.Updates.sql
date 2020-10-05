@@ -1,4 +1,4 @@
-﻿/*
+/*
 This will be executed during the post-deployment phase.
 Use it to apply scripts which are supposed to modify the 
 data after the schema update took place.
@@ -168,11 +168,11 @@ EXEC SP_Usuario_Inserir
 ,@PasswordHash = 'tmn9qEShotvDvtwMD8fJ2Q=='
 ,@SecurityStamp = '0'
 ,@PhoneNumber = '00000000'
-,@PhoneNumberConfirmed =1
-,@TwoFactorEnabled = 1
+,@PhoneNumberConfirmed =0
+,@TwoFactorEnabled = 0
 ,@LockoutEndDateUtc = '2020-07-29'
-,@LockoutEnabled = 1
-,@AccessFailedCount = 1
+,@LockoutEnabled = 0
+,@AccessFailedCount = 0
 ,@UserName = 'Admin'
 ,@PerfilId = 1
 ,@IdCadastrador=1

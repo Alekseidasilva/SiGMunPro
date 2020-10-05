@@ -1,4 +1,4 @@
-﻿using Infra.Data;
+using Infra.Data;
 using MVC.helpers;
 using MVC.Models.Contratos.Interfaces;
 using MVC.Models.Entidades.Usuario;
@@ -129,28 +129,15 @@ namespace MVC.Models.Contratos.Repositorios
         {
             throw new NotImplementedException();
         }
-
-        public User Login(string userName, string senha)
+        public void Tentativas(string userName, int tentativas)
         {
             try
             {
                 _conexao.LimparParametro();
                 _conexao.AdicionarParametros("@UserName", userName);
-                _conexao.AdicionarParametros("@Senha", senha);
-                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_Login");
-                User user = new User();
-                foreach (DataRow item in users.Rows)
-                {
-                    user.Id = Convert.ToInt32(item["Id"]);
-                    user.UserName = Convert.ToString(item["UserName"]);
-                    user.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
-                    user.Email = Convert.ToString(item["Email"]);
-                    user.PasswordHash = Convert.ToString(item["PasswordHash"]);
-                    user.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
-                    user.Estado = Convert.ToBoolean(item["Estado"]);
-                }
-
-                return user;
+                _conexao.AdicionarParametros("@Tentativas", tentativas);
+                _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Tentativas");
+                
             }
             catch (Exception e)
             {
@@ -159,6 +146,78 @@ namespace MVC.Models.Contratos.Repositorios
             }
 
         }
+        public int BuscarTentativas(string userName)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserName", userName);
+                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarTentativas");
+                int id = 0;
+                foreach (DataRow item in users.Rows)
+                {
+                    id = Convert.ToInt32(item["AccessFailedCount"]);
+                   
+                }
+                return id;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+        }
+        public bool VerificarUsuario(string userName)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserName", userName);
+                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_VerificarLogin");
+                int id=0;
+                foreach (DataRow item in users.Rows)
+                {
+                    id = Convert.ToInt32(item["Id"]);
+                    if (id > 0)
+                        return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+        }
+        public bool VerificarSenha(string userName, string senha)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserName", userName);
+                _conexao.AdicionarParametros("@Senha", senha);
+                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_VerificarSenha");
+                int id = 0;
+                foreach (DataRow item in users.Rows)
+                {
+                    id = Convert.ToInt32(item["Id"]);
+                    if (id>0)
+                    return true;
+                }
+                return false;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+        }
+       
 
         public Boolean AlterarSenha(int id, string senhaAntiga, string senhanova)
         {

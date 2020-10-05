@@ -1,4 +1,4 @@
-﻿@using System.Web.Optimization
+@using System.Web.Optimization
 @using WebHelpers.Mvc5.Enum
 <!DOCTYPE html>
 <html>
@@ -56,8 +56,8 @@
     /*Função para criar nome de usuario baseado no nome completo do Usuario*/
     function CriarUserName() {
         
-        let nomeCompleto = $("#NomeCompleto").val();
-        let palavras = nomeCompleto.split(" ");
+        var nomeCompleto = $("#NomeCompleto").val();
+        var palavras = nomeCompleto.split(" ");
         var tamanho = palavras.length;
         tamanho = tamanho - 1;
         if (tamanho !== 0) {

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MVC.helpers;
 using MVC.Models.Contratos.Repositorios;
 using MVC.Models.Entidades.Perfils;
@@ -135,7 +135,7 @@ namespace MVC.Controllers
 
         private bool VerificarSenha(string UserName, string senha)
         {
-           var res= _usuario.Login(UserName, senha);
+            var res = "";
            if (res != null)
            {
                return true;

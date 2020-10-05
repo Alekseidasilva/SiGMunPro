@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MVC.Models.Entidades.Usuario
@@ -12,6 +12,7 @@ namespace MVC.Models.Entidades.Usuario
         [Required(ErrorMessage = "O campo senha é requerido")]
         public string Senha { get; set; }
 
+        public virtual bool PermanecerLogado { get; set; }
         public virtual string ReturnUrl { get; set; }
     }
 }

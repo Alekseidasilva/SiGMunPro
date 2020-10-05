@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[SP_Usuario_Login]
-	@UserName VARCHAR(200),
+CREATE PROCEDURE [dbo].[SP_Usuario_Login]
+		@UserName VARCHAR(200),
 	@Senha VARCHAR(200)
 AS
 BEGIN
