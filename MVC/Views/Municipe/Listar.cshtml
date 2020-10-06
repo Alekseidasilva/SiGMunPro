@@ -1,4 +1,4 @@
-﻿@using MVC.Models.Contratos.Repositorios
+@using MVC.Models.Contratos.Repositorios
 @model IEnumerable<MVC.Models.Entidades.Municipe.Municipe>
 
 @{
@@ -64,13 +64,15 @@
                             }
 
                         }
-                    <td >
-                        @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id=item.Id ,@class = "glyphicon glyphicon-info-sign"})
-                        @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id=item.Id,@class = "fa fa-group"})
-                         @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id=item.Id,@class = "glyphicon glyphicon-home"})
-                        @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id=item.Id,@class = "glyphicon glyphicon-education"})
+                        <td >
+                            <a href="@Url.Action("Detalhes")"><i class = "glyphicon glyphicon-info-sign"></i></a>
+                          
+                            @*@Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {id = item.Id, @class = "glyphicon glyphicon-info-sign"})*@
+                            @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id = item.Id, @class = "fa fa-group"})
+                            @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id = item.Id, @class = "glyphicon glyphicon-home"})
+                            @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id = item.Id, @class = "glyphicon glyphicon-education"})
 
-                    </td>
+                        </td>
                 </tr>
                 }
                 </tbody>

@@ -149,6 +149,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\businessman1.png" />
+    <Content Include="Content\img\user1.png" />
+    <Content Include="Content\img\user2.png" />
+    <Content Include="Content\img\user5.png" />
+    <Content Include="Content\img\user4.png" />
+    <Content Include="Content\img\user3.png" />
+    <Content Include="Content\img\woman1.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
@@ -5630,8 +5637,6 @@
     <Content Include="Extras\dist\js\demo.js" />
     <Content Include="Extras\dist\js\pages\dashboard.js" />
     <Content Include="Extras\dist\js\pages\dashboard2.js" />
-    <Content Include="Extras\Login\lock_24px.png" />
-    <Content Include="Extras\Login\style.css" />
     <Content Include="Extras\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Extras\plugins\bootstrap-slider\slider.css" />
     <Content Include="Extras\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
@@ -5900,7 +5905,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Conta\Login123.cshtml" />
     <Content Include="Views\Home\Suporte.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Extras\bower_components\bootstrap-colorpicker\.bower.json" />
@@ -6495,7 +6499,6 @@
     <Content Include="Extras\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Cadastrar.cshtml" />
-    <Content Include="Views\Conta\Login1.cshtml" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -6515,8 +6518,7 @@
     <Content Include="Views\Perfil\Alterar.cshtml" />
     <Content Include="Views\Municipe\Listar.cshtml" />
     <Content Include="Views\Municipe\Cadastrar.cshtml" />
-    <Content Include="Views\Conta\Login2.cshtml" />
-    <Content Include="Views\Conta\Login.cshtml" />
+    <Content Include="Views\Municipe\Detalhes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -6685,6 +6687,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Conta\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Extras\bower_components\moment\moment.d.ts" />

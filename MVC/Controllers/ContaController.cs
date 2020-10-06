@@ -6,7 +6,7 @@ using System.Web.Security;
 
 namespace MVC.Controllers
 {
-    [Authorize]
+    //[Authorize]
 
     public class ContaController : Controller
     {
@@ -69,7 +69,6 @@ namespace MVC.Controllers
             FormsAuthentication.SignOut();
             return Redirect("/Conta/login");
         }
-
 
 
 

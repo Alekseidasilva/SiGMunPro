@@ -1,4 +1,4 @@
-﻿@using MVC.helpers
+@using MVC.helpers
 <header class="main-header">
     @* BEGIN Logo *@
     <a href="@Url.Action("Dashboard", "Home")" class="logo">
@@ -28,7 +28,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="~/Content/img/user.jpg" class="img-circle" alt="User Image">
+                                            <img src="~/Content/img/user_128px.png" class="img-circle" alt="User Image">
                                         </div>
                                         <h4>
                                             Support Team
@@ -99,12 +99,12 @@
                 @* BEGIN User Account Menu *@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="~/Content/img/user.jpg" class="user-image" alt="User Image">
+                        <img src="~/Content/img/user4.png" class="user-image" alt="User Image">
                         <span class="hidden-xs">@User.Identity.Name </span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="user-header">
-                            <img src="~/Content/img/user.jpg" class="img-circle" alt="User Image">
+                            <img src="~/Content/img/user4.png" class="img-circle" alt="User Image">
 
                             <p>
                                 <strong>@User.Identity.Name</strong>
@@ -112,7 +112,7 @@
                                 <small>@SessaoUsuario.DataCadastro.ToShortDateString()</small>
                             </p>
                         </li>
-                        <li class="user-body">
+                        @*<li class="user-body">
                             <div class="row">
                                 <div class="col-xs-4 text-center">
                                     <a href="#">Followers</a>
@@ -124,23 +124,23 @@
                                     <a href="#">Friends</a>
                                 </div>
                             </div>
-                        </li>
+                        </li>*@
                         <li class="user-footer">
                             <div class="pull-left">
                               
                                 @Html.ActionLink("Perfil", "Detalhes", "Usuario",new {SessaoUsuario.Id}, htmlAttributes: new {@class = "btn btn-default btn-flat"})
                             </div>
                             <div class="pull-right">
-                                <a href="@Url.Action("TerminarSessao","Conta")" class="btn btn-default btn-flat">Terminar Sessão</a>
+                                <a href="@Url.Action("TerminarSessao","Conta")" class="btn btn-default btn-flat">Terminar Sessao</a>
                             </div>
                         </li>
                     </ul>
                 </li>
                 @* END User Account Menu *@
                 @* BEGIN Control Sidebar Toggle Button *@
-                <li>
+                @*<li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                </li>*@
                 @* END Control Sidebar Toggle Button *@
             </ul>
         </div>
