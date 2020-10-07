@@ -2,6 +2,6 @@
 @Id int
 	AS
 BEGIN
-    SELECT  generoNome FROM dbo.TB_Generos
+    SELECT  GeneroNome FROM dbo.TB_Generos
 	WHERE GeneroId=@Id
 END
