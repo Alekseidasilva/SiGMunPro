@@ -5,7 +5,7 @@ namespace Web.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Dashboard()
         {
             return View();
         }

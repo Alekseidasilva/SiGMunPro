@@ -1,106 +1,121 @@
 ﻿@using WebHelpers.Mvc5
-<aside>
-    <div id="sidebar" class="nav-collapse">
-         sidebar menu start
-        <div class="leftside-navigation">
-            <ul class="sidebar-menu" id="nav-accordion">
-                <li class="sub-menu">
-                    <a class="" href="@Url.Action("Dashboard","Home")">
-                        <i class="fa fa-dashboard"></i>
-                        <span>Dashboard</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="typography.html">Suporte</a></li>
-						<li><a href="glyphicon.html">Sobre</a></li>
-                        
-                    </ul>
-                </li>
-                 
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-user"></i>
-                        <span>Munícipe</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="typography.html">Listar</a></li>
-						<li><a href="glyphicon.html">Consultar</a></li>
-                        <li><a href="grids.html">Emitir Cartão</a></li>
-                    </ul>
-                </li>
-               
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Secretaria</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="basic_table.html">Emitir </a></li>
-                        <li><a href="responsive_table.html">Reemitir</a></li>
-                        <li><a href="responsive_table.html">Consultar</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-key"></i>
-                        <span>Área Técnica</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="form_component.html">Form Elements</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-						<li><a href="dropzone.html">Dropzone</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-envelope"></i>
-                        <span>Fiscalização </span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="mail.html">Inbox</a></li>
-                        <li><a href="mail_compose.html">Compose Mail</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" fa fa-bar-chart-o"></i>
-                        <span>Relatórios</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="chartjs.html">Chart js</a></li>
-                        <li><a href="flot_chart.html">Flot Charts</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class=" fa fa-gears"></i>
-                        <span>Definições</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="google_map.html">Gestor Máximo</a></li>
-                        <li><a href="vector_map.html">Gestor Adjunto</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-glass"></i>
-                        <span>Sistema</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="gallery.html">Perfis</a></li>
-						<li><a href="404.html">Usuários</a></li>
-                        <li><a href="registration.html">Registration</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="login.html">
-                        <i class="fa fa-user"></i>
-                        <span>Login Page</span>
-                    </a>
-                </li>
-            </ul> 
-            
-          
-        </div>
-        
+
+
+
+
+  <!-- sidebar menu start -->
+  <div class="sidebar-menu sticky-sidebar-menu">
+
+    <!-- logo start -->
+    <div class="logo">
+      <h1><a href="index.html">SiGMun</a></h1>
     </div>
-</aside>
+
+  <!-- if logo is image enable this -->
+    <!-- image logo --
+    <div class="logo">
+      <a href="index.html">
+        <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+      </a>
+    </div>
+    <!-- //image logo -->
+
+    <div class="logo-icon text-center">
+      <a href="index.html" title="logo"><img src="~/Content/images/logo.png" alt="logo-icon"> </a>
+    </div>
+    <!-- //logo end -->
+
+    <div class="sidebar-menu-inner">
+
+      <!-- sidebar nav start -->
+      <ul class="nav nav-pills nav-stacked custom-nav">
+        
+        <li class="menu-list">
+          <a href="#"><i class="fa fa-tachometer"></i>
+            <span >Dashboard<i class="lnr lnr-chevron-right"></i></span></a>
+          <ul class="sub-menu-list">
+            <li><a href="carousels.html">Dashboard</a> </li>
+            <li><a href="cards.html">Suporte</a> </li>
+            <li><a href="people.html">Sobre</a></li>
+          </ul>
+        </li>
+           <li class="menu-list">
+          <a href="#"><i class="fa fa-"></i>
+            <span>Munícipe <i class="lnr lnr-chevron-right"></i></span></a>
+          <ul class="sub-menu-list">
+            <li><a href="carousels.html">Listar</a> </li>
+            <li><a href="cards.html">Emitir Cartão</a> </li>
+            <li><a href="people.html">Consultar</a></li>
+          </ul>
+        </li>
+        <li class="menu-list">
+          <a href="#"><i class="fa fa-cogs"></i>
+            <span>Secretaria <i class="lnr lnr-chevron-right"></i></span></a>
+          <ul class="sub-menu-list">
+            <li><a href="carousels.html">Emitir Documento</a> </li>
+            <li><a href="cards.html">Reemitir Documento</a> </li>            
+          </ul>
+        </li>
+
+          <li class="menu-list">
+          <a href="#"><i class="fa fa-cogs"></i>
+            <span>Área Técnica <i class="lnr lnr-chevron-right"></i></span></a>
+          <ul class="sub-menu-list">
+            <li><a href="carousels.html">Coming Soon</a> </li>
+            <li><a href="cards.html">Coming Soon</a> </li>            
+          </ul>
+        </li>
+
+          <li class="menu-list">
+          <a href="#"><i class="fa fa-cogs"></i>
+            <span>Fiscalização <i class="lnr lnr-chevron-right"></i></span></a>
+          <ul class="sub-menu-list">
+            <li><a href="carousels.html">Carousels</a> </li>
+            <li><a href="cards.html">Default cards</a> </li>
+            <li><a href="people.html">People cards</a></li>
+          </ul>
+        </li>
+
+          <li class="menu-list">
+          <a href="#"><i class="fa fa-cogs"></i>
+            <span>Relatórios <i class="lnr lnr-chevron-right"></i></span></a>
+          <ul class="sub-menu-list">
+            <li><a href="carousels.html">Usuários</a> </li>
+            <li><a href="cards.html">Munícipes</a> </li>
+            <li><a href="people.html">Documentos</a></li>
+          </ul>
+        </li>
+
+          <li class="menu-list">
+          <a href="#"><i class="fa fa-cogs"></i>
+            <span>Definições <i class="lnr lnr-chevron-right"></i></span></a>
+          <ul class="sub-menu-list">
+              <li><a href="people.html">Entidade</a></li>
+              <li><a href="carousels.html">Gestor Máximo</a> </li>
+              <li><a href="cards.html">Gestor Adjunto</a> </li>
+              <li><a href="people.html">Outros</a></li>
+          </ul>
+        </li>
+            <li class="menu-list">
+          <a href="#"><i class="fa fa-cogs"></i>
+            <span>Sistema <i class="lnr lnr-chevron-right"></i></span></a>
+          <ul class="sub-menu-list">
+            <li><a href="carousels.html">Perfis</a> </li>            
+            <li><a href="people.html">Permissões</a></li>
+              <li><a href="cards.html">Usuários</a> </li>
+          </ul>
+        </li>
+        <li><a href="pricing.html"><i class="fa fa-table"></i> <span>Pricing tables</span></a></li>
+        <li><a href="blocks.html"><i class="fa fa-th"></i> <span>Content blocks</span></a></li>
+        <li><a href="forms.html"><i class="fa fa-file-text"></i> <span>Forms</span></a></li>
+      </ul>
+      <!-- //sidebar nav end -->
+      <!-- toggle button start -->
+      <a class="toggle-btn">
+        <i class="fa fa-angle-double-left menu-collapsed__left"><span>Ocultar Menu</span></i>
+        <i class="fa fa-angle-double-right menu-collapsed__right"></i>
+      </a>
+      <!-- //toggle button end -->
+    </div>
+  </div>
+  <!-- //sidebar menu end -->
