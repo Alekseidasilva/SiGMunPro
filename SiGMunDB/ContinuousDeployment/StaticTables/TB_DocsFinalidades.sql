@@ -2,6 +2,7 @@
 (
 	FinalidadeId INT NOT NULL,
 	FinalidadeNome VARCHAR(MAX)NOT NULL,
+	FinalidadeValor DECIMAL(18,2)NOT NULL,
 	FinalidadeEstado bit NOT NULL,
 	FinalidadeUsuarioId INT
 
