@@ -36,6 +36,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -164,6 +176,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Views\Conta\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -172,6 +185,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContaController.cs" />
+    <Compile Include="Helpers\Criptografia.cs" />
+    <Compile Include="Helpers\CryptProvider.cs" />
+    <Compile Include="Helpers\GuardaSessao.cs" />
+    <Compile Include="Models\Contratos\Interfaces\IBase.cs" />
+    <Compile Include="Models\Contratos\Interfaces\IMunicipe.cs" />
+    <Compile Include="Models\Contratos\Interfaces\IPerfil.cs" />
+    <Compile Include="Models\Contratos\Interfaces\IUsuario.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepBase.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepGenerico.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepMunicipe.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
+    <Compile Include="Models\Entidades\Base.cs" />
+    <Compile Include="Models\Entidades\Municipe\Municipe.cs" />
+    <Compile Include="Models\Entidades\Perfis\Role.cs" />
+    <Compile Include="Models\Entidades\Usuario\User.cs" />
+    <Compile Include="Models\Entidades\Usuario\UserClaim.cs" />
+    <Compile Include="Models\Entidades\Usuario\UserLogin.cs" />
+    <Compile Include="Models\Entidades\Usuario\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,7 +230,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infra\Infra.csproj">
+      <Project>{4FD34D08-E34E-403F-B338-621D0D5819EB}</Project>
+      <Name>Infra</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
