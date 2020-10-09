@@ -110,8 +110,8 @@
                 </a>
                 <ul class="dropdown-menu drp-mnu" aria-labelledby="dropdownMenu3">
                   <li class="user-info">
-                    <h5 class="user-name">Utilizador</h5>
-                    <span class="status ml-2">Administrador</span>
+                    <h5 class="user-name">@User.Identity.Name</h5>
+                    <span class="status ml-2">@Web.Helpers.GuardaSessao.PerfilNome</span>
                   </li>
                   <li> <a href="#"><i class="lnr lnr-user"></i>Meu Perfil</a> </li>
                   <li> <a href="#"><i class="lnr lnr-users"></i>Alterar Senha</a> </li>

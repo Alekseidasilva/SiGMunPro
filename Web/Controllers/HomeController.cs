@@ -2,6 +2,7 @@
 
 namespace Web.Controllers
 {
+    [Authorize(Roles ="ADMINISTRADOR")]
     public class HomeController : Controller
     {
         [HttpGet]
