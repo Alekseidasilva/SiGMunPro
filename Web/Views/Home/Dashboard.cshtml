@@ -1,6 +1,6 @@
 ﻿@{
-//ViewBag.Title = "Index";
-//ViewBag.Description = "Home Page";
+ViewBag.Title = "DashBoard";
+ViewBag.Description = "DashBoard";
 }
   <!-- main content start -->
 <div class="main-content">
@@ -24,14 +24,14 @@
             <div class="col-sm-6 pr-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
                 <i class="lnr lnr-users"> </i>
-                <h3 class="text-primary number">29.75 M</h3>
+                <h3 class="text-primary number">@ViewBag.TotalUsuariosCadastrados</h3>
                 <p class="stat-text">Total Usuários</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
                 <i class="lnr lnr-eye"> </i>
-                <h3 class="text-secondary number">51.25 K</h3>
+                <h3 class="text-secondary number">00</h3>
                 <p class="stat-text">Total Munícipes</p>
               </div>
             </div>
@@ -41,16 +41,17 @@
           <div class="row">
             <div class="col-sm-6 pr-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
-                <i class="lnr lnr-cloud-download"> </i>
-                <h3 class="text-success number">166.89 M</h3>
-                <p class="stat-text">Downloads</p>
+                <i class="lnr lnr-license"> </i>
+                <h3 class="text-success number">00</h3>
+                <p class="stat-text">Documentos Emitidos</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
-                <i class="lnr lnr-cart"> </i>
-                <h3 class="text-danger number">1,250k</h3>
-                <p class="stat-text">Purchased</p>
+                @*<i class="lnr lnr-cart"> </i>*@
+                  <i class="lnr lnr-tag"> </i>
+                <h3 class="text-danger number">00,00 kzs</h3>
+                <p class="stat-text">Arrecadados</p>
               </div>
             </div>
           </div>

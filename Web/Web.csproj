@@ -291,7 +291,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ContaController.cs" />
+    <Compile Include="Controllers\MunicipeController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UserRoleProvider.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Helpers\Criptografia.cs" />
     <Compile Include="Helpers\CryptProvider.cs" />
     <Compile Include="Helpers\GuardaSessao.cs" />
@@ -336,6 +339,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Municipe\" />
+    <Folder Include="Views\Perfil\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infra\Infra.csproj">
