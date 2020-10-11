@@ -13,6 +13,7 @@ namespace Web.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
+            
             return View();
         }
         [HttpPost]
