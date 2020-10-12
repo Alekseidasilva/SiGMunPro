@@ -282,6 +282,7 @@
     <Content Include="Content\Login_v3\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Content\Login_v3\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\Login_v3\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Views\Usuario\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -341,7 +342,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Municipe\" />
     <Folder Include="Views\Perfil\" />
-    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infra\Infra.csproj">

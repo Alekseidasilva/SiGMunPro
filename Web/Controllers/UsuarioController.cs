@@ -18,9 +18,10 @@ namespace Web.Controllers
             // GET: Usuario
             public ActionResult Index(IdentityUser user)
             {
-                var users = _usuario.SelecionarTodosComPerfilId();
-                ViewData["Profile"] = new List<Role>(perfil.SelecionarTodos());
-                return View(users);
+            //var users = _usuario.SelecionarTodosComPerfilId();
+            //ViewData["Profile"] = new List<Role>(perfil.SelecionarTodos());
+            //return View(users);
+            return View();
             }
             [HttpGet]
             public ActionResult Cadastrar()

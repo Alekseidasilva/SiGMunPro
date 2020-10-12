@@ -6,7 +6,7 @@
 
     <!-- logo start -->
     <div class="logo">
-      <h1><a href="index.html">SiGMun</a></h1>
+      <h1><a href="@Url.Action("Dashboard","Home")">SiGMun</a></h1>
     </div>
 
   <!-- if logo is image enable this -->
@@ -19,7 +19,7 @@
     <!-- //image logo -->
 
     <div class="logo-icon text-center">
-      <a href="index.html" title="logo"><img src="~/Content/images/logo.png" alt="logo-icon"> </a>
+      <a href="@Url.Action("Dashboard","Home")" title="logo"><img src="~/Content/images/logo.png" alt="logo-icon"> </a>
     </div>
     <!-- //logo end -->
 
@@ -31,9 +31,9 @@
           <a href="#"><i class="fa  fa-bank"></i>
             <span >Dashboard<i class="lnr lnr-chevron-right"></i></span></a>
           <ul class="sub-menu-list">
-            <li><a href="carousels.html"><i class="fa fa-home"></i>Dashboard</a> </li>
-            <li><a href="cards.html"><i class="fa fa-question"></i>Suporte</a> </li>
-            <li><a href="people.html"><i class="fa fa-exclamation-circle"></i>Sobre</a></li>
+            <li><a href="@Url.Action("Dashboard","Home")"><i class="fa fa-home"></i>Dashboard</a> </li>
+            <li><a href="@Url.Action("Suporte","Home")"><i class="fa fa-question"></i>Suporte</a> </li>
+            <li><a href="@Url.Action("Sobre","Home")"><i class="fa fa-exclamation-circle"></i>Sobre</a></li>
           </ul>
         </li>
     @if(User.IsInRole("ADMINISTRADOR") || User.IsInRole("FUNCIONARIO")|| User.IsInRole("CHEFE DE DEPARTAMENTO"))
