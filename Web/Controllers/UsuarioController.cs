@@ -98,6 +98,7 @@ namespace Web.Controllers
                     user.LockoutEnabled = false;
                     user.LockoutEndDateUtc = DateTime.Now;
                     user.AccessFailedCount = 0;
+                user.IdCadastrador = GuardaSessao.Id;
                     string res = _usuario.Alterar(user);
                     return RedirectToAction("Index", "Usuario");
                 }

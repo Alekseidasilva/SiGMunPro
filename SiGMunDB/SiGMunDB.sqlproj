@@ -164,5 +164,6 @@
     <None Include="ContinuousDeployment\2.PostDeployment.StaticTablesList.sql" />
     <None Include="SiGMunDB.publish.xml" />
     <None Include="SiGMunDB_SOFTDEV.publish.xml" />
+    <None Include="SiGMunDB_1.publish.xml" />
   </ItemGroup>
 </Project>

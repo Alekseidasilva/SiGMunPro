@@ -63,10 +63,9 @@
                                                    </span>
                                                  }
                                             </div>
-                                            <div class="people-social mt-3">
-                                                <a href="#" class="bg-warning"><span class="fa fa-edit"></span></a>
-                                                <a href="#team" class="bg-danger"><span class="fa fa-trash-o"></span></a>
-                                                @*<a href="#team" class="linkedin"><span class="fa fa-linkedin"></span></a>*@
+                                            <div class="people-social mt-3">                                          
+                                              @Html.ActionLink("'","Alterar", new{ id=2}, htmlAttributes:new{@class="bg-warning fa fa-edit" })
+                                              @Html.ActionLink("'","Alterar", new{ id=2}, htmlAttributes:new{@class="bg-danger fa fa-remove" })
                                             </div>                                            
                                         </div>
                                     </div>

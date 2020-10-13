@@ -2,7 +2,7 @@
  @Id INT,
  @NomeCompleto NVARCHAR(MAX),
  @Estado bit,
- @DataCadastro DATE,
+ @DataCadastro DATETIME,
  @Email NVARCHAR(256),
  @EmailConfirmed bit,
  @PasswordHash NVARCHAR(MAX),
@@ -10,10 +10,10 @@
  @PhoneNumber NVARCHAR(MAX), 
  @PhoneNumberConfirmed bit,
  @TwoFactorEnabled bit,
- @LockoutEndDateUtc DATE,
+ @LockoutEndDateUtc DATETIME,
  @LockoutEnabled BIT,
  @AccessFailedCount INT,
- @UserName NVARCHAR(MAX),
+ @UserName NVARCHAR(256),
  @PerfilId INT
   AS  
   BEGIN
@@ -36,6 +36,6 @@
       SELECT @UserName AS retorno
   END
   BEGIN  
-  UPDATE dbo.TB_Permissoes SET
-  RoleId=@PerfilId WHERE UserId=@Id  
+  UPDATE dbo.TB_Permissoes SET RoleId=@PerfilId
+  WHERE UserId=@Id  
   END 

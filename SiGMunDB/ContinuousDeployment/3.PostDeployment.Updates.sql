@@ -293,11 +293,11 @@ INSERT dbo.TB_Municipios(MunicipioNome,MunicipioProvinciaId)VALUES
 ('CUIMBA', 18),('M´BANZA KONGO', 18),('NOQUI', 18),('N´ZETO', 18),('SOYO',18),('TOMBOCO',18)
 
 GO
-INSERT INTO dbo.TB_Municipes (MunicipeId, MunicipeNM, MunicipeNomeCompleto, MunicipeDataNascimento,
-  MunicipeNDocIdent, MunicipeTipoDocIdentificacao, MunicipeDocDataEmissao, MunicipeDocDataValidade,
-  MunicipeNIF, MunicipeGenero, MunicipeEstadoCivil, MunicipeTelefone1, MunicipeTelefone2, MunicipeEmail,
-  MunicipeEstado, IdCadastrador)
-  VALUES (1, 123456789, 'Aleksei Justino Mateus Dondo da Silva', '1988-10-15', '003013895ME035', 1,
- GETDATE(), GETDATE(), 'Meu NIF', 1, 2, '927060073', '998515561', 'alekseidasilva@gmail.com', 1, 1);
 
-
+ INSERT INTO TB_Municipes (MunicipeNM, MunicipeNomeCompleto, MunicipeDataNascimento,
+ MunicipeNDocIdent, MunicipeTipoDocIdentificacao, MunicipeDocDataEmissao, MunicipeDocDataValidade, 
+ MunicipeNIF, MunicipeGenero, MunicipeEstadoCivil, MunicipeTelefone1, MunicipeTelefone2, MunicipeEmail,
+ MunicipeEstado, MunicipeDataCadastro, IdCadastrador)
+	VALUES (123456789, 'Aleksei Justino Mateus Dondo da Silva', '1988-10-15', '003013895ME035',
+	1, GETDATE(), GETDATE(), '003013895ME035', 1, 1, '927060073', '998515561', 'alekseidasilva@gmail.com',
+	1, GETDATE(), 1);

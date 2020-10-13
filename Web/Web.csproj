@@ -285,6 +285,7 @@
     <Content Include="Content\Login_v3\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Cadastrar.cshtml" />
+    <Content Include="Views\Usuario\Alterar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

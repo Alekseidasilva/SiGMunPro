@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_Bairro_Alterar]
+﻿CREATE PROCEDURE dbo.SP_Bairro_Alterar
 @BairroId int,
 @BairroComunaId int,
 @BairroNome VARCHAR(50),
