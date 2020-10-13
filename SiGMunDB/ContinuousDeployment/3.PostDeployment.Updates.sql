@@ -151,9 +151,9 @@ GO
 -------------------------Inserir Perfil------------------------------------
 EXEC SP_Perfil_Inserir @Name = 'ADMINISTRADOR',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
 GO
-EXEC SP_Perfil_Inserir @Name = 'CHEFE DEPARTAMENTO',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
+EXEC SP_Perfil_Inserir @Name = 'CHEFE DE DEPARTAMENTO',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
 GO
-EXEC SP_Perfil_Inserir @Name = 'NORMAL',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
+EXEC SP_Perfil_Inserir @Name = 'FUNCIONÁRIO',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
 GO
 INSERT INTO TB_TipoDocIdentificacao (Nome)
   VALUES ('B.I'),('PassPorte'),('Cédula')

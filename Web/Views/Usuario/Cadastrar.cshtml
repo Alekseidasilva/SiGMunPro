@@ -1,0 +1,151 @@
+﻿@model Web.Models.Entidades.Usuario.User
+@using System.Web.UI.WebControls
+
+@{
+    ViewBag.Title = "Cadastrar Usuários";
+}
+
+
+<body class="sidebar-menu-collapsed">
+<div class="se-pre-con"></div>
+<section> 
+<!-- main content start -->
+<div class="main-content">
+    <!-- content -->
+    <div class="container-fluid content-top-gap">      
+        <!-- forms -->
+        <section class="forms">      
+
+            <!-- forms 2 -->
+            <div class="card card_border py-2 mb-4">
+                <div class="card-body">
+                    <form action="#" name="f1" method="post">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4" class="input__label">Nome Completo</label>
+                                @Html.TextBoxFor(model=>model.NomeCompleto, htmlAttributes: new {@class="form-control input-style", PlaceHolder="nome sem abreviar" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4" class="input__label">Nome de Usuário</label>                            
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "Login" , required=""} })                  
+                          </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4" class="input__label">Senha</label>                                
+                                <input type="password" class="form-control input-style" id="inputPassword4" placeholder="senha" required="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4" class="input__label">Confirmar senha</label>
+                                 @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "senha" ,type="password", required=""} })
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-5">
+                                <label for="inputCity" class="input__label">Endereço de Email</label>
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "email" ,type="email" } })
+                             </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputCity" class="input__label">Nº Telefone</label>
+                                 @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "" ,type="text"} })
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputState"  class="input__label">Perfil de Acesso</label>                               
+                                @Html.DropDownListFor(model => model.PerfilId, new List<SelectListItem>(ViewBag.perfil), "Selecione o Perfil", htmlAttributes: new { @class="form-control input-style", required="" })
+                            </div>                          
+                        </div>
+                       
+                       
+                        <div class="custom-control custom-checkbox mb-3">
+                            @Html.CheckBoxFor(model=>model.Estado,htmlAttributes: new { @class="custom-control-input", type="checkbox", id="customControlValidation1" })
+                          <label class="custom-control-label" for="customControlValidation1">Estado</label>                          
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-success btn-style mt-4"><i class="fa fa-save"></i>Gravar</button>                        
+                        <a href="@Url.Action("Index")" class="btn btn-outline-danger btn-style mt-4 pull-right"><i class="fa fa-remove"></i>Cancelar</a>
+                    </form>
+                </div>
+            </div>
+            <!-- //forms 2 -->
+           
+
+        </section>
+        <!-- //forms -->
+        </section>
+        <!-- //forms  -->
+
+    </div>
+    <!-- //content -->
+
+</div>
+<!-- main content end-->
+</section>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

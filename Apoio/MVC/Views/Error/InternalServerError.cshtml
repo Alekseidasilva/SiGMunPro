@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Erro";
+}
+
+<div class="error-page">
+    <h2 class="headline text-red">500</h2>
+
+    <div class="error-content">
+        <h3><i class="fa fa-warning text-red"></i> Oops! alguma coisa errada .</h3>
+
+        <p>
+            A pagina que está tentando acessar não se encontra disponivel.<br>
+            se o problema persistir por favor contacte o <a href="@Url.Action("Suporte","Home")">suporte</a>.
+
+        </p>
+
+        <a href="@Url.Action("Dashboard", "Home")" class="btn btn-default" role="button">Dashboard</a>
+    </div>
+</div>

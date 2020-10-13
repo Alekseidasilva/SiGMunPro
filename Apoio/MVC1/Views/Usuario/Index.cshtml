@@ -1,0 +1,178 @@
+﻿@using MVC.helpers
+@using MVC.Models.Contratos.Repositorios
+@using MVC.Models.Entidades.Perfils
+@model IEnumerable<MVC.Models.Entidades.Usuario.User>
+
+@{
+    ViewBag.Title = "Lista de Usuários";
+}
+
+<div class="inner">
+    <a class="btn bg-gray-active" href="@Url.Action("Cadastrar")"><i class="fa fa-2x fa-user-plus"></i> Cadastrar</a>
+</div>
+<p></p>
+<div class="box box-info">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <!-- Widget: user widget style 1 -->
+                        <div class="box box-widget widget-user-2">
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header bg-light-blue-active">
+                                <div class="widget-user-image">
+                                    <img class="img-circle" src="~/Imagens/male_user_128px.png" alt="User Avatar">
+                                </div>
+                                <!-- /.widget-user-image -->
+                                <h6 class="widget-user-username">@item.NomeCompleto</h6>
+                                 @foreach (var profile in(List<Role>)ViewData["Profile"])
+                                {
+                                    if (item.PerfilId==profile.Id)
+                                    {<h6 class="widget-user-desc">@profile.Name.ToUpper()</h6>}
+                                }
+                                
+                            </div>
+                            <div class="box-footer no-padding">
+                                <ul class="nav nav-stacked">
+                                    <li><a href="#">Apelido <span class="pull-right badge bg-blue">@item.UserName </span></a></li>
+                                    <li><a href="#">Email <span class="pull-right badge bg-blue">@item.Email</span></a></li>
+                                    <li><a href="#">Telefone <span class="pull-right badge bg-white">@item.PhoneNumber</span></a></li>
+                                    @if (item.Estado)
+                                    {
+                                        <li><a href="#">Estado <span class="pull-right badge bg-green-gradient">Ativado</span></a></li>
+                                    }else
+                                    {
+                                        <li><a href="#">Estado <span class="pull-right badge bg-red-gradient">Desativado</span></a></li>
+                                    }
+
+                                    <li><a href="#">Data Cadastro <span class="pull-right badge bg-white">@item.DataCadastro.ToShortDateString()</span></a></li>
+                                     @{
+                                        RepUsuario repUsuario=new RepUsuario();
+                                         string a = repUsuario.BuscarNomeDoCadastrador(item.Id);
+                                         <li><a href="#">Cadastrado Por <span class="pull-right badge bg-teal-gradient">@a</span></a></li>
+                                     }
+                                     
+                                    <li><a href="#"><span class="pull-right badge bg-white"></span></a></li>
+                                    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                    @Html.ActionLink("Editar", "Alterar", new {item.Id}, htmlAttributes: new {@class = "btn btn-sm btn-warning glyphicon glyphicon-pencil"})
+                                    @Html.ActionLink("Imprimir", "#", new {item.Id}, htmlAttributes: new {@class = "btn btn-sm btn-success glyphicon glyphicon-print"})
+                                    @Html.ActionLink("Excluir", "Excluir", new {item.Id}, htmlAttributes: new {@class = "btn btn-sm btn-danger glyphicon glyphicon-trash"})
+                                </ul>
+                            </div>
+              
+                        </div>
+                        <!-- /.widget-user -->
+                    </div>
+                }
+                <!-- right col -->
+            </div>
+            <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+    </section>
+</div>
+
+
+
+<div data-id="0" class="modal modal-danger fade" id="modal-danger">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Excluir Usuário</h4>
+              </div>
+              <div class="modal-body">
+                <p>Confirma a exclusão do usuário :<strong> <span id="nomeUsuarioModal"></span></strong> &hellip;</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Sair</button>
+                <button  onclick="ConfirmarExclusao()" type="button" class="btn btn-outline">Confirmar</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+</div>
+        <!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function ExcluirUsuario(id, username)
+    {
+        //var resp = confirm('Deseja Excluir o Usuário : '+ username +' ?');
+        //if (resp)
+        //{
+        //    //console.log('Excluir usuario com Id ' + id);
+        //    ConfirmarExclusao(id);
+        //}
+        $('#nomeUsuarioModal').text(username);
+        $('#modal-danger').data('id',id).modal('show');
+    }
+
+    //$('#ConfirDelModal').click(function() {
+       
+    //    ConfirmarExclusao(_id);
+    //});
+
+    function ConfirmarExclusao()
+    {
+        var _id = $('#modal-danger').data('id');
+        //XMLHTTPRequest
+        var xhr = new XMLHttpRequest();
+        var url = `/Usuario/Excluir/${_id}`;
+        xhr.onreadystatechange = function ()
+        {
+            if (this.readyState === 4&& this.status===404)
+            {
+                $('#modal-danger').data('id', '').modal('hide');
+                alert('Usuário não encontrado');
+            }
+            if (this.readyState === 4 && this.status === 200)
+            {
+                //Remover do Html
+                $('#modal-danger').data('id','_id').modal('hide');
+                let tr = document.querySelector($('#modal-danger').data('id'));
+                if (tr !== null){
+                    tr.remove();
+                }
+                alert('Usuário excluido com sucesso!');
+            }
+        }
+        xhr.open('get', url);
+        xhr.send();
+
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      
+    

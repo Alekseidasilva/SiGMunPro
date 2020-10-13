@@ -1,0 +1,82 @@
+﻿@using MVC.Models.Contratos.Repositorios
+@model IEnumerable<MVC.Models.Entidades.Municipe.Municipe>
+
+@{
+    ViewBag.Title = "Lista de Municípes";
+}
+<div class="inner">
+    <a class="btn btn-sm bg-green-active" href="@Url.Action("Cadastrar")"><i class="fa fa-2x fa-user-plus"></i> Cadastrar</a>
+</div>
+
+     <!-- /.search form -->
+<!-- /.box -->
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data Table With Full Features</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-borderless table-striped table-hover table-responsive">
+                <thead class="bg-aqua-active">
+                <tr >
+                    <th class="text-center">NM</th>
+                    <th class="text-center">Nome Completo</th>
+                    <th class="text-center">Data Nasc</th>
+                    <th class="text-center">Nº Doc Identificação</th>
+                    <th class="text-center">Data Validade</th>
+                    <th class="text-center">Idade</th>
+                    <th class="text-center">Género</th>
+                    <th class="text-center">Acções</th>
+                </tr>
+                </thead>
+                <tbody class="table-striped">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                    <td class="text-center">@item.MunicipeNm</td>
+                    <td >@item.Nome</td>
+                    <td class="text-center" >@item.MunicipeDataNascimento.ToShortDateString()</td>
+                    <td class="text-center">@item.MunicipeNDocIdent</td>
+                        @{
+                      if (item.MunicipeDocDataValidade.Date==DateTime.Now.Date)
+                      {
+                         <td class="text-center bg-yellow">@item.MunicipeDocDataValidade.ToShortDateString()</td>
+                          
+                      }
+                      else if (item.MunicipeDocDataValidade>DateTime.Now.Date)
+                      {
+                              <td class="text-center bg-red-gradient">@item.MunicipeDocDataValidade.ToShortDateString()</td>
+                      }
+                      else
+                      {
+                          <td class="text-center">@item.MunicipeDocDataValidade.ToShortDateString()</td>
+                      }
+                            int idade = DateTime.Now.Year - @item.MunicipeDataNascimento.Year;
+                        <td class="text-center">@idade</td>
+                            if (item.MunicipeGenero==1)
+                            {
+                                <td class="text-center"><i class="fa fa-male"></i> M</td> 
+                            }
+                            else
+                            {
+                                <td class="text-center"><i class="fa fa-female"></i> F</td> 
+                            }
+
+                        }
+                    <td >
+                        @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id=item.Id ,@class = "glyphicon glyphicon-info-sign"})
+                        @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id=item.Id,@class = "fa fa-group"})
+                         @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id=item.Id,@class = "glyphicon glyphicon-home"})
+                        @Html.ActionLink(" ", "Detalhes", "Municipe", htmlAttributes: new {@id=item.Id,@class = "glyphicon glyphicon-education"})
+
+                    </td>
+                </tr>
+                }
+                </tbody>
+               
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->

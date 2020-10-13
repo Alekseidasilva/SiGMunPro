@@ -1,0 +1,53 @@
+﻿@using MVC.Models.Entidades.Perfils
+@model MVC.Models.Entidades.Usuario.User
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+
+<div class="col-md-4">
+          <!-- Widget: user widget style 1 -->
+          <div class="box box-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-blue">
+              <div class="widget-user-image">
+                <img class="img-circle" src="~/Imagens/user_128px.png" alt="User Avatar">
+              </div>
+              <!-- /.widget-user-image -->
+              <h3 class="widget-user-username">@Model.NomeCompleto</h3>
+                 @foreach (var profile in (List<Role>)ViewData["Profile"])
+                 {
+                    if (Model.PerfilId == profile.Id)
+                      {
+                       <h5 class="widget-user-desc">@profile.Name</h5>
+                      }
+                 }             
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Nome de Utilizador <span class="pull-right badge bg-blue">@Model.UserName</span></a></li>
+                <li><a href="#">Email <span class="pull-right badge bg-aqua">@Model.Email</span></a></li>
+                <li><a href="#">Telefone <span class="pull-right badge bg-white">@Model.PhoneNumber</span></a></li>
+                  @if(Model.Estado)
+                  {
+                      <li><a href="#">Estado <span class="pull-right badge bg-green-gradient">Ativo</span></a></li>
+                  }                
+                else
+                  {
+                  <li><a href="#">Estado <span class="pull-right badge bg-red">Inativo</span></a></li>
+                  }
+                <li><a href="#">Data Cadastro <span class="pull-right badge bg-white">@Model.DataCadastro.ToShortDateString()</span></a></li>
+                <li><a href="#">Cadastrado Por <span class="pull-right badge bg-white">842</span></a></li>
+              </ul>
+            </div>
+              <div class="footer">
+                  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
+                  @Html.ActionLink("Editar", "Alterar", new {Model.Id}, htmlAttributes: new {@class = "btn btn-sm btn-warning glyphicon glyphicon-pencil"})
+                   @Html.ActionLink("Imprimir", "#", new {Model.Id}, htmlAttributes: new {@class = "btn btn-sm btn-success glyphicon glyphicon-print"})
+                   @Html.ActionLink("Excluir", "Excluir", new {Model.Id}, htmlAttributes: new {@class = "btn btn-sm btn-danger glyphicon glyphicon-trash"})
+             </div>
+          </div>
+          <!-- /.widget-user -->
+        </div>
+

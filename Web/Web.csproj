@@ -130,6 +130,7 @@
   <ItemGroup>
     <Content Include="Content\css\style-starter.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Icones\icons8_s_16.png" />
     <Content Include="Content\images\avatar1.jpg" />
     <Content Include="Content\images\avatar2.jpg" />
     <Content Include="Content\images\avatar3.jpg" />
@@ -283,6 +284,7 @@
     <Content Include="Content\Login_v3\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Content\Login_v3\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Cadastrar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -340,6 +342,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\New\" />
     <Folder Include="Views\Municipe\" />
     <Folder Include="Views\Perfil\" />
   </ItemGroup>
