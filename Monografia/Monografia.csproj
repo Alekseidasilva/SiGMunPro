@@ -44,6 +44,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Anexos\Agregado Familiar P1.jpg" />
+    <Content Include="Anexos\Agregado Familiar P2.jpg" />
+    <Content Include="Anexos\Atestado de Residência.jpg" />
+    <Content Include="Anexos\Licença de Conudção P1.jpg" />
+    <Content Include="Anexos\Licença de Conudção P2.jpg" />
+    <Content Include="Anexos\Licença de Registo de Velocipedes P1.jpg" />
+    <Content Include="Anexos\Licença de Registo de Velocipedes P2.jpg" />
     <Content Include="Diagramas\Diagrama Lógico.png" />
     <Content Include="Diagramas\Screenshot_1.png" />
     <Content Include="Imagens\adonet.jpg" />
