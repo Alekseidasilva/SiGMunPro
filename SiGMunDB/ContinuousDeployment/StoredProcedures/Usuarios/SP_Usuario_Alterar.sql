@@ -14,7 +14,8 @@
  @LockoutEnabled BIT,
  @AccessFailedCount INT,
  @UserName NVARCHAR(256),
- @PerfilId INT
+ @PerfilId INT,
+ @IdCadastrador int
   AS  
   BEGIN
   	UPDATE dbo.TB_Usuarios SET           
@@ -31,7 +32,8 @@
       LockoutEndDateUtc=@LockoutEndDateUtc,
       LockoutEnabled=@LockoutEnabled,
       AccessFailedCount=@AccessFailedCount,
-      UserName=@UserName
+      UserName=@UserName,
+	  IdCadastrador=@IdCadastrador
       WHERE id=@Id
       SELECT @UserName AS retorno
   END
