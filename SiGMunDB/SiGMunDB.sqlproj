@@ -151,6 +151,9 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_VerificarSenha.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_Tentativas.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_Usuario_BuscarTentativas.sql" />
+    <Build Include="ContinuousDeployment\StaticTables\TB_Velocipedes.sql" />
+    <Build Include="ContinuousDeployment\StaticTables\TB_GrausAcademicos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarEstado.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

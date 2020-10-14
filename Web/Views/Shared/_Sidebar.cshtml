@@ -28,61 +28,61 @@
       <ul class="nav nav-pills nav-stacked custom-nav">
         
         <li class="menu-list">
-          <a href="@Url.Action("Dashboard","Home")"><i class="fa  fa-bank"></i>
+          <a href="@Url.Action("Dashboard","Home")"><i style="font-size: x-large; color:#4755AB "; class="fa  fa-home"></i>
             <span >Dashboard<i class="lnr lnr-chevron-right"></i></span></a>
           <ul class="sub-menu-list">
-            <li><a href="@Url.Action("Dashboard","Home")"><i class="fa fa-home"></i>Dashboard</a> </li>
-            <li><a href="@Url.Action("Suporte","Home")"><i class="fa fa-question"></i>Suporte</a> </li>
-            <li><a href="@Url.Action("Sobre","Home")"><i class="fa fa-exclamation-circle"></i>Sobre</a></li>
+            <li><a href="@Url.Action("Dashboard","Home")"><i style="font-size: medium; color:#03C895 "; class="fa fa-home"></i>Dashboard</a> </li>
+            <li><a href="@Url.Action("Suporte","Home")"><i style="font-size: medium; color:#03C895 "; class="fa fa-question"></i>Suporte</a> </li>
+            <li><a href="@Url.Action("Sobre","Home")"><i style="font-size: medium; color:#03C895 "; class="fa fa-exclamation-circle"></i>Sobre</a></li>
           </ul>
         </li>
     @if(User.IsInRole("ADMINISTRADOR") || User.IsInRole("FUNCIONARIO")|| User.IsInRole("CHEFE DE DEPARTAMENTO"))
     { 
      <!--para os três perfis-->  <!--começa aqui--> 
       <li class="menu-list">
-          <a href="#"><i class="fa fa-male"></i>
+          <a href="#"><i style="font-size: x-large; color:#4755AB "; class="fa fa-male"></i>
             <span>Munícipe <i class="lnr lnr-chevron-right"></i></span></a>
           <ul class="sub-menu-list">
-            <li><a href="carousels.html">Listar</a> </li>
-            <li><a href="cards.html">Emitir Cartão</a> </li>
-            <li><a href="people.html">Consultar</a></li>
+            <li><a href="carousels.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Listar</a> </li>
+            <li><a href="cards.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Emitir Cartão</a> </li>
+            <li><a href="people.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Consultar</a></li>
           </ul>
         </li>
         <li class="menu-list">
-          <a href="#"><i class="fa fa-book"></i>
+          <a href="#"><i style="font-size: x-large; color:#4755AB "; class="fa fa-book"></i>
             <span>Secretaria <i class="lnr lnr-chevron-right"></i></span></a>
           <ul class="sub-menu-list">
-            <li><a href="carousels.html"><i class="fa fa-file-text"></i>Emitir Documento</a> </li>
-            <li><a href="cards.html">Reemitir Documento</a> </li>            
+            <li><a href="carousels.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Emitir Documento</a> </li>
+            <li><a href="cards.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Reemitir Documento</a> </li>            
           </ul>
         </li>
 
           <li class="menu-list">
-          <a href="#"><i class="fa fa-wrench"></i>
+          <a href="#"><i style="font-size: x-large; color:#4755AB "; class="fa fa-wrench"></i>
             <span>Área Técnica <i class="lnr lnr-chevron-right"></i></span></a>
           <ul class="sub-menu-list">
-            <li><a href="carousels.html">Coming Soon</a> </li>
-            <li><a href="cards.html">Coming Soon</a> </li>            
+            <li><a href="carousels.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Coming Soon</a> </li>
+            <li><a href="cards.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Coming Soon</a> </li>            
           </ul>
         </li>
 
           <li class="menu-list">
-          <a href="#"><i class="fa fa-foursquare"></i>
+          <a href="#"><i style="font-size: x-large; color:#4755AB "; class="fa fa-foursquare"></i>
             <span>Fiscalização <i class="lnr lnr-chevron-right"></i></span></a>
           <ul class="sub-menu-list">
-            <li><a href="carousels.html">Carousels</a> </li>
-            <li><a href="cards.html">Default cards</a> </li>
-            <li><a href="people.html">People cards</a></li>
+            <li><a href="carousels.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Carousels</a> </li>
+            <li><a href="cards.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Default cards</a> </li>
+            <li><a href="people.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>People cards</a></li>
           </ul>
         </li>
 
           <li class="menu-list">
-          <a href="#"><i class="fa fa-line-chart"></i>
+          <a href="#"><i style="font-size: x-large; color:#4755AB "; class="fa fa-line-chart"></i>
             <span>Relatórios <i class="lnr lnr-chevron-right"></i></span></a>
           <ul class="sub-menu-list">
-            <li><a href="carousels.html">Usuários</a> </li>
-            <li><a href="cards.html">Munícipes</a> </li>
-            <li><a href="people.html">Documentos</a></li>
+            <li><a href="carousels.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Usuários</a> </li>
+            <li><a href="cards.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Munícipes</a> </li>
+            <li><a href="people.html"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Documentos</a></li>
           </ul>
         </li>
        <!--para os três perfis-->  <!--Termina aqui-->
@@ -91,22 +91,22 @@
     {
   <!--para os dois perfis-->  <!--Começa aqui-->
           <li class="menu-list">
-          <a href="#"><i class="fa fa-slack"></i>
+          <a href="#"><i style="font-size: x-large; color:#4755AB "; class="fa fa-slack"></i>
             <span>Definições <i class="lnr lnr-chevron-right"></i></span></a>
           <ul class="sub-menu-list">
-              <li><a href="@Url.Action("Index","Perfil")">Entidade</a></li>
-              <li><a href="@Url.Action("Index","Perfil")">Gestor Máximo</a> </li>
-              <li><a href="@Url.Action("Index","Perfil")">Gestor Adjunto</a> </li>
-              <li><a href="@Url.Action("Index","Perfil")">Outros</a></li>
+              <li><a href="@Url.Action("Index","Perfil")"><i style="font-size: medium; color:#03C895 " ; class="fa fa-lock"></i>Entidade</a></li>
+              <li><a href="@Url.Action("Index","Perfil")"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Gestor Máximo</a> </li>
+              <li><a href="@Url.Action("Index","Perfil")"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Gestor Adjunto</a> </li>
+              <li><a href="@Url.Action("Index","Perfil")"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Outros</a></li>
           </ul>
         </li>
             <li class="menu-list">
-          <a href="#"><i class="fa fa-sun-o"></i>
+          <a href="#"><i style="font-size: x-large; color:#4755AB "; class="fa fa-sun-o"></i>
             <span>Sistema <i class="lnr lnr-chevron-right"></i></span></a>
           <ul class="sub-menu-list">
-            <li><a href="@Url.Action("Index","Perfil")"><i class="fa fa-lock"></i>Perfis</a> </li>            
-            <li><a href="@Url.Action("","")"><i class="fa  fa-unlock"></i>Permissões</a></li>
-              <li><a href="@Url.Action("Index","Usuario")"><i class="fa fa-users"></i>Usuários</a> </li>
+            <li><a href="@Url.Action("Index","Perfil")"><i style="font-size: medium; color:#03C895 "; class="fa fa-lock"></i>Perfis</a> </li>            
+            <li><a href="@Url.Action("","")"><i style="font-size: medium; color:#03C895 "; class="fa  fa-unlock"></i>Permissões</a></li>
+              <li><a href="@Url.Action("Index","Usuario")"><i style="font-size: medium; color:#03C895 "; class="fa fa-users"></i>Usuários</a> </li>
           </ul>
         </li>
         @*<li><a href="pricing.html"><i class="fa fa-table"></i> <span>Pricing tables</span></a></li>
@@ -120,6 +120,7 @@
         
       <!-- toggle button start -->
       <a class="toggle-btn">
+
         <i class="fa fa-angle-double-left menu-collapsed__left"><span>Ocultar Menu</span></i>
         <i class="fa fa-angle-double-right menu-collapsed__right"></i>
       </a>

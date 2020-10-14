@@ -63,9 +63,10 @@
                                                    </span>
                                                  }
                                             </div>
-                                            <div class="people-social mt-3">                                          
-                                              @Html.ActionLink("'","Alterar", new{ id=2}, htmlAttributes:new{@class="bg-warning fa fa-edit" })
-                                              @Html.ActionLink("'","Alterar", new{ id=2}, htmlAttributes:new{@class="bg-danger fa fa-remove" })
+                                            <div class="people-social mt-3"> 
+                                                 @Html.ActionLink("'","Detalhes", new{ id=item.Id}, htmlAttributes:new{@class="bg-danger fa fa-info" })
+                                              @Html.ActionLink("'","Alterar", new{ id=item.Id}, htmlAttributes:new{@class="bg-warning fa fa-edit" })
+                                              @Html.ActionLink("'","Excluir", new{ id=item.Id}, htmlAttributes:new{@class="bg-danger fa fa-remove" })
                                             </div>                                            
                                         </div>
                                     </div>

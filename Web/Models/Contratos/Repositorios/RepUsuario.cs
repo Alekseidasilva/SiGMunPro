@@ -166,6 +166,30 @@ namespace Web.Models.Contratos.Repositorios
             }
 
         }
+        public Boolean BuscarEstado(string userName)
+        {     
+            try
+            {
+                var estadoActual=false;
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserName", userName);
+                var estado = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_UsuarioBuscarEstado");
+               
+                foreach (DataRow item in estado.Rows)
+                {
+                    estadoActual = Convert.ToBoolean(item["Estado"]);
+
+                }
+                return estadoActual;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+        }
         public bool VerificarUsuario(string userName)
         {
             try
@@ -213,8 +237,7 @@ namespace Web.Models.Contratos.Repositorios
                 throw;
             }
 
-        }
-       
+        }      
 
         public Boolean AlterarSenha(int id, string senhaAntiga, string senhanova)
         {

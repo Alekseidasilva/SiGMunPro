@@ -5,15 +5,14 @@ using Web.Models.Contratos.Repositorios;
 using Web.Models.Entidades.Usuario;
 
 namespace Web.Controllers
-{
+{    [Authorize]
     public class ContaController : Controller
     {
 
         // GET: Conta
         [AllowAnonymous]
         public ActionResult Login()
-        {
-            
+        {            
             return View();
         }
         [HttpPost]
@@ -32,7 +31,7 @@ namespace Web.Controllers
                         if (VerificarSenha(userLogin.Email, userLogin.Senha))
                         {
 
-                            if (GuardaSessao.Estado)
+                            if (BuscarEstado(userLogin.Email))
                             {
                                 FormsAuthentication.SetAuthCookie(userLogin.Email, userLogin.PermanecerLogado);
                                 if (userLogin.ReturnUrl != null)
@@ -64,31 +63,16 @@ namespace Web.Controllers
             ViewBag.mensagem = mensagens;
             return View(userLogin);
         }
-        [Authorize]
         public ActionResult TerminarSessao()
         {
             FormsAuthentication.SignOut();
             return Redirect("/Conta/login");
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
         private void Tentativas(string usuario, int ntentativas)
         {
             RepUsuario repUsuario = new RepUsuario();
             repUsuario.Tentativas(usuario, ntentativas);
         }
-
         private int BuscarTentativas(string usuario)
         {
             RepUsuario repUsuario = new RepUsuario();
@@ -116,8 +100,6 @@ namespace Web.Controllers
                 return false;
 
         }
-
-
         private string Criptografar(string textoAcriptografar)
         {
             Criptografia criptografia = new Criptografia();
@@ -126,5 +108,10 @@ namespace Web.Controllers
             return textoCriptografado;
         }
 
+        private bool BuscarEstado(string Username)
+        {
+            RepUsuario repUsuario = new RepUsuario();
+            return repUsuario.BuscarEstado(Username);
+        }
     }
 }
