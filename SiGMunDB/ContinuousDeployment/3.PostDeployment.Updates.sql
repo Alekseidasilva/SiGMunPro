@@ -156,7 +156,7 @@ GO
 EXEC SP_Perfil_Inserir @Name = 'FUNCIONÁRIO',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
 GO
 INSERT INTO TB_TipoDocIdentificacao (Nome)
-  VALUES ('B.I'),('PassPorte'),('Cédula')
+  VALUES ('B.I'),('OUTRO')
   go
 ---------------------------Inserir Usuario------------------------------------
 EXEC SP_Usuario_Inserir 
@@ -202,7 +202,8 @@ VALUES
 (12,'ESPOSO(A)'),
 (13,'SOGRO(A)'),
 (14,'CUNHADO(A)'),
-(15,'CONCUNHADO(A)')
+(15,'CONCUNHADO(A)'),
+(16,'')
 go
 ---------------------------Provibncias--------------------------------
 INSERT INTO dbo.TB_Provincias(ProvinciaId,ProvinciaNome)VALUES
@@ -294,10 +295,45 @@ INSERT dbo.TB_Municipios(MunicipioNome,MunicipioProvinciaId)VALUES
 
 GO
 
+--**************************************PROVINCIA DO MALANJE************************************
+------------------COMUNA DE CACUSO-------------------------------
+INSERT TB_Comunas (ComunaNome, ComunaMunicipioId)VALUES
+   ('CACUSO', 113),('LOMBE', 113),('QUIZENGA', 113),('PUNGU A NDONGO', 113),('SOQUECO', 113),
+  ------------------COMUNA DE CALANDULA-------------------------------
+  ('CALANDULA', 114),('CATECO CANGOLA', 114),('COTA', 114),('CUALE', 114),('QUINJE', 114),
+  ------------------COMUNA DE CAMBUNDI CATEMBO-------------------------------
+  ('TALAMUNGONGO', 115),('CAMBUNDI CATEMBO', 115),('QUITAPA', 115),('DUMBA CAMBANGO', 115),
+  ------------------COMUNA DE CANGANDALA-------------------------------
+   ('CANGANDALA', 116),('BEMBO', 116),('CULAMAGIA', 116),('CARIBO', 116),
+  ------------------COMUNA DE CAHOMBO-------------------------------
+  ('MBANJI YA NGOLA', 117),('CAHOMBO', 117),('CAMBO SUINGINGE', 117),('MICANDA', 117),
+  ------------------COMUNA DE CUABA N´ZOGE-------------------------------
+  ('KIWABA NZOJI',118 ),('MUFUMA', 118),
+  ------------------COMUNA DE CUNDA-DIA-BASE-------------------------------
+  ('KUNDA DYA BAZE', 119),('MILANDO', 119),('LEMBA', 119),
+  ------------------COMUNA DE LUQUEMBO-------------------------------
+  ('QUIMBANGO', 120),('CAPUNDA', 120),('DOMBO WA ZANGA', 120),('LUQUEMBO', 120),('CUNGA PALANGA', 120),('RIMBA', 120),
+  ------------------COMUNA DE MALANJE-------------------------------
+  ('MALANJE', 121),('NGOLA LUIJI', 121),('CAMBAXE', 121),
+  ------------------COMUNA DE MARIMBA-------------------------------
+  ('MARIMBA', 122),('CAMBOMBO', 122),('TEMBO ALUMA', 122),
+  ------------------COMUNA DE MASSANGO-------------------------------
+  ('MASSANGO', 123),('QUIHUHU', 123),('QUINGUENGUE', 123),
+  ------------------COMUNA DE MUCARI-------------------------------
+  ('CATALA', 124)
+  ,('CACULAMA', 124),('CAXINGA', 124),('MUQUIXE', 124),
+  ------------------COMUNA DE QUELA-------------------------------
+  ('QUELA', 125),('XANDEL', 125),('MOMA', 125),('BÂNGALAS', 125),
+  ------------------COMUNA DE QUIRIMA-------------------------------
+('SAUTAR', 126),('QUIRIMA', 126);
+GO
+
  INSERT INTO TB_Municipes (MunicipeNM, MunicipeNomeCompleto, MunicipeDataNascimento,
  MunicipeNDocIdent, MunicipeTipoDocIdentificacao, MunicipeDocDataEmissao, MunicipeDocDataValidade, 
  MunicipeNIF, MunicipeGenero, MunicipeEstadoCivil, MunicipeTelefone1, MunicipeTelefone2, MunicipeEmail,
- MunicipeEstado, MunicipeDataCadastro, IdCadastrador)
+ MunicipeEstado, MunicipeDataCadastro,MunicipeParenteNM,MunicipeGrauParentescoId, IdCadastrador)
 	VALUES (123456789, 'Aleksei Justino Mateus Dondo da Silva', '1988-10-15', '003013895ME035',
 	1, GETDATE(), GETDATE(), '003013895ME035', 1, 1, '927060073', '998515561', 'alekseidasilva@gmail.com',
-	1, GETDATE(), 1);
+	1, GETDATE(), 123456789,16,1);
+
+	

@@ -1,11 +1,11 @@
 ﻿CREATE TABLE [dbo].[TB_DocsFinalidades]
 (
-	FinalidadeId INT NOT NULL,
+	FinalidadeId INT IDENTITY(1,1),
 	FinalidadeNome VARCHAR(MAX)NOT NULL,
 	FinalidadeValor DECIMAL(18,2)NOT NULL,
 	FinalidadeEstado bit NOT NULL,
-	FinalidadeUsuarioId INT
+	IdCadastrador INT NOT NULL,
 
-	CONSTRAINT PK_FinalidadeId PRIMARY KEY (FinalidadeId)
-	CONSTRAINT FK_UsuarioQCadastraAFinalidade FOREIGN KEY ([FinalidadeUsuarioId]) REFERENCES dbo.TB_Usuarios
+	CONSTRAINT PK_FinalidadeId PRIMARY KEY (FinalidadeId),
+	CONSTRAINT FK_UsuarioQCadastraAFinalidade FOREIGN KEY (IdCadastrador) REFERENCES dbo.TB_Usuarios
 )

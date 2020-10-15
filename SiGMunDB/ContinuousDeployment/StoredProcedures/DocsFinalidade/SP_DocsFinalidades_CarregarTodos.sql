@@ -5,6 +5,6 @@ AS
 		FinalidadeId,
 		FinalidadeNome,
 		FinalidadeEstado,
-		FinalidadeUsuarioId 
+		IdCadastrador 
 		FROM dbo.TB_DocsFinalidades
 	END

@@ -17,11 +17,16 @@
 	MunicipeEstado bit NOT NULL,
 	MunicipeDataCadastro DATETIME NOT NULL,
 
+	MunicipeParenteNM bigint NOT NULL,
+	MunicipeGrauParentescoId int not null, 
+
 	IdCadastrador int NOT NULL
 	CONSTRAINT PK_MunicipenNumero PRIMARY KEY([MunicipeNM]),
 	CONSTRAINT FK_TipoDocIdentificacaoDoMunicipe FOREIGN KEY (MunicipeTipoDocIdentificacao)REFERENCES dbo.TB_TipoDocIdentificacao(Id),
 	CONSTRAINT FK_GeneroDoMunicipe FOREIGN KEY (MunicipeGenero)REFERENCES dbo.TB_Generos(GeneroId),
-	CONSTRAINT FK_EstadoCivilDoMunicipe FOREIGN KEY (MunicipeEstadoCivil)REFERENCES dbo.TB_EstadoCivil(EstadoCivilId),
-	
+	CONSTRAINT FK_EstadoCivilDoMunicipe FOREIGN KEY (MunicipeEstadoCivil)REFERENCES dbo.TB_EstadoCivil(EstadoCivilId),	
+	CONSTRAINT FK_NMdoParenteDoMunicipe FOREIGN KEY (MunicipeParenteNM) REFERENCES dbo.TB_Municipes(MunicipeNM),
+	CONSTRAINT FK_GrauParentescoDoParenteDoMunicipe FOREIGN KEY(MunicipeGrauParentescoId) REFERENCES dbo.TB_GrauParentesco(GrauParentescoId),
+
 	CONSTRAINT FK_UsuarioQCadastraOMunicipe FOREIGN KEY (IdCadastrador)REFERENCES dbo.TB_Usuarios(Id),
 )
