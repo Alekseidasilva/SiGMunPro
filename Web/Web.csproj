@@ -129,8 +129,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\style-starter.css" />
+    <Content Include="Content\Detalhes\TelaDetalheUsuario.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Icones\icons8_s_16.png" />
+    <Content Include="Content\Icones\more_info_250px.png" />
     <Content Include="Content\images\avatar1.jpg" />
     <Content Include="Content\images\avatar2.jpg" />
     <Content Include="Content\images\avatar3.jpg" />

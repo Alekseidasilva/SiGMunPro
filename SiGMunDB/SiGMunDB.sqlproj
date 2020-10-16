@@ -154,6 +154,7 @@
     <Build Include="ContinuousDeployment\StaticTables\TB_Velocipedes.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_GrausAcademicos.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarEstado.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarCadastrador.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

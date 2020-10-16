@@ -18,7 +18,8 @@ BEGIN
   tu.LockoutEnabled,
   tu.AccessFailedCount,
   tu.UserName,
-      tpf.Id PerfilId
+      tpf.Id PerfilId,
+      tu.IdCadastrador
      
 	FROM dbo.TB_Usuarios tu
       JOIN dbo.TB_Permissoes tp ON tu.Id = tp.UserId

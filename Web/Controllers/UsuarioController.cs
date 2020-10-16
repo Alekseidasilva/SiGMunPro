@@ -9,7 +9,7 @@ using Web.Models.Entidades.Usuario;
 
 namespace Web.Controllers
 {
-        [Authorize(Roles = "ADMINISTRADOR")]
+        //[Authorize(Roles = "ADMINISTRADOR")]
         public class UsuarioController : Controller
         {
             readonly RepUsuario _usuario = new RepUsuario();
@@ -121,9 +121,7 @@ namespace Web.Controllers
                 var user = _usuario.BuscarPorId(id);
                 ViewData["Profile"] = new List<Role>(perfil.SelecionarTodos());
                 if (user is null)
-                {
                     return HttpNotFound();
-                }
                 return View(user);
             }
 

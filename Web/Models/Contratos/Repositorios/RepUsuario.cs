@@ -88,16 +88,16 @@ namespace Web.Models.Contratos.Repositorios
             }
         }
 
-        public User BuscarPorId(int id)
+        public List<User> BuscarPorId(int id)
         {
             try
             {
                 _conexao.LimparParametro();
                 _conexao.AdicionarParametros("@UsuId", id);
                 DataTable usuarios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarPorId");
-                User user = new User();
+                List<User> users = new List<User>();
                 foreach (DataRow item in usuarios.Rows)
-                {
+                {User user = new User();
                     user.Id = Convert.ToInt32(item["Id"]);
                     user.UserName = Convert.ToString(item["UserName"]);
                     user.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
@@ -106,9 +106,27 @@ namespace Web.Models.Contratos.Repositorios
                     user.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
                     user.Estado = Convert.ToBoolean(item["Estado"]);
                     user.PerfilId = Convert.ToInt32(item["PerfilId"]);
+                    user.IdCadastrador = Convert.ToInt32(item["IdCadastrador"]);
+                    users.Add(user);
                 }
 
-                return user;
+                return users;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        public string BuscarCadastrador(int id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UsuId", id);
+                string cadastrador = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_UsuarioBuscarCadastrador").ToString();
+                
+                return cadastrador;
             }
             catch (Exception e)
             {
