@@ -118,6 +118,37 @@ namespace Web.Models.Contratos.Repositorios
                 throw;
             }
         }
+        public User PesquisarPorId(int id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UsuId", id);
+                DataTable usuarios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarPorId");
+                User user = new User();
+                foreach (DataRow item in usuarios.Rows)
+                {
+                    
+                    user.Id = Convert.ToInt32(item["Id"]);
+                    user.UserName = Convert.ToString(item["UserName"]);
+                    user.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
+                    user.Email = Convert.ToString(item["Email"]);
+                    user.PhoneNumber = Convert.ToString(item["PhoneNumber"]);
+                    user.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
+                    user.Estado = Convert.ToBoolean(item["Estado"]);
+                    user.PerfilId = Convert.ToInt32(item["PerfilId"]);
+                    user.IdCadastrador = Convert.ToInt32(item["IdCadastrador"]);
+                 
+                }
+
+                return user;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
         public string BuscarCadastrador(int id)
         {
             try

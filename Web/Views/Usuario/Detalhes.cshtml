@@ -8,7 +8,8 @@
 
 
 <header>
-    <link href="~/Content/Teste/teste.css" rel="stylesheet" />
+
+    <link href="~/Content/Extras/TelaDetalheUsuario.css" rel="stylesheet" />
 </header>
 @foreach (var item in Model)
 {
@@ -29,18 +30,18 @@
                 <div class="col-md-6">
                     <div class="profile-head">
                     
-                          <h5>
+                        <h5>
                             @item.UserName
                         </h5>
                     
-                         @foreach (var perfil in(List<Role>)ViewData["Profile"])
-                    {
-                        if (item.PerfilId==perfil.Id)
+                        @foreach (var perfil in(List<Role>)ViewData["Profile"])
                         {
-                          <h6>
-                            @perfil.Name
-                        </h6>
-                        }
+                            if (item.PerfilId==perfil.Id)
+                            {
+                                <h6>
+                                    @perfil.Name
+                                </h6>
+                            }
                         }
                        
                         <p class="proile-rating">RANKINGS : <span>8/10</span></p>
@@ -55,8 +56,12 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a class="btn btn-outline-warning" ><i class="fa fa-edit"></i>Alterar</a>
-                    <a class="btn btn-outline-danger" href="@Url.Action("Index")" ><i class="fa fa-close"></i>Fechar</a>
+                    
+                    
+                    @Html.ActionLink("'", "Alterar", new {id = item.Id}, htmlAttributes: new {@class = "btn btn-outline-warning fa fa-edit",style = "font-size: x-large; color:#F500B8 "})
+                    @Html.ActionLink("'", "Excluir", new {id = item.Id}, htmlAttributes: new {@class = "btn btn-outline-danger  fa fa-remove",style = "font-size: x-large; color:#FF0000 "})
+                    
+                
                 </div>
             </div>
             <div class="row">
@@ -114,17 +119,17 @@
                                     <label>Perfil</label>
                                 </div>
                                 @foreach (var perfil in(List<Role>)ViewData["Profile"])
-                                  {
-                                   if (item.PerfilId==perfil.Id)
-                                   {
-                           <div class="col-md-6">
-                                    <p>@perfil.Name</p>
-                                </div>
+                                {
+                                    if (item.PerfilId==perfil.Id)
+                                    {
+                                        <div class="col-md-6">
+                                            <p>@perfil.Name</p>
+                                        </div>
                             
                        
-                                 }
+                                    }
                         
-                                 }
+                                }
                                 
                             </div>
                             <div class="row">
@@ -140,10 +145,10 @@
                                     <label>Cadastrado Por</label>
                                 </div>
                                 @{RepUsuario repUsuario = new RepUsuario();
-                                                   string nomecadatrador=repUsuario.BuscarCadastrador(item.IdCadastrador);
-                                                    <div class="col-md-6">
-                                    <p>@nomecadatrador</p>
-                                </div>
+                                    string nomecadatrador=repUsuario.BuscarCadastrador(item.IdCadastrador);
+                                    <div class="col-md-6">
+                                        <p>@nomecadatrador</p>
+                                    </div>
                                 }
                               
                                
@@ -198,12 +203,17 @@
                             </div>
                         </div>
                     </div>
+                   
                 </div>
+               
             </div>
+          
         </form>
+        @Html.ActionLink("Voltar", "Index", new {}, htmlAttributes: new {@class = "btn btn-outline-danger pull-right  fa fa-close"})
     </div>
 
 }
+
 
 
 

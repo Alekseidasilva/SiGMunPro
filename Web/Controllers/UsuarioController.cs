@@ -72,7 +72,7 @@ namespace Web.Controllers
             {
                 var perfis = perfil.SelecionarTodosActivos();
                 ViewBag.perfil = new SelectList(perfis, "Id", "Name");
-                return View(_usuario.BuscarPorId(id));
+                return View(_usuario.PesquisarPorId(id));
             }
 
             [HttpPost]

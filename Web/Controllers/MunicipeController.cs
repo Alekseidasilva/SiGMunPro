@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Web.Models.Contratos.Repositorios;
 
 namespace Web.Controllers
@@ -19,9 +20,8 @@ namespace Web.Controllers
         {
             return View();
         }
+       
         [HttpGet]
-
-
         // GET: Municipe/Create
         public ActionResult Cadastrar()
         {
@@ -87,5 +87,7 @@ namespace Web.Controllers
                 return View();
             }
         }
+
+     
     }
 }
