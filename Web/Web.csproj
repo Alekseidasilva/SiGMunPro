@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\style-starter.css" />
+    <Content Include="Content\Extras\Moradas.css" />
     <Content Include="Content\Extras\TabelaMunicipe.css" />
     <Content Include="Content\Extras\TelaDetalheUsuario.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -291,6 +292,8 @@
     <Content Include="Views\Usuario\Alterar.cshtml" />
     <Content Include="Views\Usuario\Detalhes.cshtml" />
     <Content Include="Views\Municipe\Listar.cshtml" />
+    <Content Include="Views\Morada\Cadastrar.cshtml" />
+    <Content Include="Views\Morada\ListarPorNm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -309,26 +312,25 @@
     <Compile Include="Helpers\CryptProvider.cs" />
     <Compile Include="Helpers\GuardaSessao.cs" />
     <Compile Include="Models\Contratos\Interfaces\IBase.cs" />
-    <Compile Include="Models\Contratos\Interfaces\IMoradas.cs" />
     <Compile Include="Models\Contratos\Interfaces\IMunicipe.cs" />
     <Compile Include="Models\Contratos\Interfaces\IPerfil.cs" />
     <Compile Include="Models\Contratos\Interfaces\IUsuario.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepBase.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepGenerico.cs" />
-    <Compile Include="Models\Contratos\Repositorios\RepMoradas.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepMunicipe.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
     <Compile Include="Models\Entidades\Base.cs" />
     <Compile Include="Models\Entidades\Municipe\Municipe.cs" />
-    <Compile Include="Models\Entidades\Outras\Bairros.cs" />
-    <Compile Include="Models\Entidades\Outras\Comunas.cs" />
-    <Compile Include="Models\Entidades\Outras\Moradas.cs" />
+    <Compile Include="Models\Entidades\Locais\Bairros.cs" />
+    <Compile Include="Models\Entidades\Locais\Comunas.cs" />
+    <Compile Include="Models\Entidades\Locais\Moradas.cs" />
     <Compile Include="Models\Entidades\Perfis\Role.cs" />
     <Compile Include="Models\Entidades\Usuario\User.cs" />
     <Compile Include="Models\Entidades\Usuario\UserClaim.cs" />
     <Compile Include="Models\Entidades\Usuario\UserLogin.cs" />
     <Compile Include="Models\Entidades\Usuario\UserRole.cs" />
+    <Compile Include="Models\Entidades\Velocipedes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -355,7 +357,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\New\" />
-    <Folder Include="Views\Morada\" />
     <Folder Include="Views\Perfil\" />
   </ItemGroup>
   <ItemGroup>

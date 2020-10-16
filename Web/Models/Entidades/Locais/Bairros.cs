@@ -1,4 +1,4 @@
-﻿namespace Web.Models.Entidades.Outras
+﻿namespace Web.Models.Entidades.Locais
 {
     public class Bairros:Base
     {

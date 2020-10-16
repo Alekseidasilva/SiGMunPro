@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using Web.Models.Entidades;
+using Web.Models.Entidades.Locais;
 
 namespace Web.Models.Contratos.Repositorios
 {
@@ -51,6 +53,55 @@ namespace Web.Models.Contratos.Repositorios
         }
 
 
+        #endregion
+
+        #region Moradas
+
+        public void CadastarMorada(Moradas moradas)
+        {
+
+        }
+        public List<Moradas> CarregarMoradas()
+        {
+            List<Moradas> moradas = new List<Moradas>();
+            return moradas;
+        }
+        public List<Moradas> CarregarMoradasPorNm(Int64 Nm)
+        {
+            List<Moradas>moradas=new List<Moradas>();
+            return moradas;
+        }
+
+        #endregion
+        #region Bairros
+
+        public List<Bairros> CarregarBairrosPorComuna(int id)
+        {
+            List<Bairros> bairros = new List<Bairros>();
+            return bairros;
+        }
+
+        #endregion
+        #region Comunas
+
+        public List<Comunas> CarregarComunaPorMunicipio(int id)
+        {
+            List<Comunas> comunas = new List<Comunas>();
+            return comunas;
+        }
+        #endregion
+        #region Velocipedes
+
+        public void CadastrarVelocipede(Velocipedes velocipedes)
+        {
+
+        }
+        public List<Comunas> CarregarVelocipedesPorMunicipe(Int64 nm)
+        {
+            
+            List<Comunas> comunas = new List<Comunas>();
+            return comunas;
+        }
         #endregion
     }
 }

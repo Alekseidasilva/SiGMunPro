@@ -1,14 +1,19 @@
-﻿using System.Web.Mvc;
-using Web.Models.Entidades.Outras;
+﻿using System;
+using System.Web.Mvc;
+using Web.Models.Contratos.Repositorios;
+using Web.Models.Entidades.Locais;
 
 namespace Web.Controllers
 {
     public class MoradaController : Controller
-    {
+    { 
+       private readonly RepGenerico RepGenerico=new RepGenerico();
         // GET: Morada
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult ListarPorNm()
         {
-            return View();
+            var moradas = RepGenerico.CarregarMoradasPorNm(1);
+            return View(moradas);
         }
         [HttpGet]
         public ActionResult Cadastrar()
