@@ -118,7 +118,7 @@
     <Build Include="ContinuousDeployment\StoredProcedures\DocsFinalidade\SP_DocsFinalidades_Inserir.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_Morada_Alterar.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_Morada_Excluir.sql" />
-    <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_Morada_Inserir.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradaInserir.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Alterar.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_CarregarTodos.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Perfis\SP_Perfil_Inserir.sql" />
@@ -155,6 +155,7 @@
     <Build Include="ContinuousDeployment\StaticTables\TB_GrausAcademicos.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarEstado.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarCadastrador.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradaCarregarPorNm.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

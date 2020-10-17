@@ -59,7 +59,25 @@ namespace Web.Models.Contratos.Repositorios
 
         public void CadastarMorada(Moradas moradas)
         {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("", moradas.MoradaMunicuipeNm);
+                _conexao.AdicionarParametros("", moradas.MoradaCasaN);
+                _conexao.AdicionarParametros("", moradas.MoradaRua);
+                _conexao.AdicionarParametros("", moradas.MoradaZona);
+                _conexao.AdicionarParametros("", moradas.MoradaBairroId);
+                _conexao.AdicionarParametros("", moradas.DataCadastro);
+                _conexao.AdicionarParametros("",moradas.Estado);
+                _conexao.AdicionarParametros("",moradas.Idcadastrador);
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
         }
         public List<Moradas> CarregarMoradas()
         {

@@ -23,6 +23,7 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult Cadastrar(Moradas moradas)
         {
+
             return View();
         }
     }
