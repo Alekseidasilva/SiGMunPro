@@ -1,27 +1,36 @@
 ﻿CREATE PROCEDURE [dbo].[SP_MoradaInserir]
-@MoradaMunicuipeNM	int,	
-@MoradaRua	varchar(100),
-@MoradaZona	varchar(20),
-@MoradaBairroId	int	
+    @MoradaMunicuipeNM int,
+	@MoradaCasaNumero VARCHAR(20),
+	@MoradaRua varchar(100),
+	@MoradaZona varchar(20),
+	@MoradaBairroId int,
+	@MoradaDataCadastro datetime,
+	@MoradaEstado bit, 
+    @IdCadastrador int 
 AS
 
 BEGIN
     INSERT dbo.TB_Moradas
     (
     MoradaMunicuipeNM,
+	MoradaCasaNumero,
 	MoradaRua,
 	MoradaZona,
 	MoradaBairroId,
 	MoradaDataCadastro,
 	MoradaEstado, 
-    IdCadastrador, 
+    IdCadastrador 
     )
     VALUES
     (
-    @MoradaMunicuipeNM,	
+    @MoradaMunicuipeNM,
+	@MoradaCasaNumero,
     @MoradaRua,
     @MoradaZona,
-    @MoradaBairroId	
+    @MoradaBairroId,
+    @MoradaDataCadastro,
+    @MoradaEstado,
+    @IdCadastrador
     )
 END
 

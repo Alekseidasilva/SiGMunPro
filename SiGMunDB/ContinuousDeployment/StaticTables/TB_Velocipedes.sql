@@ -11,6 +11,8 @@
   VelocipedeDestinadoServico VARCHAR(100) NULL,
   VelocipedeCilindragem VARCHAR(10) NULL,
   VelocipedeCor VARCHAR(30)NULL, 
+  VelocipedeEstado BIT NOT NULL,
+  VelocipeDataCadastro DATETIME,
   IdCadastrador INT NOT NULL
   
   CONSTRAINT PK_VelocipeId PRIMARY KEY(VelocipedeId),

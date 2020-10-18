@@ -2,8 +2,8 @@
 	
 	@BancoNome VARCHAR(50),
 	@BancoSigla VARCHAR(10),
-	@BancoEstado bit,
-	@BancoUsuarioid int
+	@BancoEstado bit
+	
 AS
 DECLARE @@IdAuto int
 SELECT @@IdAuto=MAX(BancoId) FROM dbo.TB_Bancos
@@ -23,15 +23,15 @@ BEGIN
 	BancoId,
 	BancoNome,
 	BancoSigla,
-	BancoEstado,
-	BancoUsuarioid
+	BancoEstado
+	
 )
 VALUES
 (
 @@IdAuto,
 @BancoNome,
 @BancoSigla,
-@BancoEstado,
-@BancoUsuarioid
+@BancoEstado
+
 )
 END

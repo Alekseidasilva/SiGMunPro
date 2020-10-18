@@ -6,8 +6,8 @@ BEGIN
 	BancoId,
 	BancoNome,
 	BancoSigla,
-	BancoEstado,
-	BancoUsuarioid
+	BancoEstado
+	
 	FROM dbo.TB_Bancos
 END
 	

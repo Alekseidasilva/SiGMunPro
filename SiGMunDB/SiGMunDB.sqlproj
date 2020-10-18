@@ -87,7 +87,6 @@
     <Build Include="ContinuousDeployment\StaticTables\TB_Municipes.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_Municipios.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_Operacao.sql" />
-    <Build Include="ContinuousDeployment\StaticTables\TB_Parente_Municipe.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_Provincias.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_TiposDocumentos.sql" />
     <Build Include="ContinuousDeployment\Tables\TB_UsuariosAfirmacoes.sql" />
@@ -156,6 +155,7 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarEstado.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarCadastrador.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradaCarregarPorNm.sql" />
+    <Build Include="ContinuousDeployment\StaticTables\TB_NiveisAcademicos.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

@@ -2,6 +2,7 @@ CREATE TABLE [dbo].[TB_Moradas]
 (
 	MoradaId int identity(1,1) not null,
 	MoradaMunicuipeNM bigint NOT NULL,
+	MoradaCasaNumero VARCHAR(20) NULL,
 	MoradaRua VARCHAR(200)NULL,
 	MoradaZona VARCHAR(20) NULL,
 	MoradaBairroId INT NOT NULL,
