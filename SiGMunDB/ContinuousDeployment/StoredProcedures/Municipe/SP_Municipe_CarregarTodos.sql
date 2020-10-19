@@ -3,21 +3,25 @@ AS
 BEGIN
     SELECT 
 MunicipeId,
-MunicipeNM ,
+MunicipeNM,
 MunicipeNomeCompleto,
-MunicipeDataNascimento, 
+MunicipeDataNascimento,
 MunicipeNDocIdent,
 MunicipeTipoDocIdentificacao,
 MunicipeDocDataEmissao,
 MunicipeDocDataValidade,
 MunicipeNIF,
 MunicipeGenero,
-MunicipeEstadoCivil,
+MunicipeEstadoCivil, 
 MunicipeTelefone1,
-MunicipeTelefone2,
+MunicipeTelefone2, 
 MunicipeEmail,
 MunicipeEstado,
-IdCadastrador
+MunicipeDataCadastro,
+MunicipeParenteNM,
+MunicipeGrauParentescoId,
+MunicipeFoto,
+IdCadastrador	
 FROM dbo.TB_Municipes
 END
 

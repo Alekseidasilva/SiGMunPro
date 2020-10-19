@@ -1,12 +1,21 @@
-﻿@model IEnumerable<Web.Models.Entidades.Municipe.Municipe>
+﻿@using Web.Models.Contratos.Repositorios
+@model IEnumerable<Web.Models.Entidades.Municipe.Municipe>
 
 @{
     ViewBag.Title = "Listar";
 }
 
+<head>
+    <meta charset="utf-8">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/Extras/bootstrap 3.2.0.css" rel="stylesheet">
+  
+    <link href="~/Content/Extras/Municipe/Table.css" rel="stylesheet" />
+  
+</head>
 
 <body>
-
 <div class="main-content">
 <div class="container-fluid content-top-gap">
 
@@ -20,58 +29,108 @@
         <!--Inicio do Conteudo-->
         
         
-        @foreach (var item in Model)
-        {
-            <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
-                <div class="col mb-3">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/340x120/FFB6C1/000000" alt="Cover" class="card-img-top">
-                        <div class="card-body text-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style="width: 70px; margin-top: -85px" alt="User" class="img-fluid img-thumbnail rounded-circle border-0 mb-0">
-                            
-                            <h5 class="card-title">@item.Nome</h5>
-                            <p class="text-secondary mb-1">@item.MunicipeNm</p>
-                            <div class="dropdown-divider"></div>
-                            <small><span><b>Casa Nº: </b></span></small><small><span>50</span></small>   <small><span><b>Zona Nº: </b></span></small><small><span>5</span></small>  <br/>
-                           <small><span><b>Rua: </b></span></small><small><span>Estrada Direita da Guiné</span></small> <br/>
-                            <small><span><b>Bairro: </b></span></small><small><span>Ritondo</span></small>  <br/>
-                            <small><span><b>Comuna: </b></span></small><small><span>Malanje</span></small> <br/>
-                            <small><span><b>Munícipio: </b></span></small><small><span>Malanje</span></small> 
-                        </div>
-                      
-                        <div class="card-footer">
-                            @Html.ActionLink("asd","Detalhes","Municipe")
-                            <button class="btn-warning"><i style="font-size: large; color: #F8F8F8" class="bg-warning fa fa-info"></i></button>
-                            <button class="btn-info"><i style="font-size: large; color: #F8F8F8" class="bg-success fa fa-group"></i></button>
-                            <button class="btn-info"><i style="font-size: large; color: #F8F8F8" class="bg-secondary fa fa-home"></i></button>
-                            <button class="btn-info"><i style="font-size: large; color: #F8F8F8" class="bg-info  fa fa-motorcycle"></i></button>
-                        </div>
+     
+
+<div class="container">
+    <div class="row">
+        <div class="table-responsive">
+                        <table class="table user-list table-striped  table-hover">
+                            <thead class="bg-info">
+                            <tr>
+                                 <th><span>Foto</span></th>
+                                <th><span>Nome Completo<br/>Nº Munícipe</span></th>
+                                <th class="text-center"><span >Data<br/> Nascimento</span></th>
+                                <th class="text-center"><span>Tipo Doc<br/>Nº Doc</span></th>
+                                <th><span>D. Emissão<br/>D.Validade</span></th>
+                                <th><span>Email<br/> Telefones</span></th>
+                                <th><span>Género<br/>E. Civil</span></th>
+
+
+                                <th>Opções</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach(var item in Model)
+                            {
+                                <tr>
+                                    @{
+                                        RepGenerico generico=new RepGenerico();
+                                        string genero = generico.CarregarGenerosPorId(item.MunicipeGenero);
+                                        string estadoCivil = generico.CarregarEstadoCivilPorId(item.MunicipeEstadoCivil);
+                                    }
+                                    <td style="width: 3%;">
+                                        <img src="~/Content/images/New/UserMale.png">
+                                    </td>
+                                    <td style="width: 15%;">
+                                        <a href="#">@item.Nome</a><br/>
+                                        <span class="user-subhead">@item.MunicipeNm</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span >@item.MunicipeDataNascimento.ToShortDateString()</span>
+
+                                    </td>
+                                    <td class="text-center">
+                                        B.I<br/>
+                                        <span class="user-subhead">@item.MunicipeNDocIdent</span>
+                                    </td>
+                                    <td class="text-center">
+                                        @item.MunicipeDocDataEmissao.ToShortDateString()<br/>
+                                        <span class="user-subhead">@item.MunicipeDocDataValidade.ToShortDateString()</span>
+                                    </td>
+                                    <td class="text-center">
+                                        @item.MunicipeEmail<br/>
+                                        <span class="user-subhead">@item.MunicipeTelefone1-@item.MunicipeTelefone2</span>
+                                    </td>
+                                    <td class="text-center">
+                                        Masculino<br/>
+                                        <span class="user-subhead">Casado</span>
+                                    </td>
+                                    @*<td class="text-center">
+                                        <span class="label label-default">pending</span>
+                                    </td>*@
+
+
+                                    <td style="width: 7%;">
+                                        <a href="#" class="table-link text-warning">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link text-info">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <br/>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-motorcycle fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-       </div>
+        </div>
+    </div>
+</div>
 
-        }
-        
-        
 
-        
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         

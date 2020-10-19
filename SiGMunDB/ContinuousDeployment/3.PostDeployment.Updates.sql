@@ -331,9 +331,13 @@ GO
  INSERT INTO TB_Municipes (MunicipeNM, MunicipeNomeCompleto, MunicipeDataNascimento,
  MunicipeNDocIdent, MunicipeTipoDocIdentificacao, MunicipeDocDataEmissao, MunicipeDocDataValidade, 
  MunicipeNIF, MunicipeGenero, MunicipeEstadoCivil, MunicipeTelefone1, MunicipeTelefone2, MunicipeEmail,
- MunicipeEstado, MunicipeDataCadastro,MunicipeParenteNM,MunicipeGrauParentescoId, IdCadastrador)
+ MunicipeEstado, MunicipeDataCadastro,MunicipeParenteNM,MunicipeGrauParentescoId,MunicipeFoto, IdCadastrador)
 	VALUES (123456789, 'Aleksei Justino Mateus Dondo da Silva', '1988-10-15', '003013895ME035',
+	1, GETDATE(), GETDATE(), '0047845LA045', 2, 2, '924628288', '998515561', 'telmasilva@gmail.com',
+	1, GETDATE(), 123456789,16,'Sem foto',1),
+	(987654321, 'Telma Maria Damião da Costa da Silva', '1994-04-24', '0047845LA045',
 	1, GETDATE(), GETDATE(), '003013895ME035', 1, 1, '927060073', '998515561', 'alekseidasilva@gmail.com',
-	1, GETDATE(), 123456789,16,1);
+	1, GETDATE(), 123456789,12,'Sem foto',1);
 
+	
 	

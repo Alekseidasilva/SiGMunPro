@@ -156,6 +156,8 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarCadastrador.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradaCarregarPorNm.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_NiveisAcademicos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarEstadoCivil.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarEstadoCivilPorId.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

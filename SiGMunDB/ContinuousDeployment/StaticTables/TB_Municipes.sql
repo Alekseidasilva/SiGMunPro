@@ -19,6 +19,7 @@
 
 	MunicipeParenteNM bigint NOT NULL,
 	MunicipeGrauParentescoId int not null, 
+	MunicipeFoto VARCHAR(MAX) NULL,
 
 	IdCadastrador int NOT NULL
 	CONSTRAINT PK_MunicipenNumero PRIMARY KEY([MunicipeNM]),

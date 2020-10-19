@@ -145,6 +145,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\style-starter.css" />
     <Content Include="Content\Extras\Moradas.css" />
+    <Content Include="Content\Extras\Municipe\Table.css" />
     <Content Include="Content\Extras\TabelaMunicipe.css" />
     <Content Include="Content\Extras\TelaDetalheUsuario.css" />
     <Content Include="Content\font-awesome.css" />
@@ -165,6 +166,10 @@
     <Content Include="Content\images\desk.jpg" />
     <Content Include="Content\images\down.png" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\New\Background Femenino.png" />
+    <Content Include="Content\images\New\Background Masculino.png" />
+    <Content Include="Content\images\New\UserFermale.png" />
+    <Content Include="Content\images\New\UserMale.png" />
     <Content Include="Content\images\people1.jpg" />
     <Content Include="Content\images\people2.jpg" />
     <Content Include="Content\images\people3.jpg" />
@@ -266,6 +271,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Extras\bootstrap 3.2.0.css" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -462,6 +468,8 @@
     <Compile Include="Models\Entidades\Locais\Bairros.cs" />
     <Compile Include="Models\Entidades\Locais\Comunas.cs" />
     <Compile Include="Models\Entidades\Locais\Moradas.cs" />
+    <Compile Include="Models\Entidades\Outras\EstadoCivil.cs" />
+    <Compile Include="Models\Entidades\Outras\Genero.cs" />
     <Compile Include="Models\Entidades\Perfis\Role.cs" />
     <Compile Include="Models\Entidades\Usuario\User.cs" />
     <Compile Include="Models\Entidades\Usuario\UserClaim.cs" />
@@ -493,7 +501,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\New\" />
     <Folder Include="Views\Perfil\" />
   </ItemGroup>
   <ItemGroup>
