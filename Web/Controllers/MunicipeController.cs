@@ -8,6 +8,8 @@ namespace Web.Controllers
     public class MunicipeController : Controller
     {
         private readonly RepMunicipe _municipe = new RepMunicipe();
+
+         private readonly RepGenerico RepGenerico=new RepGenerico();
         // GET: Municipe
         public ActionResult Listar()
         {
@@ -87,7 +89,12 @@ namespace Web.Controllers
                 return View();
             }
         }
+        [HttpGet]
+        public ActionResult ListarPorNm(int id)
+        {
+            var moradas = RepGenerico.CarregarMoradasPorNm(1);
+            return View(moradas);
+        }
 
-     
     }
 }

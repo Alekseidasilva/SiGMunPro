@@ -10,7 +10,7 @@ namespace Web.Controllers
        private readonly RepGenerico RepGenerico=new RepGenerico();
         // GET: Morada
         [HttpGet]
-        public ActionResult ListarPorNm()
+        public ActionResult ListarPorNm(int nm)
         {
             var moradas = RepGenerico.CarregarMoradasPorNm(1);
             return View(moradas);

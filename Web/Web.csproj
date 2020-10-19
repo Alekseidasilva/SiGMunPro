@@ -294,6 +294,7 @@
     <Content Include="Views\Municipe\Listar.cshtml" />
     <Content Include="Views\Morada\Cadastrar.cshtml" />
     <Content Include="Views\Morada\ListarPorNm.cshtml" />
+    <Content Include="Views\Municipe\Cadastrar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
