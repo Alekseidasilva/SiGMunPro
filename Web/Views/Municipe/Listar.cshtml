@@ -44,7 +44,7 @@
                                 <th><span>D. Emissão<br/>D.Validade</span></th>
                                 <th><span>Email<br/> Telefones</span></th>
                                 <th><span>Género<br/>E. Civil</span></th>
-
+                                <th><span>Idade<br/>Estado</span></th>
 
                                 <th>Opções</th>
                             </tr>
@@ -57,6 +57,12 @@
                                         RepGenerico generico=new RepGenerico();
                                         string genero = generico.CarregarGenerosPorId(item.MunicipeGenero);
                                         string estadoCivil = generico.CarregarEstadoCivilPorId(item.MunicipeEstadoCivil);
+                                        int idade = DateTime.Now.Year - @item.MunicipeDataNascimento.Year;
+                                       
+                                      
+                                            
+                                       
+                                        
                                     }
                                     <td style="width: 3%;">
                                         <img src="~/Content/images/New/UserMale.png">
@@ -82,8 +88,20 @@
                                         <span class="user-subhead">@item.MunicipeTelefone1-@item.MunicipeTelefone2</span>
                                     </td>
                                     <td class="text-center">
-                                        Masculino<br/>
-                                        <span class="user-subhead">Casado</span>
+                                        @genero<br/>
+                                        <span class="user-subhead">@estadoCivil</span>
+                                    </td>
+                                    <td class="text-center">
+                                        @idade<br/>
+                                        @if (item.Estado)
+                                        {
+                                         <span class="user-subhead label label-success">Activado</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="user-subhead label label-danger">Desativado</span>
+                                        }
+                                       
                                     </td>
                                     @*<td class="text-center">
                                         <span class="label label-default">pending</span>

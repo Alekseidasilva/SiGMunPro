@@ -27,6 +27,8 @@ namespace Web.Controllers
         // GET: Municipe/Create
         public ActionResult Cadastrar()
         {
+            var tipoDocIdent = RepGenerico.SelecionarTodosTiposDocumentoIdentificacao();
+            ViewBag.tipoDocIdent = new SelectList(tipoDocIdent, "Id", "Nome");
             return View();
         }
 

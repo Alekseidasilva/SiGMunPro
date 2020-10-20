@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>Profile overview and edit - Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=-468NWTr98i_pw-xTeEtVIop2qg39htSYvkLpXonfVZFnAuc_-ptDCedc77FMTE4KDNISvD72-mCMV5QlyHKN9NCKiyUQQVBxrHv0GGcejiiSs0_PHmMFFFcpPn1BaVorH_jGS9bs1nESHn-LqLSEA" charset="UTF-8"></script><style type="text/css">
+    	
+                        
+body{background:#eee;}
+.profile img.user { margin: 0 20px 10px 0; }
+.profile .name { margin: 14px 0 10px; }
+.profile h5.sales { margin: 10px 0 10px 10px; }
+.profile .sales .list-group-item i { margin-right: 10px; }
+.profile .list-inline i { margin-right: 7px; }
+.profile .messages .list-group-item img { margin-right: 10px; }
+.well {
+    border: 0;
+    padding: 20px;
+    min-height: 63px;
+    background: #fff;
+    box-shadow: none;
+    border-radius: 3px;
+    position: relative;
+    max-height: 100000px;
+    border-bottom: 2px solid #ccc;
+    transition: max-height 0.5s ease;
+    -o-transition: max-height 0.5s ease;
+    -ms-transition: max-height 0.5s ease;
+    -moz-transition: max-height 0.5s ease;
+    -webkit-transition: max-height 0.5s ease;
+}
+
+.form-control {
+    height: 45px;
+    padding: 10px;
+    font-size: 16px;
+    box-shadow: none;
+    border-radius: 0;
+    position: relative;
+}
+
+label {
+    font-weight: 400;
+    color: #444;
+}
+
+.dropzone {
+    position: relative
+    border: 1px solid rgba(0,0,0,0.03);
+    min-height: 360px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.03);
+    padding: 23px;
+}
+.dropzone.dz-clickable {
+    cursor: pointer;
+}
+.dropzone .dz-default.dz-message {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    position: absolute;
+    width: 428px;
+    height: 123px;
+    margin-left: -214px;
+    margin-top: -61.5px;
+    top: 50%;
+    left: 50%;
+    font-size:40px;
+    color:#5bc0de;
+}                    
+    </style>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<div class="container bootstrap snippets bootdey">
+    <hr>
+    <ol class="breadcrumb">
+    	<li><a href="#">Users</a></li>
+		<li><a href="#">Profile</a></li>
+		<li class="pull-right"><a href="" class="text-muted"><i class="fa fa-refresh"></i></a></li>
+	</ol>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="well profile">
+                <img class="user img-circle pull-left clearfix" height="54" src="https://bootdey.com/img/Content/user_1.jpg" alt="">
+                <h3 class="name pull-left clearfix">juan andres posada</h3>
+                <div class="clearfix"></div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab" data-toggle="tab">
+                        	Overview
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#tab2" data-toggle="tab">
+                        	Account
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                                <p>
+                                    <br>
+                                    Fusce in auctor diam. Praesent non tincidunt nisi. Nulla eu arcu ornare, gravida augue vel, commodo orci. Integer quis erat mauris. Integer nisl risus, sodales in laoreet eget, laoreet at nunc. Ut quis libero id orci semper porta ac vel ante. In nec laoreet sapien. Nunc hendrerit ligula at massa sodales, ullamcorper rutrum orci semper. Donec at massa eget odio ultrices convallis vel volutpat leo. Nulla rhoncus lacus tortor, vel tincidunt dolor eleifend et. Ut consequat elit quam, iaculis volutpat ipsum fermentum pulvinar. Pellentesque nec sem vel arcu ornare faucibus.
+                                    <br>
+                                </p>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="basic">
+                                        <form class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label for="inputfullname" class="col-lg-2 control-label">First Name</label>
+                                                <div class="col-lg-10">
+                                                    <input type="email" class="form-control" id="inputfullname" placeholder="First Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputlastname" class="col-lg-2 control-label">Last Name</label>
+                                                <div class="col-lg-10">
+                                                    <input type="email" class="form-control" id="inputlastname" placeholder="Last Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputemail" class="col-lg-2 control-label">Email</label>
+                                                <div class="col-lg-10">
+                                                    <input type="email" class="form-control" id="inputemail" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputpassword" class="col-lg-2 control-label">Password</label>
+                                                <div class="col-lg-10">
+                                                    <input type="password" class="form-control" id="inputpassword" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label  class="col-lg-2 control-label">Photo</label>
+                                                <div class="col-lg-10">
+                                                    <input type="file" class="filestyle" data-classbutton="btn btn-default btn-lg" data-input="false" id="filestyle-0" tabindex="-1" style="position: fixed; left: -500px;"><div class="bootstrap-filestyle input-group"><input type="text" class="form-control " disabled="" placeholder="Choose file"> <span class="input-group-btn" tabindex="0">  <label for="filestyle-0" class="btn btn-default btn-lg">    <span class="glyphicon glyphicon-folder-open"></span>   </label></span></div>
+                                                </div>    
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                    
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+                        
+                    
+</script>
+</body>
+</html>

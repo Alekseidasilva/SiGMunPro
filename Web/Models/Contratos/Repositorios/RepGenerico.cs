@@ -175,5 +175,35 @@ namespace Web.Models.Contratos.Repositorios
             return comunas;
         }
         #endregion
+
+        #region TiposDocumentos
+
+        public List<TiposDocumentosIdentificacao> SelecionarTodosTiposDocumentoIdentificacao()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                DataTable perfil = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_CarregarTipoDocIdentificacao");
+                List<TiposDocumentosIdentificacao> tiposDocumentos = new List<TiposDocumentosIdentificacao>();
+                foreach (DataRow item in perfil.Rows)
+                {
+                    TiposDocumentosIdentificacao identificacao = new TiposDocumentosIdentificacao
+                    {
+                        Id = Convert.ToInt32(item["Id"]),
+                        Nome = Convert.ToString(item["Nome"]),
+                    };
+                    tiposDocumentos.Add(identificacao);
+                }
+
+                return tiposDocumentos;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        #endregion
     }
 }
