@@ -15,200 +15,171 @@
             
             </div>*@
 <!----------------------------------------Inicio do Conteudo-------------------------------------------------->
-            
-            
-          
-<div class="accordion" id="accordionExample">
-    <div class="card">
-        <div class="card-header bg-success" id="headingOne">
-            <h5 class="mb-0">
-                <button class="btn btn-link " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <strong>Dados Pessoais</strong>
-                </button>
-            </h5>
-        </div>
-
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body ">
-         
-          
+    <!-- Tabs -->
+<section id="tabs">
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-xs-12 ">
+				<nav>
+					<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+						<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dados Pessoais</a>
+						<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Dados Nascimento</a>
+						<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Foto & Contactos</a>
+						<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">About</a>
+					</div>
+				</nav>
+				<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+						
+                      <!-- Dados Pessoais -->   
                 <!-- forms -->
-                <section class="forms">
-                    <!-- forms 2 -->
-                    <div class="card card_border py-2 mb-4">
-                        <div class="card-body">
-                            <form action="#" name="f1" method="post">
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label for="inputEmail4" class="input__label">Nome Completo</label>
-                                        @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar"})
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputEmail4" class="input__label">Filho de</label>
-                                        @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome do pai"})
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputEmail4" class="input__label">E de</label>
-                                        @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome da mãe"})
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputEmail4" class="input__label">Data Nascimento</label>
-                                        @Html.EditorFor(model => model.MunicipeDataNascimento, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login",Type="date", required = ""}})
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputState"  class="input__label">Tipo Doc.</label>                               
-                                        @Html.DropDownListFor(mol=>mol.MunicipeTipoDocIdentificacao, new List<SelectListItem>(ViewBag.tipoDocIdent), "Selecione...", htmlAttributes: new { @class="form-control input-style", required="" })
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputEmail4" class="input__label">Nº Documento</label>
-                                        @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", required = ""}})
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputEmail4" class="input__label">Data Emissão</label>
-                                        @Html.EditorFor(model => model.MunicipeDocDataEmissao, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento",Type="date", required = ""}})
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputEmail4" class="input__label">Data Validade</label>
-                                        @Html.EditorFor(model => model.MunicipeDocDataValidade, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", Type="date",  required = ""}})
+                      <section class="forms">
+                          <!-- forms 2 -->
+                          <div class="card card_border py-2 mb-4">
+                              <div class="card-body">
+                                  <form action="#" name="f1" method="post">
+                                      <div class="form-row">
+                                          <div class="form-group col-md-4">
+                                              <label for="inputEmail4" class="input__label">Nome Completo</label>
+                                              @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar",title="Nome do Munícipe"})
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                              <label for="inputEmail4" class="input__label">Filho de</label>
+                                              @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome do pai"})
+                                          </div>
+                                          <div class="form-group col-md-4">
+                                              <label for="inputEmail4" class="input__label">E de</label>
+                                              @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome da mãe"})
+                                          </div>
+                                          <div class="form-group col-md-3">
+                                              <label for="inputEmail4" class="input__label">Data Nascimento</label>
+                                              @Html.EditorFor(model => model.MunicipeDataNascimento, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login",Type="date", required = ""}})
+                                          </div>
+                                          <div class="form-group col-md-2">
+                                              <label for="inputState"  class="input__label">Tipo Doc.</label>                               
+                                              @Html.DropDownListFor(mol=>mol.MunicipeTipoDocIdentificacao, new List<SelectListItem>(ViewBag.tipoDocIdent), "Selecione...", htmlAttributes: new { @class="form-control input-style", required="" })
+                                          </div>
+                                          <div class="form-group col-md-3">
+                                              <label for="inputEmail4" class="input__label">Nº Documento</label>
+                                              @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", required = ""}})
+                                          </div>
+                                          <div class="form-group col-md-2">
+                                              <label for="inputEmail4" class="input__label">Data Emissão</label>
+                                              @Html.EditorFor(model => model.MunicipeDocDataEmissao, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento",Type="date", required = ""}})
+                                          </div>
+                                          <div class="form-group col-md-2">
+                                              <label for="inputEmail4" class="input__label">Data Validade</label>
+                                              @Html.EditorFor(model => model.MunicipeDocDataValidade, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", Type="date",  required = ""}})
                                 
-                                    </div>
-                                </div>
-                            </form>
-                            <a onclick="ChamarTela2()" class="btn btn-sm btn-outline-warning  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
+                                          </div>
+                                      </div>
+                                  </form>
+                            
+                              </div>
+
+                          </div>
+                          <!-- //forms 2 -->
+                      </section>
+                      
+                          
+                          
+                          
+                        <div class="panel-footer ">
+                            <a onclick="ChamarTela2()" class="btn  btn-outline-success  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
                         </div>
+          
+          
+                        
+                        
+                        
+                        
+                        
 
                     </div>
-                    <!-- //forms 2 -->
-                </section>
-           
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <!-- Dados Nascimento --> 
+                        
 
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header bg-warning" id="headingTwo">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Dados de Nascimento
-                </button>
-            </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-       
+                        <div class="panel-footer ">
+                            <a onclick="ChamarTela2()" class="btn btn-outline-warning fa-pull-left" ><i class="fa fa-backward"></i> Recuar</a>
+                            <a onclick="ChamarTela2()" class="btn  btn-outline-success  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                          <!-- Foto e Contactos --> 
+                        <!-- forms -->
+                        <section class="forms">
+                            <!-- forms 2 -->
+                            <div class="card card_border py-2 mb-4">
+                                <div class="card-body">
+                                    <form action="#" name="f1" method="post">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4" class="input__label">Nome Completo</label>
+                                                @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar"})
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4" class="input__label">Nome de Usuário</label>
+                                                @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login", required = ""}})
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4" class="input__label">Senha</label>
+                                                <input type="password" class="form-control input-style" id="inputPassword4" placeholder="senha" required="">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4" class="input__label">Confirmar senha</label>
+                                                @Html.EditorFor(model => model.MunicipeNif, new {htmlAttributes = new {@class = "form-control input-style", id = "confirmarsenha", PlaceHolder = "senha", type = "password", required = ""}})
+                                            </div>
+                                        </div>
 
-    <div class="card">
-        <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Contactos & Morada
-                </button>
-            </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-                   
-
-                <!-- forms -->
-                <section class="forms">
-                    <!-- forms 2 -->
-                    <div class="card card_border py-2 mb-4">
-                        <div class="card-body">
-                            <form action="#" name="f1" method="post">
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputEmail4" class="input__label">Nome Completo</label>
-                                        @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar"})
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputEmail4" class="input__label">Nome de Usuário</label>
-                                        @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login", required = ""}})
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputPassword4" class="input__label">Senha</label>
-                                        <input type="password" class="form-control input-style" id="inputPassword4" placeholder="senha" required="">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputPassword4" class="input__label">Confirmar senha</label>
-                                        @Html.EditorFor(model => model.MunicipeNif, new {htmlAttributes = new {@class = "form-control input-style", id = "confirmarsenha", PlaceHolder = "senha", type = "password", required = ""}})
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-5">
-                                        <label for="inputCity" class="input__label">Endereço de Email</label>
-                                        @Html.EditorFor(model => model.MunicipeEmail, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "email", type = "email"}})
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputCity" class="input__label">Nº Telefone</label>
-                                        @Html.EditorFor(model => model.MunicipeTelefone1, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "", @id = "phone", type = "text"}})
-                                    </div>
-                                    @*<div class="form-group col-md-3">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-5">
+                                                <label for="inputCity" class="input__label">Endereço de Email</label>
+                                                @Html.EditorFor(model => model.MunicipeEmail, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "email", type = "email"}})
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputCity" class="input__label">Nº Telefone</label>
+                                                @Html.EditorFor(model => model.MunicipeTelefone1, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "", @id = "phone", type = "text"}})
+                                            </div>
+                                            @*<div class="form-group col-md-3">
                             <label for="inputState"  class="input__label">Perfil de Acesso</label>                               
                             @Html.DropDownListFor(model => model.PerfilId, new List<SelectListItem>(ViewBag.perfil), "Selecione o Perfil", htmlAttributes: new { @class="form-control input-style", required="" })
                         </div>*@
+                                        </div>
+
+                                    </form>
+                                    <a href="@Url.Action("Index")" class="btn btn-sm btn-outline-warning btn-style mt-4 pull-right"><i class="fa fa-forward"></i>Seguinte</a>
                                 </div>
 
-                            </form>
-                            <a href="@Url.Action("Index")" class="btn btn-sm btn-outline-warning btn-style mt-4 pull-right"><i class="fa fa-forward"></i>Seguinte</a>
+                            </div>
+                            <!-- //forms 2 -->
+                        </section>
+
+
+
+
+
+<div class="panel-footer ">
+                            <a onclick="ChamarTela2()" class="btn btn-outline-warning fa-pull-left" ><i class="fa fa-backward"></i> Recuar</a>
+                            <a onclick="ChamarTela2()" class="btn  btn-outline-success  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
                         </div>
-
                     </div>
-                    <!-- //forms 2 -->
-                </section>
-
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Contactos
-                </button>
-            </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-</div>
-
-
-          
-          
-          
-          
-          
-          
-          
+					<div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                    
+                    <div class="panel-footer ">
+                        <a onclick="ChamarTela2()" class="btn btn-outline-warning fa-pull-left" ><i class="fa fa-backward"></i> Recuar</a>
+                        <button type="submit">Guardar</button>
+                            <a type="Submit" class="btn  btn-outline-success  pull-right"><i class="fa fa-save"></i>Guardar</a>
+                        </div>
+                        </div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ./Tabs -->    
           
           
           

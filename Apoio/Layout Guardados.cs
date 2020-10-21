@@ -104,3 +104,42 @@
 </div>
 </body>
 
+
+
+
+
+ if (item.MunicipeGenero == 1)
+            {
+                <div class="container">
+
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+                        <div class="col mb-3">
+                            <div class="card">
+                                <img src="~/Content/images/New/Background Masculino.png" alt="Cover" class="card-img-top">
+                                <div class="card-body text-center">
+                                    <img src="~/Content/images/New/UserMale.png" style="width: 70px; margin-top: -85px" alt="User" class="img-fluid img-thumbnail rounded-circle border-0 mb-0">
+
+                                    <h5 class="card-title">@item.Nome</h5>
+                                    <p class="text-secondary mb-1">@item.MunicipeNm</p>
+                                    <div class="dropdown-divider"></div>
+                                    <small><span><b>Casa Nº: </b></span></small><small><span>50</span></small> <small><span><b>Zona Nº: </b></span></small><small><span>5</span></small> <br/>
+                                    <small><span><b>Rua: </b></span></small><small><span>Estrada Direita da Guiné</span></small> <br/>
+                                    <small><span><b>Bairro: </b></span></small><small><span>Ritondo</span></small> <br/>
+                                    <small><span><b>Comuna: </b></span></small><small><span>Malanje</span></small> <br/>
+                                    <small><span><b>Munícipio: </b></span></small><small><span>Malanje</span></small>
+                                </div>
+
+                                <div class="card-footer">
+                                    @Html.ActionLink("'", "Detalhes", "Municipe", new {}, htmlAttributes: new {@class = "btn bg-warning fa fa-info", style = "font-size: large; color: #F8F8F8"})
+                                    <button class="btn-warning"><i style="font-size: large; color: #F8F8F8" class="bg-warning fa fa-info"></i></button>
+                                    <button class="btn-info"><i style="font-size: large; color: #F8F8F8" class="bg-success fa fa-group"></i></button>
+                                    <button class="btn-info"><i style="font-size: large; color: #F8F8F8" class="bg-secondary fa fa-home"></i></button>
+                                    <button class="btn-info"><i style="font-size: large; color: #F8F8F8" class="bg-info  fa fa-motorcycle"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
