@@ -139,10 +139,7 @@
   <ItemGroup>
     <Content Include="Content\css\style-starter.css" />
     <Content Include="Content\Extras\Moradas.css" />
-    <Content Include="Content\Extras\Municipe\Cadastro\bootstrap.min.css" />
-    <Content Include="Content\Extras\Municipe\Cadastro\bootstrap.min.js" />
-    <Content Include="Content\Extras\Municipe\Cadastro\jquery-1.10.2.min.js" />
-    <Content Include="Content\Extras\Municipe\Cadastro\StyleSheet1.css" />
+    <Content Include="Content\Extras\Municipe\Cadastro\jquery.webcam.js" />
     <Content Include="Content\Extras\Municipe\Table.css" />
     <Content Include="Content\Extras\TabelaMunicipe.css" />
     <Content Include="Content\Extras\TelaDetalheUsuario.css" />
@@ -317,6 +314,7 @@
     <Content Include="Views\Morada\Cadastrar.cshtml" />
     <Content Include="Views\Morada\ListarPorNm.cshtml" />
     <Content Include="Views\Municipe\Cadastrar.cshtml" />
+    <Content Include="Views\Foto\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -326,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ContaController.cs" />
+    <Compile Include="Controllers\FotoController.cs" />
     <Compile Include="Controllers\MoradaController.cs" />
     <Compile Include="Controllers\MunicipeController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />

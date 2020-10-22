@@ -40,37 +40,30 @@
                               <div class="card-body">
                                   <form action="#" name="f1" method="post">
                                       <div class="form-row">
-                                          <div class="form-group col-md-4">
+                                          <div class="form-group col-md-8">
                                               <label for="inputEmail4" class="input__label">Nome Completo</label>
                                               @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar",title="Nome do Munícipe"})
                                           </div>
+                                        
                                           <div class="form-group col-md-4">
-                                              <label for="inputEmail4" class="input__label">Filho de</label>
-                                              @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome do pai"})
-                                          </div>
-                                          <div class="form-group col-md-4">
-                                              <label for="inputEmail4" class="input__label">E de</label>
-                                              @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome da mãe"})
-                                          </div>
-                                          <div class="form-group col-md-3">
                                               <label for="inputEmail4" class="input__label">Data Nascimento</label>
-                                              @Html.EditorFor(model => model.MunicipeDataNascimento, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login",Type="date", required = ""}})
-                                          </div>
-                                          <div class="form-group col-md-2">
-                                              <label for="inputState"  class="input__label">Tipo Doc.</label>                               
-                                              @Html.DropDownListFor(mol=>mol.MunicipeTipoDocIdentificacao, new List<SelectListItem>(ViewBag.tipoDocIdent), "Selecione...", htmlAttributes: new { @class="form-control input-style", required="" })
+                                              @Html.EditorFor(model => model.MunicipeDataNascimento, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login",Type="date", required = "", title="Data de Nascimento"}})
                                           </div>
                                           <div class="form-group col-md-3">
+                                              <label for="inputState"  class="input__label">Tipo Doc.</label>                               
+                                              @Html.DropDownListFor(mol=>mol.MunicipeTipoDocIdentificacao, new List<SelectListItem>(ViewBag.tipoDocIdent), "Selecione...", htmlAttributes: new { @class="form-control input-style", required="",title="Tipo de Documento" })
+                                          </div>
+                                          <div class="form-group col-md-5">
                                               <label for="inputEmail4" class="input__label">Nº Documento</label>
-                                              @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", required = ""}})
+                                              @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", required = "",title="Nº documento de Identificação"}})
                                           </div>
                                           <div class="form-group col-md-2">
                                               <label for="inputEmail4" class="input__label">Data Emissão</label>
-                                              @Html.EditorFor(model => model.MunicipeDocDataEmissao, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento",Type="date", required = ""}})
+                                              @Html.EditorFor(model => model.MunicipeDocDataEmissao, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento",Type="date", required = "", title="Data de Emissão do Documento"}})
                                           </div>
                                           <div class="form-group col-md-2">
                                               <label for="inputEmail4" class="input__label">Data Validade</label>
-                                              @Html.EditorFor(model => model.MunicipeDocDataValidade, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", Type="date",  required = ""}})
+                                              @Html.EditorFor(model => model.MunicipeDocDataValidade, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", Type="date",  required = "",title="Data de Validade do Documento"}})
                                 
                                           </div>
                                       </div>
