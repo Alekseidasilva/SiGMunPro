@@ -1,213 +1,30 @@
 ﻿@model Web.Models.Entidades.Municipe.Municipe
-
 @{
     ViewBag.Title = "Cadastrar";
-    
 }
-       
+
+<h2>Cadastrar</h2>
+
 <body lang="pt">
 <div class="main-content">
-<div class="container-fluid content-top-gap">
-<div class="card card_border">
-@*<div class="cards__heading">
-                <h3>Munícipes Cadastrados <span></span></h3>
-                <div class="dropdown-divider"></div>
+    <div class="container-fluid content-top-gap">
+        <div class="card card_border">
+            @if (ViewBag.municipios != null)
+            {
+                <div class="form-group col-md-4">
+                    <label for="inputState" class="input__label">Municipio</label>
+                    @Html.DropDownListFor(model=>model.MunicipeGenero, ViewBag.municipios as SelectList,"---Selecione o Municipio---",new{@class="form-control"})
+                </div>
+            }
             
-            </div>*@
-<!----------------------------------------Inicio do Conteudo-------------------------------------------------->
-    <!-- Tabs -->
-<section id="tabs">
-	<div class="container">
-		
-		<div class="row">
-			<div class="col-xs-12 ">
-				<nav>
-					<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-						<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dados Pessoais</a>
-						<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Dados Nascimento</a>
-						<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Foto & Contactos</a>
-						<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">About</a>
-					</div>
-				</nav>
-				<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-						
-                      <!-- Dados Pessoais -->   
-                <!-- forms -->
-                      <section class="forms">
-                          <!-- forms 2 -->
-                          <div class="card card_border py-2 mb-4">
-                              <div class="card-body">
-                                  <form action="#" name="f1" method="post">
-                                      <div class="form-row">
-                                          <div class="form-group col-md-8">
-                                              <label for="inputEmail4" class="input__label">Nome Completo</label>
-                                              @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar",title="Nome do Munícipe"})
-                                          </div>
-                                        
-                                          <div class="form-group col-md-4">
-                                              <label for="inputEmail4" class="input__label">Data Nascimento</label>
-                                              @Html.EditorFor(model => model.MunicipeDataNascimento, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login",Type="date", required = "", title="Data de Nascimento"}})
-                                          </div>
-                                          <div class="form-group col-md-3">
-                                              <label for="inputState"  class="input__label">Tipo Doc.</label>                               
-                                              @Html.DropDownListFor(mol=>mol.MunicipeTipoDocIdentificacao, new List<SelectListItem>(ViewBag.tipoDocIdent), "Selecione...", htmlAttributes: new { @class="form-control input-style", required="",title="Tipo de Documento" })
-                                          </div>
-                                          <div class="form-group col-md-5">
-                                              <label for="inputEmail4" class="input__label">Nº Documento</label>
-                                              @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", required = "",title="Nº documento de Identificação"}})
-                                          </div>
-                                          <div class="form-group col-md-2">
-                                              <label for="inputEmail4" class="input__label">Data Emissão</label>
-                                              @Html.EditorFor(model => model.MunicipeDocDataEmissao, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento",Type="date", required = "", title="Data de Emissão do Documento"}})
-                                          </div>
-                                          <div class="form-group col-md-2">
-                                              <label for="inputEmail4" class="input__label">Data Validade</label>
-                                              @Html.EditorFor(model => model.MunicipeDocDataValidade, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", Type="date",  required = "",title="Data de Validade do Documento"}})
-                                
-                                          </div>
-                                      </div>
-                                  </form>
-                            
-                              </div>
-
-                          </div>
-                          <!-- //forms 2 -->
-                      </section>
-                      
-                          
-                          
-                          
-                        <div class="panel-footer ">
-                            <a onclick="ChamarTela2()" class="btn  btn-outline-success  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
-                        </div>
-          
-          
-                        
-                        
-                        
-                        
-                        
-
-                    </div>
-					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <!-- Dados Nascimento --> 
-                        
-
-                        <div class="panel-footer ">
-                            <a onclick="ChamarTela2()" class="btn btn-outline-warning fa-pull-left" ><i class="fa fa-backward"></i> Recuar</a>
-                            <a onclick="ChamarTela2()" class="btn  btn-outline-success  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                          <!-- Foto e Contactos --> 
-                        <!-- forms -->
-                        <section class="forms">
-                            <!-- forms 2 -->
-                            <div class="card card_border py-2 mb-4">
-                                <div class="card-body">
-                                    <form action="#" name="f1" method="post">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4" class="input__label">Nome Completo</label>
-                                                @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar"})
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4" class="input__label">Nome de Usuário</label>
-                                                @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login", required = ""}})
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputPassword4" class="input__label">Senha</label>
-                                                <input type="password" class="form-control input-style" id="inputPassword4" placeholder="senha" required="">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputPassword4" class="input__label">Confirmar senha</label>
-                                                @Html.EditorFor(model => model.MunicipeNif, new {htmlAttributes = new {@class = "form-control input-style", id = "confirmarsenha", PlaceHolder = "senha", type = "password", required = ""}})
-                                            </div>
-                                        </div>
-
-                                        <div class="form-row">
-                                            <div class="form-group col-md-5">
-                                                <label for="inputCity" class="input__label">Endereço de Email</label>
-                                                @Html.EditorFor(model => model.MunicipeEmail, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "email", type = "email"}})
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="inputCity" class="input__label">Nº Telefone</label>
-                                                @Html.EditorFor(model => model.MunicipeTelefone1, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "", @id = "phone", type = "text"}})
-                                            </div>
-                                            @*<div class="form-group col-md-3">
-                            <label for="inputState"  class="input__label">Perfil de Acesso</label>                               
-                            @Html.DropDownListFor(model => model.PerfilId, new List<SelectListItem>(ViewBag.perfil), "Selecione o Perfil", htmlAttributes: new { @class="form-control input-style", required="" })
-                        </div>*@
-                                        </div>
-
-                                    </form>
-                                    <a href="@Url.Action("Index")" class="btn btn-sm btn-outline-warning btn-style mt-4 pull-right"><i class="fa fa-forward"></i>Seguinte</a>
-                                </div>
-
-                            </div>
-                            <!-- //forms 2 -->
-                        </section>
-
-
-
-
-
-<div class="panel-footer ">
-                            <a onclick="ChamarTela2()" class="btn btn-outline-warning fa-pull-left" ><i class="fa fa-backward"></i> Recuar</a>
-                            <a onclick="ChamarTela2()" class="btn  btn-outline-success  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
-                        </div>
-                    </div>
-					<div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-                    
-                    <div class="panel-footer ">
-                        <a onclick="ChamarTela2()" class="btn btn-outline-warning fa-pull-left" ><i class="fa fa-backward"></i> Recuar</a>
-                        <button type="submit">Guardar</button>
-                            <a type="Submit" class="btn  btn-outline-success  pull-right"><i class="fa fa-save"></i>Guardar</a>
-                        </div>
-                        </div>
-				</div>
-			
-			</div>
-		</div>
-	</div>
-</section>
-<!-- ./Tabs -->    
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-
-
-            
-            
-            
-            
-
-
-<!----------------------------------------Fim do Conteudo-------------------------------------------------->
+            <div class="form-group col-md-4">
+                <label for="inputState" class="input__label">Comuna</label>
+                @Html.DropDownListFor(model=>model.MunicipeEstadoCivil,new SelectList(" "),"---Selecione a Comuna---",new{@class="form-control"})
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-<script>
-    function ChamarTela2() {
-    alert("Olá");
-    }
-</script>
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+
+
 </body>
-       

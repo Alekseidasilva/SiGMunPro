@@ -140,9 +140,12 @@
     <Content Include="Content\css\style-starter.css" />
     <Content Include="Content\Extras\Moradas.css" />
     <Content Include="Content\Extras\Municipe\Cadastro\jquery.webcam.js" />
+    <Content Include="Content\Extras\Municipe\Cadastro\jscam.swf" />
     <Content Include="Content\Extras\Municipe\Table.css" />
     <Content Include="Content\Extras\TabelaMunicipe.css" />
     <Content Include="Content\Extras\TelaDetalheUsuario.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Icones\icons8_s_16.png" />
     <Content Include="Content\Icones\more_info_250px.png" />
@@ -233,10 +236,21 @@
     <Content Include="Content\Login_v3\vendor\select2\select2.min.css" />
     <Content Include="Content\Login_v3\vendor\select2\select2.min.js" />
     <Content Include="Content\Sigmun Logo.png" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="App_Code\GlyphIcon.cshtml" />
     <Content Include="Content\Extras\bootstrap 3.2.0.css" />
     <Content Include="libman.json" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Web.config" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -313,8 +327,12 @@
     <Content Include="Views\Municipe\Listar.cshtml" />
     <Content Include="Views\Morada\Cadastrar.cshtml" />
     <Content Include="Views\Morada\ListarPorNm.cshtml" />
-    <Content Include="Views\Municipe\Cadastrar.cshtml" />
+    <Content Include="Views\Municipe\CadastrarBackup.cshtml" />
     <Content Include="Views\Foto\Index.cshtml" />
+    <Content Include="WebImages\User1.jpg" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Views\Municipe\Cadastrar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -343,6 +361,7 @@
     <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
     <Compile Include="Models\Entidades\Base.cs" />
+    <Compile Include="Models\Entidades\Locais\Municipios.cs" />
     <Compile Include="Models\Entidades\Municipe\Municipe.cs" />
     <Compile Include="Models\Entidades\Locais\Bairros.cs" />
     <Compile Include="Models\Entidades\Locais\Comunas.cs" />

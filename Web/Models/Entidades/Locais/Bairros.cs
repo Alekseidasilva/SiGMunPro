@@ -2,5 +2,6 @@
 {
     public class Bairros:Base
     {
+        public int BairroComunaId { get; set; }
     }
 }

@@ -1,0 +1,306 @@
+﻿@model Web.Models.Entidades.Municipe.Municipe
+
+@{
+    ViewBag.Title = "Cadastrar";
+    
+}
+<script src="~/Scripts/jquery-3.5.1.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery-3.5.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#Municipios").change(function() {
+            $("#Comunas").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("CarregarComunasPorMunicipio")',
+                dataType: 'json',
+                data: { id: $("#Municipios").val() },
+
+                success: function(Comunas) {
+                    $.each(Comunas,
+                        function(i, Comuna) {
+                            $("#Comuna").append('<option value="' + Comuna.value + '">' + Comuna.text + '</option>');
+                        });
+                },
+                error: function(ex) {
+                    alert('Falha ao carregar as comunas' + ex);
+                }
+            });
+            return false;
+        })
+    });
+</script>
+
+<body lang="pt">
+    <div class="main-content">
+        <div class="container-fluid content-top-gap">
+            <div class="card card_border">
+                @*<div class="cards__heading">
+                        <h3>Munícipes Cadastrados <span></span></h3>
+                        <div class="dropdown-divider"></div>
+
+                    </div>*@
+                <!----------------------------------------Inicio do Conteudo-------------------------------------------------->
+                <!-- Tabs -->
+                <section id="tabs">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <nav>
+                                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dados Pessoais</a>
+                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Dados Nascimento</a>
+                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Foto & Contactos</a>
+                                        <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Morada</a>
+                                    </div>
+                                </nav>
+                                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                                        <!-- Dados Pessoais -->
+                                        <!-- forms -->
+                                        <section class="forms">
+                                            <!-- forms 2 -->
+                                            <div class="card card_border py-2 mb-4">
+                                                <div class="card-body">
+                                                    <form action="#" name="f1" method="post">
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-8">
+                                                                <label for="inputEmail4" class="input__label">Nome Completo</label>
+                                                                @Html.TextBoxFor(model => model.Nome, htmlAttributes: new { @class = "form-control input-style", PlaceHolder = "nome sem abreviar", title = "Nome do Munícipe" })
+                                                            </div>
+
+                                                            <div class="form-group col-md-4">
+                                                                <label for="inputEmail4" class="input__label">Data Nascimento</label>
+                                                                @Html.EditorFor(model => model.MunicipeDataNascimento, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "Login", Type = "date", required = "", title = "Data de Nascimento" } })
+                                                            </div>
+                                                            <div class="form-group col-md-3">
+                                                                <label for="inputState" class="input__label">Tipo Doc.</label>
+                                                                @Html.DropDownListFor(mol => mol.MunicipeTipoDocIdentificacao, new List<SelectListItem>(ViewBag.tipoDocIdent), "Selecione...", htmlAttributes: new { @class = "form-control input-style", required = "", title = "Tipo de Documento" })
+                                                            </div>
+                                                            <div class="form-group col-md-5">
+                                                                <label for="inputEmail4" class="input__label">Nº Documento</label>
+                                                                @Html.EditorFor(model => model.MunicipeNDocIdent, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "nº documento", required = "", title = "Nº documento de Identificação" } })
+                                                            </div>
+                                                            <div class="form-group col-md-2">
+                                                                <label for="inputEmail4" class="input__label">Data Emissão</label>
+                                                                @Html.EditorFor(model => model.MunicipeDocDataEmissao, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "nº documento", Type = "date", required = "", title = "Data de Emissão do Documento" } })
+                                                            </div>
+                                                            <div class="form-group col-md-2">
+                                                                <label for="inputEmail4" class="input__label">Data Validade</label>
+                                                                @Html.EditorFor(model => model.MunicipeDocDataValidade, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "nº documento", Type = "date", required = "", title = "Data de Validade do Documento" } })
+
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+
+                                            </div>
+                                            <!-- //forms 2 -->
+                                        </section>
+
+
+
+
+                                        <div class="panel-footer ">
+                                            <a onclick="ChamarTela2()" class="btn  btn-outline-success  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
+                                        </div>
+                                        <!-------------Fim Dados Pessoais-->
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                        <!-- Dados Nascimento -->
+
+
+                                        <div class="panel-footer ">
+                                            <a onclick="ChamarTela2()" class="btn btn-outline-warning fa-pull-left"><i class="fa fa-backward"></i> Recuar</a>
+                                            <a onclick="ChamarTela2()" class="btn  btn-outline-success  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                        <!-- Foto e Contactos -->
+
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div style="float: left; margin-left: 20px; border: 4px solid #ccc; padding: 5px" class="">
+                                                    <img id="show" src="../../WebImages/User1.jpg" 
+                                                         alt="" class="rounded mx-auto d-block user_img" title="Imagem do Munícipe" style="alignment: center"> 
+                                                    <div id="Camera">
+                                                    </div>
+                                                    <br/>
+                                                    <button value="Capture" onclick="webcam.capture();" class="btn btn-outline-warning" title="Carregar da camera"><i class="fa fa-camera" title="Carregar da camera"></i> Camera</button>
+                                                    <button class="btn btn-outline-warning" title="Carregar do arquivo"><i class="fa fa-archive" title="Carregar do arquivo"></i> Arquivo</button>
+                                                    @*<input id="Submit1" type="submit" onclick="Uploadsubmit();" value="submit" />*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-footer ">
+                                            <a onclick="ChamarTela2()" title="Recuar ao formulário anterior" class="btn btn-outline-warning fa-pull-left"><i class="fa fa-backward"></i> Recuar</a>
+                                            <a onclick="ChamarTela2()" title="Avançar ao formulário anterior" class="btn  btn-outline-success  pull-right"><i class="fa fa-forward"></i>Seguinte</a>
+                                        </div>
+                                    </div>
+                                    <!-------------------Fim de Foto e COntactos-->
+                                    <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                        <!--Morada-->
+                                        <section class="forms">
+                                            <!-- forms 2 -->
+                                            <div class="card card_border py-2 mb-4">
+                                                <div class="card-body">
+                                                    <form action="#" name="f1" method="post">
+                                                        <div class="form-row">
+                                                       
+                                                            <div class="form-group col-md-4">
+                                                                <label for="inputState" class="input__label">Municipio</label>
+                                                                @Html.DropDownList("Municipios", new List<SelectListItem>(ViewBag.municipios), "Selecione o Munícipio", htmlAttributes: new {@class = "form-control input-style", required = ""})
+                                                            </div>
+                                                           <div class="form-group col-md-4">
+                                                                <label for="inputState" class="input__label">Comuna</label>
+                                                                @Html.DropDownList("comuna", new SelectList(string.Empty,"id","nome"), "Selecione a comuna", htmlAttributes: new {@class = "form-control input-style", required = ""})
+                                                            </div>
+                                                         @*    <div class="form-group col-md-4">
+                                                                <label for="inputState" class="input__label">Comuna</label>
+                                                                @Html.DropDownListFor(model => model.MunicipeTelefone1, new List<SelectListItem>(ViewBag.perfil), "Selecione o Perfil", htmlAttributes: new {@class = "form-control input-style", required = ""})
+                                                            </div>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                            <div class="form-group col-md-4">
+                                                                <label for="inputEmail4" class="input__label">Casa Nº</label>
+                                                                @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar"})
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label for="inputEmail4" class="input__label">Rua</label>
+                                                                @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login", required = ""}})
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label for="inputPassword4" class="input__label">Bairro</label>
+                                                                <input type="password" class="form-control input-style" id="inputPassword4" placeholder="senha" required="">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="inputPassword4" class="input__label">Confirmar senha</label>
+                                                                @Html.EditorFor(model => model.MunicipeNif, new {htmlAttributes = new {@class = "form-control input-style", id = "confirmarsenha", PlaceHolder = "senha", type = "password", required = ""}})
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-5">
+                                                                <label for="inputCity" class="input__label">Endereço de Email</label>
+                                                                @Html.EditorFor(model => model.MunicipeEmail, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "email", type = "email" } })
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label for="inputCity" class="input__label">Nº Telefone</label>
+                                                                @Html.EditorFor(model => model.MunicipeTelefone1, new { htmlAttributes = new { @class = "form-control input-style", PlaceHolder = "", @id = "phone", type = "text" } })
+                                                            </div>
+                                                            @*<div class="form-group col-md-3">
+                                                                    <label for="inputState"  class="input__label">Perfil de Acesso</label>
+                                                                    @Html.DropDownListFor(model => model.PerfilId, new List<SelectListItem>(ViewBag.perfil), "Selecione o Perfil", htmlAttributes: new { @class="form-control input-style", required="" })
+                                                                </div>*@
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- //forms 2 -->
+                                        </section>
+                                        <div class="panel-footer ">
+                                            <a onclick="ChamarTela2()" class="btn btn-outline-warning fa-pull-left"><i class="fa fa-backward"></i> Recuar</a>
+                                            
+                                            <a type="Submit" class="btn  btn-outline-success  pull-right"><i class="fa fa-save"></i>Guardar</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ./Tabs -->
+                <!----------------------------------------Fim do Conteudo-------------------------------------------------->
+            </div>
+        </div>
+    </div>
+<script>
+    function ChamarTela2() {
+        alert("Olá");
+    }
+</script>
+
+    <script type="text/javascript">
+        function UploadPic() {
+            $.ajax({
+                type: 'POST',
+                url: ("@Url.Content("~/Photo/Rebind")/"),
+                dataType: 'json',
+                success: function (data) {
+                    $("#show").attr("src", data);
+                    document.getElementById('Submit1').disabled = false;
+                    alert("Photo Capture successfully!");
+                }
+            });
+        }
+
+        function Uploadsubmit() {
+            debugger;
+            var src = $('img').attr('src');
+            src_array = src.split('/');
+            src = src_array[4];
+            if (src != "") {
+                $.ajax({
+                    type: 'POST',
+                    url: ("@Url.Content("~/Photo/Index")/"),
+                    dataType: 'json',
+                    data: { Imagename: src },
+                    success: function () { }
+                });
+                window.opener.location.href = "http://localhost:55694/Photo/Changephoto";
+                self.close();}}
+    </script>
+
+     @*@section scripts
+    {*@
+        <script src="@Url.Content("~/Content/Extras/Municipe/Cadastro/jquery.webcam.js")">
+        </script>
+        <script type="text/javascript">
+            $("#Camera").webcam({
+                width: 320,
+                height: 240,
+                mode: "save",
+                swffile: "@Url.Content("~/Content/Extras/Municipe/Cadastro/jscam.swf")",
+                onTick: function () { },
+                onSave: function () {
+                    UploadPic();
+                },
+                onCapture: function () {
+                    webcam.save("@Url.Content("~/Photo/Capture")/");
+                },
+                debug: function () { },
+                onLoad: function () { }
+
+            });
+
+        </script>
+    @*}*@
+
+
+
+
+
+
+
+
+
+
+</body>
+       

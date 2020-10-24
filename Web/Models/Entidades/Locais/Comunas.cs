@@ -2,5 +2,6 @@
 {
     public class Comunas:Base
     {
+        public int ComunaMunicipioId { get; set; }
     }
 }

@@ -149,8 +149,28 @@ namespace Web.Models.Contratos.Repositorios
 
         public List<Bairros> CarregarBairrosPorComuna(int id)
         {
-            List<Bairros> bairros = new List<Bairros>();
-            return bairros;
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@id", id);
+                DataTable tbMunicipios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_CarregarBairrosPorComuna");
+                List<Bairros> bairros = new List<Bairros>();
+                foreach (DataRow itens in tbMunicipios.Rows)
+                {
+                    Bairros b = new Bairros()
+                    {
+                        Id = Convert.ToInt32(itens["BairroId"]),
+                        Nome = Convert.ToString(itens["BairroNome"])
+                    };
+                    bairros.Add(b);
+                }
+                return bairros;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         #endregion
@@ -158,8 +178,28 @@ namespace Web.Models.Contratos.Repositorios
 
         public List<Comunas> CarregarComunaPorMunicipio(int id)
         {
-            List<Comunas> comunas = new List<Comunas>();
-            return comunas;
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@id", id);
+                DataTable tbMunicipios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_CarregarComunasPorMunicipio");
+                List<Comunas> comunas = new List<Comunas>();
+                foreach (DataRow itens in tbMunicipios.Rows)
+                {
+                    Comunas c = new Comunas
+                    {
+                        Id = Convert.ToInt32(itens["ComunaId"]),
+                        Nome = Convert.ToString(itens["ComunaNome"])
+                    };
+                    comunas.Add(c);
+                }
+                return comunas;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
         #endregion
         #region Velocipedes
@@ -205,5 +245,40 @@ namespace Web.Models.Contratos.Repositorios
         }
 
         #endregion
+
+
+
+        #region Municipios
+
+        public List<Municipios> CarregarMunicipiosPorProvincia(int id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@id",id);
+               DataTable tbMunicipios= _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_CarregarMunicipiosPorProvincia");
+              List<Municipios> municipios = new List<Municipios>();
+               foreach (DataRow itens in tbMunicipios.Rows)
+               {
+                   Municipios m =new Municipios
+                   {
+                       Id = Convert.ToInt32(itens["MunicipioId"]),
+                       Nome = Convert.ToString(itens["MunicipioNome"])
+                   };
+                    municipios.Add(m);
+               }
+               return municipios;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
+            
+        }
+
+        #endregion
+
     }
 }

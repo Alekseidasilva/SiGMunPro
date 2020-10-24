@@ -72,6 +72,7 @@
     <Folder Include="ContinuousDeployment\StoredProcedures\Perfis" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Permissoes" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Geral" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Geral\Locais" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="ContinuousDeployment\Tables\__MigrationLog.sql" />
@@ -159,6 +160,9 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarEstadoCivil.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarEstadoCivilPorId.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarTipoDocIdentificacao.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\Locais\SP_CarregarMunicipiosPorProvincia.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\Locais\SP_CarregarComunasPorMunicipio.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\Locais\SP_CarregarBairrosPorComuna.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

@@ -8,8 +8,7 @@ namespace Web.Controllers
     public class MunicipeController : Controller
     {
         private readonly RepMunicipe _municipe = new RepMunicipe();
-
-         private readonly RepGenerico RepGenerico=new RepGenerico();
+        private readonly RepGenerico RepGenerico=new RepGenerico();
         // GET: Municipe
         public ActionResult Listar()
         {
@@ -26,7 +25,10 @@ namespace Web.Controllers
         [HttpGet]
         // GET: Municipe/Create
         public ActionResult Cadastrar()
-        {
+        {   //Carregar Municipios
+            var municipios = RepGenerico.CarregarMunicipiosPorProvincia(14);
+            ViewBag.municipios = new SelectList(municipios, "Id", "Nome");
+            //Tipos de Documentos
             var tipoDocIdent = RepGenerico.SelecionarTodosTiposDocumentoIdentificacao();
             ViewBag.tipoDocIdent = new SelectList(tipoDocIdent, "Id", "Nome");
             return View();
@@ -96,6 +98,19 @@ namespace Web.Controllers
         {
             var moradas = RepGenerico.CarregarMoradasPorNm(1);
             return View(moradas);
+        }
+
+        public JsonResult CarregarComunasPorMunicipio(int municipioId)
+        {
+            //Carregar Municipios
+            var comunas = RepGenerico.CarregarComunaPorMunicipio(municipioId);
+            return Json(new SelectList(comunas, "id", "nome"));
+        }
+        public JsonResult CarregarBairrosPorComuna(int id)
+        {
+            //Carregar Bairros
+            var bairros = RepGenerico.CarregarBairrosPorComuna(id);
+            return Json(new SelectList(bairros, "id", "nome"));
         }
 
     }

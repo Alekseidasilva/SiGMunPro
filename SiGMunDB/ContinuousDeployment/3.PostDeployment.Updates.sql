@@ -340,5 +340,4 @@ GO
 	1, GETDATE(), 123456789,12,'Sem foto',1);
 
 	
-	INSERT INTO TB_TipoDocIdentificacao (Nome)
-	VALUES ('B.I'),('PassaPorte'),('Outro');
+	
