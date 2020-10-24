@@ -149,6 +149,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Icones\icons8_s_16.png" />
     <Content Include="Content\Icones\more_info_250px.png" />
+    <Content Include="Content\Icones\User1.jpg" />
     <Content Include="Content\images\avatar1.jpg" />
     <Content Include="Content\images\avatar2.jpg" />
     <Content Include="Content\images\avatar3.jpg" />
@@ -325,7 +326,6 @@
     <Content Include="Views\Usuario\Alterar.cshtml" />
     <Content Include="Views\Usuario\Detalhes.cshtml" />
     <Content Include="Views\Municipe\Listar.cshtml" />
-    <Content Include="Views\Morada\Cadastrar.cshtml" />
     <Content Include="Views\Morada\ListarPorNm.cshtml" />
     <Content Include="Views\Municipe\CadastrarBackup.cshtml" />
     <Content Include="Views\Foto\Index.cshtml" />
@@ -333,6 +333,7 @@
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <Content Include="Views\Municipe\Cadastrar.cshtml" />
+    <Content Include="Views\Morada\Cadastrar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -27,7 +27,9 @@ namespace Web.Controllers
         public ActionResult Cadastrar()
         {   //Carregar Municipios
             var municipios = RepGenerico.CarregarMunicipiosPorProvincia(14);
-            ViewBag.municipios = new SelectList(municipios, "Id", "Nome");
+            ViewData["municipios"] = new SelectList(municipios, "Id", "Nome");
+
+
             //Tipos de Documentos
             var tipoDocIdent = RepGenerico.SelecionarTodosTiposDocumentoIdentificacao();
             ViewBag.tipoDocIdent = new SelectList(tipoDocIdent, "Id", "Nome");
@@ -100,11 +102,11 @@ namespace Web.Controllers
             return View(moradas);
         }
 
-        public JsonResult CarregarComunasPorMunicipio(int municipioId)
+        public JsonResult CarregarComunasPorMunicipio(int id)
         {
             //Carregar Municipios
-            var comunas = RepGenerico.CarregarComunaPorMunicipio(municipioId);
-            return Json(new SelectList(comunas, "id", "nome"));
+            var comunas = RepGenerico.CarregarComunaPorMunicipio(id);
+            return Json(new SelectList(comunas, "Id","Nome"));
         }
         public JsonResult CarregarBairrosPorComuna(int id)
         {
