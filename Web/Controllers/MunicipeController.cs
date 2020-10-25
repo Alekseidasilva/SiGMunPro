@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Dynamic;
 using System.Web.Mvc;
 using Web.Models.Contratos.Repositorios;
+using Web.Models.Entidades.Locais;
+using Web.Models.Entidades.Municipe;
 
 namespace Web.Controllers
 {
@@ -25,9 +29,14 @@ namespace Web.Controllers
         [HttpGet]
         // GET: Municipe/Create
         public ActionResult Cadastrar()
-        {   //Carregar Municipios
-            var municipios = RepGenerico.CarregarMunicipiosPorProvincia(14);
-            ViewData["municipios"] = new SelectList(municipios, "Id", "Nome");
+        { 
+            //Carregar Municipios
+            ViewBag.listamunicipio = new SelectList(RepGenerico.CarregarMunicipiosPorProvincia(14), "Id", "Nome");
+            //Carregar Genero
+            ViewBag.genero = new SelectList(RepGenerico.CarregarGeneros(), "Id", "Nome");
+
+            //Carregar EstadoCivil
+            ViewBag.estadoCivil = new SelectList(RepGenerico.CarregarEstadoCivil(), "Id", "Nome");
 
 
             //Tipos de Documentos
@@ -38,7 +47,7 @@ namespace Web.Controllers
 
         // POST: Municipe/Create
         [HttpPost]
-        public ActionResult Cadastrar(FormCollection collection)
+        public ActionResult Cadastrar(Municipe municipe)
         {
             try
             {
@@ -102,17 +111,22 @@ namespace Web.Controllers
             return View(moradas);
         }
 
-        public JsonResult CarregarComunasPorMunicipio(int id)
+        
+        public ActionResult GetComunas(int id)
         {
             //Carregar Municipios
-            var comunas = RepGenerico.CarregarComunaPorMunicipio(id);
-            return Json(new SelectList(comunas, "Id","Nome"));
+            List<Comunas> comunas = RepGenerico.CarregarComunaPorMunicipio(id);
+            ViewBag.listaComunas = new SelectList(comunas, "Id", "Nome");
+            return PartialView("mostrarComunas");
+
         }
-        public JsonResult CarregarBairrosPorComuna(int id)
+        public ActionResult GetBairros(int id)
         {
-            //Carregar Bairros
-            var bairros = RepGenerico.CarregarBairrosPorComuna(id);
-            return Json(new SelectList(bairros, "id", "nome"));
+            //Carregar Municipios
+            List<Bairros> bairros = RepGenerico.CarregarBairrosPorComuna(id);
+            ViewBag.listaBairros = new SelectList(bairros, "Id", "Nome");
+            return PartialView("mostrarBairros");
+
         }
 
     }

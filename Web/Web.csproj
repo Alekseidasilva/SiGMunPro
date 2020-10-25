@@ -327,13 +327,15 @@
     <Content Include="Views\Usuario\Detalhes.cshtml" />
     <Content Include="Views\Municipe\Listar.cshtml" />
     <Content Include="Views\Morada\ListarPorNm.cshtml" />
-    <Content Include="Views\Municipe\CadastrarBackup.cshtml" />
+    <Content Include="Views\Municipe\Cadastrar.cshtml" />
     <Content Include="Views\Foto\Index.cshtml" />
     <Content Include="WebImages\User1.jpg" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
-    <Content Include="Views\Municipe\Cadastrar.cshtml" />
     <Content Include="Views\Morada\Cadastrar.cshtml" />
+    <Content Include="Views\MunicipioComunaBairro\Index.cshtml" />
+    <Content Include="Views\Shared\mostrarComunas.cshtml" />
+    <Content Include="Views\Shared\mostrarBairros.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -346,6 +348,7 @@
     <Compile Include="Controllers\FotoController.cs" />
     <Compile Include="Controllers\MoradaController.cs" />
     <Compile Include="Controllers\MunicipeController.cs" />
+    <Compile Include="Controllers\MunicipioComunaBairroController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UserRoleProvider.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -367,6 +370,7 @@
     <Compile Include="Models\Entidades\Locais\Bairros.cs" />
     <Compile Include="Models\Entidades\Locais\Comunas.cs" />
     <Compile Include="Models\Entidades\Locais\Moradas.cs" />
+    <Compile Include="Models\Entidades\MunicipioComunaBairro.cs" />
     <Compile Include="Models\Entidades\Outras\EstadoCivil.cs" />
     <Compile Include="Models\Entidades\Outras\Genero.cs" />
     <Compile Include="Models\Entidades\Outras\TiposDocumentosIdentificacao.cs" />

@@ -27,6 +27,7 @@ namespace Web.Models.Contratos.Repositorios
                         Id = Convert.ToInt32(item["GeneroId"]),
                         Nome = Convert.ToString(item["GeneroNome"])
                     };
+                    gerenos.Add(genero);
                 }
                 return gerenos;
             }

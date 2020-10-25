@@ -4,8 +4,8 @@ namespace Web.Models.Entidades.Municipe
 {
     public class Municipe:Base
     {
+        #region Municipe
         public long MunicipeNm { get; set; }
-
         public DateTime MunicipeDataNascimento { get; set; }
         public string MunicipeNDocIdent { get; set; }
         public int MunicipeTipoDocIdentificacao { get; set; }
@@ -17,5 +17,17 @@ namespace Web.Models.Entidades.Municipe
         public string MunicipeTelefone1 { get; set; }
         public string MunicipeTelefone2 { get; set; }
         public String MunicipeEmail { get; set; }
+        #endregion
+        
+        #region Morada
+
+        
+        public string MoradaRua { get; set; }
+        public string MoradaZona { get; set; }
+        public string MoradaCasaN { get; set; }
+        public int MoradaBairroId { get; set; }
+
+        #endregion
+
     }
 }
