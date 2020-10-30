@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Web.Models.Entidades
 {
@@ -7,6 +8,7 @@ namespace Web.Models.Entidades
 
         public int Id { get; set; }
         public string Nome { get; set; }
+       
         public DateTime DataCadastro { get; set; }
         public bool Estado { get; set; }
         public int Idcadastrador { get; set; }

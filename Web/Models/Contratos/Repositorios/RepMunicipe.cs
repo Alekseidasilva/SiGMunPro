@@ -9,7 +9,7 @@ namespace Web.Models.Contratos.Repositorios
     {
        
         
-        public string Cadastrar(Municipe entidade)
+        public string Cadastrar(MunicipeMorada entidade)
         {
 
             try
@@ -27,7 +27,7 @@ namespace Web.Models.Contratos.Repositorios
                 _conexao.AdicionarParametros("@MunicipeTelefone1", entidade.MunicipeTelefone1);
                 _conexao.AdicionarParametros("@MunicipeTelefone2", entidade.MunicipeTelefone2);
                 _conexao.AdicionarParametros("@MunicipeEmail", entidade.MunicipeEmail);
-                _conexao.AdicionarParametros("@MunicipeFoto", "entidade.MunicipeFoto");
+                _conexao.AdicionarParametros("@MunicipeFoto", entidade.MunicipeFoto);
                 _conexao.AdicionarParametros("@IdCadastrador", entidade.Idcadastrador);
                 
 
@@ -51,6 +51,7 @@ namespace Web.Models.Contratos.Repositorios
             {
                 _conexao.LimparParametro();
                 _conexao.AdicionarParametros("@MunicipeNM", entidade.MunicipeNm);
+                _conexao.AdicionarParametros("@MunicipeNM", entidade.Id);
                 _conexao.AdicionarParametros("@MunicipeNomeCompleto", entidade.Nome);
                 _conexao.AdicionarParametros("@MunicipeDataNascimento", entidade.MunicipeDataNascimento);
                 _conexao.AdicionarParametros("@MunicipeNDocIdent", entidade.MunicipeNDocIdent);
@@ -88,15 +89,15 @@ namespace Web.Models.Contratos.Repositorios
         public Municipe BuscarPorId(string nM)
         {
             try
-            {
-                _conexao.LimparParametro();
+            {   _conexao.LimparParametro();
                 _conexao.AdicionarParametros("@MunicipeNM",nM);
                 DataTable res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Municipe_BuscarPorId");
                  Municipe municipe = new Municipe();
                 foreach (DataRow item in res.Rows)
                 {   
                 municipe.Id = Convert.ToInt32(item["MunicipeId"]);
-                municipe.MunicipeNm = Convert.ToString(item["MunicipeNM"]); municipe.Nome = Convert.ToString(item["MunicipeNomeCompleto"]);
+                municipe.MunicipeNm = Convert.ToString(item["MunicipeNM"]);
+                municipe.Nome = Convert.ToString(item["MunicipeNomeCompleto"]);
                 municipe.MunicipeDataNascimento = Convert.ToDateTime(item["MunicipeDataNascimento"]);
                 municipe.MunicipeNDocIdent = Convert.ToString(item["MunicipeNDocIdent"]);
                 municipe.MunicipeTipoDocIdentificacao = Convert.ToInt32(item["MunicipeTipoDocIdentificacao"]);

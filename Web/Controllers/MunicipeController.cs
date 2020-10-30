@@ -47,13 +47,13 @@ namespace Web.Controllers
 
         // POST: Municipe/Create
         [HttpPost]
-        public ActionResult Cadastrar(Municipe municipe)
+        public ActionResult Cadastrar(MunicipeMorada municipe)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    Municipe mun = new Municipe
+                    MunicipeMorada mun = new MunicipeMorada
                     {
                         Nome = municipe.Nome,
                         MunicipeDataNascimento = municipe.MunicipeDataNascimento,
@@ -114,24 +114,21 @@ namespace Web.Controllers
             try
             {
                 Municipe mun = new Municipe();
-                
-                    mun.MunicipeNm = municipe.MunicipeNm;
-                    mun.Nome =municipe.Nome;
-                    mun.MunicipeNDocIdent = municipe.MunicipeNDocIdent;
-                    mun.MunicipeTipoDocIdentificacao = municipe.MunicipeTipoDocIdentificacao;
-                    mun.MunicipeDocDataEmissao = municipe.MunicipeDocDataEmissao;
-                    mun.MunicipeDocDataValidade = municipe.MunicipeDocDataValidade;
-                    mun.MunicipeNif = municipe.MunicipeNif;
-                    mun.MunicipeGenero = municipe.MunicipeGenero;
-                    mun.MunicipeEstadoCivil = municipe.MunicipeEstadoCivil;
-                    mun.MunicipeTelefone1 = municipe.MunicipeTelefone1;
-                    mun.MunicipeTelefone2 = municipe.MunicipeTelefone2;
-                    mun.MunicipeEmail = municipe.MunicipeEmail;
-                    mun.MunicipeFoto = municipe.MunicipeFoto;
-                    mun.Estado = municipe.Estado;
-
-                
-
+                mun.Id = municipe.Id;
+                mun.MunicipeNm = municipe.MunicipeNm;
+                mun.Nome =municipe.Nome;
+                mun.MunicipeNDocIdent = municipe.MunicipeNDocIdent;
+                mun.MunicipeTipoDocIdentificacao = municipe.MunicipeTipoDocIdentificacao;
+                mun.MunicipeDocDataEmissao = municipe.MunicipeDocDataEmissao;
+                mun.MunicipeDocDataValidade = municipe.MunicipeDocDataValidade;
+                mun.MunicipeNif = municipe.MunicipeNif;
+                mun.MunicipeGenero = municipe.MunicipeGenero;
+                mun.MunicipeEstadoCivil = municipe.MunicipeEstadoCivil;
+                mun.MunicipeTelefone1 = municipe.MunicipeTelefone1;
+                mun.MunicipeTelefone2 = municipe.MunicipeTelefone2;
+                mun.MunicipeEmail = municipe.MunicipeEmail;
+                mun.MunicipeFoto = municipe.MunicipeFoto;
+                mun.Estado = municipe.Estado;
                 _municipe.Alterar(mun);
 
                 return RedirectToAction("Index");

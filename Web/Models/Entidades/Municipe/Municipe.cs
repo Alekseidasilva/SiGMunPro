@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Web.Models.Entidades.Municipe
 {
@@ -9,6 +10,7 @@ namespace Web.Models.Entidades.Municipe
         public DateTime MunicipeDataNascimento { get; set; }
         public string MunicipeNDocIdent { get; set; }
         public int MunicipeTipoDocIdentificacao { get; set; }
+       
         public DateTime MunicipeDocDataEmissao { get; set; }
         public DateTime MunicipeDocDataValidade { get; set; }
         public string MunicipeNif { get; set; }
@@ -17,23 +19,10 @@ namespace Web.Models.Entidades.Municipe
         public string MunicipeTelefone1 { get; set; }
         public string MunicipeTelefone2 { get; set; }
         public string MunicipeEmail { get; set; }
-
         public string MunicipeFoto { get; set; }
-
-
-
-
         #endregion
         
-        #region Morada
-
-        
-        
-        public string MoradaZona { get; set; }
-        public string MoradaCasaN { get; set; }
-        public int MoradaRuaId { get; set; }
-
-        #endregion
+       
 
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Parente:Municipe
     {
-        public string MunicipeParenteNM { get; set; }
+        public string MunicipeParenteNm { get; set; }
         public int MunicipeGrauParentescoId { get; set; }
         
 

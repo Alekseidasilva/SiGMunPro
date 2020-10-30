@@ -1,4 +1,4 @@
-﻿@model Web.Models.Entidades.Municipe.Municipe
+﻿@model Web.Models.Entidades.Municipe.MunicipeMorada
 @{
     ViewBag.Title = "Cadastrar";
     
@@ -193,7 +193,7 @@
             debugger 
             $.ajax({
                 type: "post",
-                url: "/MunicipioComunaBairro/GetComunas?id=" + municipioId,
+                url: "/Municipe/GetComunas?id=" + municipioId,
                 contentType: "html",
                 success: function(response) {
                     debugger
@@ -212,7 +212,7 @@
             debugger 
             $.ajax({
                 type: "post",
-                url: "/MunicipioComunaBairro/GetBairros?id=" + bairroId,
+                url: "/Municipe/GetBairros?id=" + bairroId,
                 contentType: "html",
                 success: function(response) {
                     debugger

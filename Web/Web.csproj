@@ -351,7 +351,6 @@
     <Compile Include="Controllers\FotoController.cs" />
     <Compile Include="Controllers\MoradaController.cs" />
     <Compile Include="Controllers\MunicipeController.cs" />
-    <Compile Include="Controllers\MunicipioComunaBairroController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UserRoleProvider.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -374,8 +373,8 @@
     <Compile Include="Models\Entidades\Locais\Bairros.cs" />
     <Compile Include="Models\Entidades\Locais\Comunas.cs" />
     <Compile Include="Models\Entidades\Locais\Moradas.cs" />
+    <Compile Include="Models\Entidades\Municipe\MunicipeMorada.cs" />
     <Compile Include="Models\Entidades\Municipe\Parente.cs" />
-    <Compile Include="Models\Entidades\MunicipioComunaBairro.cs" />
     <Compile Include="Models\Entidades\Outras\EstadoCivil.cs" />
     <Compile Include="Models\Entidades\Outras\Genero.cs" />
     <Compile Include="Models\Entidades\Outras\TiposDocumentosIdentificacao.cs" />

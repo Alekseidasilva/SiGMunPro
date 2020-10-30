@@ -32,17 +32,19 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-2">
                                                 <label class="input__label">NM</label>
-                                                @Html.TextBoxFor(model => model.MunicipeNm, htmlAttributes: new {@class = "form-control input-style disabled", PlaceHolder = "nome sem abreviar", title = "Nome do Munícipe", required = "campo obrigatorio"})
+                                                @Html.TextBoxFor(model => model.MunicipeNm, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar", title = "Nome do Munícipe", required = "campo obrigatorio", disabled= "disabled"})
                                             </div>
+
                                             <div class="form-group col-md-6">
                                                 <label class="input__label">Nome Completo</label>
                                                 @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar", title = "Nome do Munícipe", required = "campo obrigatorio"})
                                             </div>
-
+                                         
                                             <div class="form-group col-md-4">
                                                 <label class="input__label">Data Nascimento</label>
-                                                @Html.EditorFor(model => model.MunicipeDataNascimento, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login", Type = "date", required = "", title = "Data de Nascimento"}})
-                                            </div>
+                                                @Html.EditorFor(model => model.MunicipeDataNascimento, new {htmlAttributes = new {@class = "form-control datepicker text-box single-line input-style", type="date",   required = "", title = "Data de Nascimento"}})
+                                           
+                                                </div>
                                             <div class="form-group col-md-3">
                                                 <label class="input__label">Tipo Doc.</label>
                                                 @Html.DropDownListFor(mol => mol.MunicipeTipoDocIdentificacao, new List<SelectListItem>(ViewBag.tipoDocIdent), "Selecione...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
