@@ -2,6 +2,6 @@
 	@MoradaMunicuipeNM BIGINT
 AS
 	BEGIN
-	    DELETE dbo.TB_Moradas 
+	    DELETE FROM dbo.TB_Moradas 
 		WHERE MoradaMunicuipeNM=@MoradaMunicuipeNM
 	END

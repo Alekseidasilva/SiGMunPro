@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[TB_Operacao]
 (
 	OperacaoId INT NOT NULL,
-	OperacaoMunicipeNM BIGINT NOT NULL,
+	OperacaoMunicipeNM VARCHAR(20) NOT NULL,
 	OperacaoTipoDocumentoId INT NOT NULL,
 	OperacaoDocsFinalidadeId INT NOT NULL,
 	OperacaoFormaPagamentoId INT NOT NULL,

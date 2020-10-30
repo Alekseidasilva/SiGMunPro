@@ -73,6 +73,9 @@
     <Folder Include="ContinuousDeployment\StoredProcedures\Permissoes" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Geral" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Geral\Locais" />
+    <Folder Include="ContinuousDeployment\Functions" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Bairro" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Ruas" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="ContinuousDeployment\Tables\__MigrationLog.sql" />
@@ -163,6 +166,12 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\Locais\SP_CarregarMunicipiosPorProvincia.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\Locais\SP_CarregarComunasPorMunicipio.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\Locais\SP_CarregarBairrosPorComuna.sql" />
+    <Build Include="ContinuousDeployment\Functions\Fx_GerarZeros.sql" />
+    <Build Include="ContinuousDeployment\Functions\Fx_GerarLetraMunicipio.sql" />
+    <Build Include="ContinuousDeployment\Functions\Fx_GerarLetraComuna.sql" />
+    <Build Include="ContinuousDeployment\StaticTables\TB_Ruas.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Ruas\SP_CarregarRuasPorBairro.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_Municipe_BuscarPorId.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

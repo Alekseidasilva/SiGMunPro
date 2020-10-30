@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[TB_Velocipedes]
 (
   VelocipedeId INT IDENTITY(1,1),
-  VelocipedeMunicipeNM BIGINT NOT NULL,
+  VelocipedeMunicipeNM varchar(20) NOT NULL,
   VelocipedeNLivrete INT NOT NULL,
   VelocipedeNChapa VARCHAR(30)NOT NULL,
   VelocipedeMarca INT NOT NULL,

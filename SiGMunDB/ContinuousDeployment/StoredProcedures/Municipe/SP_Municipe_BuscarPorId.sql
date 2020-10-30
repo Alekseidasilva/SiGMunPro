@@ -1,26 +1,25 @@
-﻿CREATE PROCEDURE [dbo].[SP_Municipe_CarregarTodos]
+﻿CREATE PROCEDURE [dbo].[SP_Municipe_BuscarPorId]
+	@MunicipeNm VARCHAR(20)	
 AS
 BEGIN
-    SELECT 
+SELECT	
 MunicipeId,
-MunicipeNM,
+MunicipeNm,
 MunicipeNomeCompleto,
 MunicipeDataNascimento,
 MunicipeNDocIdent,
 MunicipeTipoDocIdentificacao,
-MunicipeDocDataEmissao, 
+MunicipeDocDataEmissao,
 MunicipeDocDataValidade,
-MunicipeNIF,
+MunicipeNif,
 MunicipeGenero,
 MunicipeEstadoCivil,
 MunicipeTelefone1,
 MunicipeTelefone2,
 MunicipeEmail,
-MunicipeEstado,
 MunicipeDataCadastro,
 MunicipeFoto,
-IdCadastrador
-
-FROM dbo.TB_Municipes
+MunicipeEstado,
+Idcadastrador
+FROM TB_Municipes WHERE MunicipeNm=@MunicipeNm
 END
-

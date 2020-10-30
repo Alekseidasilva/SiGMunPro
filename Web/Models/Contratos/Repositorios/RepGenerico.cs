@@ -10,7 +10,6 @@ namespace Web.Models.Contratos.Repositorios
 {
     public class RepGenerico
     {
-
         private readonly Conexao _conexao = new Conexao();
         #region Genero
         public List<Genero> CarregarGeneros()
@@ -57,8 +56,6 @@ namespace Web.Models.Contratos.Repositorios
                 throw;
             }
         }
-
-
         #endregion
         #region EstadoCivil
         public List<EstadoCivil> CarregarEstadoCivil()
@@ -109,7 +106,6 @@ namespace Web.Models.Contratos.Repositorios
 
 
         #endregion
-
         #region Moradas
 
         public void CadastarMorada(Moradas moradas)
@@ -119,9 +115,9 @@ namespace Web.Models.Contratos.Repositorios
                 _conexao.LimparParametro();
                 _conexao.AdicionarParametros("", moradas.MoradaMunicuipeNm);
                 _conexao.AdicionarParametros("", moradas.MoradaCasaN);
-                _conexao.AdicionarParametros("", moradas.MoradaRua);
+               
                 _conexao.AdicionarParametros("", moradas.MoradaZona);
-                _conexao.AdicionarParametros("", moradas.MoradaBairroId);
+                _conexao.AdicionarParametros("", moradas.MoradaRuaId);
                 _conexao.AdicionarParametros("", moradas.DataCadastro);
                 _conexao.AdicionarParametros("",moradas.Estado);
                 _conexao.AdicionarParametros("",moradas.Idcadastrador);
@@ -146,8 +142,61 @@ namespace Web.Models.Contratos.Repositorios
         }
 
         #endregion
-        #region Bairros
+        #region Ruas
+        public List<Rua> CarregarRuasPorBairros(int id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@BairroID", id);
+                DataTable Ruas = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_CarregarRuasPorBairro");
+                List<Rua> ruas = new List<Rua>();
+                foreach (DataRow itens in Ruas.Rows)
+                {
+                    Rua r = new Rua()
+                    {
+                        Id = Convert.ToInt32(itens["RuaId"]),
+                        Nome = Convert.ToString(itens["RuaNome"]),
+                        RuaBairroId = Convert.ToInt32(itens["RuaBairroId"])
+                    };
+                    ruas.Add(r);
+                }
+                return ruas;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        public List<Rua> CarregarRuas()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                DataTable ruaS = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "");
+                List<Rua> ruas = new List<Rua>();
+                foreach (DataRow itens in ruaS.Rows)
+                {
+                    Rua r = new Rua()
+                    {
+                        Id = Convert.ToInt32(itens[""]),
+                        Nome = Convert.ToString(itens[""]),
+                        RuaBairroId = Convert.ToInt32(itens[""])
+                    };
+                    ruas.Add(r);
+                }
+                return ruas;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
 
+        #endregion
+        #region Bairros
         public List<Bairros> CarregarBairrosPorComuna(int id)
         {
             try
@@ -216,7 +265,6 @@ namespace Web.Models.Contratos.Repositorios
             return comunas;
         }
         #endregion
-
         #region TiposDocumentos
 
         public List<TiposDocumentosIdentificacao> SelecionarTodosTiposDocumentoIdentificacao()
@@ -246,9 +294,6 @@ namespace Web.Models.Contratos.Repositorios
         }
 
         #endregion
-
-
-
         #region Municipios
 
         public List<Municipios> CarregarMunicipiosPorProvincia(int id)

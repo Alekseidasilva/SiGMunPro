@@ -328,16 +328,35 @@ INSERT TB_Comunas (ComunaNome, ComunaMunicipioId)VALUES
 ('SAUTAR', 126),('QUIRIMA', 126);
 GO
 
- INSERT INTO TB_Municipes (MunicipeNM, MunicipeNomeCompleto, MunicipeDataNascimento,
+ INSERT INTO TB_Municipes (MunicipeId,MunicipeNM, MunicipeNomeCompleto, MunicipeDataNascimento,
  MunicipeNDocIdent, MunicipeTipoDocIdentificacao, MunicipeDocDataEmissao, MunicipeDocDataValidade, 
  MunicipeNIF, MunicipeGenero, MunicipeEstadoCivil, MunicipeTelefone1, MunicipeTelefone2, MunicipeEmail,
  MunicipeEstado, MunicipeDataCadastro,MunicipeParenteNM,MunicipeGrauParentescoId,MunicipeFoto, IdCadastrador)
-	VALUES (123456789, 'Aleksei Justino Mateus Dondo da Silva', '1988-10-15', '003013895ME035',
+	VALUES (1,123456789, 'Aleksei Justino Mateus Dondo da Silva', '1988-10-15', '003013895ME035',
 	1, GETDATE(), GETDATE(), '0047845LA045', 2, 2, '924628288', '998515561', 'telmasilva@gmail.com',
 	1, GETDATE(), 123456789,16,'Sem foto',1),
-	(987654321, 'Telma Maria Damião da Costa da Silva', '1994-04-24', '0047845LA045',
+	(1,987654321, 'Telma Maria Damião da Costa da Silva', '1994-04-24', '0047845LA045',
 	1, GETDATE(), GETDATE(), '003013895ME035', 1, 1, '927060073', '998515561', 'alekseidasilva@gmail.com',
 	1, GETDATE(), 123456789,12,'Sem foto',1);
 
+	GO
+	INSERT INTO TB_Bairros (BairroId, BairroNome, BairroComunaId)
+  VALUES
+  (1, 'AZUL', 34),
+  (2, 'MAXINDE', 34),
+  (3, 'RITONDO', 34),
+  (4, 'NGOLA LUIJI 1', 35),
+  (5, 'NGOLA LUIJI 2', 35),
+  (6, 'NGOLA LUIJI 3', 35),
+  (7, 'CAMBAXE 1', 36),
+  (8, 'CAMBAXE 2', 36),
+  (9, 'CAMBAXE 3', 36),
+  (10, 'CANAMBUA', 34);
+  GO
+  INSERT INTO TB_Ruas (RuaId, RuaNome, RuaBairroId, IdCadastrador)
+	VALUES (1, 'Antonio José de Almeida', 1, 1),
+	(2, 'Ultra Machado', 1, 1),
+	(3, 'Rua Principal da Maxinde', 2, 1),
+	(4, 'Estrada direita da Guiné', 3, 1);
 	
 	

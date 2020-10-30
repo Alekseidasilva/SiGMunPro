@@ -336,6 +336,9 @@
     <Content Include="Views\MunicipioComunaBairro\Index.cshtml" />
     <Content Include="Views\Shared\mostrarComunas.cshtml" />
     <Content Include="Views\Shared\mostrarBairros.cshtml" />
+    <Content Include="Views\Shared\mostrarRuas.cshtml" />
+    <Content Include="Views\Municipe\Alterar.cshtml" />
+    <Content Include="Views\Municipe\Detalhes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -366,10 +369,12 @@
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
     <Compile Include="Models\Entidades\Base.cs" />
     <Compile Include="Models\Entidades\Locais\Municipios.cs" />
+    <Compile Include="Models\Entidades\Locais\Rua.cs" />
     <Compile Include="Models\Entidades\Municipe\Municipe.cs" />
     <Compile Include="Models\Entidades\Locais\Bairros.cs" />
     <Compile Include="Models\Entidades\Locais\Comunas.cs" />
     <Compile Include="Models\Entidades\Locais\Moradas.cs" />
+    <Compile Include="Models\Entidades\Municipe\Parente.cs" />
     <Compile Include="Models\Entidades\MunicipioComunaBairro.cs" />
     <Compile Include="Models\Entidades\Outras\EstadoCivil.cs" />
     <Compile Include="Models\Entidades\Outras\Genero.cs" />

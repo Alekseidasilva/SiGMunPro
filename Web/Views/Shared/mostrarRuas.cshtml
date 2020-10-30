@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Web.Models.Entidades.Locais.Rua>
+
+<option value="">Selecione a rua</option>
+@if (ViewBag.listaRuas != null)
+
+{
+    foreach (var item in ViewBag.listaRuas)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}

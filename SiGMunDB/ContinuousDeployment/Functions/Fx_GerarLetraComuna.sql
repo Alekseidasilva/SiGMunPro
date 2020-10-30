@@ -1,0 +1,72 @@
+﻿CREATE FUNCTION [dbo].[Fx_GerarLetraComuna]
+(
+	@IdComuna int	
+)
+RETURNS VARCHAR(20)
+AS
+BEGIN
+DECLARE @@Letra VARCHAR(20)
+SELECT 
+  @@Letra=CASE
+    WHEN @IdComuna=1 THEN 'A'
+    WHEN @IdComuna=2 THEN 'B'
+    WHEN @IdComuna=3 THEN 'C'
+    WHEN @IdComuna=4 THEN 'D'
+    WHEN @IdComuna=5 THEN 'E'
+    WHEN @IdComuna=6 THEN 'F'
+    WHEN @IdComuna=7 THEN 'G'
+    WHEN @IdComuna=8 THEN 'H'
+    WHEN @IdComuna=9 THEN 'I'
+    WHEN @IdComuna=10 THEN 'J'
+    WHEN @IdComuna=11 THEN 'K'
+    WHEN @IdComuna=12 THEN 'L'
+    WHEN @IdComuna=13 THEN 'M'
+    WHEN @IdComuna=14 THEN 'N'
+	WHEN @IdComuna=15 THEN 'O'
+	WHEN @IdComuna=16 THEN 'P'
+	WHEN @IdComuna=17 THEN 'Q'
+	WHEN @IdComuna=18 THEN 'R'
+	WHEN @IdComuna=19 THEN 'S'
+	WHEN @IdComuna=20 THEN 'T'
+	WHEN @IdComuna=21 THEN 'U'
+	WHEN @IdComuna=22 THEN 'V'
+	WHEN @IdComuna=23 THEN 'W'
+	WHEN @IdComuna=24 THEN 'X'
+	WHEN @IdComuna=25 THEN 'Y'
+	WHEN @IdComuna=26 THEN 'Z'
+	WHEN @IdComuna=27 THEN 'AA'
+	WHEN @IdComuna=28 THEN 'AB'
+	WHEN @IdComuna=29 THEN 'AC'
+	WHEN @IdComuna=30 THEN 'AD'
+	WHEN @IdComuna=31 THEN 'AE'
+	WHEN @IdComuna=32 THEN 'AF'
+	WHEN @IdComuna=33 THEN 'AG'
+	WHEN @IdComuna=34 THEN 'AH'
+	WHEN @IdComuna=35 THEN 'AI'
+	WHEN @IdComuna=36 THEN 'AJ'
+	WHEN @IdComuna=37 THEN 'AK'
+	WHEN @IdComuna=38 THEN 'AL'
+	WHEN @IdComuna=39 THEN 'AM'
+	WHEN @IdComuna=40 THEN 'AN'
+	WHEN @IdComuna=41 THEN 'AO'
+	WHEN @IdComuna=42 THEN 'AP'
+	WHEN @IdComuna=43 THEN 'AQ'
+	WHEN @IdComuna=44 THEN 'AR'
+	WHEN @IdComuna=45 THEN 'AS'
+	WHEN @IdComuna=46 THEN 'AT'
+	WHEN @IdComuna=47 THEN 'AU'
+	WHEN @IdComuna=48 THEN 'AV'
+	WHEN @IdComuna=49 THEN 'AW'
+	WHEN @IdComuna=50 THEN 'AX'
+	WHEN @IdComuna=51 THEN 'AY'
+	WHEN @IdComuna=52 THEN 'AZ'
+	WHEN @IdComuna=53 THEN 'AAA'
+	WHEN @IdComuna=54 THEN 'AAB'
+	WHEN @IdComuna=56 THEN 'AAC'
+	WHEN @IdComuna=57 THEN 'AAD'
+	WHEN @IdComuna=58 THEN 'AAE'
+	WHEN @IdComuna=59 THEN 'AAF'
+	WHEN @IdComuna=60 THEN 'AAH'  	
+END
+	RETURN @@Letra
+END

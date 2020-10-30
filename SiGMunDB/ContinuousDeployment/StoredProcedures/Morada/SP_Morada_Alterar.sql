@@ -1,14 +1,18 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Morada_Alterar]
-	@MoradaMunicuipeNM	INT,
-	@MoradaRua	varchar(100),	
-	@MoradaZona	varchar(20),	
-	@MoradaBairroId	INT	
-
+	@MoradaMunicuipeNM VARCHAR(20),
+	@MoradaCasaNumero VARCHAR(10),	
+	@MoradaZona VARCHAR(20),
+	@MoradaRuaId int,
+	@MoradaEstado bit
 AS
 	BEGIN
 	    UPDATE dbo.TB_Moradas 
-		SET MoradaRua=@MoradaRua,
-			MoradaZona=@MoradaZona,
-			MoradaBairroId=@MoradaBairroId
+		SET	
+	MoradaCasaNumero=@MoradaMunicuipeNM,	
+	MoradaZona=@MoradaZona,
+	MoradaRuaId=@MoradaRuaId,	
+	MoradaEstado=@MoradaEstado     
 		WHERE MoradaMunicuipeNM=@MoradaMunicuipeNM
 	END
+	 
+     

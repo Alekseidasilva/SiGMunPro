@@ -2,7 +2,13 @@
 	@MunicipeNm int
 AS
 BEGIN
-	SELECT * FROM dbo.TB_Moradas
+	SELECT 
+	MoradaCasaNumero,	
+	MoradaZona,
+	MoradaRuaId,
+	MoradaDataCadastro,
+	MoradaEstado, 
+    IdCadastrador  FROM dbo.TB_Moradas
 	WHERE MoradaMunicuipeNM=@MunicipeNm
 END
 	

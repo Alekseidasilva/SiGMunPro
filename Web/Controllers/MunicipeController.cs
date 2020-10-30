@@ -1,7 +1,7 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Web.Mvc;
+using Web.Helpers;
 using Web.Models.Contratos.Repositorios;
 using Web.Models.Entidades.Locais;
 using Web.Models.Entidades.Municipe;
@@ -21,9 +21,9 @@ namespace Web.Controllers
         }
 
         // GET: Municipe/Details/5
-        public ActionResult Detalhes(int id)
+        public ActionResult Detalhes(string id)
         {
-            return View();
+            return View( _municipe.BuscarPorId(id));
         }
        
         [HttpGet]
@@ -51,9 +51,36 @@ namespace Web.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    Municipe mun = new Municipe
+                    {
+                        Nome = municipe.Nome,
+                        MunicipeDataNascimento = municipe.MunicipeDataNascimento,
+                        MunicipeNDocIdent = municipe.MunicipeNDocIdent,
+                        MunicipeTipoDocIdentificacao = municipe.MunicipeTipoDocIdentificacao,
+                        MunicipeDocDataEmissao = municipe.MunicipeDocDataEmissao,
+                        MunicipeDocDataValidade = municipe.MunicipeDocDataValidade,
+                        MunicipeNif = municipe.MunicipeNif,
+                        MunicipeGenero = municipe.MunicipeGenero,
+                        MunicipeEstadoCivil = municipe.MunicipeEstadoCivil,
+                        MunicipeTelefone1 = municipe.MunicipeTelefone1,
+                        MunicipeTelefone2 = municipe.MunicipeTelefone2,
+                        MunicipeEmail = municipe.MunicipeEmail,
+                        
+                       
+                        MunicipeFoto = municipe.MunicipeFoto,
+                        Idcadastrador = GuardaSessao.Id,
 
-                return RedirectToAction("Index");
+                        MoradaCasaN = municipe.MoradaCasaN,
+                        MoradaZona = municipe.MoradaZona,
+                        MoradaRuaId = municipe.MoradaRuaId,
+                        
+                    };
+                    _municipe.Cadastrar(mun);
+
+                }
+                return RedirectToAction("Listar");
             }
             catch
             {
@@ -62,18 +89,50 @@ namespace Web.Controllers
         }
 
         // GET: Municipe/Edit/5
-        public ActionResult Alterar(int id)
-        {
-            return View();
+        public ActionResult Alterar(string id)
+        {//Carregar Municipios
+            ViewBag.listamunicipio = new SelectList(RepGenerico.CarregarMunicipiosPorProvincia(14), "Id", "Nome");
+            //Carregar Genero
+            ViewBag.genero = new SelectList(RepGenerico.CarregarGeneros(), "Id", "Nome");
+
+            //Carregar EstadoCivil
+            ViewBag.estadoCivil = new SelectList(RepGenerico.CarregarEstadoCivil(), "Id", "Nome");
+
+
+            //Tipos de Documentos
+            var tipoDocIdent = RepGenerico.SelecionarTodosTiposDocumentoIdentificacao();
+            ViewBag.tipoDocIdent = new SelectList(tipoDocIdent, "Id", "Nome");
+
+
+            return View( _municipe.BuscarPorId(id));
         }
 
         // POST: Municipe/Edit/5
         [HttpPost]
-        public ActionResult Alterar(int id, FormCollection collection)
+        public ActionResult Alterar(Municipe municipe)
         {
             try
             {
-                // TODO: Add update logic here
+                Municipe mun = new Municipe();
+                
+                    mun.MunicipeNm = municipe.MunicipeNm;
+                    mun.Nome =municipe.Nome;
+                    mun.MunicipeNDocIdent = municipe.MunicipeNDocIdent;
+                    mun.MunicipeTipoDocIdentificacao = municipe.MunicipeTipoDocIdentificacao;
+                    mun.MunicipeDocDataEmissao = municipe.MunicipeDocDataEmissao;
+                    mun.MunicipeDocDataValidade = municipe.MunicipeDocDataValidade;
+                    mun.MunicipeNif = municipe.MunicipeNif;
+                    mun.MunicipeGenero = municipe.MunicipeGenero;
+                    mun.MunicipeEstadoCivil = municipe.MunicipeEstadoCivil;
+                    mun.MunicipeTelefone1 = municipe.MunicipeTelefone1;
+                    mun.MunicipeTelefone2 = municipe.MunicipeTelefone2;
+                    mun.MunicipeEmail = municipe.MunicipeEmail;
+                    mun.MunicipeFoto = municipe.MunicipeFoto;
+                    mun.Estado = municipe.Estado;
+
+                
+
+                _municipe.Alterar(mun);
 
                 return RedirectToAction("Index");
             }
@@ -127,6 +186,19 @@ namespace Web.Controllers
             ViewBag.listaBairros = new SelectList(bairros, "Id", "Nome");
             return PartialView("mostrarBairros");
 
+        }
+        public ActionResult GetRuas(int id)
+        {
+            //Carregar Municipios
+            List<Rua> ruas = RepGenerico.CarregarRuasPorBairros(id);
+            ViewBag.listaRuas = new SelectList(ruas, "Id", "Nome");
+            return PartialView("mostrarRuas");
+
+        }
+
+        public ActionResult TesResult(string id)
+        {
+            return View();
         }
 
     }

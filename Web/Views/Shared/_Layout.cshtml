@@ -32,17 +32,13 @@
         @RenderBody()
     </section>
 
-    <!--footer section start-->
+   
+
+
+
+
     
-<footer class="dashboard fixed-bottom">
-    <p id="relogio"></p>
-    <p>
-        &copy2016-2019 <a href="https://utanga.co.ao/" target="_blank" class="text-primary">Utanga</a> - 28499 Aleksei da Silva&reg;. | Develop by <a href="@Url.Action("Suporte", "Home")" target="_blank" class="text-primary">TFC Team.</a>
-    </p>
-</footer>
-    <!--footer section end-->
-    
-    <!-- move top -->
+<!-- move top -->
     <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
         <span class="fa fa-angle-up"></span>
     </button>
@@ -134,13 +130,18 @@
 <script src="~/Content/js/bootstrap.min.js"></script>
 
 @*Criar Mascara criar nome de usuario*@
-<script type="text/javascript" src="/Scripts/jquery-3.0.0.min.js"  charset="utf-8"></script>
+@*<script type="text/javascript" src="/Scripts/jquery-3.0.0.min.js"  charset="utf-8"></script>*@
 <script type="text/javascript" src="/Scripts/jquery.maskedinput.min.js"></script>
     
 
 <script type="text/javascript">
+    $(function () {
+        $("#phone").mask("(+244)(999) 999-999");
+    });
+</script>
+<script type="text/javascript">
         $(function () {
-            $("#phone").mask("(+244)(999) 999-999");
+            $("#phone2").mask("(+244)(999) 999-999");
         });
 </script>
 <script>

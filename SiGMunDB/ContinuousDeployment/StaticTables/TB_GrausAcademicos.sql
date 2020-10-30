@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[TB_GrausAcademicos]
 (
 	GrauAcademicoId INT IDENTITY(1,1),
-	GrauMunicipeNM BIGINT,
+	GrauMunicipeNM VARCHAR(20) NOT NULL,
 	GrauNivelAcademicoId INT NOT NULL,
 	GrauAcademicoIdAnoConclusao INT NOT NULL,
 	IdCadastrador INT NOT NULL

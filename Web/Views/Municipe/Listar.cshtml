@@ -7,10 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-   
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="~/Content/Extras/bootstrap 3.2.0.css" rel="stylesheet">
-  
     <link href="~/Content/Extras/Municipe/Table.css" rel="stylesheet" />
   
 </head>
@@ -26,12 +24,8 @@
             <a href="@Url.Action("Cadastrar")" class="btn btn-outline-success"><i class="fa fa-plus"></i> Cadastrar</a>
             <a href="@Url.Action("#")" class="btn btn-outline-info pull-right"><i class="fa fa-print"></i> Imprimir</a>
         </div>
-        <!--Inicio do Conteudo-->
-        
-        
-     
-
-<div class="container">
+        <!--------Inicio do Conteudo------>
+        <div class="container">
     <div class="row">
         <div class="table-responsive">
                         <table class="table user-list table-striped  table-hover">
@@ -58,17 +52,12 @@
                                         string genero = generico.CarregarGenerosPorId(item.MunicipeGenero);
                                         string estadoCivil = generico.CarregarEstadoCivilPorId(item.MunicipeEstadoCivil);
                                         int idade = DateTime.Now.Year - @item.MunicipeDataNascimento.Year;
-                                       
-                                      
-                                            
-                                       
-                                        
                                     }
                                     <td style="width: 3%;">
                                         <img src="~/Content/images/New/UserMale.png">
                                     </td>
                                     <td style="width: 15%;">
-                                        <a href="#">@item.Nome</a><br/>
+                                        <a href="@Url.Action("Detalhes/"+item.MunicipeNm)" title="Clique para ver Detalhes">@item.Nome</a><br/>
                                         <span class="user-subhead">@item.MunicipeNm</span>
                                     </td>
                                     <td class="text-center">
@@ -106,29 +95,29 @@
                                     @*<td class="text-center">
                                         <span class="label label-default">pending</span>
                                     </td>*@
-
-
                                     <td style="width: 7%;">
-                                        <a href="#" class="table-link text-warning">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="#" class="table-link text-info">
+                                        <a href="@Url.Action("Alterar/"+item.MunicipeNm)" class="table-link text-warning" title="Alterar Dados">
+                                           
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+
+                                            </span>
+                                        </a>
+                                        <a href="@Url.Action("Alterar/"+item.MunicipeNm)" class="table-link text-info" title="Ver Moradas">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
                                             </span>
                                         </a>
                                         <br/>
-                                        <a href="#" class="table-link danger">
+                                        <a href="@Url.Action("Alterar/"+item.MunicipeNm)" class="table-link text-success" title="Ver Parentes" >
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                                <i class="fa fa-users fa-stack-1x fa-inverse"></i>
                                             </span>
                                         </a>
-                                        <a href="#" class="table-link danger">
+                                        <a href="@Url.Action("Alterar/"+item.MunicipeNm)" class="table-link text-dark" title="Ver Motociclos">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fa fa-motorcycle fa-stack-1x fa-inverse"></i>
