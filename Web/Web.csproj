@@ -137,6 +137,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\brands.css" />
+    <Content Include="Content\brands.min.css" />
     <Content Include="Content\css\style-starter.css" />
     <Content Include="Content\Extras\Moradas.css" />
     <Content Include="Content\Extras\Municipe\Cadastro\jquery.webcam.js" />
@@ -144,8 +146,10 @@
     <Content Include="Content\Extras\Municipe\Table.css" />
     <Content Include="Content\Extras\TabelaMunicipe.css" />
     <Content Include="Content\Extras\TelaDetalheUsuario.css" />
-    <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fontawesome-all.css" />
+    <Content Include="Content\fontawesome-all.min.css" />
+    <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Icones\icons8_s_16.png" />
     <Content Include="Content\Icones\more_info_250px.png" />
@@ -193,6 +197,8 @@
     <Content Include="Content\js\modernizr.js" />
     <Content Include="Content\js\scripts.js" />
     <Content Include="Content\js\utils.js" />
+    <Content Include="Content\LICENSE.txt" />
+    <Content Include="Content\Linearicons-Free\Linearicons-Free.svg" />
     <Content Include="Content\Login_v3\css\main.css" />
     <Content Include="Content\Login_v3\css\util.css" />
     <Content Include="Content\Login_v3\fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -236,18 +242,39 @@
     <Content Include="Content\Login_v3\vendor\select2\select2.js" />
     <Content Include="Content\Login_v3\vendor\select2\select2.min.css" />
     <Content Include="Content\Login_v3\vendor\select2\select2.min.js" />
+    <Content Include="Content\regular.css" />
+    <Content Include="Content\regular.min.css" />
     <Content Include="Content\Sigmun Logo.png" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\solid.css" />
+    <Content Include="Content\solid.min.css" />
+    <Content Include="Content\svg-with-js.css" />
+    <Content Include="Content\svg-with-js.min.css" />
+    <Content Include="Content\v4-shims.css" />
+    <Content Include="Content\v4-shims.min.css" />
     <Content Include="Global.asax" />
     <Content Include="App_Code\GlyphIcon.cshtml" />
     <Content Include="Content\Extras\bootstrap 3.2.0.css" />
     <Content Include="libman.json" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\Linearicons-Free.eot" />
+    <Content Include="Content\Linearicons-Free\Linearicons-Free.eot" />
+    <Content Include="Content\Linearicons-Free\Linearicons-Free.ttf" />
+    <Content Include="Content\Linearicons-Free\Linearicons-Free.woff" />
+    <Content Include="Content\Linearicons-Free\Linearicons-Free.woff2" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\fontawesome\all.js" />
+    <Content Include="Scripts\fontawesome\all.min.js" />
+    <Content Include="Scripts\fontawesome\brands.js" />
+    <Content Include="Scripts\fontawesome\brands.min.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.js" />
+    <Content Include="Scripts\fontawesome\conflict-detection.min.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.js" />
+    <Content Include="Scripts\fontawesome\fontawesome.min.js" />
+    <Content Include="Scripts\fontawesome\regular.js" />
+    <Content Include="Scripts\fontawesome\regular.min.js" />
+    <Content Include="Scripts\fontawesome\solid.js" />
+    <Content Include="Scripts\fontawesome\solid.min.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.js" />
+    <Content Include="Scripts\fontawesome\v4-shims.min.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
     <Content Include="Scripts\jquery-3.5.1.slim.js" />
@@ -329,6 +356,9 @@
     <Content Include="Views\Morada\ListarPorNm.cshtml" />
     <Content Include="Views\Municipe\Cadastrar.cshtml" />
     <Content Include="Views\Foto\Index.cshtml" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
     <Content Include="WebImages\User1.jpg" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
@@ -345,6 +375,18 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.eot" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ContaController.cs" />
