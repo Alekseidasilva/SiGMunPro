@@ -1,87 +1,119 @@
-﻿
-.page-header {
-    background: #00bcd4;
-    margin: 0;
+﻿.pb-100 {
+	padding-bottom: 100px;
 }
-
-.profile-head {
-    height: 300px;
-    width: 90%;
-    
-    float: left;
-    position: relative;
+.pt-100 {
+	padding-top: 100px;
 }
-
-.profile-head img {
-    margin: 0 auto;
-    border-radius: 5px;
-    max-width: 50%;
-    width: 50%;
+a{
+    text-decoration:none;
 }
-
-.profile-head h5 {
-    width: 100%;
-    padding: 5px 5px 0px 5px;
-    text-align: justify;
-    font-weight: bold;
-    color: #555;
-    font-size: 25px;
-    text-transform: capitalize;
-    margin-bottom: 0;
+.section-title h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
 }
-
-.profile-head p {
-    width: 100%;
-    text-align: justify;
-    padding: 0px 5px 5px 5px;
-    color: #555;
-    font-size: 17px;
-    text-transform: capitalize;
-    margin: 0;
+.section-title h2 {
+	font-size: 32px;
+	text-transform: capitalize;
+	margin: 15px 0;
+	display: inline-block;
+	position: relative;
+	font-weight: 700;
+	padding-bottom: 15px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
 }
-
-.profile-head a {
-    width: 100%;
-    text-align: center;
-    padding: 10px 5px;
-    color: #555;
-    font-size: 15px;
-    text-transform: capitalize;
+.section-title p {
+	font-weight: 300;
+	font-size: 14px;
 }
-
-.profile-head ul {
-    list-style: none;
-    padding: 0;
+.black-bg .section-title h2, .black-bg .section-title h4, .black-bg .section-title p {
+  color:#fff
 }
-
-.profile-head ul li {
-    display: block;
-    color: #555;
-    padding: 5px;
-    font-weight: 400;
-    font-size: 15px;
+.section-title h2:before {
+  position: absolute;
+  content: "";
+  width: 150px;
+  height: 1px;
+  background-color: #777;
+  bottom: 0;
+  left: 50%;
+  margin-left: -75px;
 }
-
-.profile-head ul li:hover span {
-    color: rgb(0, 4, 51);
+.section-title h2:after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 3px;
+  background-color: #e16038;
+  border: darkblue;
+  bottom: -1px;
+  left: 50%;
+  margin-left: -40px;
 }
-
-.profile-head ul li span {
-    color: #555;
-    padding-right: 10px;
+.section-title {
+  margin-bottom: 70px;
 }
-
-.profile-head ul li a {
-    color: #555;
+.single-price {
+	text-align: center;
+	padding: 30px;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
 }
-
-.profile-head h6 {
-    width: 100%;
-    text-align: center;
-    font-weight: 100;
-    color: #555;
-    font-size: 15px;
-    text-transform: uppercase;
-    margin-bottom: 0;
+.price-title h4 {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
-
+.price-tag {
+  margin: 30px 0;
+}
+.price-tag {
+	margin: 30px 0;
+	background-color: #fafafa;
+	color: #000;
+	padding: 10px 0;
+}
+.center.price-tag {
+	background-color: tomato;
+	color:#fff
+}
+.price-tag h2 {
+	font-size: 45px;
+	font-weight: 600;
+	font-family: poppins;
+}
+.price-tag h2 span {
+  font-weight: 300;
+  font-size: 16px;
+  font-style: italic;
+}
+.price-item ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.price-item ul li {
+  font-size: 14px;
+  padding: 5px 0;
+  border-bottom: 1px dashed #eee;
+  margin: 5px 0;
+}
+.price-item ul li:last-child {
+  border-bottom: 0;
+}
+.single-price a {
+  margin-top: 15px;
+}
+a.box-btn {
+	background-color: tomato;
+	padding: 5px 20px;
+	display: inline-block;
+	color: #fff;
+	text-transform: capitalize;
+	border-radius: 3px;
+	font-size: 15px;
+	transition: .3s;
+}
+a.box-btn:hover, a.border-btn:hover {
+	background-color: #d35400;
+}

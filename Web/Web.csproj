@@ -169,6 +169,7 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\New\Background Femenino.png" />
     <Content Include="Content\images\New\Background Masculino.png" />
+    <Content Include="Content\images\New\house.png" />
     <Content Include="Content\images\New\UserFermale.png" />
     <Content Include="Content\images\New\UserMale.png" />
     <Content Include="Content\images\people1.jpg" />
@@ -363,7 +364,6 @@
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <Content Include="Views\Morada\Cadastrar.cshtml" />
-    <Content Include="Views\MunicipioComunaBairro\Index.cshtml" />
     <Content Include="Views\Shared\mostrarComunas.cshtml" />
     <Content Include="Views\Shared\mostrarBairros.cshtml" />
     <Content Include="Views\Shared\mostrarRuas.cshtml" />
@@ -400,11 +400,13 @@
     <Compile Include="Helpers\CryptProvider.cs" />
     <Compile Include="Helpers\GuardaSessao.cs" />
     <Compile Include="Models\Contratos\Interfaces\IBase.cs" />
+    <Compile Include="Models\Contratos\Interfaces\IMorada.cs" />
     <Compile Include="Models\Contratos\Interfaces\IMunicipe.cs" />
     <Compile Include="Models\Contratos\Interfaces\IPerfil.cs" />
     <Compile Include="Models\Contratos\Interfaces\IUsuario.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepBase.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepGenerico.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepMorada.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepMunicipe.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />

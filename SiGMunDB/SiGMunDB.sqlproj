@@ -172,6 +172,8 @@
     <Build Include="ContinuousDeployment\StaticTables\TB_Ruas.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Ruas\SP_CarregarRuasPorBairro.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_Municipe_BuscarPorId.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_MunicipeTotalCadastrados.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarTipoDocIdentPorId.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

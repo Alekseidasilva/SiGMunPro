@@ -106,42 +106,7 @@ namespace Web.Models.Contratos.Repositorios
 
 
         #endregion
-        #region Moradas
-
-        public void CadastarMorada(Moradas moradas)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("", moradas.MoradaMunicuipeNm);
-                _conexao.AdicionarParametros("", moradas.MoradaCasaN);
-               
-                _conexao.AdicionarParametros("", moradas.MoradaZona);
-                _conexao.AdicionarParametros("", moradas.MoradaRuaId);
-                _conexao.AdicionarParametros("", moradas.DataCadastro);
-                _conexao.AdicionarParametros("",moradas.Estado);
-                _conexao.AdicionarParametros("",moradas.Idcadastrador);
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            
-        }
-        public List<Moradas> CarregarMoradas()
-        {
-            List<Moradas> moradas = new List<Moradas>();
-            return moradas;
-        }
-        public List<Moradas> CarregarMoradasPorNm(Int64 Nm)
-        {
-            List<Moradas>moradas=new List<Moradas>();
-            return moradas;
-        }
-
-        #endregion
+       
         #region Ruas
         public List<Rua> CarregarRuasPorBairros(int id)
         {
@@ -266,7 +231,6 @@ namespace Web.Models.Contratos.Repositorios
         }
         #endregion
         #region TiposDocumentos
-
         public List<TiposDocumentosIdentificacao> SelecionarTodosTiposDocumentoIdentificacao()
         {
             try
@@ -292,7 +256,29 @@ namespace Web.Models.Contratos.Repositorios
                 throw;
             }
         }
-
+        public string CarregarTipoDocPorId(int id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@TipoDocId", id);
+                DataTable tipoDoc =_conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_CarregarTipoDocIdentPorId");
+                string tipoNome = "";
+                foreach (DataRow itens in tipoDoc.Rows)
+                {
+                    foreach (DataRow item in tipoDoc.Rows)
+                    {
+                        tipoNome = Convert.ToString(item["Nome"]);
+                    }
+                }
+                return tipoNome;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
         #endregion
         #region Municipios
 

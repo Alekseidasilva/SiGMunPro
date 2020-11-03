@@ -1,95 +1,165 @@
 ﻿@model Web.Models.Entidades.Locais.Moradas
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Moradas</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataCadastro, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataCadastro, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataCadastro, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<body lang="pt">
+<div class="main-content">
+    <div class="container-fluid content-top-gap">
+        <div class="card card_border">
+            @using (Html.BeginForm())
+            {
+                <div class="card card_border py-2 mb-4">
+                 <div class="card-body">
+                                
+                         <div class="form-row">
+                             <div class="form-group col-md-6">
+                                  <label  class="input__label">Municipio</label>
+                                  @if (ViewBag.listamunicipio != null)
+                                  {
+                                      @Html.DropDownList("MunicipioId", ViewBag.listamunicipio as SelectList, "Selecione o Municipio", new {@class = "form-control input-style", title = "Escolha o munícipio", required = ""})
+                                  }
+                              </div>
+                             <div class="form-group col-md-5">
+                                  <label  class="input__label">Comuna</label>
+                                  @Html.DropDownList("ComunaId",new SelectList(""),"Selecione a comuna", htmlAttributes: new {@class = "form-control input-style", title = "Escolha a comuna", required = ""})
+                              </div>
+                             <div class="form-group col-md-1">
+                                  <label  class="input__label hidden">Add</label>
+                                  <button  type="button" class="btn-outline-success form-control input-style" title="Adicionar nova comuna" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-plus"></i></button>
+                              </div>
+                                    
+                             <div class="form-group col-md-4">
+                                  <label  class="input__label">Bairro</label>
+                                  @Html.DropDownList("MoradaBairroId",new SelectList(""),"Selecione o bairro", htmlAttributes: new {@class = "form-control input-style", title = "Escolha a rua", required = ""})
+                              </div>
+                             <div class="form-group col-md-1">
+                                  <label  class="input__label hidden">Add</label>
+                                  <button type="button" class=" btn-outline-success form-control input-style" title="Adicionar novo bairro"><i class="fa fa-plus"></i></button>
+                              </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Estado)
-                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+                             <div class="form-group col-md-1">
+                                  <label  class="input__label">Zona</label>
+                                  @{List<string>zonas=new List<string>{"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","S/N"};}
+                                  @Html.DropDownListFor(d=>d.MoradaZona, new SelectList(zonas), "...", htmlAttributes: new {@class = "form-control input-style", title = "Escolha o nº da zona", required = ""})
+                              </div>
+                             <div class="form-group col-md-5">
+                                  <label  class="input__label">Rua</label>
+                                   @Html.DropDownListFor(m=>m.MoradaRuaId,new SelectList(""),"Selecione a rua", htmlAttributes: new {@class = "form-control input-style", title = "Escolha a rua", required = ""})
+                                 
+                              </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Idcadastrador, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Idcadastrador, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Idcadastrador, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MoradaMunicuipeNm, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MoradaMunicuipeNm, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MoradaMunicuipeNm, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MoradaRua, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MoradaRua, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MoradaRua, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MoradaZona, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MoradaZona, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MoradaZona, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MoradaCasaN, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MoradaCasaN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MoradaCasaN, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MoradaBairroId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MoradaBairroId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MoradaBairroId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+                             <div class="form-group col-md-1">
+                                  <label  class="input__label hidden">Add</label>
+                                  <button type="button" class=" btn-outline-success form-control input-style" title="Adicionar nova rua"><i class="fa fa-plus"></i></button>
+                              </div>
+                             <div class="form-group col-md-4">
+                                  <label  class="input__label">Casa Nº</label>
+                                  @Html.EditorFor(model => model.MoradaCasaN, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "número da casa", title = "Nº da Casa", required = ""}})
+                              </div>
+                         </div>
+                 </div>
+                 </div>
+                                <br/><br/><br/><br/>
+            }
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+<!-------------->
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<!----DropDownList-----Comuna--------->
+<script>
+    $(document).ready(function() {
+        $("#MunicipioId").change(function() {
+            var municipioId = $(this).val();
+            debugger 
+            $.ajax({
+                type: "post",
+                url: "/Municipe/GetComunas?id=" + municipioId,
+                contentType: "html",
+                success: function(response) {
+                    debugger
+                    $("#ComunaId").empty();
+                    $("#ComunaId").append(response);
+                }
+            })
+        } )
+    } )
+</script>
+<!----DropDownList-----Bairros--------->
+<script>
+    $(document).ready(function() {
+        $("#ComunaId").change(function() {
+            var bairroId = $(this).val();
+            debugger 
+            $.ajax({
+                type: "post",
+                url: "/Municipe/GetBairros?id=" + bairroId,
+                contentType: "html",
+                success: function(response) {
+                    debugger
+                    $("#MoradaBairroId").empty();
+                    $("#MoradaBairroId").append(response);
+                }
+            })
+        } )
+    } )
+</script>
+<!----DropDownList-----Ruas--------->
+<script>
+    $(document).ready(function() {
+        $("#MoradaBairroId").change(function() {
+            var bairroId = $(this).val();
+            debugger 
+            $.ajax({
+                type: "post",
+                url: "/Municipe/GetRuas?id=" + bairroId,
+                contentType: "html",
+                success: function(response) {
+                    debugger
+                    $("#MoradaRuaId").empty();
+                    $("#MoradaRuaId").append(response);
+                }
+            })
+        } )
+    } )
+</script>
+<!-------------->
+<script>
+    function ChamarTela2() {
+        alert("Olá");
+    }
+</script>
+
+   
+        
+      
+               
+                  <!------------------Center Modal----------------------------------------->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Cadastrar Comuna</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            Conteudo vai aparecer aqui
+                            <div class="form-group col-md-6">
+                                @Html.EditorFor(model => model.MoradaCasaN, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "número da casa", title = "Nº da Casa", required = ""}})
+                              </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+                          <button type="submit" class="btn btn-success">Salvar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <!------------------Center Modal----------------------------------------->
+            
+    
+ 
+</body>
+       

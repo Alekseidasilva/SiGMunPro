@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Web.Helpers;
@@ -21,7 +22,7 @@ namespace Web.Controllers
         }
 
         // GET: Municipe/Details/5
-        public ActionResult Detalhes(string id)
+        public ActionResult Detalhes(int id)
         {
             return View( _municipe.BuscarPorId(id));
         }
@@ -69,7 +70,7 @@ namespace Web.Controllers
                         MunicipeEmail = municipe.MunicipeEmail,
                         
                        
-                        MunicipeFoto = municipe.MunicipeFoto,
+                        MunicipeFoto = "municipe.MunicipeFoto",
                         Idcadastrador = GuardaSessao.Id,
 
                         MoradaCasaN = municipe.MoradaCasaN,
@@ -89,7 +90,7 @@ namespace Web.Controllers
         }
 
         // GET: Municipe/Edit/5
-        public ActionResult Alterar(string id)
+        public ActionResult Alterar(int id)
         {//Carregar Municipios
             ViewBag.listamunicipio = new SelectList(RepGenerico.CarregarMunicipiosPorProvincia(14), "Id", "Nome");
             //Carregar Genero
@@ -114,8 +115,7 @@ namespace Web.Controllers
             try
             {
                 Municipe mun = new Municipe();
-                mun.Id = municipe.Id;
-                mun.MunicipeNm = municipe.MunicipeNm;
+                mun.Id =municipe.Id ;
                 mun.Nome =municipe.Nome;
                 mun.MunicipeNDocIdent = municipe.MunicipeNDocIdent;
                 mun.MunicipeTipoDocIdentificacao = municipe.MunicipeTipoDocIdentificacao;
@@ -160,12 +160,7 @@ namespace Web.Controllers
                 return View();
             }
         }
-        [HttpGet]
-        public ActionResult ListarPorNm(int id)
-        {
-            var moradas = RepGenerico.CarregarMoradasPorNm(1);
-            return View(moradas);
-        }
+        
 
         
         public ActionResult GetComunas(int id)
@@ -193,10 +188,7 @@ namespace Web.Controllers
 
         }
 
-        public ActionResult TesResult(string id)
-        {
-            return View();
-        }
+    
 
     }
 }

@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="~/Content/Extras/bootstrap 3.2.0.css" rel="stylesheet">
     <link href="~/Content/Extras/Municipe/Table.css" rel="stylesheet" />
-  
 </head>
 
 <body>
@@ -18,121 +17,123 @@
 <div class="container-fluid content-top-gap">
 
     <div class="card card_border">
-        <div class="cards__heading">
-            <h3>Munícipes Cadastrados <span></span></h3>
+       
+        <div class="card__box-shadow">
+            <h3>Munícipes Cadastrados <span>ddd</span></h3>
             <div class="dropdown-divider"></div>
-            <a href="@Url.Action("Cadastrar")" class="btn btn-outline-success"><i class="fa fa-plus"></i> Cadastrar</a>
-            <a href="@Url.Action("#")" class="btn btn-outline-info pull-right"><i class="fa fa-print"></i> Imprimir</a>
+            <a href="@Url.Action("Cadastrar")" class="btn btn-success ml-2"><i class="fa fa-plus"></i> Cadastrar</a>
+            <a href="@Url.Action("#")" class="btn btn-info pull-right mr-2"><i class="fa fa-print"></i> Imprimir</a>
+
+            <div class="dropdown-divider"></div>
         </div>
         <!--------Inicio do Conteudo------>
-        <div class="container">
-    <div class="row">
+
         <div class="table-responsive">
-                        <table class="table user-list table-striped  table-hover">
-                            <thead class="bg-info">
-                            <tr>
-                                 <th><span>Foto</span></th>
-                                <th><span>Nome Completo<br/>Nº Munícipe</span></th>
-                                <th class="text-center"><span >Data<br/> Nascimento</span></th>
-                                <th class="text-center"><span>Tipo Doc<br/>Nº Doc</span></th>
-                                <th><span>D. Emissão<br/>D.Validade</span></th>
-                                <th><span>Email<br/> Telefones</span></th>
-                                <th><span>Género<br/>E. Civil</span></th>
-                                <th><span>Idade<br/>Estado</span></th>
+            <table class="table user-list table-striped  table-hover">
+                <thead class="bg-info">
+                <tr>
+                    <th><span>Foto</span></th>
+                    <th><span>Nome Completo<br/>Nº Munícipe</span></th>
+                    <th class="text-center"><span >Data<br/> Nascimento</span></th>
+                    <th class="text-center"><span>Tipo Doc<br/>Nº Doc</span></th>
+                    <th><span>D. Emissão<br/>D.Validade</span></th>
+                    <th><span>Email<br/> Telefones</span></th>
+                    <th><span>Género<br/>E. Civil</span></th>
+                    <th><span>Idade<br/>Estado</span></th>
 
-                                <th>Opções</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach(var item in Model)
+                    <th>Opções</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @{
+                            RepGenerico generico = new RepGenerico();
+                            string genero = generico.CarregarGenerosPorId(item.MunicipeGenero);
+                            string estadoCivil = generico.CarregarEstadoCivilPorId(item.MunicipeEstadoCivil);
+                            int idade = DateTime.Now.Year - @item.MunicipeDataNascimento.Year;
+                            string tipoDocNome = generico.CarregarTipoDocPorId(item.MunicipeTipoDocIdentificacao);
+                        }
+                        <td style="width: 3%;">
+                            <img src="~/Content/images/New/UserMale.png">
+                        </td>
+                        <td style="width: 15%;">
+                            <a  href="@Url.Action("Detalhes/" + item.MunicipeNm)" title="Clique para ver Detalhes">@item.Nome</a><br/>
+                            <span class="user-subhead">@item.MunicipeNm</span>
+                        </td>
+                        <td class="text-center">
+                            <span >@item.MunicipeDataNascimento.ToShortDateString()</span>
+
+                        </td>
+                        <td class="text-center">
+                            @tipoDocNome<br/>
+                            <span class="user-subhead">@item.MunicipeNDocIdent</span>
+                        </td>
+                        <td class="text-center">
+                            @item.MunicipeDocDataEmissao.ToShortDateString()<br/>
+                            <span class="user-subhead">@item.MunicipeDocDataValidade.ToShortDateString()</span>
+                        </td>
+                        <td class="text-center">
+                            @item.MunicipeEmail<br/>
+                            <span class="user-subhead">@item.MunicipeTelefone1-@item.MunicipeTelefone2</span>
+                        </td>
+                        <td class="text-center">
+                            @genero<br/>
+                            <span class="user-subhead">@estadoCivil</span>
+                        </td>
+                        <td class="text-center">
+                            @idade<br/>
+                            @if (item.Estado)
                             {
-                                <tr>
-                                    @{
-                                        RepGenerico generico=new RepGenerico();
-                                        string genero = generico.CarregarGenerosPorId(item.MunicipeGenero);
-                                        string estadoCivil = generico.CarregarEstadoCivilPorId(item.MunicipeEstadoCivil);
-                                        int idade = DateTime.Now.Year - @item.MunicipeDataNascimento.Year;
-                                    }
-                                    <td style="width: 3%;">
-                                        <img src="~/Content/images/New/UserMale.png">
-                                    </td>
-                                    <td style="width: 15%;">
-                                        <a href="@Url.Action("Detalhes/"+item.MunicipeNm)" title="Clique para ver Detalhes">@item.Nome</a><br/>
-                                        <span class="user-subhead">@item.MunicipeNm</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span >@item.MunicipeDataNascimento.ToShortDateString()</span>
+                                <span class="user-subhead label label-success">Activado</span>
+                            }
+                            else
+                            {
+                                <span class="user-subhead label label-danger">Desativado</span>
+                            }
 
-                                    </td>
-                                    <td class="text-center">
-                                        B.I<br/>
-                                        <span class="user-subhead">@item.MunicipeNDocIdent</span>
-                                    </td>
-                                    <td class="text-center">
-                                        @item.MunicipeDocDataEmissao.ToShortDateString()<br/>
-                                        <span class="user-subhead">@item.MunicipeDocDataValidade.ToShortDateString()</span>
-                                    </td>
-                                    <td class="text-center">
-                                        @item.MunicipeEmail<br/>
-                                        <span class="user-subhead">@item.MunicipeTelefone1-@item.MunicipeTelefone2</span>
-                                    </td>
-                                    <td class="text-center">
-                                        @genero<br/>
-                                        <span class="user-subhead">@estadoCivil</span>
-                                    </td>
-                                    <td class="text-center">
-                                        @idade<br/>
-                                        @if (item.Estado)
-                                        {
-                                         <span class="user-subhead label label-success">Activado</span>
-                                        }
-                                        else
-                                        {
-                                            <span class="user-subhead label label-danger">Desativado</span>
-                                        }
-                                       
-                                    </td>
-                                    @*<td class="text-center">
+                        </td>
+                        @*<td class="text-center">
                                         <span class="label label-default">pending</span>
                                     </td>*@
-                                    <td style="width: 7%;">
-                                        <a href="@Url.Action("Alterar/"+item.MunicipeNm)" class="table-link text-warning" title="Alterar Dados">
-                                           
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                        <td style="width: 7%;">
+                            <a  href="@Url.Action("Alterar/"+ item.Id)" class="table-link text-warning" title="Alterar Dados">
 
-                                            </span>
-                                        </a>
-                                        <a href="@Url.Action("Alterar/"+item.MunicipeNm)" class="table-link text-info" title="Ver Moradas">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <br/>
-                                        <a href="@Url.Action("Alterar/"+item.MunicipeNm)" class="table-link text-success" title="Ver Parentes" >
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-users fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                        <a href="@Url.Action("Alterar/"+item.MunicipeNm)" class="table-link text-dark" title="Ver Motociclos">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-motorcycle fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </td>
-                                </tr>
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                                </span>
+                            </a>
+                            <a href="@Url.Action("ListarPorNm/"+item.MunicipeNm,"Morada")" class="table-link text-info" title="Ver Moradas">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            <br/>
+                            <a href="@Url.Action("Alterar/" + item.MunicipeNm)" class="table-link text-success" title="Ver Parentes">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            <a href="@Url.Action("Alterar/" + item.MunicipeNm)" class="table-link text-dark" title="Ver Motociclos">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-motorcycle fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+
+                }
+                </tbody>
+            </table>
         </div>
+
+    </div>
     </div>
 </div>
 

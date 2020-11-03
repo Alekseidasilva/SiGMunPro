@@ -7,8 +7,6 @@ namespace Web.Models.Contratos.Repositorios
 {
     public class RepMunicipe:RepBase
     {
-       
-        
         public string Cadastrar(MunicipeMorada entidade)
         {
 
@@ -50,8 +48,7 @@ namespace Web.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@MunicipeNM", entidade.MunicipeNm);
-                _conexao.AdicionarParametros("@MunicipeNM", entidade.Id);
+                _conexao.AdicionarParametros("@Id", entidade.Id);
                 _conexao.AdicionarParametros("@MunicipeNomeCompleto", entidade.Nome);
                 _conexao.AdicionarParametros("@MunicipeDataNascimento", entidade.MunicipeDataNascimento);
                 _conexao.AdicionarParametros("@MunicipeNDocIdent", entidade.MunicipeNDocIdent);
@@ -86,11 +83,11 @@ namespace Web.Models.Contratos.Repositorios
             throw new NotImplementedException();
         }
 
-        public Municipe BuscarPorId(string nM)
+        public Municipe BuscarPorId(int id)
         {
             try
             {   _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@MunicipeNM",nM);
+                _conexao.AdicionarParametros("@Id",id);
                 DataTable res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Municipe_BuscarPorId");
                  Municipe municipe = new Municipe();
                 foreach (DataRow item in res.Rows)
@@ -164,5 +161,26 @@ namespace Web.Models.Contratos.Repositorios
                 throw;
             }
         }
+
+        public int TotalMunicipesCadastrados()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                var Total = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_MunicipeTotalCadastrados");
+                int nTotal = 0;
+                foreach (DataRow item in Total.Rows)
+                {
+                    nTotal = Convert.ToInt32(item["Qtde"]);
+                }
+                return nTotal;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
     }
 }

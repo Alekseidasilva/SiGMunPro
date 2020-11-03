@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Municipe_Alterar]
-@MunicipeNM VARCHAR(20),
+@Id int,
 @MunicipeNomeCompleto VARCHAR(100),
 @MunicipeDataNascimento date,
 @MunicipeNDocIdent VARCHAR(20),
@@ -34,5 +34,5 @@ MunicipeEstado=@MunicipeEstado,
 MunicipeFoto=@MunicipeFoto
 
 
-WHERE MunicipeNM=@MunicipeNM
+WHERE MunicipeId=@Id
 END

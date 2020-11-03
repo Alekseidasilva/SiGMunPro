@@ -86,9 +86,9 @@
                                     </div>
                                 
 
-                             <div class="panel-footer ">
-                                <button id="btnNext1" type="button" class="btn btn-outline-info  pull-right"><i class="fa fa-forward"></i> Seguinte</button>
-                             </div>
+                                <div class="panel-footer ">
+                                    <a class="btn btn-outline-danger  pull-right" href="@Url.Action("Listar")"><i class="fa fa-close"></i> Cancelar</a>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                 <br/>
@@ -103,15 +103,16 @@
                                             <br/>
                                             <button value="Capture" onclick="webcam.capture();" class="btn btn-outline-warning" title="Carregar da camera"><i class="fa fa-camera" title="Carregar da camera"></i> Camera</button>
                                             <button class="btn btn-outline-warning" title="Carregar do arquivo"><i class="fa fa-archive" title="Carregar do arquivo"></i> Arquivo</button>
-                                                    
+                                                 
                                         </div>
                                     </div>
                                 </div>
                                 <br/><br/><br/><br/><br/><br/>
 
                                   <div class="panel-footer ">
-                                   <button id="btnPrevious1" type="button" class="btn btn-outline-info fa-pull-left"><i class="fa fa-backward"></i> Recuar</button>
-                                    <button id="btnNext2" type="button" class="btn btn-outline-info  pull-right"><i class="fa fa-forward"></i> Seguinte</button>
+                                      @*<button id="btnPrevious1" type="button" class="btn btn-outline-info fa-pull-left"><i class="fa fa-backward"></i> Recuar</button>
+                                    <button id="btnNext2" type="button" class="btn btn-outline-info  pull-right"><i class="fa fa-forward"></i> Seguinte</button>*@
+                                      <a class="btn btn-outline-danger  pull-right" href="@Url.Action("Listar")"><i class="fa fa-close"></i> Cancelar</a>    
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -154,7 +155,7 @@
                                             <div class="form-group col-md-5">
                                                 <label  class="input__label">Rua</label>
                                                  @Html.DropDownListFor(m=>m.MoradaRuaId,new SelectList(""),"Selecione a rua", htmlAttributes: new {@class = "form-control input-style", title = "Escolha a rua", required = ""})
-                                                @*@Html.EditorFor(model => model.MoradaRua, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nome da ruaa", title = "nome da rua", required = ""}})*@
+                                               
                                             </div>
 
                                             <div class="form-group col-md-1">
@@ -170,8 +171,12 @@
                                 </div>
                                 <br/><br/><br/><br/>
                                 <div class="panel-footer ">
-                                   <button id="btnPrevious2" type="button" class="btn btn-outline-info fa-pull-left"><i class="fa fa-backward"></i> Recuar</button>
-                                    <button id="btnSave" type="submit" class="btn  btn-outline-success  pull-right"><i class="fa fa-save"></i>Guardar</button>
+                                     <a class="btn btn-outline-danger  pull-right" href="@Url.Action("Listar")"><i class="fa fa-close"></i> Cancelar</a>
+                                    <button id="btnSave" type="submit" class="btn  btn-outline-success  pull-right"><i class="fa fa-save"></i> Guardar</button>
+
+
+
+
                                 </div>
                             </div>
                         </div>

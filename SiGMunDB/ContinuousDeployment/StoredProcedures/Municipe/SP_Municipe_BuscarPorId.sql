@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Municipe_BuscarPorId]
-	@MunicipeNm VARCHAR(20)	
+	@Id INT	
 AS
 BEGIN
 SELECT	
@@ -21,5 +21,5 @@ MunicipeDataCadastro,
 MunicipeFoto,
 MunicipeEstado,
 Idcadastrador
-FROM TB_Municipes WHERE MunicipeNm=@MunicipeNm
+FROM TB_Municipes WHERE MunicipeId=@Id
 END

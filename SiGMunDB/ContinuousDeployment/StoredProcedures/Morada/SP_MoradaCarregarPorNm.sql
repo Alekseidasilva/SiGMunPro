@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[SP_MoradaCarregarPorNm]
-	@MunicipeNm int
+	@MunicipeNm VARCHAR(20)
 AS
 BEGIN
 	SELECT 
