@@ -15,14 +15,15 @@ namespace Web.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("", entidade.MoradaMunicuipeNm);
-                _conexao.AdicionarParametros("", entidade.MoradaCasaN);
-                _conexao.AdicionarParametros("", entidade.MoradaZona);
-                _conexao.AdicionarParametros("", entidade.MoradaRuaId);
-                _conexao.AdicionarParametros("", entidade.DataCadastro);
-                _conexao.AdicionarParametros("", entidade.Estado);
-                _conexao.AdicionarParametros("", entidade.Idcadastrador);
-                return String.Empty;
+                _conexao.AdicionarParametros("@MoradaMunicuipeNM", entidade.MoradaMunicuipeNm);
+                _conexao.AdicionarParametros("@MoradaCasaNumero", entidade.MoradaCasaN);
+                _conexao.AdicionarParametros("@MoradaZona", entidade.MoradaZona);
+                _conexao.AdicionarParametros("@MoradaRuaId", entidade.MoradaRuaId);
+                _conexao.AdicionarParametros("@MoradaDataCadastro", entidade.DataCadastro);
+                _conexao.AdicionarParametros("@MoradaEstado", entidade.Estado);
+                _conexao.AdicionarParametros("@IdCadastrador", entidade.Idcadastrador);
+               string res= _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_MoradaInserir").ToString();
+                return res;
             }
             catch (Exception e)
             {
@@ -67,7 +68,7 @@ namespace Web.Models.Contratos.Repositorios
                 foreach (DataRow linha in m.Rows)
                 {
                     Moradas mor=new Moradas
-                    {
+                    {   MoradaMunicuipeNm = Convert.ToString(linha["MoradaMunicuipeNM"]),
                         MoradaCasaN = Convert.ToString(linha["MoradaCasaNumero"]),
                         MoradaZona = Convert.ToString(linha["MoradaZona"]),
                         Estado = Convert.ToBoolean(linha["MoradaEstado"]),

@@ -10,16 +10,16 @@
     <link href="~/Content/Extras/Moradas.css" rel="stylesheet" />
 </header>
 <div class="main-content">
-    <div class="container-fluid content-top-gap">
+    <div class="container-fluid content-top-gap mt-4">
 
         <div class="card card_border">
-           <div class="card__box-shadow">
-            <h3>Moradas <span></span></h3>
-            <div class="dropdown-divider"></div>
-            <a href="@Url.Action("Cadastrar")" class="btn btn-success ml-2"><i class="fa fa-plus"></i> Cadastrar</a>
+           <div class="cards__heading">
+            <h3>Moradas de  <span></span></h3>
+            @*<div class="dropdown-divider"></div>*@
+            @*<a href="@Url.Action("Cadastrar")" class="btn btn-outline-success ml-2"><i class="fa fa-plus"></i> Cadastrar</a>
             <a href="@Url.Action("#")" class="btn btn-info pull-right mr-2"><i class="fa fa-print"></i> Imprimir</a>
 
-            <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>*@
         </div>
             @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
 <section class="pt-2 ml-3 pb-100" id="pricing">
@@ -46,7 +46,9 @@
                         <li><b>Munícipio :</b> <span>Malanje</span></li>
                     </ul>
                 </div>
-
+               
+                @Html.ActionLink("Nova","Cadastrar",new {id=@item.MoradaMunicuipeNm},new {@class="btn btn-outline-light fa fa-plus"})
+                @Html.ActionLink("Alterar","Cadastrar",new {id=@item.MoradaMunicuipeNm},new {@class="btn btn-outline-warning fa fa-pencil"})
             </div>
 
         </div>  

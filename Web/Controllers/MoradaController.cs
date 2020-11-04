@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Web.Helpers;
 using Web.Models.Contratos.Repositorios;
 using Web.Models.Entidades.Locais;
 
@@ -10,6 +11,8 @@ namespace Web.Controllers
     { 
        private readonly RepGenerico RepGenerico=new RepGenerico();
        private readonly RepMorada RepMorada = new RepMorada();
+
+       
         // GET: Morada
         [HttpGet]
         public ActionResult ListarPorNm(string id)
@@ -18,17 +21,29 @@ namespace Web.Controllers
             return View(moradas);
         }
         [HttpGet]
-        public ActionResult Cadastrar()
+        public ActionResult Cadastrar(string id)
         {
             //Carregar Municipios
             ViewBag.listamunicipio = new SelectList(RepGenerico.CarregarMunicipiosPorProvincia(14), "Id", "Nome");
+            var moradas = RepMorada.CarregarPorNm(id);
+            ViewBag.id = id;
             return View();
         }
         [HttpPost]
-        public ActionResult Cadastrar(Moradas moradas)
+        public ActionResult Cadastrar(Moradas moradas, string id)
         {
-
-            return View();
+            Moradas m=new Moradas
+            {
+                MoradaMunicuipeNm = id,
+                MoradaCasaN = moradas.MoradaCasaN,
+                MoradaZona = moradas.MoradaZona,
+                MoradaRuaId = moradas.MoradaRuaId,
+                DataCadastro = DateTime.Now,
+                Estado = true,
+                Idcadastrador = GuardaSessao.Id
+            };
+            RepMorada.Cadastrar(m);
+            return RedirectToAction("ListarPorNm/"+id);
         }
 
         public ActionResult GetComunas(int id)

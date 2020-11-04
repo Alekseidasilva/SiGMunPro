@@ -3,6 +3,7 @@
 AS
 BEGIN
 	SELECT 
+	MoradaMunicuipeNM,
 	MoradaCasaNumero,	
 	MoradaZona,
 	MoradaRuaId,
