@@ -169,7 +169,8 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\New\Background Femenino.png" />
     <Content Include="Content\images\New\Background Masculino.png" />
-    <Content Include="Content\images\New\house.png" />
+    <Content Include="Content\images\New\houseInactive.png" />
+    <Content Include="Content\images\New\houseActive.png" />
     <Content Include="Content\images\New\UserFermale.png" />
     <Content Include="Content\images\New\UserMale.png" />
     <Content Include="Content\images\people1.jpg" />

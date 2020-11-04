@@ -11,6 +11,7 @@ namespace Web.Controllers
     { 
        private readonly RepGenerico RepGenerico=new RepGenerico();
        private readonly RepMorada RepMorada = new RepMorada();
+       private readonly RepMunicipe mun = new RepMunicipe();
 
        
         // GET: Morada
@@ -18,6 +19,7 @@ namespace Web.Controllers
         public ActionResult ListarPorNm(string id)
         {
             var moradas =RepMorada.CarregarPorNm(id);
+            ViewBag.municipe =mun.BuscarPorNome(id);
             return View(moradas);
         }
         [HttpGet]

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Web.Models.Entidades.Locais.Moradas>
+﻿@using Web.Helpers
+@using Web.Models.Contratos.Repositorios
+@model IEnumerable<Web.Models.Entidades.Locais.Moradas>
 
 @{
     ViewBag.Title = "ListarPorNm";
@@ -14,7 +16,7 @@
 
         <div class="card card_border">
            <div class="cards__heading">
-            <h3>Moradas de  <span></span></h3>
+            <h3>Moradas de  <span>@ViewBag.municipe</span></h3>
             @*<div class="dropdown-divider"></div>*@
             @*<a href="@Url.Action("Cadastrar")" class="btn btn-outline-success ml-2"><i class="fa fa-plus"></i> Cadastrar</a>
             <a href="@Url.Action("#")" class="btn btn-info pull-right mr-2"><i class="fa fa-print"></i> Imprimir</a>
@@ -29,21 +31,33 @@
     <div class="row ">
         @foreach (var item in  Model)
         {
+           
+                string[] locais = new[] {"", "", "",""};
+                RepMorada rep=new RepMorada();
+                locais = rep.CarregarLocais(item.MoradaRuaId);
+            RepUsuario user=new RepUsuario();
+            string nomeCadastrador = user.BuscarNomeDoCadastrador(item.Idcadastrador);
+
+            
+
+
+            
              if (item.Estado)
             {
                <div class="col-3 ">
             <div class="single-price  bg-success">
                 <div class="recomemded-price">
-                    <img src="~/Content/images/New/house.png" width="50" height="50"/>
+                    <img src="~/Content/images/New/houseActive.png" width="60" height="60"/>
                 </div>
 
                 <div class="price-item">
                     <ul>
                         <li><b>Casa Nº :</b> <span>@item.MoradaCasaN</span></li>
-                        <li><b>Rua :</b> <span>@item.MoradaRuaId</span></li>
-                        <li><b>Bairro :</b> <span>Ritondo</span>&nbsp;&nbsp;<b>Zona:</b> @item.MoradaZona</li>
-                        <li><b>Comuna :</b> <span>Malanje</span></li>
-                        <li><b>Munícipio :</b> <span>Malanje</span></li>
+                        <li><b>Rua :</b> <span>@locais[0]</span></li>
+                        <li><b>Bairro :</b> <span>@locais[1]</span>&nbsp;&nbsp;<b>Zona:</b> @item.MoradaZona</li>
+                        <li><b>Comuna :</b> <span>@locais[2]</span></li>
+                        <li><b>Munícipio :</b> <span>@locais[3]</span></li>
+                         <li><b>Registado Por :</b> <span>@nomeCadastrador</span></li>
                     </ul>
                 </div>
                
@@ -55,25 +69,27 @@
             }
              else
              {
-                    <div class="col-3 ">
-            <div class="single-price bg-warning">
+                        <div class="col-3 ">
+            <div class="single-price  bg-warning">
                 <div class="recomemded-price">
-                    <img src="~/Content/images/New/house.png" width="50" height="50"/>
+                    <img src="~/Content/images/New/houseInactive.png" width="50" height="50"/>
                 </div>
 
                 <div class="price-item">
                     <ul>
                         <li><b>Casa Nº :</b> <span>@item.MoradaCasaN</span></li>
-                        <li><b>Rua :</b> <span>Antonio José de Almeida</span></li>
-                        <li><b>Bairro :</b> <span>Azul</span>&nbsp;<b>Zona Nº :</b> 10</li>
-                        <li><b>Comuna :</b> <span>Malanje</span></li>
-                        <li><b>Munícipio :</b> <span>Malanje</span></li>
+                        <li><b>Rua :</b> <span>@locais[0]</span></li>
+                        <li><b>Bairro :</b> <span>@locais[1]</span>&nbsp;&nbsp;<b>Zona:</b> @item.MoradaZona</li>
+                        <li><b>Comuna :</b> <span>@locais[2]</span></li>
+                        <li><b>Munícipio :</b> <span>@locais[3]</span></li>
+                         <li><b>Registado Por :</b> <span>@nomeCadastrador</span></li>
                     </ul>
                 </div>
-
+               <br/><br/>
+                
             </div>
 
-        </div>
+        </div> 
              }
           
            

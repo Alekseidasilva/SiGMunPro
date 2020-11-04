@@ -78,9 +78,25 @@ namespace Web.Models.Contratos.Repositorios
             throw new NotImplementedException();
         }
 
-        public List<Municipe> BuscarPorNome(string nome)
+        public string BuscarPorNome(string id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@MunicipeNm",id);
+               DataTable nome= _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_MunicipeBuscarNome");
+               string nomeEncontrado = "";
+               foreach (DataRow item in nome.Rows)
+               {
+                   nomeEncontrado = Convert.ToString(item["MunicipeNomeCompleto"]);
+               }
+               return nomeEncontrado;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public Municipe BuscarPorId(int id)

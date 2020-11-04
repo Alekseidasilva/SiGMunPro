@@ -22,8 +22,8 @@ namespace Web.Models.Contratos.Repositorios
                 _conexao.AdicionarParametros("@MoradaDataCadastro", entidade.DataCadastro);
                 _conexao.AdicionarParametros("@MoradaEstado", entidade.Estado);
                 _conexao.AdicionarParametros("@IdCadastrador", entidade.Idcadastrador);
-               string res= _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_MoradaInserir").ToString();
-                return res;
+              _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_MoradaInserir");
+                return String.Empty;
             }
             catch (Exception e)
             {
@@ -44,13 +44,40 @@ namespace Web.Models.Contratos.Repositorios
 
         public List<Moradas> BuscarPorNome(string nome)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public Moradas BuscarPorId(int id)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
+
+        public string[] CarregarLocais(int id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@RuaId",id);
+                DataTable locais = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_MoradaCarregarNomesLocais");
+                string[] Elementos = new[] {"", "", "",""};
+                foreach (DataRow elemento in locais.Rows)
+                {
+                    Elementos[0] = Convert.ToString(elemento["RuaNome"]);
+                    Elementos[1] = Convert.ToString(elemento["BairroNome"]);
+                    Elementos[2] = Convert.ToString(elemento["ComunaNome"]);
+                    Elementos[3] = Convert.ToString(elemento["MunicipioNome"]);
+                }
+
+                return Elementos;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        
 
         public List<Moradas> SelecionarTodos()
         {

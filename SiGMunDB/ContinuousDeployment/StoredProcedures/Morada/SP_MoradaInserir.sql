@@ -7,23 +7,18 @@
 	@MoradaEstado bit, 
     @IdCadastrador int 
 AS
-BEGIN TRANSACTION
-DECLARE @@IdMoradaAnterior INT
-BEGIN
-	SELECT  @@IdMoradaAnterior= max(MoradaId) FROM dbo.TB_Moradas tm
+
+DECLARE @@id int
+BEGIN	 
+SELECT @@id=MAX(MoradaId) FROM dbo.TB_Moradas tm
     WHERE tm.MoradaMunicuipeNM=@MoradaMunicuipeNM
-    IF @@IdMoradaAnterior IS NULL BEGIN  
-    	ROLLBACK
-    END
-    ELSE
+    if @@id is not null
     BEGIN
     	UPDATE dbo.TB_Moradas 
-            SET MoradaEstado = 1   
-                WHERE MoradaId = @@IdMoradaAnterior;
+            SET MoradaEstado = 0   
+                WHERE MoradaId = @@id;
     END
-    
-END
-BEGIN
+	BEGIN
 	 INSERT dbo.TB_Moradas
     (
     MoradaMunicuipeNM,
@@ -45,8 +40,5 @@ BEGIN
     @IdCadastrador
     )
     
-    IF @@identity IS NOT NULL BEGIN  
-    RETURN @@identity
-    	COMMIT
-    END
+END   
 END
