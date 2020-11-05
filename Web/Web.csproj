@@ -370,6 +370,7 @@
     <Content Include="Views\Shared\mostrarRuas.cshtml" />
     <Content Include="Views\Municipe\Alterar.cshtml" />
     <Content Include="Views\Municipe\Detalhes.cshtml" />
+    <Content Include="Views\Morada\Alterar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

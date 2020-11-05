@@ -47,6 +47,20 @@ namespace Web.Controllers
             RepMorada.Cadastrar(m);
             return RedirectToAction("ListarPorNm/"+id);
         }
+        [HttpGet]
+        public ActionResult Alterar(string id)
+        {
+            //Carregar Municipios
+            ViewBag.listamunicipio = new SelectList(RepGenerico.CarregarMunicipiosPorProvincia(14), "Id", "Nome");
+            var moradas = RepMorada.CarregarPorNm(id);
+            ViewBag.id = id;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Alterar(Moradas moradas, string id)
+        {
+            return View();
+        }
 
         public ActionResult GetComunas(int id)
         {
