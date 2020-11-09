@@ -9,11 +9,11 @@ namespace Web.Controllers
 {
     public class MoradaController : Controller
     { 
-       private readonly RepGenerico RepGenerico=new RepGenerico();
-       private readonly RepMorada RepMorada = new RepMorada();
-       private readonly RepMunicipe mun = new RepMunicipe();
+    private readonly RepGenerico RepGenerico=new RepGenerico();
+    private readonly RepMorada RepMorada = new RepMorada();
+    private readonly RepMunicipe mun = new RepMunicipe();
 
-       
+    #region Principais
         // GET: Morada
         [HttpGet]
         public ActionResult ListarPorNm(string id)
@@ -69,8 +69,8 @@ namespace Web.Controllers
             RepMorada.Alterar(m);            
             return RedirectToAction("ListarPorNm");
         }
-
-        #region PartialViews
+        #endregion
+    #region PartialViews
         [HttpGet]
         public ActionResult PartialCadastrarRua(string id)
         {
@@ -81,14 +81,8 @@ namespace Web.Controllers
         {
             return PartialView("PartialCadastrarRua");
         }
-
-
-        #endregion
-
-
-
-
-        #region DropDownList
+         #endregion
+    #region DropDownList
         public ActionResult GetComunas(int id)
         {
             //Carregar Municipios

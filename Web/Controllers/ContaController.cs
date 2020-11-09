@@ -19,11 +19,9 @@ namespace Web.Controllers
         [AllowAnonymous]
         public ActionResult Login(UserLogin userLogin)
         {
-            string mensagens = "nada";
+            var mensagens = "nada";
             if (ModelState.IsValid)
             {
-
-
                 if (VerificarUsuario(userLogin.Email))
                 {
                     for (int i = BuscarTentativas(userLogin.Email); i <= 2;)
@@ -34,9 +32,10 @@ namespace Web.Controllers
                             if (BuscarEstado(userLogin.Email))
                             {
                                 FormsAuthentication.SetAuthCookie(userLogin.Email, userLogin.PermanecerLogado);
-                                if (userLogin.ReturnUrl != null)
+                                if (userLogin.ReturnUrl != null && Url.IsLocalUrl(userLogin.ReturnUrl))
                                 {
-                                    return Redirect(userLogin.ReturnUrl);
+                                    //return Redirect(userLogin.ReturnUrl);
+                                    return RedirectToAction("Dashboard", "Home");
                                 }
                                 Tentativas(userLogin.Email, 0);
                                 return RedirectToAction("Dashboard", "Home");
