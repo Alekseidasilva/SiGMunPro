@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[SP_MoradaCarregarPorNm]
+﻿CREATE PROCEDURE [dbo].[SP_MoradasCarregarPorNm]
 	@MunicipeNm VARCHAR(20)
 AS
 BEGIN
@@ -10,6 +10,6 @@ BEGIN
 	MoradaDataCadastro,
 	MoradaEstado, 
     IdCadastrador  FROM dbo.TB_Moradas
-	WHERE MoradaMunicuipeNM=@MunicipeNm AND MoradaEstado=1
+	WHERE MoradaMunicuipeNM=@MunicipeNm
 END
 	

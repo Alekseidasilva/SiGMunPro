@@ -371,6 +371,7 @@
     <Content Include="Views\Municipe\Alterar.cshtml" />
     <Content Include="Views\Municipe\Detalhes.cshtml" />
     <Content Include="Views\Morada\Alterar.cshtml" />
+    <Content Include="Views\Shared\PartialCadastrarRua.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

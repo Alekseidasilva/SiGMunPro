@@ -18,7 +18,7 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult ListarPorNm(string id)
         {
-            var moradas =RepMorada.CarregarPorNm(id);
+            var moradas =RepMorada.CarregarMoradasPorNm(id);
             ViewBag.municipe =mun.BuscarPorNome(id);
             return View(moradas);
         }
@@ -27,7 +27,7 @@ namespace Web.Controllers
         {
             //Carregar Municipios
             ViewBag.listamunicipio = new SelectList(RepGenerico.CarregarMunicipiosPorProvincia(14), "Id", "Nome");
-            var moradas = RepMorada.CarregarPorNm(id);
+            //var moradas = RepMorada.CarregarPorNm(id);
             ViewBag.id = id;
             return View();
         }
@@ -52,16 +52,43 @@ namespace Web.Controllers
         {
             //Carregar Municipios
             ViewBag.listamunicipio = new SelectList(RepGenerico.CarregarMunicipiosPorProvincia(14), "Id", "Nome");
-            var moradas = RepMorada.CarregarPorNm(id);
+            var morada = RepMorada.CarregarMoradaPorNm(id);
             ViewBag.id = id;
-            return View();
+            return View(morada);
         }
         [HttpPost]
-        public ActionResult Alterar(Moradas moradas, string id)
+        public ActionResult Alterar(Moradas moradas)
         {
-            return View();
+            Moradas m = new Moradas
+            {
+                MoradaMunicuipeNm = moradas.MoradaMunicuipeNm,
+                MoradaZona = moradas.MoradaZona,
+                MoradaRuaId = moradas.MoradaRuaId,
+                MoradaCasaN = moradas.MoradaCasaN
+            };
+            RepMorada.Alterar(m);            
+            return RedirectToAction("ListarPorNm");
         }
 
+        #region PartialViews
+        [HttpGet]
+        public ActionResult PartialCadastrarRua(string id)
+        {
+            return PartialView("PartialCadastrarRua");
+        }
+        [HttpPost]
+        public ActionResult PartialCadastrarRua(Rua rua)
+        {
+            return PartialView("PartialCadastrarRua");
+        }
+
+
+        #endregion
+
+
+
+
+        #region DropDownList
         public ActionResult GetComunas(int id)
         {
             //Carregar Municipios
@@ -86,6 +113,6 @@ namespace Web.Controllers
             return PartialView("mostrarRuas");
 
         }
-
+        #endregion
     }
 }

@@ -34,12 +34,21 @@ namespace Web.Models.Contratos.Repositorios
 
         public string Alterar(Moradas entidade)
         {
-            throw new System.NotImplementedException();
-        }
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@MoradaMunicuipeNM",entidade.MoradaMunicuipeNm);
+                _conexao.AdicionarParametros("@MoradaZona",entidade.MoradaZona);
+                _conexao.AdicionarParametros("@MoradaRuaId",entidade.MoradaRuaId);
+                _conexao.AdicionarParametros("@MoradaCasaNumero",entidade.MoradaCasaN);                
+                _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Morada_Alterar");
+                return string.Empty;
+            }
+            catch (Exception)
+            {
 
-        public string Excluir(int id)
-        {
-            throw new System.NotImplementedException();
+                throw;
+            }
         }
 
         public List<Moradas> BuscarPorNome(string nome)
@@ -77,20 +86,18 @@ namespace Web.Models.Contratos.Repositorios
             }
         }
 
-        
-
         public List<Moradas> SelecionarTodos()
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Moradas> CarregarPorNm(string nM)
+        public List<Moradas> CarregarMoradasPorNm(string nM)
         {
             try
             {
                 _conexao.LimparParametro();
                 _conexao.AdicionarParametros("@MunicipeNm",nM);
-                DataTable m = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_MoradaCarregarPorNm");
+                DataTable m = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_MoradasCarregarPorNm");
                List<Moradas>moradas=new List<Moradas>();
                 foreach (DataRow linha in m.Rows)
                 {
@@ -113,6 +120,37 @@ namespace Web.Models.Contratos.Repositorios
                 Console.WriteLine(e);
                 throw;
             }
+        }
+        public Moradas CarregarMoradaPorNm(string nM)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@MunicipeNm", nM);             
+                DataTable m = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_MoradaCarregarPorNm");
+                Moradas mor = new Moradas();
+                foreach (DataRow linha in m.Rows)
+                {
+                    mor.MoradaMunicuipeNm = Convert.ToString(linha["MoradaMunicuipeNM"]);
+                    mor.MoradaCasaN = Convert.ToString(linha["MoradaCasaNumero"]);
+                    mor.MoradaZona = Convert.ToString(linha["MoradaZona"]);
+                    mor.Estado = Convert.ToBoolean(linha["MoradaEstado"]);
+                    mor.MoradaRuaId = Convert.ToInt32(linha["MoradaRuaId"]);
+                    mor.DataCadastro = Convert.ToDateTime(linha["MoradaDataCadastro"]);
+                    mor.Idcadastrador = Convert.ToInt32(linha["IdCadastrador"]);
+                }
+
+                return mor;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        public string Excluir(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -158,7 +158,7 @@
     <Build Include="ContinuousDeployment\StaticTables\TB_GrausAcademicos.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarEstado.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Usuarios\SP_UsuarioBuscarCadastrador.sql" />
-    <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradaCarregarPorNm.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradasCarregarPorNm.sql" />
     <Build Include="ContinuousDeployment\StaticTables\TB_NiveisAcademicos.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarEstadoCivil.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarEstadoCivilPorId.sql" />
@@ -176,6 +176,7 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_CarregarTipoDocIdentPorId.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradaCarregarNomesLocais.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_MunicipeBuscarNome.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradaCarregarPorNm.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
