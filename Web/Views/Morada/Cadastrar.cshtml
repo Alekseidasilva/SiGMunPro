@@ -52,7 +52,7 @@
                             <div class="form-group col-md-1">
                                 <label  class="input__label hidden">Add</label>
                                 @*<button type="button" class="btn btn-primary btn-style" data-toggle="modal" data-target="#exampleModal">Launch demo</button>*@
-                                <button type="button" class="btn btn-outline-success btn-block form-control input-style"   title="Adicionar nova rua"><i class="fa fa-plus"></i></button>
+                                <button type="button" class="btn btn-outline-success btn-block form-control input-style" data-toggle="modal" data-target="#exampleModal"  title="Adicionar nova rua"><i class="fa fa-plus"></i></button>
                             </div>
                             <div class="form-group col-md-4">
                                 <label  class="input__label">Casa Nº</label>
@@ -140,8 +140,8 @@
 </script>
 <!-------------->
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-url="@Url.Action("PartialCadastrarRua")" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"></div>
-
+@*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-url="@Url.Action("PartialCadastrarRua")" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"></div>*@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"aria-labelledby="exampleModalLabel" aria-hidden="true" data-url="@Url.Action("PartialCadastrarRua")"></div>
 @*<script type="text/javascript">
     $(document).ready(function() {
         $('.btn-block').click(function() {
@@ -158,12 +158,12 @@
     $(document).ready(function() {
         $('.btn-block').click(function() {
             var url = $('#exampleModal').data('url');
-            var id = $('#MoradaBairroId').data;
+            var id = $('#MoradaBairroId').val();
             $.get(url,
                 function(data) {
                     $("#exampleModal").html(data);
                     $("#exampleModal").modal('show');
-                    alert("seu id é :"+id);
+                    
                 });
         });
     });

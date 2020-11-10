@@ -10364,7 +10364,7 @@ a:hover {
 
 .checkbox input + i:after {
   content: '';
-  background: url("../images/mark2.png") no-repeat center;
+  background: url("../images/avatar5.jpg") no-repeat center;
   top: 0px;
   left: 0px;
   width: 17px;
@@ -13288,4 +13288,4 @@ img {
     font-size: 25px;
     line-height: 30px; } }
 
-/*# sourceMappingURL=style-starter.css.map */
+/*sourceMappingURL=style-starter.css.map*/ 

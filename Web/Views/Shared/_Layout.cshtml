@@ -6,7 +6,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <link href="~/Content/toastr.min.css" rel="stylesheet" />
  <title>
     
      SiGMun - 
@@ -55,7 +55,7 @@
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {
-            scrollFunction()
+            scrollFunction();
         };
 
         function scrollFunction() {
@@ -144,58 +144,7 @@
             $("#phone2").mask("(+244)(999) 999-999");
         });
 </script>
-<script>
-    var timeDisplay = document.getElementById("relogio");
-    function refreshTime()
-    {
-        var date = new Date();
-        var dia = date.getDay();
-          var dias = date.getDate();
-        var mes = date.getMonth();
-        var ano = date.getFullYear();
-        
-        var horas = date.getHours();
-        var minutos = date.getMinutes();
-        var segundos = date.getSeconds();
-        //Dias da Semana
-        var diaSemana = "";
-        if (dia == 0) { diaSemana = "Domingo"; }
-        if (dia == 1) { diaSemana = "Segunda-Feira"; }
-        if (dia == 2) { diaSemana = "Terça-Feira"; }
-        if (dia == 3) { diaSemana = "Quarta-Feira"; }
-        if (dia == 4) { diaSemana = "Quinta-Feira"; }
-        if (dia == 5) { diaSemana = "Sexta-Feira"; }
-        if (dia == 6) { diaSemana = "Sábado"; }
-
-        //Meses do Ano
-          var meses = "";
-        if (mes == 0) { meses= "Janeiro"; }
-        if (mes == 1) { meses= "Fevereiro"; }
-        if (mes == 2) { meses= "Março"; }
-        if (mes == 3) { meses= "Abrir"; }
-        if (mes == 4) { meses= "Maio"; }
-        if (mes == 5) { meses= "Junho"; }
-        if (mes == 6) { meses= "Julho"; }
-        if (mes == 7) { meses= "Agosto"; }
-        if (mes == 8) { meses= "Setembro"; }
-        if (mes == 9) { meses= "Outubro"; }
-        if (mes == 10) {meses = "Novembro"; }
-        if (mes == 11) { meses = "Dezembro"; }
-
-        if (horas < 10) {
-            horas = "0" + horas;
-        }
-        if (minutos < 10) {
-            minutos = "0" + minutos;
-        }
-        if (segundos < 10) {
-            segundos = "0" + segundos;
-        }
-        var formattedString =diaSemana +", "+dias+" "+" de "+meses+" de "+ano+", "+ horas+":"+minutos+":"+segundos;
-        timeDisplay.innerHTML = "Hoje é: "+formattedString;
-    }
-    setInterval(refreshTime, 1000);
-</script>
+<script src="~/Scripts/toastr.min.js"></script>
 
     
 
