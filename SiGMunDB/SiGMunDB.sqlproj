@@ -76,6 +76,7 @@
     <Folder Include="ContinuousDeployment\Functions" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Bairro" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Ruas" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Parente" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="ContinuousDeployment\Tables\__MigrationLog.sql" />
@@ -177,6 +178,7 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradaCarregarNomesLocais.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_MunicipeBuscarNome.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Morada\SP_MoradaCarregarPorNm.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Parente\SP_Parente_ListarPeloNm.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

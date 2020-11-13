@@ -72,7 +72,7 @@ namespace Web.Controllers
             {
                 var perfis = perfil.SelecionarTodosActivos();
                 ViewBag.perfil = new SelectList(perfis, "Id", "Name");
-                return View(_usuario.PesquisarPorId(id));
+                return View(_usuario.BuscarEntidadePorId(id));
             }
 
             [HttpPost]
@@ -118,7 +118,7 @@ namespace Web.Controllers
 
             public ActionResult Detalhes(int id)
             {
-                var user = _usuario.BuscarPorId(id);
+                var user = _usuario.BuscarEntidadePorId(id);
                 ViewData["Profile"] = new List<Role>(perfil.SelecionarTodos());
                 if (user is null)
                     return HttpNotFound();

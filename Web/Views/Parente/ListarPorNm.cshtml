@@ -1,0 +1,100 @@
+﻿@using Web.Models.Contratos.Repositorios
+@model IEnumerable<Web.Models.Entidades.Municipe.Parente>
+
+
+@{
+    ViewBag.Title = "Listagem de Familiares";
+}
+<body>
+<div class="main-content">
+<div class="container-fluid content-top-gap">    
+<p>
+    @Html.ActionLink(" Cadastrar Novo", "Create",new { },new { @class="btn btn-outline-success fa fa-user-plus mb-2"})
+</p>
+<table class="table user-list table-striped  table-hover">
+  <thead class="bg-light">
+     <tr>
+       <th><span>Foto</span></th>
+       <th><span>Nome Completo<br/>Nº Munícipe</span></th>
+       <th class="text-center"><span >Data<br/> Nascimento</span></th>
+       <th class="text-center"><span>Tipo Doc<br/>Nº Doc</span></th>
+       <th class="text-center"><span>D. Emissão<br/>D.Validade</span></th>
+       <th class="text-center"><span>Email<br/> Telefones</span></th>
+       <th class="text-center"><span>Género<br/>E. Civil</span></th>
+       <th class="text-center"><span>Idade<br/>Grau Parentesco</span></th>
+       <th class="text-center">Opções</th>
+     </tr>
+  </thead>
+<tbody>
+@foreach (var item in Model)
+                {
+                    <tr>
+                        @{
+                            RepGenerico generico = new RepGenerico();
+                            string genero = generico.CarregarGenerosPorId(item.MunicipeGenero);
+                            string estadoCivil = generico.CarregarEstadoCivilPorId(item.MunicipeEstadoCivil);
+                            int idade = DateTime.Now.Year - @item.MunicipeDataNascimento.Year;
+                            string tipoDocNome = generico.CarregarTipoDocPorId(item.MunicipeTipoDocIdentificacao);
+                        }
+                        <td style="width: 3%;">
+                            <img src="~/Content/images/New/UserMale.png">
+                        </td>
+                        <td style="width: 15%;">
+                            <a   title="Clique para ver Detalhes">@item.Nome</a><br/>
+                            <span class="user-subhead">@item.MunicipeParenteNm</span>
+                        </td>
+                        <td class="text-center">
+                            <span >@item.MunicipeDataNascimento.ToShortDateString()</span>
+                        </td>
+                        <td class="text-center">
+                            @tipoDocNome<br/>
+                            <span class="user-subhead">@item.MunicipeNDocIdent</span>
+                        </td>
+                        <td class="text-center">
+                            @item.MunicipeDocDataEmissao.ToShortDateString()<br/>
+                            <span class="user-subhead">@item.MunicipeDocDataValidade.ToShortDateString()</span>
+                        </td>
+                        <td class="text-center">
+                            @item.MunicipeEmail<br/>
+                            <span class="user-subhead">@item.MunicipeTelefone1-@item.MunicipeTelefone2</span>
+                        </td>
+                        <td class="text-center">
+                            @genero<br/>
+                            <span class="user-subhead">@estadoCivil</span>
+                        </td>
+                        <td class="text-center">
+                            @idade<br/>
+                            @if (item.Estado)
+                            {
+                                <span class="user-subhead label label-success">Activado</span>
+                            }
+                            else
+                            {
+                                <span class="user-subhead label label-danger">Desativado</span>
+                            }
+                        </td>                       
+                        <td style="width: 7%;" class="btn-group" >
+                            <a  href="@Url.Action("Alterar/"+ item.Id)" class="table-link text-warning" title="Alterar Dados">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a> 
+                              <a  href="@Url.Action("Alterar/"+ item.Id)" class="table-link text-danger" title="Excluir Familiar">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>                         
+                           
+                        </td>
+                    </tr>
+
+                }
+                </tbody>
+            </table>
+   
+
+ </div>
+</div>
+</body>

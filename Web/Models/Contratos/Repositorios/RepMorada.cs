@@ -7,8 +7,9 @@ using Web.Models.Entidades.Locais;
 
 namespace Web.Models.Contratos.Repositorios
 {
-    public class RepMorada:IMorada
-    {private readonly Conexao _conexao = new Conexao();
+    public class RepMorada : IMorada
+    {
+       private readonly Conexao _conexao = new Conexao();
         
         public string Cadastrar(Moradas entidade)
         {
@@ -51,12 +52,12 @@ namespace Web.Models.Contratos.Repositorios
             }
         }
 
-        public List<Moradas> BuscarPorNome(string nome)
+        public List<Moradas> BuscarListaPorNome(string nome)
         {
             throw new NotImplementedException();
         }
 
-        public Moradas BuscarPorId(int id)
+        public Moradas BuscarEntidadePorId(int id)
         {
             throw new NotImplementedException();
         }

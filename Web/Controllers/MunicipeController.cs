@@ -24,7 +24,7 @@ namespace Web.Controllers
         // GET: Municipe/Details/5
         public ActionResult Detalhes(int id)
         {
-            return View( _municipe.BuscarPorId(id));
+            return View( _municipe.BuscarEntidadePorId(id));
         }
        
         [HttpGet]
@@ -105,7 +105,7 @@ namespace Web.Controllers
             ViewBag.tipoDocIdent = new SelectList(tipoDocIdent, "Id", "Nome");
 
 
-            return View( _municipe.BuscarPorId(id));
+            return View( _municipe.BuscarEntidadePorId(id));
         }
 
         // POST: Municipe/Edit/5

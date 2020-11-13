@@ -19,7 +19,7 @@ namespace Web.Controllers
         public ActionResult ListarPorNm(string id)
         {
             var moradas =RepMorada.CarregarMoradasPorNm(id);
-            ViewBag.municipe =mun.BuscarPorNome(id);
+            ViewBag.municipe =mun.BuscarNomePeloId(id);
             return View(moradas);
         }
         [HttpGet]

@@ -2,7 +2,7 @@
 @model IEnumerable<Web.Models.Entidades.Municipe.Municipe>
 
 @{
-    ViewBag.Title = "Listar";
+    ViewBag.Title = "Listagem de Munícipes";
 }
 
 <head>
@@ -113,7 +113,7 @@
                                 </span>
                             </a>
                             <br/>
-                            <a href="@Url.Action("Alterar/" + item.MunicipeNm)" class="table-link text-success" title="Ver Parentes">
+                            <a href="@Url.Action("ListarPorNm/" + item.MunicipeNm,"Parente")" class="table-link text-success" title="Ver Parentes">
                                 <span class="fa-stack">
                                     <i class="fa fa-square fa-stack-2x"></i>
                                     <i class="fa fa-users fa-stack-1x fa-inverse"></i>

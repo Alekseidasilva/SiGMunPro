@@ -378,6 +378,7 @@
     <Content Include="Views\Municipe\Detalhes.cshtml" />
     <Content Include="Views\Morada\Alterar.cshtml" />
     <Content Include="Views\Shared\PartialCadastrarRua.cshtml" />
+    <Content Include="Views\Parente\ListarPorNm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -402,6 +403,7 @@
     <Compile Include="Controllers\FotoController.cs" />
     <Compile Include="Controllers\MoradaController.cs" />
     <Compile Include="Controllers\MunicipeController.cs" />
+    <Compile Include="Controllers\ParenteController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UserRoleProvider.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -411,12 +413,13 @@
     <Compile Include="Models\Contratos\Interfaces\IBase.cs" />
     <Compile Include="Models\Contratos\Interfaces\IMorada.cs" />
     <Compile Include="Models\Contratos\Interfaces\IMunicipe.cs" />
+    <Compile Include="Models\Contratos\Interfaces\IParente.cs" />
     <Compile Include="Models\Contratos\Interfaces\IPerfil.cs" />
     <Compile Include="Models\Contratos\Interfaces\IUsuario.cs" />
-    <Compile Include="Models\Contratos\Repositorios\RepBase.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepGenerico.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepMorada.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepMunicipe.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepParente.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
     <Compile Include="Models\Entidades\Base.cs" />

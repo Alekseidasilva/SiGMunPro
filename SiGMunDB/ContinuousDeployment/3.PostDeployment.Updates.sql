@@ -327,17 +327,54 @@ INSERT TB_Comunas (ComunaNome, ComunaMunicipioId)VALUES
   ------------------COMUNA DE QUIRIMA-------------------------------
 ('SAUTAR', 126),('QUIRIMA', 126);
 GO
+--EXECUTE SP_Municipe_Inserir @MunicipeNomeCompleto = 'Aleksei Justino Mateus Dondo da Silva'
+--                           ,@MunicipeDataNascimento = '1988-10-15'
+--                           ,@MunicipeNDocIdent = '003013895ME035'
+--                           ,@MunicipeTipoDocIdentificacao = 1
+--                           ,@MunicipeDocDataEmissao = '2018-05-09'
+--                           ,@MunicipeDocDataValidade = '2022-05-08'
+--                           ,@MunicipeNIF = '003013895ME035'
+--                           ,@MunicipeGenero = 1
+--                           ,@MunicipeEstadoCivil = 2
+--                           ,@MunicipeTelefone1 = '927060073'
+--                           ,@MunicipeTelefone2 = '998515561'
+--                           ,@MunicipeEmail = 'alekseidasilva@gmail.com'
+--                           ,@MunicipeFoto = 'sem imagem'
+--                           ,@MoradaCasaNumero = 'S/N'
+--                           ,@MoradaZona = '4'
+--                           ,@MoradaRuaId = 4
+--                           ,@IdCadastrador = 1
+go
+--EXECUTE SP_Municipe_Inserir @MunicipeNomeCompleto = 'Telma Maria Damião da Costa  Silva'
+--                           ,@MunicipeDataNascimento = '1994-04-24'
+--                           ,@MunicipeNDocIdent = '0045LA045'
+--                           ,@MunicipeTipoDocIdentificacao = 1
+--                           ,@MunicipeDocDataEmissao = '2018-05-09'
+--                           ,@MunicipeDocDataValidade = '2022-05-08'
+--                           ,@MunicipeNIF = '0045LA045'
+--                           ,@MunicipeGenero = 2
+--                           ,@MunicipeEstadoCivil = 2
+--                           ,@MunicipeTelefone1 = '984628288'
+--                           ,@MunicipeTelefone2 = '998515561'
+--                           ,@MunicipeEmail = 'duniaxp@hotmail.com'
+--                           ,@MunicipeFoto = 'sem imagem'
+--                           ,@MoradaCasaNumero = 'S/N'
+--                           ,@MoradaZona = '4'
+--                           ,@MoradaRuaId = 4
+--                           ,@IdCadastrador = 1
 
- INSERT INTO TB_Municipes (MunicipeId,MunicipeNM, MunicipeNomeCompleto, MunicipeDataNascimento,
- MunicipeNDocIdent, MunicipeTipoDocIdentificacao, MunicipeDocDataEmissao, MunicipeDocDataValidade, 
- MunicipeNIF, MunicipeGenero, MunicipeEstadoCivil, MunicipeTelefone1, MunicipeTelefone2, MunicipeEmail,
- MunicipeEstado, MunicipeDataCadastro,MunicipeParenteNM,MunicipeGrauParentescoId,MunicipeFoto, IdCadastrador)
-	VALUES (1,123456789, 'Aleksei Justino Mateus Dondo da Silva', '1988-10-15', '003013895ME035',
-	1, GETDATE(), GETDATE(), '0047845LA045', 2, 2, '924628288', '998515561', 'telmasilva@gmail.com',
-	1, GETDATE(), 123456789,16,'Sem foto',1),
-	(2,987654321, 'Telma Maria Damião da Costa da Silva', '1994-04-24', '0047845LA045',
-	1, GETDATE(), GETDATE(), '003013895ME035', 1, 1, '927060073', '998515561', 'alekseidasilva@gmail.com',
-	1, GETDATE(), 123456789,12,'Sem foto',1);
+
+
+ --INSERT INTO TB_Municipes (MunicipeId,MunicipeNM, MunicipeNomeCompleto, MunicipeDataNascimento,
+ --MunicipeNDocIdent, MunicipeTipoDocIdentificacao, MunicipeDocDataEmissao, MunicipeDocDataValidade, 
+ --MunicipeNIF, MunicipeGenero, MunicipeEstadoCivil, MunicipeTelefone1, MunicipeTelefone2, MunicipeEmail,
+ --MunicipeEstado, MunicipeDataCadastro,MunicipeParenteNM,MunicipeGrauParentescoId,MunicipeFoto, IdCadastrador)
+	--VALUES (1,123456789, 'Aleksei Justino Mateus Dondo da Silva', '1988-10-15', '003013895ME035',
+	--1, GETDATE(), GETDATE(), '0047845LA045', 2, 2, '924628288', '998515561', 'telmasilva@gmail.com',
+	--1, GETDATE(), 123456789,16,'Sem foto',1),
+	--(2,987654321, 'Telma Maria Damião da Costa da Silva', '1994-04-24', '0047845LA045',
+	--1, GETDATE(), GETDATE(), '003013895ME035', 1, 1, '927060073', '998515561', 'alekseidasilva@gmail.com',
+	--1, GETDATE(), 123456789,12,'Sem foto',1);
 
 	GO
 	

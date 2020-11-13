@@ -1,43 +1,16 @@
-﻿using System;
+﻿using Infra.Data;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Web.Helpers;
+using Web.Models.Contratos.Interfaces;
 using Web.Models.Entidades.Usuario;
 
 namespace Web.Models.Contratos.Repositorios
 {
-    public class RepUsuario:RepBase
+    public class RepUsuario:IUsuario
     {
-         public string Cadastrar(User entidade)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@NomeCompleto", entidade.NomeCompleto);
-                _conexao.AdicionarParametros("@UserName", entidade.UserName);
-                _conexao.AdicionarParametros("@Email", entidade.Email);
-                _conexao.AdicionarParametros("@EmailConfirmed", entidade.EmailConfirmed);
-                _conexao.AdicionarParametros("@PasswordHash", entidade.PasswordHash);
-                _conexao.AdicionarParametros("@SecurityStamp", entidade.SecurityStamp);
-                _conexao.AdicionarParametros("@PhoneNumber", entidade.PhoneNumber);
-                _conexao.AdicionarParametros("@PhoneNumberConfirmed", entidade.PhoneNumberConfirmed);
-                _conexao.AdicionarParametros("@TwoFactorEnabled", entidade.TwoFactorEnabled);
-                _conexao.AdicionarParametros("@LockoutEndDateUtc", entidade.LockoutEndDateUtc);
-                _conexao.AdicionarParametros("@LockoutEnabled", entidade.LockoutEnabled);
-                _conexao.AdicionarParametros("@AccessFailedCount", entidade.AccessFailedCount);
-                _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
-                _conexao.AdicionarParametros("@Estado", entidade.Estado);
-                _conexao.AdicionarParametros("@PerfilId", entidade.PerfilId);
-                _conexao.AdicionarParametros("@IdCadastrador", entidade.IdCadastrador);
-                string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Inserir").ToString();
-                return res;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
+        private readonly Conexao _conexao = new Conexao();
 
         public string Alterar(User entidade)
         {
@@ -69,226 +42,9 @@ namespace Web.Models.Contratos.Repositorios
                 Console.WriteLine(e);
                 throw;
             }
-
         }
 
-        public string Excluir(int id)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserId", id);
-                string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Excluir").ToString();
-                return res;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
-
-        public List<User> BuscarPorId(int id)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UsuId", id);
-                DataTable usuarios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarPorId");
-                List<User> users = new List<User>();
-                foreach (DataRow item in usuarios.Rows)
-                {User user = new User();
-                    user.Id = Convert.ToInt32(item["Id"]);
-                    user.UserName = Convert.ToString(item["UserName"]);
-                    user.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
-                    user.Email = Convert.ToString(item["Email"]);
-                    user.PhoneNumber = Convert.ToString(item["PhoneNumber"]);
-                    user.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
-                    user.Estado = Convert.ToBoolean(item["Estado"]);
-                    user.PerfilId = Convert.ToInt32(item["PerfilId"]);
-                    user.IdCadastrador = Convert.ToInt32(item["IdCadastrador"]);
-                    users.Add(user);
-                }
-
-                return users;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
-        public User PesquisarPorId(int id)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UsuId", id);
-                DataTable usuarios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarPorId");
-                User user = new User();
-                foreach (DataRow item in usuarios.Rows)
-                {
-                    
-                    user.Id = Convert.ToInt32(item["Id"]);
-                    user.UserName = Convert.ToString(item["UserName"]);
-                    user.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
-                    user.Email = Convert.ToString(item["Email"]);
-                    user.PhoneNumber = Convert.ToString(item["PhoneNumber"]);
-                    user.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
-                    user.Estado = Convert.ToBoolean(item["Estado"]);
-                    user.PerfilId = Convert.ToInt32(item["PerfilId"]);
-                    user.IdCadastrador = Convert.ToInt32(item["IdCadastrador"]);
-                 
-                }
-
-                return user;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
-        public string BuscarCadastrador(int id)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UsuId", id);
-                string cadastrador = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_UsuarioBuscarCadastrador").ToString();
-                
-                return cadastrador;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
-
-        public List<User> BuscarPorNome(string nome)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable BuscarPorEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
-        public void Tentativas(string userName, int tentativas)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserName", userName);
-                _conexao.AdicionarParametros("@Tentativas", tentativas);
-                _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Tentativas");
-                
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-        }
-        public int BuscarTentativas(string userName)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserName", userName);
-                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarTentativas");
-                int id = 0;
-                foreach (DataRow item in users.Rows)
-                {
-                    id = Convert.ToInt32(item["AccessFailedCount"]);
-                   
-                }
-                return id;
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-        }
-        public Boolean BuscarEstado(string userName)
-        {     
-            try
-            {
-                var estadoActual=false;
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserName", userName);
-                var estado = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_UsuarioBuscarEstado");
-               
-                foreach (DataRow item in estado.Rows)
-                {
-                    estadoActual = Convert.ToBoolean(item["Estado"]);
-
-                }
-                return estadoActual;
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-        }
-        public bool VerificarUsuario(string userName)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserName", userName);
-                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_VerificarLogin");
-                int id=0;
-                foreach (DataRow item in users.Rows)
-                {
-                    id = Convert.ToInt32(item["Id"]);
-                    if (id > 0)
-                        return true;
-                }
-                return false;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-        }
-        public bool VerificarSenha(string userName, string senha)
-        {
-            try
-            {
-                _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserName", userName);
-                _conexao.AdicionarParametros("@Senha", senha);
-                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_VerificarSenha");
-                int id = 0;
-                foreach (DataRow item in users.Rows)
-                {
-                    id = Convert.ToInt32(item["Id"]);
-                    if (id>0)
-                    return true;
-                }
-                return false;
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-        }      
-
-        public Boolean AlterarSenha(int id, string senhaAntiga, string senhanova)
+        public bool AlterarSenha(int id, string senhaAntiga, string senhanova)
         {
             try
             {
@@ -304,34 +60,196 @@ namespace Web.Models.Contratos.Repositorios
                 Console.WriteLine(e);
                 throw;
             }
-
         }
 
-        public List<User> SelecionarTodosComPerfilId()
+        public User BuscarEntidadePeloId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User BuscarEntidadePorId(int id)
         {
             try
             {
                 _conexao.LimparParametro();
-                DataTable usuarios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_CarregarTodosComPerfilId");
+                _conexao.AdicionarParametros("@UsuId", id);
+                DataTable usuarios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarPorId");
+                User user = new User();
+                foreach (DataRow item in usuarios.Rows)
+                {
 
+                    user.Id = Convert.ToInt32(item["Id"]);
+                    user.UserName = Convert.ToString(item["UserName"]);
+                    user.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
+                    user.Email = Convert.ToString(item["Email"]);
+                    user.PhoneNumber = Convert.ToString(item["PhoneNumber"]);
+                    user.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
+                    user.Estado = Convert.ToBoolean(item["Estado"]);
+                    user.PerfilId = Convert.ToInt32(item["PerfilId"]);
+                    user.IdCadastrador = Convert.ToInt32(item["IdCadastrador"]);
+
+                }
+
+                return user;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public bool BuscarEstado(string userName)
+        {
+            try
+            {
+                var estadoActual = false;
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserName", userName);
+                var estado = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_UsuarioBuscarEstado");
+
+                foreach (DataRow item in estado.Rows)
+                {
+                    estadoActual = Convert.ToBoolean(item["Estado"]);
+
+                }
+                return estadoActual;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public List<User> BuscarListaPeloId(string id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UsuId", id);
+                DataTable usuarios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarPorId");
                 List<User> users = new List<User>();
                 foreach (DataRow item in usuarios.Rows)
                 {
-                    User user = new User
-                    {
-                        Id = Convert.ToInt32(item["Id"]),
-                        UserName = Convert.ToString(item["UserName"]),
-                        NomeCompleto = Convert.ToString(item["NomeCompleto"]),
-                        Email = Convert.ToString(item["Email"]),
-                        PhoneNumber = Convert.ToString(item["PhoneNumber"]),
-                        DataCadastro = Convert.ToDateTime(item["DataCadastro"]),
-                        Estado = Convert.ToBoolean(item["Estado"]),
-                        PerfilId = Convert.ToInt32(item["PerfilId"])
-                    };
+                    User user = new User();
+                    user.Id = Convert.ToInt32(item["Id"]);
+                    user.UserName = Convert.ToString(item["UserName"]);
+                    user.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
+                    user.Email = Convert.ToString(item["Email"]);
+                    user.PhoneNumber = Convert.ToString(item["PhoneNumber"]);
+                    user.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
+                    user.Estado = Convert.ToBoolean(item["Estado"]);
+                    user.PerfilId = Convert.ToInt32(item["PerfilId"]);
+                    user.IdCadastrador = Convert.ToInt32(item["IdCadastrador"]);
                     users.Add(user);
                 }
 
                 return users;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public List<User> BuscarListaPorNome(string nome)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string BuscarNomeDoCadastrador(int userid)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserId", userid);
+                var nome = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarNomeCadastrador");
+                string userName = "";
+                foreach (DataRow item in nome.Rows)
+                {
+                    userName = Convert.ToString(item["Username"]);
+                }
+
+                return userName;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public DataTable BuscarPorEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int BuscarTentativas(string userName)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserName", userName);
+                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarTentativas");
+                int id = 0;
+                foreach (DataRow item in users.Rows)
+                {
+                    id = Convert.ToInt32(item["AccessFailedCount"]);
+
+                }
+                return id;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public string Cadastrar(User entidade)
+        {
+
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@NomeCompleto", entidade.NomeCompleto);
+                _conexao.AdicionarParametros("@UserName", entidade.UserName);
+                _conexao.AdicionarParametros("@Email", entidade.Email);
+                _conexao.AdicionarParametros("@EmailConfirmed", entidade.EmailConfirmed);
+                _conexao.AdicionarParametros("@PasswordHash", entidade.PasswordHash);
+                _conexao.AdicionarParametros("@SecurityStamp", entidade.SecurityStamp);
+                _conexao.AdicionarParametros("@PhoneNumber", entidade.PhoneNumber);
+                _conexao.AdicionarParametros("@PhoneNumberConfirmed", entidade.PhoneNumberConfirmed);
+                _conexao.AdicionarParametros("@TwoFactorEnabled", entidade.TwoFactorEnabled);
+                _conexao.AdicionarParametros("@LockoutEndDateUtc", entidade.LockoutEndDateUtc);
+                _conexao.AdicionarParametros("@LockoutEnabled", entidade.LockoutEnabled);
+                _conexao.AdicionarParametros("@AccessFailedCount", entidade.AccessFailedCount);
+                _conexao.AdicionarParametros("@DataCadastro", entidade.DataCadastro);
+                _conexao.AdicionarParametros("@Estado", entidade.Estado);
+                _conexao.AdicionarParametros("@PerfilId", entidade.PerfilId);
+                _conexao.AdicionarParametros("@IdCadastrador", entidade.IdCadastrador);
+                string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Inserir").ToString();
+                return res;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public string Excluir(int id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserId", id);
+                string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Excluir").ToString();
+                return res;
             }
             catch (Exception e)
             {
@@ -372,9 +290,41 @@ namespace Web.Models.Contratos.Repositorios
             }
         }
 
+        public List<User> SelecionarTodosComPerfilId()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                DataTable usuarios = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_CarregarTodosComPerfilId");
+
+                List<User> users = new List<User>();
+                foreach (DataRow item in usuarios.Rows)
+                {
+                    User user = new User
+                    {
+                        Id = Convert.ToInt32(item["Id"]),
+                        UserName = Convert.ToString(item["UserName"]),
+                        NomeCompleto = Convert.ToString(item["NomeCompleto"]),
+                        Email = Convert.ToString(item["Email"]),
+                        PhoneNumber = Convert.ToString(item["PhoneNumber"]),
+                        DataCadastro = Convert.ToDateTime(item["DataCadastro"]),
+                        Estado = Convert.ToBoolean(item["Estado"]),
+                        PerfilId = Convert.ToInt32(item["PerfilId"])
+                    };
+                    users.Add(user);
+                }
+
+                return users;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         public void SessaoUsuario(string UserName, string senha)
-        {           
-           
+        {
             try
             {
                 _conexao.LimparParametro();
@@ -383,7 +333,7 @@ namespace Web.Models.Contratos.Repositorios
                 var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_Sessao");
                 foreach (DataRow item in users.Rows)
                 {
-                    GuardaSessao.Id= Convert.ToInt32(item["Id"]);
+                    GuardaSessao.Id = Convert.ToInt32(item["Id"]);
                     GuardaSessao.NomeCompleto = Convert.ToString(item["NomeCompleto"]);
                     GuardaSessao.Estado = Convert.ToBoolean(item["Estado"]);
                     GuardaSessao.DataCadastro = Convert.ToDateTime(item["DataCadastro"]);
@@ -399,6 +349,23 @@ namespace Web.Models.Contratos.Repositorios
                     GuardaSessao.PerfilId = Convert.ToInt32(item["PerfilId"]);
                     GuardaSessao.PerfilNome = Convert.ToString(item["PerfilNome"]);
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public void Tentativas(string userName, int tentativas)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserName", userName);
+                _conexao.AdicionarParametros("@Tentativas", tentativas);
+                _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Usuario_Tentativas");
+
             }
             catch (Exception e)
             {
@@ -428,20 +395,23 @@ namespace Web.Models.Contratos.Repositorios
             }
         }
 
-        public string BuscarNomeDoCadastrador(int userid)
+        public bool VerificarSenha(string userName, string senha)
         {
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@UserId", userid);
-                var nome = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_BuscarNomeCadastrador");
-                string userName = "";
-                foreach (DataRow item in nome.Rows)
+                _conexao.AdicionarParametros("@UserName", userName);
+                _conexao.AdicionarParametros("@Senha", senha);
+                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_VerificarSenha");
+                int id = 0;
+                foreach (DataRow item in users.Rows)
                 {
-                    userName = Convert.ToString(item["Username"]);
+                    id = Convert.ToInt32(item["Id"]);
+                    if (id > 0)
+                        return true;
                 }
+                return false;
 
-                return userName;
             }
             catch (Exception e)
             {
@@ -449,6 +419,28 @@ namespace Web.Models.Contratos.Repositorios
                 throw;
             }
         }
-    
+
+        public bool VerificarUsuario(string userName)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@UserName", userName);
+                var users = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_Usuario_VerificarLogin");
+                int id = 0;
+                foreach (DataRow item in users.Rows)
+                {
+                    id = Convert.ToInt32(item["Id"]);
+                    if (id > 0)
+                        return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
 }

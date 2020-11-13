@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Infra.Data;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using Web.Models.Contratos.Interfaces;
 using Web.Models.Entidades.Perfis;
 
 namespace Web.Models.Contratos.Repositorios
 {
-    public class RepPerfil:RepBase
-    {
+    public class RepPerfil:IPerfil
+    {private readonly Conexao _conexao = new Conexao();
         public string Cadastrar(Role entidade)
         {
             try
@@ -257,6 +259,16 @@ namespace Web.Models.Contratos.Repositorios
                 throw;
 
             }
+        }
+
+        public List<Role> BuscarListaPorNome(string nome)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Role BuscarEntidadePorId(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

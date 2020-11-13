@@ -22,34 +22,25 @@
             <a href="@Url.Action("#")" class="btn btn-info pull-right mr-2"><i class="fa fa-print"></i> Imprimir</a>
 
             <div class="dropdown-divider"></div>*@
+               
         </div>
             @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
 <section class="pt-2 ml-3 pb-100" id="pricing">
-			
-		
-			
     <div class="row ">
         @foreach (var item in  Model)
-        {
-           
+        {           
                 string[] locais = new[] {"", "", "",""};
                 RepMorada rep=new RepMorada();
                 locais = rep.CarregarLocais(item.MoradaRuaId);
             RepUsuario user=new RepUsuario();
             string nomeCadastrador = user.BuscarNomeDoCadastrador(item.Idcadastrador);
-
-            
-
-
-            
-             if (item.Estado)
+            if (item.Estado)
             {
                <div class="col-3 ">
             <div class="single-price  bg-success">
                 <div class="recomemded-price">
                     <img src="~/Content/images/New/houseActive.png" width="60" height="60"/>
                 </div>
-
                 <div class="price-item">
                     <ul>
                         <li><b>Casa Nº :</b> <span>@item.MoradaCasaN</span></li>
@@ -59,22 +50,19 @@
                         <li><b>Munícipio :</b> <span>@locais[3]</span></li>
                          <li><b>Registado Por :</b> <span>@nomeCadastrador</span></li>
                     </ul>
-                </div>
-               
+                </div>               
                 @Html.ActionLink("Nova","Cadastrar",new {id=@item.MoradaMunicuipeNm},new {@class="btn btn-outline-light fa fa-plus"})
                 @Html.ActionLink("Alterar","Alterar",new {id=@item.MoradaMunicuipeNm},new {@class="btn btn-outline-warning fa fa-pencil"})
             </div>
-
         </div>  
             }
              else
              {
-                        <div class="col-3 ">
+             <div class="col-3 ">
             <div class="single-price  bg-warning">
                 <div class="recomemded-price">
                     <img src="~/Content/images/New/houseInactive.png" width="50" height="50"/>
                 </div>
-
                 <div class="price-item">
                     <ul>
                         <li><b>Casa Nº :</b> <span>@item.MoradaCasaN</span></li>
@@ -85,27 +73,20 @@
                          <li><b>Registado Por :</b> <span>@nomeCadastrador</span></li>
                     </ul>
                 </div>
-               <br/><br/>
-                
+               <br/><br/>                
             </div>
-
         </div> 
              }
        
 
         }
-       
-
-
-
-
     </div>
-
-		
-	  </section>
-
+     
+</section>
+           <a href="@Url.Action("Listar","Municipe")" class="btn btn-danger pull-right mr-2"><i class="fa fa-close"></i> Voltar a listagem de Munícipes</a>
             @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
         </div>
+       
     </div>
 </div>
 </body>
