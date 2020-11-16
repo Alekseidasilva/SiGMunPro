@@ -9,7 +9,9 @@ Author URL:
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT */
- 
+ .show-on-hover:hover > ul.dropdown-menu {
+    display: block;    
+}
 :root {
   --blue: #007bff;
   --indigo: #dee2e6;

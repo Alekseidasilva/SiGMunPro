@@ -433,6 +433,7 @@
     <Compile Include="Models\Entidades\Municipe\Parente.cs" />
     <Compile Include="Models\Entidades\Outras\EstadoCivil.cs" />
     <Compile Include="Models\Entidades\Outras\Genero.cs" />
+    <Compile Include="Models\Entidades\Outras\GrauParentesco.cs" />
     <Compile Include="Models\Entidades\Outras\TiposDocumentosIdentificacao.cs" />
     <Compile Include="Models\Entidades\Perfis\Role.cs" />
     <Compile Include="Models\Entidades\Usuario\User.cs" />

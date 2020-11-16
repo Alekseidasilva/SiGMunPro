@@ -12,12 +12,13 @@ namespace Web.Controllers
         public ActionResult ListarPorNm(string id)
         {
             var parentes = repParente.ListarPeloNm(id);
-            //ViewBag.municipe = mun.BuscarPorNome(id);
+            ViewBag.Nm = id;
+            ViewBag.municipe = mun.BuscarNomePeloId(id);
             return View(parentes);
          
         }
         // GET: Parente/Create
-        public ActionResult Create()
+        public ActionResult Create(string nM)
         {
             return View();
         }

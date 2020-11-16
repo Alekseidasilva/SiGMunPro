@@ -105,8 +105,7 @@ namespace Web.Models.Contratos.Repositorios
         }
 
 
-        #endregion
-       
+        #endregion       
         #region Ruas
         public List<Rua> CarregarRuasPorBairros(int id)
         {
@@ -310,6 +309,52 @@ namespace Web.Models.Contratos.Repositorios
             
         }
 
+        #endregion
+        #region GrauParentesco
+        public List<GrauParentesco> CarregarGrauParentesco()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                DataTable resConsulta = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_CarregarGrauParentesco");
+                List<GrauParentesco> graus = new List<GrauParentesco>();
+                foreach (DataRow item in resConsulta.Rows)
+                {
+                    GrauParentesco grau = new GrauParentesco
+                    {
+                        Id = Convert.ToInt32(item["GrauParentescoId"]),
+                        Nome = Convert.ToString(item["GrauParentescoIdNome"])
+                    };
+                    graus.Add(grau);
+                }
+                return graus;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        public string CarregarGrauParentescoPeloNM(string MunicipenM)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@MunicipenM", MunicipenM);
+                DataTable graus = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_CarregarGrauParentescoPeloNm");
+                string grau = "";
+                foreach (DataRow item in graus.Rows)
+                {
+                    grau = Convert.ToString(item["GrauParentescoIdNome"]);
+                }
+                return grau;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
         #endregion
 
     }

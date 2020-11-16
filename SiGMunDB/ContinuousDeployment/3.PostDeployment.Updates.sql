@@ -203,7 +203,7 @@ VALUES
 (13,'SOGRO(A)'),
 (14,'CUNHADO(A)'),
 (15,'CONCUNHADO(A)'),
-(16,'')
+(16,'PRÓPRIO')
 go
 ---------------------------Provibncias--------------------------------
 INSERT INTO dbo.TB_Provincias(ProvinciaId,ProvinciaNome)VALUES
