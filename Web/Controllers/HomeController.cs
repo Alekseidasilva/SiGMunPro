@@ -1,9 +1,10 @@
 ﻿using System.Web.Mvc;
+using Web.Helpers;
 using Web.Models.Contratos.Repositorios;
 
 namespace Web.Controllers
 {
-    [Authorize(Roles ="ADMINISTRADOR")]
+    [Authorize(Roles = PerfilAgrupamento.ADMIN_CD_FUNC)]
     public class HomeController : Controller
     {
         private readonly RepUsuario _usuario = new RepUsuario();

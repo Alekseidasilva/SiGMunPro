@@ -10,36 +10,25 @@
     <div class="main-content">
         <div class="container-fluid content-top-gap">
 
-            <div class="container">
-                <div class="row">
-
+           
+             <p >
                     <div class="btn-group show-on-hover">
-                        <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown">
-                            Action <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Já Cadastrado</a></li>
-                            <li><a href="#">Não Cadastrado</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-
-
-
-
-
-
-            <p>
-                @*@Html.ActionLink(" Cadastrar Novo", "Create", new { nM = ViewBag.Nm }, new { @class = "btn btn-outline-success dropdown-toggle",datatoggle="dropdown" })*@
-                
+                        @*<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                            Novo <span class="caret"></span>
+                        </button>*@
+                        @Html.ActionLink("Adicionar", "#", new {}, new { @class = "btn btn-outline-success btn-sm dropdown-toggle mb-2",datatoggle="dropdown", type="button" })
+                        <ul class="dropdown-menu bg-success" role="menu">      
+                            <li>@Html.ActionLink("Já Cadastrado","JaCadastrado",new {nM=@ViewBag.Nm},new { @class = "btn btn-outline-warning" })</li>
+                             <li>@Html.ActionLink("Novo Cadastro","Cadastrar",new {nM=@ViewBag.Nm},new { @class = "btn btn-outline-secondary" })</li>                                                       
+                        </ul>             
+                    </div>               
+                  
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Familiares de: <strong> @ViewBag.Nm</strong> - @ViewBag.municipe
+                Familiares de: <strong> @ViewBag.Nm</strong> - @ViewBag.municipe              
                 @Html.ActionLink(" Imprimir Lista", "#", new { }, new { @class = "btn btn-outline-info fa fa-print mb-2 pull-right" })
             </p>
+            
             <table class="table user-list table-striped  table-hover">
                 <thead class="bg-light">
                     <tr>
@@ -71,7 +60,7 @@
                             </td>
                             <td style="width: 15%;">
                                 <a title="Clique para ver Detalhes">@item.Nome</a><br />
-                                <span class="user-subhead">@item.MunicipeParenteNm</span>
+                                <span class="user-subhead">@item.MunicipeNm</span>
                             </td>
                             <td class="text-center">
                                 <span>@item.MunicipeDataNascimento.ToShortDateString()</span>

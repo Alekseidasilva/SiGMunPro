@@ -379,6 +379,7 @@
     <Content Include="Views\Morada\Alterar.cshtml" />
     <Content Include="Views\Shared\PartialCadastrarRua.cshtml" />
     <Content Include="Views\Parente\ListarPorNm.cshtml" />
+    <Content Include="Views\Parente\Cadastrar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -410,6 +411,7 @@
     <Compile Include="Helpers\Criptografia.cs" />
     <Compile Include="Helpers\CryptProvider.cs" />
     <Compile Include="Helpers\GuardaSessao.cs" />
+    <Compile Include="Helpers\PerfilAgrupamento.cs" />
     <Compile Include="Models\Contratos\Interfaces\IBase.cs" />
     <Compile Include="Models\Contratos\Interfaces\IMorada.cs" />
     <Compile Include="Models\Contratos\Interfaces\IMunicipe.cs" />
@@ -431,6 +433,7 @@
     <Compile Include="Models\Entidades\Locais\Moradas.cs" />
     <Compile Include="Models\Entidades\Municipe\MunicipeMorada.cs" />
     <Compile Include="Models\Entidades\Municipe\Parente.cs" />
+    <Compile Include="Models\Entidades\Municipe\ParenteMorada.cs" />
     <Compile Include="Models\Entidades\Outras\EstadoCivil.cs" />
     <Compile Include="Models\Entidades\Outras\Genero.cs" />
     <Compile Include="Models\Entidades\Outras\GrauParentesco.cs" />

@@ -9,7 +9,7 @@ using Web.Models.Entidades.Municipe;
 
 namespace Web.Controllers
 {
-    [Authorize(Roles = "ADMINISTRADOR")]
+     [Authorize(Roles = PerfilAgrupamento.ADMIN_CD_FUNC)]
     public class MunicipeController : Controller
     {
         private readonly RepMunicipe _municipe = new RepMunicipe();

@@ -25,9 +25,55 @@ namespace Web.Models.Contratos.Repositorios
             throw new System.NotImplementedException();
         }
 
+        
+
         public string Cadastrar(Parente entidade)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
+        }
+
+        public string CadstrarJaCadastrado(Parente parente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string CadstrarNovo(ParenteMorada parenteMorada)
+        {
+
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Titular", parenteMorada.MunicipeNm);
+                _conexao.AdicionarParametros("@MunicipeNomeCompleto", parenteMorada.Nome);
+                _conexao.AdicionarParametros("@MunicipeDataNascimento", parenteMorada.MunicipeDataNascimento);
+                _conexao.AdicionarParametros("@MunicipeNDocIdent", parenteMorada.MunicipeNDocIdent);
+                _conexao.AdicionarParametros("@MunicipeTipoDocIdentificacao", parenteMorada.MunicipeTipoDocIdentificacao);
+                _conexao.AdicionarParametros("@MunicipeDocDataEmissao", parenteMorada.MunicipeDocDataEmissao);
+                _conexao.AdicionarParametros("@MunicipeDocDataValidade", parenteMorada.MunicipeDocDataValidade);
+                _conexao.AdicionarParametros("@MunicipeNIF", parenteMorada.MunicipeNif);
+                _conexao.AdicionarParametros("@MunicipeGenero", parenteMorada.MunicipeGenero);
+                _conexao.AdicionarParametros("@MunicipeEstadoCivil", parenteMorada.MunicipeEstadoCivil);
+                _conexao.AdicionarParametros("@MunicipeTelefone1", parenteMorada.MunicipeTelefone1);
+                _conexao.AdicionarParametros("@MunicipeTelefone2", parenteMorada.MunicipeTelefone2);
+                _conexao.AdicionarParametros("@MunicipeEmail", parenteMorada.MunicipeEmail);
+                _conexao.AdicionarParametros("@MunicipeFoto", parenteMorada.MunicipeFoto);
+                _conexao.AdicionarParametros("@IdCadastrador", parenteMorada.Idcadastrador);
+
+
+                _conexao.AdicionarParametros("@MoradaCasaNumero", parenteMorada.MoradaCasaN);
+                _conexao.AdicionarParametros("@MoradaZona", parenteMorada.MoradaZona);
+                _conexao.AdicionarParametros("@MoradaRuaId", parenteMorada.MoradaRuaId);
+
+                _conexao.AdicionarParametros("@MunicipeGrauParentescoId", parenteMorada.MunicipeGrauParentescoId);
+
+                string parente = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Parente_CadastrarNovo").ToString();
+                return parente;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public string Excluir(int id)
@@ -48,6 +94,7 @@ namespace Web.Models.Contratos.Repositorios
                     Parente par = new Parente
                     {
                         Id=Convert.ToInt32(linha["MunicipeId"]),
+                        MunicipeNm=Convert.ToString(linha["MunicipeNM"]),   
                         MunicipeParenteNm=Convert.ToString(linha["MunicipeParenteNM"]),
                         Nome=Convert.ToString(linha["MunicipeNomeCompleto"]),
                         MunicipeDataNascimento=Convert.ToDateTime(linha["MunicipeDataNascimento"]),

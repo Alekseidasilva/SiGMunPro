@@ -9,7 +9,7 @@ using Web.Models.Entidades.Usuario;
 
 namespace Web.Controllers
 {
-        //[Authorize(Roles = "ADMINISTRADOR")]
+         [Authorize(Roles = PerfilAgrupamento.ADMIN_CD)]
         public class UsuarioController : Controller
         {
             readonly RepUsuario _usuario = new RepUsuario();

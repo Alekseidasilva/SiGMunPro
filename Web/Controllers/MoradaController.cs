@@ -7,6 +7,7 @@ using Web.Models.Entidades.Locais;
 
 namespace Web.Controllers
 {
+     [Authorize(Roles = PerfilAgrupamento.ADMIN_CD_FUNC)]
     public class MoradaController : Controller
     { 
     private readonly RepGenerico RepGenerico=new RepGenerico();

@@ -1,8 +1,11 @@
 ﻿using System.Web.Mvc;
+using Web.Helpers;
 using Web.Models.Contratos.Repositorios;
+using Web.Models.Entidades.Municipe;
 
 namespace Web.Controllers
 {
+     [Authorize(Roles = PerfilAgrupamento.ADMIN_CD_FUNC)]
     public class ParenteController : Controller
     {
         private readonly RepGenerico RepGenerico = new RepGenerico();
@@ -18,14 +21,78 @@ namespace Web.Controllers
          
         }
         // GET: Parente/Create
-        public ActionResult Create(string nM)
+        public ActionResult Cadastrar(string nM)
+        {
+            var parentes = repParente.ListarPeloNm(nM);
+            ViewBag.Nm = nM;
+            ViewBag.municipe = mun.BuscarNomePeloId(nM);
+            //Carregar Municipios
+            ViewBag.listamunicipio = new SelectList(RepGenerico.CarregarMunicipiosPorProvincia(14), "Id", "Nome");
+            //Carregar Genero
+            ViewBag.genero = new SelectList(RepGenerico.CarregarGeneros(), "Id", "Nome");
+            //Carregar EstadoCivil
+            ViewBag.estadoCivil = new SelectList(RepGenerico.CarregarEstadoCivil(), "Id", "Nome");
+            //Tipos de Documentos            
+            ViewBag.tipoDocIdent = new SelectList(RepGenerico.SelecionarTodosTiposDocumentoIdentificacao(), "Id", "Nome");
+            //Garu Parentesco           
+            ViewBag.grauParentesco = new SelectList(RepGenerico.CarregarGrauParentesco(), "Id", "Nome");
+            return View();
+        }
+
+        // POST: Parente/Create
+        [HttpPost]
+        public ActionResult Cadastrar(ParenteMorada pM, string nM)
+        {
+            try
+            {
+
+                var pMM = new ParenteMorada 
+                {
+                    Id=pM.Id,
+                    MunicipeNm=nM,
+                    Nome = pM.Nome,
+                    MunicipeDataNascimento = pM.MunicipeDataNascimento,
+                    MunicipeNDocIdent = pM.MunicipeNDocIdent,
+                    MunicipeTipoDocIdentificacao = pM.MunicipeTipoDocIdentificacao,
+                    MunicipeDocDataEmissao = pM.MunicipeDocDataEmissao,
+                    MunicipeDocDataValidade = pM.MunicipeDocDataValidade,
+                    MunicipeNif = pM.MunicipeNif,
+                    MunicipeGenero = pM.MunicipeGenero,
+                    MunicipeEstadoCivil = pM.MunicipeEstadoCivil,
+                    MunicipeTelefone1 = pM.MunicipeTelefone1,
+                    MunicipeTelefone2 = pM.MunicipeTelefone2,
+                    MunicipeEmail = pM.MunicipeEmail,
+
+
+                    MunicipeFoto = "MunicipeFoto",
+                    Idcadastrador = GuardaSessao.Id,
+
+                    MoradaCasaN = pM.MoradaCasaN,
+                    MoradaZona = pM.MoradaZona,
+                    MoradaRuaId = pM.MoradaRuaId,
+
+                    MunicipeGrauParentescoId=pM.MunicipeGrauParentescoId,
+                    MunicipeParenteNm=pM.MunicipeParenteNm
+                };
+                repParente.CadstrarNovo(pMM);
+
+                return RedirectToAction("ListarPorNm/"+nM);
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Parente/Create
+        public ActionResult JaCadastrado(string nM)
         {
             return View();
         }
 
         // POST: Parente/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult JaCadastrado(FormCollection collection)
         {
             try
             {
@@ -40,14 +107,14 @@ namespace Web.Controllers
         }
 
         // GET: Parente/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Alterar(int id)
         {
             return View();
         }
 
         // POST: Parente/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Alterar(int id, FormCollection collection)
         {
             try
             {
@@ -62,14 +129,14 @@ namespace Web.Controllers
         }
 
         // GET: Parente/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Excluir(int id)
         {
             return View();
         }
 
         // POST: Parente/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Excluir(int id, FormCollection collection)
         {
             try
             {
