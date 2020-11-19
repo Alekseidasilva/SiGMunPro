@@ -107,25 +107,52 @@ namespace Web.Controllers
         }
 
         // GET: Parente/Edit/5
-        public ActionResult Alterar(int id)
-        {
-            return View();
+        public ActionResult Alterar(string id, string nM)
+        {            
+            //Carregar Genero
+            ViewBag.genero = new SelectList(RepGenerico.CarregarGeneros(), "Id", "Nome");
+            //Carregar EstadoCivil
+            ViewBag.estadoCivil = new SelectList(RepGenerico.CarregarEstadoCivil(), "Id", "Nome");
+            //Tipos de Documentos
+            var tipoDocIdent = RepGenerico.SelecionarTodosTiposDocumentoIdentificacao();
+            ViewBag.tipoDocIdent = new SelectList(tipoDocIdent, "Id", "Nome");
+            //Garu Parentesco           
+            ViewBag.grauParentesco = new SelectList(RepGenerico.CarregarGrauParentesco(), "Id", "Nome");
+            ViewBag.Nm = id;
+            ViewBag.municipe = mun.BuscarNomePeloId(id);
+            return View(repParente.BuscarEntidadePelonM(nM));
         }
 
         // POST: Parente/Edit/5
         [HttpPost]
-        public ActionResult Alterar(int id, FormCollection collection)
+        public ActionResult Alterar(Parente parente,string nM)
         {
-            try
+           if(ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                Parente p = new Parente
+                {
+                    Id = parente.Id,
+                    Nome = parente.Nome,
+                    MunicipeNDocIdent = parente.MunicipeNDocIdent,
+                    MunicipeTipoDocIdentificacao = parente.MunicipeTipoDocIdentificacao,
+                    MunicipeDocDataEmissao = parente.MunicipeDocDataEmissao,
+                    MunicipeDocDataValidade = parente.MunicipeDocDataValidade,
+                    MunicipeNif = parente.MunicipeNif,
+                    MunicipeGenero = parente.MunicipeGenero,
+                    MunicipeEstadoCivil = parente.MunicipeEstadoCivil,
+                    MunicipeTelefone1 = parente.MunicipeTelefone1,
+                    MunicipeTelefone2 = parente.MunicipeTelefone2,
+                    MunicipeEmail = parente.MunicipeEmail,
+                    MunicipeFoto = parente.MunicipeFoto,
+                    Estado = parente.Estado,
+                    MunicipeGrauParentescoId = parente.MunicipeGrauParentescoId
 
-                return RedirectToAction("Index");
+                };
+                repParente.Alterar(p);
+                
             }
-            catch
-            {
-                return View();
-            }
+           return RedirectToAction("ListarPorNm/" + nM);
+                           
         }
 
         // GET: Parente/Delete/5

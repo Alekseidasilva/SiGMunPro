@@ -12,14 +12,11 @@
 
            
              <p >
-                    <div class="btn-group show-on-hover">
-                        @*<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-                            Novo <span class="caret"></span>
-                        </button>*@
-                        @Html.ActionLink("Adicionar", "#", new {}, new { @class = "btn btn-outline-success btn-sm dropdown-toggle mb-2",datatoggle="dropdown", type="button" })
+                    <div class="btn-group show-on-hover">                      
+                        @Html.ActionLink("Adicionar","ListarPorNm", new {nM=ViewBag.Nm}, new { @class = "btn btn-outline-success fa fa-plus btn-sm dropdown-toggle mb-2",datatoggle="dropdown", type="button" })
                         <ul class="dropdown-menu bg-success" role="menu">      
-                            <li>@Html.ActionLink("Já Cadastrado","JaCadastrado",new {nM=@ViewBag.Nm},new { @class = "btn btn-outline-warning" })</li>
-                             <li>@Html.ActionLink("Novo Cadastro","Cadastrar",new {nM=@ViewBag.Nm},new { @class = "btn btn-outline-secondary" })</li>                                                       
+                            <li>@Html.ActionLink("Já Cadastrado","JaCadastrado",new {nM=@ViewBag.Nm},new { @class = "btn btn-outline-warning fa fa-plus-circle" })</li>
+                             <li>@Html.ActionLink("Novo Cadastro","Cadastrar",new {nM=@ViewBag.Nm},new { @class = "btn btn-outline-secondary fa fa-plus-square" })</li>                                                       
                         </ul>             
                     </div>               
                   
@@ -29,7 +26,7 @@
                 @Html.ActionLink(" Imprimir Lista", "#", new { }, new { @class = "btn btn-outline-info fa fa-print mb-2 pull-right" })
             </p>
             
-            <table class="table user-list table-striped  table-hover">
+            <table class="table user-list table-striped  table-hover ">
                 <thead class="bg-light">
                     <tr>
                         <th><span>Foto</span></th>
@@ -85,20 +82,9 @@
                                 @idade<br />
                                 <span class="user-subhead label label-success">@grauParentesco</span>
                             </td>
-                            <td style="width: 20%;" class="btn-group">
-                                <a href="@Url.Action("Alterar/"+ item.Id)" class="table-link text-warning" title="Alterar Dados">
-                                    <span class="fa-stack">
-                                        <i class="fa fa-square fa-stack-2x"></i>
-                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                                <a href="@Url.Action("Alterar/"+ item.Id)" class="table-link text-danger" title="Excluir Familiar">
-                                    <span class="fa-stack">
-                                        <i class="fa fa-square fa-stack-2x"></i>
-                                        <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-
+                            <td style="width: 0%;"  >
+                                @Html.ActionLink("Alterar","Alterar",new {id=@ViewBag.Nm,nM=item.MunicipeNm},new { @class = "btn btn-warning btn-block btn-sm " })
+                               @Html.ActionLink("Excluir","JaCadastrado",new {nM=@ViewBag.Nm},new { @class = "btn btn-danger btn-block btn-sm " })                               
                             </td>
                         </tr>
 
@@ -108,6 +94,7 @@
 
 
         </div>
+        <a href="@Url.Action("Listar","Municipe")" class="btn btn-outline-danger pull-right mr-2"><i class="fa fa-close"></i> Voltar a listagem de Munícipes</a>
     </div>
    
     <script src="~/Scripts/jquery-3.5.1.min.js"></script>

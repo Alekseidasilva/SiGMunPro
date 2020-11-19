@@ -380,6 +380,7 @@
     <Content Include="Views\Shared\PartialCadastrarRua.cshtml" />
     <Content Include="Views\Parente\ListarPorNm.cshtml" />
     <Content Include="Views\Parente\Cadastrar.cshtml" />
+    <Content Include="Views\Parente\Alterar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

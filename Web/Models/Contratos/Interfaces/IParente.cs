@@ -7,6 +7,7 @@ namespace Web.Models.Contratos.Interfaces
     {
         string CadstrarNovo(ParenteMorada parenteMorada);
         string CadstrarJaCadastrado(Parente parente);
+        Parente BuscarEntidadePelonM(string nM);
         List<Parente> ListarPeloNm(string Nm);
     }
 }
