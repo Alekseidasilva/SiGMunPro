@@ -1,0 +1,157 @@
+﻿@model Web.Models.Entidades.Velocipedes
+
+@{
+    ViewBag.Title = "Cadastrar velocipede";
+}
+
+<body lang="pt">
+<div class="main-content">
+    <div class="container-fluid content-top-gap">
+        <div class="card card_border">
+            @using (Html.BeginForm())
+            {  
+                
+                
+<section id="tabs" class="project-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i style="font-size: x-large; color:#4755AB " class="fa fa-motorcycle"></i> Dados do Velocipede</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i style="font-size: x-large; color:#4755AB " class="fa fa-camera"></i> Imagens</a>
+                               
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <br/>
+                                <div class="card card_border py-2 mb-4">
+                                        <div class="card-body">
+                                            <div class="form-row">
+                                                @Html.HiddenFor(p=>p.VelocipeMunicipeNm)
+                                               
+                                                <div class="form-group col-md-3">
+                                                    <label class="input__label">Marca</label>
+                                                    @Html.DropDownListFor(mol => mol.VelocipeMarca, new List<SelectListItem>(ViewBag.Marca), "Selecione a marca...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label class="input__label">Modelo</label>
+                                                     @Html.DropDownList("VelocipeModelo",new SelectList(""),"Selecione o modelo", htmlAttributes: new {@class = "form-control input-style", title = "Escolha a comuna", required = ""})
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label class="input__label">Nº Livrete</label>
+                                                    @Html.EditorFor(model => model.VelocipeNLivrete, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Nº do Livrete", title = "Nº livrete", required = ""}})
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label class="input__label">Nº Chapa</label>
+                                                    @Html.EditorFor(model => model.VelocipeNChapa, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Matricula", title = "Matricula", required = ""}})
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label class="input__label">Nº Quadro</label>
+                                                    @Html.EditorFor(model => model.VelocipeNQuadro, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Nº Quadro", title = "Nº Quadro", required = ""}})
+                                                </div>
+                                                 <div class="form-group col-md-2">
+                                                     <label class="input__label">Com Motor</label> <br/>
+                                                     Sim/Não @Html.CheckBoxFor(m=>m.VelocipeComSMotor,new {htmlAttributes = new {@class = "form-control input-style",Type="checkbox",required = "" }}) 
+                                                     &nbsp;
+                                                      
+                                                 </div>
+                                                <div class="form-group col-md-2">
+                                                    <label class="input__label">Nº Motor</label>
+                                                    @Html.EditorFor(model => model.VelocipeNMotor, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Nº Motor", title = "Nº Motor"}})
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label class="input__label">Destinado a Serviço de </label>
+                                                    @Html.EditorFor(model => model.VelocipeDestinoServico, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "á serviço de...", title = "á serviço de?", required = ""}})
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label class="input__label">Cilindragem</label>
+                                                    @Html.EditorFor(model => model.VelocipeCilindragem, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "CC", title = "Cilindragem", required = ""}})
+                                                </div>
+                                                 <div class="form-group col-md-2">
+                                                    <label class="input__label">Cor</label>
+                                                    @Html.EditorFor(model => model.VelocipeCor, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Cor", title = "Cor", required = ""}})
+                                                    
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="panel-footer ">
+                                    <a class="btn btn-outline-danger  pull-right" href="@Url.Action("ListarPorNm/"+@ViewBag.Nm)"><i class="fa fa-close"></i> Cancelar</a>
+                                     <button id="btnSave" type="submit" class="btn  btn-outline-success  pull-right"><i class="fa fa-save"></i> Guardar</button>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <br/>
+                                <div class="container">
+                                    <div class="row">
+                                        <div style="float: left; margin-left: 20px; border: 4px solid #ccc; padding: 5px" class="">
+                                            <img id="show" src="../../WebImages/User1.jpg"
+                                                 alt="" class="rounded mx-auto d-block user_img" title="Imagem do Munícipe" style="alignment: center">
+                                            <div id="Camera">
+                                            </div>
+                                            <br/>
+                                            <button value="Capture" onclick="webcam.capture();" class="btn btn-outline-warning" title="Carregar da camera"><i class="fa fa-camera" title="Carregar da camera"></i> Camera</button>
+                                            <button class="btn btn-outline-warning" title="Carregar do arquivo"><i class="fa fa-archive" title="Carregar do arquivo"></i> Arquivo</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+
+                                  <div class="panel-footer ">
+                                      <a class="btn btn-outline-danger  pull-right" href="@Url.Action("ListarPorNm/"+@ViewBag.Nm)"><i class="fa fa-close"></i> Cancelar</a>    
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            }
+        </div>
+    </div>
+</div>
+<!-------------->
+<script src="~/Content/js/jquery-1.10.2.min.js"></script>
+<!----DropDownList-----Marca--------->
+<script>
+    $(document).ready(function() {
+        $("#VelocipeMarca").change(function() {
+            var marcaId = $(this).val();
+            debugger;
+            $.ajax({
+                type: "post",
+                url: "/Velocipedes/BuscarModelosPelaMarca?id=" + marcaId,
+                contentType: "html",
+                success: function(response) {
+                    debugger;
+                    $("#VelocipeModelo").empty();
+                    $("#VelocipeModelo").append(response);
+                }
+            });
+        });
+    } )
+</script>
+<script>
+    $(document).ready(function() {
+        $("#VelocipeComSMotor").change(function() {
+            var estado = $(this).val();
+            if (estado) {
+                $("#psUserPassword").disable = true;
+            }
+        });
+    })
+</script>
+<script type='text/javascript'>
+    $(function () {
+        if ($("#VelocipeComSMotor").is(':checked')) {
+            $("#VelocipeNMotor").attr('disabled', 'disabled'); 
+        }
+    });
+  </script>
+
+</body>
+       

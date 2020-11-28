@@ -2,9 +2,10 @@
 (
   VelocipedeId INT IDENTITY(1,1),
   VelocipedeMunicipeNM varchar(20) NOT NULL,
-  VelocipedeNLivrete INT NOT NULL,
+  VelocipedeNLivrete VARCHAR(20) NOT NULL,
   VelocipedeNChapa VARCHAR(30)NOT NULL,
   VelocipedeMarca INT NOT NULL,
+  VelocipeModelo int not null,
   VelocipedeNQuadro VARCHAR(30) NOT NULL,
   VelocipedeCom_S_Motor BIT NOT NULL,
   VelocipedeNMotor VARCHAR(50) NULL,

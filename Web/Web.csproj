@@ -171,6 +171,10 @@
     <Content Include="Content\images\New\Background Masculino.png" />
     <Content Include="Content\images\New\houseInactive.png" />
     <Content Include="Content\images\New\houseActive.png" />
+    <Content Include="Content\images\New\motorcycleComMotor.png" />
+    <Content Include="Content\images\New\motorcycleSemMotor.png" />
+    <Content Include="Content\images\New\motorcycle_1001px.png" />
+    <Content Include="Content\images\New\motorcycle_100px.png" />
     <Content Include="Content\images\New\UserFermale.png" />
     <Content Include="Content\images\New\UserMale.png" />
     <Content Include="Content\images\people1.jpg" />
@@ -381,6 +385,10 @@
     <Content Include="Views\Parente\ListarPorNm.cshtml" />
     <Content Include="Views\Parente\Cadastrar.cshtml" />
     <Content Include="Views\Parente\Alterar.cshtml" />
+    <Content Include="Views\Error\Erro.cshtml" />
+    <Content Include="Views\Velocipedes\ListarPorNm.cshtml" />
+    <Content Include="Views\Velocipedes\Cadastrar.cshtml" />
+    <Content Include="Views\Velocipedes\partialMostrarModelosPorMarca.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -409,6 +417,7 @@
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\UserRoleProvider.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\VelocipedesController.cs" />
     <Compile Include="Helpers\Criptografia.cs" />
     <Compile Include="Helpers\CryptProvider.cs" />
     <Compile Include="Helpers\GuardaSessao.cs" />
@@ -419,12 +428,14 @@
     <Compile Include="Models\Contratos\Interfaces\IParente.cs" />
     <Compile Include="Models\Contratos\Interfaces\IPerfil.cs" />
     <Compile Include="Models\Contratos\Interfaces\IUsuario.cs" />
+    <Compile Include="Models\Contratos\Interfaces\IVelocipedes.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepGenerico.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepMorada.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepMunicipe.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepParente.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepPerfil.cs" />
     <Compile Include="Models\Contratos\Repositorios\RepUsuario.cs" />
+    <Compile Include="Models\Contratos\Repositorios\RepVelocipedes.cs" />
     <Compile Include="Models\Entidades\Base.cs" />
     <Compile Include="Models\Entidades\Locais\Municipios.cs" />
     <Compile Include="Models\Entidades\Locais\Rua.cs" />
@@ -438,6 +449,8 @@
     <Compile Include="Models\Entidades\Outras\EstadoCivil.cs" />
     <Compile Include="Models\Entidades\Outras\Genero.cs" />
     <Compile Include="Models\Entidades\Outras\GrauParentesco.cs" />
+    <Compile Include="Models\Entidades\Outras\Marcas.cs" />
+    <Compile Include="Models\Entidades\Outras\Modelos.cs" />
     <Compile Include="Models\Entidades\Outras\TiposDocumentosIdentificacao.cs" />
     <Compile Include="Models\Entidades\Perfis\Role.cs" />
     <Compile Include="Models\Entidades\Usuario\User.cs" />

@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using Web.Models.Contratos.Interfaces;
-using Web.Models.Entidades;
 using Web.Models.Entidades.Municipe;
 
 namespace Web.Models.Contratos.Repositorios
 {
     public class RepParente : IParente
-    {private readonly Conexao _conexao = new Conexao();
+    {
+        private readonly Conexao _conexao = new Conexao();
         public string Alterar(Parente entidade)
         {
             try
@@ -28,8 +28,9 @@ namespace Web.Models.Contratos.Repositorios
                 _conexao.AdicionarParametros("@MunicipeTelefone1", entidade.MunicipeTelefone1);
                 _conexao.AdicionarParametros("@MunicipeTelefone2", entidade.MunicipeTelefone2);
                 _conexao.AdicionarParametros("@MunicipeEmail", entidade.MunicipeEmail);
+                _conexao.AdicionarParametros("@MunicipeEstado",entidade.Estado);
                 _conexao.AdicionarParametros("@MunicipeFoto", entidade.MunicipeFoto);
-                 _conexao.AdicionarParametros("@MunicipeGrauParentescoId", entidade.MunicipeGrauParentescoId);
+                _conexao.AdicionarParametros("@MunicipeGrauParentescoId", entidade.MunicipeGrauParentescoId);
                 string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_ParenteAlterar").ToString();
                 return res;
             }
@@ -87,9 +88,7 @@ namespace Web.Models.Contratos.Repositorios
         public List<Parente> BuscarListaPorNome(string nome)
         {
             throw new System.NotImplementedException();
-        }
-
-        
+        }       
 
         public string Cadastrar(Parente entidade)
         {

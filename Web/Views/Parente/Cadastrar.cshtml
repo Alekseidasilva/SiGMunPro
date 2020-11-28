@@ -31,20 +31,20 @@
                                         <div class="card-body">
                                             <div class="form-row">
                                                 @Html.HiddenFor(p=>p.MunicipeParenteNm)
-                                                <div class="form-group col-md-8">
+                                                <div class="form-group col-md-4">
                                                     <label class="input__label">Nome Completo</label>
                                                     @Html.TextBoxFor(model => model.Nome, htmlAttributes: new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar", title = "Nome do Munícipe", required = "campo obrigatorio"})
                                                 </div>
 
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Data Nascimento</label>
                                                     @Html.EditorFor(model => model.MunicipeDataNascimento, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Login", Type = "date", required = "", title = "Data de Nascimento"}})
                                                 </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Tipo Doc.</label>
                                                     @Html.DropDownListFor(mol => mol.MunicipeTipoDocIdentificacao, new List<SelectListItem>(ViewBag.tipoDocIdent), "Selecione...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
                                                 </div>
-                                                <div class="form-group col-md-5">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Nº Documento</label>
                                                     @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", required = "", title = "Nº documento de Identificação"}})
                                                 </div>
@@ -57,33 +57,33 @@
                                                     @Html.EditorFor(model => model.MunicipeDocDataValidade, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", Type = "date", required = "", title = "Data de Validade do Documento"}})
 
                                                 </div>
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Estado Civil</label>
                                                     @Html.DropDownListFor(mol => mol.MunicipeEstadoCivil, new List<SelectListItem>(ViewBag.estadoCivil), "Selecione...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
                                                 </div>
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Género</label>
                                                     @Html.DropDownListFor(mol => mol.MunicipeGenero, new List<SelectListItem>(ViewBag.genero), "Selecione...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
                                                 </div>
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Nº Contribuinte</label>
                                                     @Html.EditorFor(model => model.MunicipeNif, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Nif", title = "Nº contribuinte", required = ""}})
 
                                                 </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Nº Telefone 1</label>
                                                     @Html.EditorFor(model => model.MunicipeTelefone1, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "", @id = "phone", type = "text", required = ""}})
                                                 </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Nº Telefone 2</label>
                                                     @Html.EditorFor(model => model.MunicipeTelefone2, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "", @id = "phone2", type = "phone", required = ""}})
                                                 </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-4">
                                                     <label class="input__label">Email</label>
                                                     @Html.EditorFor(model => model.MunicipeEmail, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "endereço E-mail", type = "email", title = "Nº contribuinte", required = ""}})
 
                                                 </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Grau Parentesco</label>
                                                     @Html.DropDownListFor(mol => mol.MunicipeGrauParentescoId, new List<SelectListItem>(ViewBag.grauParentesco), "Selecione...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
                                                 </div>
@@ -93,7 +93,7 @@
                                 
 
                                 <div class="panel-footer ">
-                                    <a class="btn btn-outline-danger  pull-right" href="@Url.Action("Listar")"><i class="fa fa-close"></i> Cancelar</a>
+                                    <a class="btn btn-outline-danger  pull-right" href="@Url.Action("ListarPorNm/"+@ViewBag.Nm)"><i class="fa fa-close"></i> Cancelar</a>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -113,12 +113,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br/><br/><br/><br/><br/><br/>
+                                <br/>
 
                                   <div class="panel-footer ">
                                       @*<button id="btnPrevious1" type="button" class="btn btn-outline-info fa-pull-left"><i class="fa fa-backward"></i> Recuar</button>
                                     <button id="btnNext2" type="button" class="btn btn-outline-info  pull-right"><i class="fa fa-forward"></i> Seguinte</button>*@
-                                      <a class="btn btn-outline-danger  pull-right" href="@Url.Action("Listar")"><i class="fa fa-close"></i> Cancelar</a>    
+                                      <a class="btn btn-outline-danger  pull-right" href="@Url.Action("ListarPorNm/"+@ViewBag.Nm)"><i class="fa fa-close"></i> Cancelar</a>    
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -128,14 +128,14 @@
                                                
                                         <div class="form-row">
 
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-3">
                                                 <label  class="input__label">Municipio</label>
                                                 @if (ViewBag.listamunicipio != null)
                                                 {
                                                     @Html.DropDownList("MunicipioId", ViewBag.listamunicipio as SelectList, "Selecione o Municipio", new {@class = "form-control input-style", title = "Escolha o munícipio", required = ""})
                                                 }
                                             </div>
-                                            <div class="form-group col-md-5">
+                                            <div class="form-group col-md-3">
                                                 <label  class="input__label">Comuna</label>
                                                 @Html.DropDownList("ComunaId",new SelectList(""),"Selecione a comuna", htmlAttributes: new {@class = "form-control input-style", title = "Escolha a comuna", required = ""})
                                             </div>
@@ -144,7 +144,7 @@
                                                 <button type="button" class="btn-outline-success form-control input-style" title="Adicionar nova comuna"><i class="fa fa-plus"></i></button>
                                             </div>
                                                    
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-3">
                                                 <label  class="input__label">Bairro</label>
                                                 @Html.DropDownList("MoradaBairroId",new SelectList(""),"Selecione o bairro", htmlAttributes: new {@class = "form-control input-style", title = "Escolha a rua", required = ""})
                                             </div>
@@ -156,11 +156,11 @@
                                             <div class="form-group col-md-1">
                                                 <label  class="input__label">Zona</label>
                                                 @{List<string>zonas=new List<string>{"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","S/N"};}
-                                                @Html.DropDownListFor(d=>d.MoradaZona, new SelectList(zonas), "...", htmlAttributes: new {@class = "form-control input-style", title = "Escolha o nº da zona", required = ""})
+                                                @Html.DropDownListFor(d=>d.MoradaZona, new SelectList(zonas), "...", htmlAttributes: new {@class = "form-control input-style", title = "Escolha o nº da zona"})
                                             </div>
                                             <div class="form-group col-md-5">
                                                 <label  class="input__label">Rua</label>
-                                                 @Html.DropDownListFor(m=>m.MoradaRuaId,new SelectList(""),"Selecione a rua", htmlAttributes: new {@class = "form-control input-style", title = "Escolha a rua", required = ""})
+                                                 @Html.DropDownListFor(m=>m.MoradaRuaId,new SelectList(""),"Selecione a rua", htmlAttributes: new {@class = "form-control input-style", title = "Escolha a rua"})
                                                
                                             </div>
 
@@ -168,9 +168,9 @@
                                                 <label  class="input__label hidden">Add</label>
                                                 <button type="button" class=" btn-outline-success form-control input-style" title="Adicionar nova rua"><i class="fa fa-plus"></i></button>
                                             </div>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-1">
                                                 <label  class="input__label">Casa Nº</label>
-                                                @Html.EditorFor(model => model.MoradaCasaN, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "número da casa", title = "Nº da Casa", required = ""}})
+                                                @Html.EditorFor(model => model.MoradaCasaN, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "casa", title = "Nº da Casa"}})
                                             </div>
                                         </div>
                                     </div>

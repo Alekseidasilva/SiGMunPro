@@ -15,7 +15,7 @@ namespace Web.Controllers
         public ActionResult ListarPorNm(string id)
         {
             var parentes = repParente.ListarPeloNm(id);
-            ViewBag.Nm = id;
+            ViewBag.idMunicipe = id;
             ViewBag.municipe = mun.BuscarNomePeloId(id);
             return View(parentes);
          
@@ -118,40 +118,36 @@ namespace Web.Controllers
             ViewBag.tipoDocIdent = new SelectList(tipoDocIdent, "Id", "Nome");
             //Garu Parentesco           
             ViewBag.grauParentesco = new SelectList(RepGenerico.CarregarGrauParentesco(), "Id", "Nome");
-            ViewBag.Nm = id;
+            ViewBag.idMunicipe = id;
             ViewBag.municipe = mun.BuscarNomePeloId(id);
             return View(repParente.BuscarEntidadePelonM(nM));
         }
 
         // POST: Parente/Edit/5
         [HttpPost]
-        public ActionResult Alterar(Parente parente,string nM)
+        public ActionResult Alterar(Parente parente,string id)
         {
-           if(ModelState.IsValid)
-            {
-                Parente p = new Parente
-                {
-                    Id = parente.Id,
-                    Nome = parente.Nome,
-                    MunicipeNDocIdent = parente.MunicipeNDocIdent,
-                    MunicipeTipoDocIdentificacao = parente.MunicipeTipoDocIdentificacao,
-                    MunicipeDocDataEmissao = parente.MunicipeDocDataEmissao,
-                    MunicipeDocDataValidade = parente.MunicipeDocDataValidade,
-                    MunicipeNif = parente.MunicipeNif,
-                    MunicipeGenero = parente.MunicipeGenero,
-                    MunicipeEstadoCivil = parente.MunicipeEstadoCivil,
-                    MunicipeTelefone1 = parente.MunicipeTelefone1,
-                    MunicipeTelefone2 = parente.MunicipeTelefone2,
-                    MunicipeEmail = parente.MunicipeEmail,
-                    MunicipeFoto = parente.MunicipeFoto,
-                    Estado = parente.Estado,
-                    MunicipeGrauParentescoId = parente.MunicipeGrauParentescoId
+            Parente p = new Parente();
 
-                };
-                repParente.Alterar(p);
-                
-            }
-           return RedirectToAction("ListarPorNm/" + nM);
+            p.Id = parente.Id;
+            p.MunicipeNm = parente.MunicipeNm;
+            p.Nome = parente.Nome;
+            p.MunicipeNDocIdent = parente.MunicipeNDocIdent;
+            p.MunicipeTipoDocIdentificacao = parente.MunicipeTipoDocIdentificacao;
+            p.MunicipeDataNascimento = parente.MunicipeDataNascimento;
+            p.MunicipeDocDataEmissao = parente.MunicipeDocDataEmissao;
+            p.MunicipeDocDataValidade = parente.MunicipeDocDataValidade;
+            p.MunicipeNif = parente.MunicipeNif;
+            p.MunicipeGenero = parente.MunicipeGenero;
+            p.MunicipeEstadoCivil = parente.MunicipeEstadoCivil;
+            p.MunicipeTelefone1 = parente.MunicipeTelefone1;
+            p.MunicipeTelefone2 = parente.MunicipeTelefone2;
+            p.MunicipeEmail = parente.MunicipeEmail;
+            p.MunicipeFoto = "parente.MunicipeFoto";
+            p.Estado = true;
+            p.MunicipeGrauParentescoId = parente.MunicipeGrauParentescoId;
+            repParente.Alterar(p);
+            return RedirectToAction("ListarPorNm/" + id);
                            
         }
 

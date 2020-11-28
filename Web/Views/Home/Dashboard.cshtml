@@ -8,12 +8,12 @@ ViewBag.Description = "DashBoard";
   <!-- content -->
   <div class="container-fluid content-top-gap">
 
-    @*<nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb">
       <ol class="breadcrumb my-breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("DashBoard")">Home</a></li>        
         <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
       </ol>
-    </nav>*@
+    </nav>
    
 
     <!-- statistics data -->
@@ -25,14 +25,14 @@ ViewBag.Description = "DashBoard";
               <div class="card card_border border-primary-top p-4">
                 <i class="lnr lnr-users"> </i>
                 <h3 class="text-primary number">@ViewBag.TotalUsuariosCadastrados</h3>
-                <p class="stat-text">Total Usuários</p>
+                <p class="stat-text">Usuários Registados</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
                 <i class="lnr lnr-eye"> </i>
                 <h3 class="text-secondary number">@ViewBag.TotalMunicipesCadastrados</h3>
-                <p class="stat-text">Total Munícipes</p>
+                <p class="stat-text">Munícipes Registados</p>
               </div>
             </div>
           </div>
@@ -42,15 +42,15 @@ ViewBag.Description = "DashBoard";
             <div class="col-sm-6 pr-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
                 <i class="lnr lnr-license"> </i>
-                <h3 class="text-success number">00</h3>
+                <h3 class="text-success number">@ViewBag.TotalOperacoesRealizadas</h3>
                 <p class="stat-text">Documentos Emitidos</p>
               </div>
             </div>
             <div class="col-sm-6 pl-sm-2 statistics-grid">
               <div class="card card_border border-primary-top p-4">
                   <i class="lnr lnr-bicycle"> </i>
-                <h3 class="text-danger number">00</h3>
-                <p class="stat-text">Registrados</p>
+                <h3 class="text-danger number">@ViewBag.TotalCadastrados</h3>
+                <p class="stat-text">Velocipedes Registrados</p>
               </div>
             </div>
           </div>
@@ -60,40 +60,37 @@ ViewBag.Description = "DashBoard";
         
     <!-- //statistics data -->
 
-    <!-- charts -->
+   <!--Primeiro Grafico-->
     <div class="chart">
       <div class="row">
         <div class="col-lg-6 pr-lg-2 chart-grid">
           <div class="card text-center card_border">
             <div class="card-header chart-grid__header">
-              Bar Chart
+              Cadastro de Munícipes
             </div>
-            <div class="card-body">
-               bar chart 
+            <div class="card-body">               
               <div id="container">
                 <canvas id="barchart"></canvas>
-              </div>
-               //bar chart 
+              </div>               
             </div>
             <div class="card-footer text-muted chart-grid__footer">
-              Updated 2 hours ago
+              Actualizado a 2 horas atrás
             </div>
           </div>
         </div>
+          <!--Segundo Grafico-->
           <div class="col-lg-6 pl-lg-2 chart-grid">
               <div class="card text-center card_border">
                   <div class="card-header chart-grid__header">
-                      Line Chart
+                      Documentos Emitidos
                   </div>
-                  <div class="card-body">
-                       line chart 
+                  <div class="card-body">                       
                       <div id="container">
                           <canvas id="linechart"></canvas>
-                      </div>
-                       //line chart 
+                      </div>                       
                   </div>
                   <div class="card-footer text-muted chart-grid__footer">
-                      Updated just now
+                      Actualizado agora
                   </div>
               </div>
           </div>
@@ -106,9 +103,7 @@ ViewBag.Description = "DashBoard";
       
 
 
-    <!-- //accordions -->
-
-    
+    <!-- //accordions -->    
     @*<section class="template-cards">
       <div class="card card_border">
         <div class="cards__heading">

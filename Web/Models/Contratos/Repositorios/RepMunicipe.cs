@@ -16,7 +16,7 @@ namespace Web.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
-                _conexao.AdicionarParametros("@Id", entidade.Id);
+                _conexao.AdicionarParametros("@MunicipeNm", entidade.MunicipeNm);
                 _conexao.AdicionarParametros("@MunicipeNomeCompleto", entidade.Nome);
                 _conexao.AdicionarParametros("@MunicipeDataNascimento", entidade.MunicipeDataNascimento);
                 _conexao.AdicionarParametros("@MunicipeNDocIdent", entidade.MunicipeNDocIdent);
@@ -30,8 +30,8 @@ namespace Web.Models.Contratos.Repositorios
                 _conexao.AdicionarParametros("@MunicipeTelefone2", entidade.MunicipeTelefone2);
                 _conexao.AdicionarParametros("@MunicipeEmail", entidade.MunicipeEmail);
                 _conexao.AdicionarParametros("@MunicipeFoto", entidade.MunicipeFoto);
+                _conexao.AdicionarParametros("@MunicipeEstado", entidade.Estado);
                 string res = _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Municipe_Alterar").ToString();
-
                 return res;
             }
             catch (Exception e)

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Erro na solicitação";
+}
+
+<body>
+<div class="main-content">
+    <div class="container-fluid content-top-gap">
+        <div class="card card_border">
+                         <div class="content-top-gap">
+                            <h3><i class="fa fa-warning text-danger"></i> Erro na Requisição</h3>
+                    
+                            <p>
+                                @ViewBag.erro
+                                <br>
+                            </p>
+                            <p>se o problema persistir por favor contacte o <a href="@Url.Action("Suporte", "Home")">suporte</a>.</p>
+                            <br/>
+                            <a href="@Url.Action("Dashboard", "Home")" class="btn btn-info" role="button">Dashboard</a>
+                        </div>
+                  
+            
+            
+            
+            
+            
+
+
+        </div>
+    </div>
+</div>
+</body>
+

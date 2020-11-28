@@ -78,7 +78,32 @@ END
     	INSERT INTO dbo.TB_Moradas 
         (MoradaMunicuipeNM, MoradaCasaNumero,  MoradaZona, MoradaRuaId, MoradaDataCadastro, MoradaEstado, IdCadastrador)
 	VALUES (@@NM, @MoradaCasaNumero, @MoradaZona, @MoradaRuaId, GETDATE(), 1, @IdCadastrador);
-    END    
+    END  
+---------------------------------------Verificação do Grau Parentesco-----------------------------------------------------
+--if @MunicipeGrauParentescoId=1
+--begin
+--INSERT TB_Municipes 
+--(MunicipeId,MunicipeNM, MunicipeNomeCompleto, MunicipeDataNascimento, MunicipeNDocIdent,
+--MunicipeTipoDocIdentificacao, MunicipeDocDataEmissao, MunicipeDocDataValidade,
+--MunicipeNIF, MunicipeGenero, MunicipeEstadoCivil, MunicipeTelefone1, MunicipeTelefone2,
+--MunicipeEmail, MunicipeEstado, MunicipeDataCadastro, MunicipeParenteNM, MunicipeGrauParentescoId,
+--MunicipeFoto, IdCadastrador
+--)	VALUES 
+--(@@IdAuto,@@NM, @MunicipeNomeCompleto, @MunicipeDataNascimento, @MunicipeNDocIdent,
+--@MunicipeTipoDocIdentificacao, @MunicipeDocDataEmissao, @MunicipeDocDataValidade,
+--@MunicipeNIF, @MunicipeGenero, @MunicipeEstadoCivil, @MunicipeTelefone1, @MunicipeTelefone2,
+--@MunicipeEmail, 1, GETDATE(), @Titular, @MunicipeGrauParentescoId, @MunicipeFoto, @IdCadastrador);
+--END
+--	BEGIN
+--    	INSERT INTO dbo.TB_Moradas 
+--        (MoradaMunicuipeNM, MoradaCasaNumero,  MoradaZona, MoradaRuaId, MoradaDataCadastro, MoradaEstado, IdCadastrador)
+--	VALUES (@@NM, @MoradaCasaNumero, @MoradaZona, @MoradaRuaId, GETDATE(), 1, @IdCadastrador);
+--    END  
+--end
+
+
+
+
  SELECT @@NM AS retorno
  IF @@NM IS NOT NULL BEGIN  
     	COMMIT
@@ -86,3 +111,20 @@ END
     ELSE
     ROLLBACK
 END
+
+
+--(1,'AVÓ(MATERNO)'),
+--(2,'AVÓ(PATERNO)'),
+--(3,'MÃE'),
+--(4,'PAI'),
+--(5,'FILHO(A)'),
+--(7,'NETO(A)'),
+--(8,'BISNETO(A)'),
+--(9,'TIO(A)'),
+--(10,'PRIMO(A)'),
+--(11,'IRMÃO(Ã)'),
+--(12,'ESPOSO(A)'),
+--(13,'SOGRO(A)'),
+--(14,'CUNHADO(A)'),
+--(15,'CONCUNHADO(A)'),
+--(16,'PRÓPRIO')

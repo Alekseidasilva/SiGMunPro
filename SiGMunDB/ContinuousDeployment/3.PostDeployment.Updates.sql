@@ -189,8 +189,8 @@ go
 ------------------------------Grau Parentesco-------------------------
 INSERT dbo.TB_GrauParentesco(GrauParentescoId,GrauParentescoIdNome)
 VALUES
-(1,'AVÓS(MATERNO)'),
-(2,'AVÓS(PATERNO)'),
+(1,'AVÓ(MATERNO)'),
+(2,'AVÓ(PATERNO)'),
 (3,'MÃE'),
 (4,'PAI'),
 (5,'FILHO(A)'),

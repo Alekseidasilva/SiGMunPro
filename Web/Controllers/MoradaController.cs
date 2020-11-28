@@ -77,7 +77,7 @@ namespace Web.Controllers
         {
             return PartialView("PartialCadastrarRua");
         }
-        [HttpPost]
+        
         public ActionResult PartialCadastrarRua(Rua rua)
         {
             return PartialView("PartialCadastrarRua");

@@ -357,5 +357,129 @@ namespace Web.Models.Contratos.Repositorios
         }
         #endregion
 
+        #region Marcas
+        public List<Marcas> MarcasCarregarTodas()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                DataTable resConsulta = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_MarcasCarregarTodas");
+                List<Marcas> marcas = new List<Marcas>();
+                foreach (DataRow item in resConsulta.Rows)
+                {
+                    Marcas marca = new Marcas()
+                    {
+                        Id = Convert.ToInt32(item["MarcaId"]),
+                        Nome = Convert.ToString(item["Marcadescricao"])
+                    };
+                    marcas.Add(marca);
+                }
+                return marcas;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        public string MarcaBuscarPeloId(int marcaId)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@MarcaId", marcaId);
+                DataTable graus = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_MarcaBuscarPeloId");
+                string grau = "";
+                foreach (DataRow item in graus.Rows)
+                {
+                    grau = Convert.ToString(item["MarcaDescricao"]);
+                }
+                return grau;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        #endregion
+
+        #region Modelos
+        public List<Modelos> ModelosBuscarPelaMarcaId(int marcaId)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@MarcaId", marcaId);
+                DataTable graus = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_ModelosBuscarPelaMarca");
+                List<Modelos> modelos = new List<Modelos>();
+                foreach (DataRow item in graus.Rows)
+                {
+                    Modelos modelo = new Modelos()
+                    {
+                        Id = Convert.ToInt32(item["ModeloId"]),
+                        Nome = Convert.ToString(item["ModeloDescricao"]),
+                        ModeloMarcaId = Convert.ToInt32(item["ModeloMarcaId"])
+                        
+                        
+                    };
+                    modelos.Add(modelo);
+                }
+                return modelos;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        public string CarregarModeloPelaMarcaId(int marcaId)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@MarcaId", marcaId);
+                DataTable graus = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_ModeloBuscarPelaMarca");
+                string grau = "";
+                foreach (DataRow item in graus.Rows)
+                {
+                    grau = Convert.ToString(item["ModeloDescricao"]);
+                }
+                return grau;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+
+        #endregion
+
+        #region Operações
+
+        public int TotalOperacoes()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                var Total = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_OperacaoTotal");
+                int nTotal = 0;
+                foreach (DataRow item in Total.Rows)
+                {
+                    nTotal = Convert.ToInt32(item["Qtde"]);
+                }
+                return nTotal;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        #endregion
+
     }
 }

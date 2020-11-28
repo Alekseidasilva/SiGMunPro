@@ -13,16 +13,16 @@
            
              <p >
                     <div class="btn-group show-on-hover">                      
-                        @Html.ActionLink("Adicionar","ListarPorNm", new {nM=ViewBag.Nm}, new { @class = "btn btn-outline-success fa fa-plus btn-sm dropdown-toggle mb-2",datatoggle="dropdown", type="button" })
+                        @Html.ActionLink("Adicionar","ListarPorNm", new {nM=ViewBag.idMunicipe}, new { @class = "btn btn-outline-success fa fa-plus btn-sm dropdown-toggle mb-2",datatoggle="dropdown", type="button" })
                         <ul class="dropdown-menu bg-success" role="menu">      
-                            <li>@Html.ActionLink("Já Cadastrado","JaCadastrado",new {nM=@ViewBag.Nm},new { @class = "btn btn-outline-warning fa fa-plus-circle" })</li>
-                             <li>@Html.ActionLink("Novo Cadastro","Cadastrar",new {nM=@ViewBag.Nm},new { @class = "btn btn-outline-secondary fa fa-plus-square" })</li>                                                       
+                            <li>@Html.ActionLink("Já Cadastrado","JaCadastrado",new {nM=@ViewBag.idMunicipe},new { @class = "btn btn-outline-warning fa fa-plus-circle" })</li>
+                             <li>@Html.ActionLink("Novo Cadastro","Cadastrar",new {nM=@ViewBag.idMunicipe},new { @class = "btn btn-outline-secondary fa fa-plus-square" })</li>                                                       
                         </ul>             
                     </div>               
                   
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Familiares de: <strong> @ViewBag.Nm</strong> - @ViewBag.municipe              
+                Familiares de: <strong> @ViewBag.idMunicipe</strong> - @ViewBag.municipe              
                 @Html.ActionLink(" Imprimir Lista", "#", new { }, new { @class = "btn btn-outline-info fa fa-print mb-2 pull-right" })
             </p>
             
@@ -83,8 +83,8 @@
                                 <span class="user-subhead label label-success">@grauParentesco</span>
                             </td>
                             <td style="width: 0%;"  >
-                                @Html.ActionLink("Alterar","Alterar",new {id=@ViewBag.Nm,nM=item.MunicipeNm},new { @class = "btn btn-warning btn-block btn-sm " })
-                               @Html.ActionLink("Excluir","JaCadastrado",new {nM=@ViewBag.Nm},new { @class = "btn btn-danger btn-block btn-sm " })                               
+                                @Html.ActionLink("Alterar","Alterar",new {id=@ViewBag.idMunicipe,nM=item.MunicipeNm},new { @class = "btn btn-warning btn-block btn-sm " })
+                               @Html.ActionLink("Excluir","JaCadastrado",new {nM=@ViewBag.idMunicipe},new { @class = "btn btn-danger btn-block btn-sm " })                               
                             </td>
                         </tr>
 

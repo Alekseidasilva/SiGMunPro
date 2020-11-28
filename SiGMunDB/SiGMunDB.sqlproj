@@ -77,6 +77,7 @@
     <Folder Include="ContinuousDeployment\StoredProcedures\Bairro" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Ruas" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Parente" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Velocipedes" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="ContinuousDeployment\Tables\__MigrationLog.sql" />
@@ -184,6 +185,18 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Parente\SP_Parente_CadastrarNovo.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Parente\SP_ParenteBuscarPeloNm.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Parente\SP_ParenteAlterar.sql" />
+    <Build Include="ContinuousDeployment\StaticTables\TB_Marcas.sql" />
+    <Build Include="ContinuousDeployment\StaticTables\TB_Modelos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Velocipedes\SP_VelocipedesCarregarTodosPeloNm.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_MarcasCarregarTodas.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_ModelosCarregarTodos.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_ModelosBuscarPelaMarca.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Velocipedes\SP_VelocipedesCarregarPeloId.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_ModeloBuscarPelaMarca.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_MarcaBuscarPeloId.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Velocipedes\SP_VeiculosCadastrar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Velocipedes\SP_VeiculosTotalCadastrados.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_OperacaoTotal.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
