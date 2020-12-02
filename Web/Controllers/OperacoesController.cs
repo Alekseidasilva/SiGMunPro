@@ -8,7 +8,8 @@ namespace Web.Controllers
      [Authorize(Roles = PerfilAgrupamento.ADMIN_CD_FUNC)]
     public class OperacoesController : Controller
     {
-        readonly RepOperacoes _operacoes=new RepOperacoes();
+       private readonly RepOperacoes _operacoes=new RepOperacoes();
+       private readonly RepTiposDeDocumentos _repTiposDeDocumentos=new RepTiposDeDocumentos();
 
         #region Principais
         // GET: Operacoes
@@ -46,6 +47,7 @@ namespace Web.Controllers
 
         public ActionResult ExecutarNova()
         {
+            ViewBag.TiposDeDocumentos = _repTiposDeDocumentos.SelecionarTodos();
             return View();
         }
         [HttpGet]

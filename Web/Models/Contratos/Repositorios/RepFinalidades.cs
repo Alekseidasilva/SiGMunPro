@@ -60,6 +60,36 @@ namespace Web.Models.Contratos.Repositorios
                     throw;
                 }
             }
+
+        public List<Finalidades> SelecionarTodosActivosPeloTipoDeDocumento(int id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                DataTable m = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_DocsFinalidadeCarregarActivosPorTipoDocumento");
+                List<Finalidades> fins = new List<Finalidades>();
+                foreach (DataRow linha in m.Rows)
+                {
+                    Finalidades fin = new Finalidades()
+                    {
+                        Id = Convert.ToInt32(linha["FinalidadeId"]),
+                        Nome = Convert.ToString(linha["FinalidadeNome"]),
+                        FinalidadeTipoDocumentoId = Convert.ToInt32(linha["FinalidadeTipoDocumento"]),
+                        FinalidadeValor = Convert.ToDecimal(linha["FinalidadeValor"]),
+                        Estado = Convert.ToBoolean(linha["FinalidadeEstado"]),
+                        Idcadastrador = Convert.ToInt32(linha["IdCadastrador"])
+                    };
+                    fins.Add(fin);
+                }
+
+                return fins;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
+    }
     
 }

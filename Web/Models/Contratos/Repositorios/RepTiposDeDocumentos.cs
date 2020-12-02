@@ -36,7 +36,31 @@ namespace Web.Models.Contratos.Repositorios
 
         public List<TiposDeDocumentos> SelecionarTodos()
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _conexao.LimparParametro();
+                DataTable m = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "");
+                List<TiposDeDocumentos> tiposDeDocumentoses = new List<TiposDeDocumentos>();
+                foreach (DataRow linha in m.Rows)
+                {
+                    TiposDeDocumentos doc = new TiposDeDocumentos()
+                    {
+                        Id = Convert.ToInt32(linha[""]),
+                        Nome = Convert.ToString(linha[""]),
+                        Estado = Convert.ToBoolean(linha[""]),
+                        DataCadastro = Convert.ToDateTime(linha[""]),
+                        Idcadastrador = Convert.ToInt32(linha[""])
+                    };
+                    tiposDeDocumentoses.Add(doc);
+                }
+
+                return tiposDeDocumentoses;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public string BuscarNomePeloId(int id)
@@ -53,6 +77,34 @@ namespace Web.Models.Contratos.Repositorios
                 }
 
                 return userName;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public List<TiposDeDocumentos> SelecionarTodosActivos()
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                DataTable m = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_TiposDeDocumentoCarregarActivos");
+                List<TiposDeDocumentos> tiposDeDocumentoses = new List<TiposDeDocumentos>();
+                foreach (DataRow linha in m.Rows)
+                {
+                    TiposDeDocumentos doc = new TiposDeDocumentos()
+                    {
+                        Id = Convert.ToInt32(linha["DocumentoId"]),
+                        Nome = Convert.ToString(linha["DocumentoNome"]),
+                        Estado = Convert.ToBoolean(linha["DocumentoEstado"]),
+                        Idcadastrador = Convert.ToInt32(linha["DocumentoUsuarioId"])
+                    };
+                    tiposDeDocumentoses.Add(doc);
+                }
+
+                return tiposDeDocumentoses;
             }
             catch (Exception e)
             {
