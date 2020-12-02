@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[TB_TiposDocumentos]
 (
-	DocumentoId INT NOT NULL,
+	DocumentoId INT identity(1,1) NOT NULL,
 	DocumentoNome VARCHAR(max)NOT NULL,	
 	DocumentoUsuarioId INT NOT NULL
 

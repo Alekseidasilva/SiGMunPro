@@ -78,6 +78,9 @@
     <Folder Include="ContinuousDeployment\StoredProcedures\Ruas" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Parente" />
     <Folder Include="ContinuousDeployment\StoredProcedures\Velocipedes" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\TiposDeDocumentos" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\FormasDePagamento" />
+    <Folder Include="ContinuousDeployment\StoredProcedures\Operações" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="ContinuousDeployment\Tables\__MigrationLog.sql" />
@@ -196,7 +199,17 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_MarcaBuscarPeloId.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Velocipedes\SP_VeiculosCadastrar.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\Velocipedes\SP_VeiculosTotalCadastrados.sql" />
-    <Build Include="ContinuousDeployment\StoredProcedures\Geral\SP_OperacaoTotal.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Velocipedes\SP_VelocipedeBuscarPeloIdENm.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Velocipedes\SP_VelocipedeAlterar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\DocsFinalidade\SP_FinalidadesBuscarNomePeloId.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\TiposDeDocumentos\SP_TiposDeDocumentosBuscarNomePeloId.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\FormasDePagamento\SP_FormasDePagamentoBuscarNomePeloId.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Operações\SP_OperacaoTotal.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Operações\SP_OperacoesPesquisar.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Operações\SP_OperacaoCarregarTodas.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Operações\SP_OperacaoOrdenarPelaData.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Operações\SP_OperacaoOrdenarPeloNM.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Operações\SP_OperacaoOrdenarPeloTipoDeDocumento.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

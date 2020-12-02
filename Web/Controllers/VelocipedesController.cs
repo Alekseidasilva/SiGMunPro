@@ -26,14 +26,19 @@ namespace Web.Controllers
         // GET: Parente/Create
         public ActionResult Cadastrar(string id)
         {
-           
-            ViewBag.Nm = id;
-            ViewBag.municipe = mun.BuscarNomePeloId(id);
-            //Carregar Municipios
-            ViewBag.Marca = new SelectList(RepGenerico.MarcasCarregarTodas(), "Id", "Nome");
-            ////Carregar Genero
-            //ViewBag.Modelo = new SelectList(RepGenerico.CarregarGeneros(), "Id", "Nome");
-           return View();
+            try
+            {
+
+                ViewBag.Nm = id;
+                ViewBag.municipe = mun.BuscarNomePeloId(id);
+                ViewBag.Marca = new SelectList(RepGenerico.MarcasCarregarTodas(), "Id", "Nome");
+                return View();
+            }
+            catch (Exception e)
+            {
+                GuardaSessao.Erros = Convert.ToString(e);
+                return RedirectToAction("Erro", "Error");
+            }
         }
 
         // POST: Parente/Create
@@ -42,25 +47,28 @@ namespace Web.Controllers
         {
             try
             {
-                var vll = new Velocipedes()
-                {
-                    VelocipeMunicipeNm =id,
-                    VelocipeNLivrete = vl.VelocipeNLivrete,
-                    VelocipeNChapa = vl.VelocipeNChapa,
-                    VelocipeMarca = vl.VelocipeMarca,
-                    VelocipeModelo = vl.VelocipeModelo,
-                    VelocipeNQuadro = vl.VelocipeNQuadro,
-                    VelocipeComSMotor = vl.VelocipeComSMotor,
-                    VelocipeNMotor = vl.VelocipeNMotor,
-                    VelocipeDestinoServico = vl.VelocipeDestinoServico,
-                    VelocipeCilindragem = vl.VelocipeCilindragem,
-                    VelocipeCor = vl.VelocipeCor,
-                    Estado = true,
-                    DataCadastro = DateTime.Now,
-                    Idcadastrador = GuardaSessao.Id
-                };
-                repVelocipedes.Cadastrar(vll);
+                var vll = new Velocipedes();
 
+                vll.VelocipeMunicipeNm = id;
+                vll.VelocipeNLivrete = vl.VelocipeNLivrete;
+                vll.VelocipeNChapa = vl.VelocipeNChapa;
+                vll.VelocipeMarca = vl.VelocipeMarca;
+                vll.VelocipeModelo = vl.VelocipeModelo;
+                vll.VelocipeNQuadro = vl.VelocipeNQuadro;
+                vll.VelocipeComSMotor = vl.VelocipeComSMotor;
+                if (vll.VelocipeComSMotor)
+                    vll.VelocipeNMotor = vl.VelocipeNMotor;
+                else
+                {
+                    vll.VelocipeNMotor = "SEM MOTOR"; 
+                }
+                vll.VelocipeDestinoServico = vl.VelocipeDestinoServico;
+                vll.VelocipeCilindragem = vl.VelocipeCilindragem;
+                vll.VelocipeCor = vl.VelocipeCor;
+                vll.Estado = true;
+                vll.DataCadastro = DateTime.Now;
+                vll.Idcadastrador = GuardaSessao.Id;
+                repVelocipedes.Cadastrar(vll);
                 return RedirectToAction("ListarPorNm/" + id);
             }
             catch (Exception e)
@@ -72,14 +80,55 @@ namespace Web.Controllers
         }
 
 
-        public ActionResult Alterar(string id)
+        public ActionResult Alterar(string id, string nm )
         {
-            return View();
+            try
+            {
+                ViewBag.Nm = nm;
+                ViewBag.municipe = mun.BuscarNomePeloId(nm);
+                ViewBag.Marca = new SelectList(RepGenerico.MarcasCarregarTodas(), "Id", "Nome");
+                return View(repVelocipedes.BuscarEntidadePorIdENm(id, nm));
+            }
+            catch (Exception e)
+            {
+                GuardaSessao.Erros = Convert.ToString(e);
+                return RedirectToAction("Erro", "Error");
+            }
+            
         }
         [HttpPost]
-        public ActionResult Alterar(Velocipedes velocipedes, string id)
+        public ActionResult Alterar(Velocipedes v)
         {
-            return View();
+            try
+            {
+                Velocipedes x = new Velocipedes();
+                x.Id = v.Id;
+                x.VelocipeMunicipeNm = v.VelocipeMunicipeNm;
+                x.VelocipeNLivrete = v.VelocipeNLivrete;
+                x.VelocipeNChapa = v.VelocipeNChapa;
+                x.VelocipeMarca = v.VelocipeMarca;
+                x.VelocipeModelo = v.VelocipeModelo;
+                x.VelocipeNQuadro = v.VelocipeNQuadro;
+                x.VelocipeComSMotor = v.VelocipeComSMotor;
+                if (x.VelocipeComSMotor)
+                    x.VelocipeNMotor = v.VelocipeNMotor;
+                else
+                {
+                    x.VelocipeNMotor = "SEM MOTOR";
+                }
+
+                x.VelocipeDestinoServico = v.VelocipeDestinoServico;
+                x.VelocipeCilindragem = v.VelocipeCilindragem;
+                x.VelocipeCor = v.VelocipeCor;
+                x.Estado = v.Estado;
+               string res= repVelocipedes.Alterar(x);
+               return RedirectToAction("ListarPorNm/"+v.VelocipeMunicipeNm);
+            }
+            catch (Exception e)
+            {
+                GuardaSessao.Erros = Convert.ToString(e);
+                return RedirectToAction("Erro", "Error");
+            }
         }
 
         #endregion
@@ -88,10 +137,18 @@ namespace Web.Controllers
 
         public ActionResult BuscarModelosPelaMarca(int id)
         {
-            //Carregar modelos
-            List<Modelos> modelos = RepGenerico.ModelosBuscarPelaMarcaId(id);
-            ViewBag.modelos = new SelectList(modelos, "Id", "Nome");
-            return PartialView("partialMostrarModelosPorMarca");
+            try
+            {
+                //Carregar modelos
+                List<Modelos> modelos = RepGenerico.ModelosBuscarPelaMarcaId(id);
+                ViewBag.modelos = new SelectList(modelos, "Id", "Nome");
+                return PartialView("partialMostrarModelosPorMarca");
+            }
+            catch (Exception e)
+            {
+                GuardaSessao.Erros = Convert.ToString(e);
+                return RedirectToAction("Erro", "Error");
+            }
 
         }
 

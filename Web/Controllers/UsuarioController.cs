@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -18,61 +18,93 @@ namespace Web.Controllers
             // GET: Usuario
             public ActionResult Index(IdentityUser user)
             {
-            var users = _usuario.SelecionarTodosComPerfilId();
-            ViewData["Profile"] = new List<Role>(perfil.SelecionarTodos());
-            return View(users);
+                try
+                {
+                    var users = _usuario.SelecionarTodosComPerfilId();
+                    ViewData["Profile"] = new List<Role>(perfil.SelecionarTodos());
+                    return View(users);
+                }
+                catch (Exception e)
+                {
+                GuardaSessao.Erros = Convert.ToString(e);
+                return RedirectToAction("Erro", "Error");
+            }
 
         }
             [HttpGet]
             public ActionResult Cadastrar()
             {
-                var perfis = perfil.SelecionarTodosActivos();
-                ViewBag.perfil = new SelectList(perfis, "Id", "Name");
-                return View();
+                try
+                {
+                    var perfis = perfil.SelecionarTodosActivos();
+                    ViewBag.perfil = new SelectList(perfis, "Id", "Name");
+                    return View();
+                }
+                catch (Exception e)
+                {
+                GuardaSessao.Erros = Convert.ToString(e);
+                return RedirectToAction("Erro", "Error");
+            }
             }
             [HttpPost]
             public ActionResult Cadastrar(User Usuario)
             {
-                if (ModelState.IsValid)
+                try
                 {
-                    User user = new User();
-                    user.NomeCompleto = Usuario.NomeCompleto;
-                    user.UserName = Usuario.UserName;
-                    user.Email = Usuario.Email;
-                    if (Usuario.PasswordHash == null)
+                    if (ModelState.IsValid)
                     {
-                        user.PasswordHash = Criptografar("000000");
-                    }
-                    else
-                    {
-                        user.PasswordHash = Criptografar(Usuario.PasswordHash);
-                    }
-                    user.PhoneNumber = Usuario.PhoneNumber;
-                    user.DataCadastro = DateTime.Now;
-                    user.Estado = Usuario.Estado;
-                    user.PerfilId = Usuario.PerfilId;
-                    user.IdCadastrador = GuardaSessao.Id;
+                        User user = new User();
+                        user.NomeCompleto = Usuario.NomeCompleto;
+                        user.UserName = Usuario.UserName;
+                        user.Email = Usuario.Email;
+                        if (Usuario.PasswordHash == null)
+                        {
+                            user.PasswordHash = Criptografar("000000");
+                        }
+                        else
+                        {
+                            user.PasswordHash = Criptografar(Usuario.PasswordHash);
+                        }
+                        user.PhoneNumber = Usuario.PhoneNumber;
+                        user.DataCadastro = DateTime.Now;
+                        user.Estado = Usuario.Estado;
+                        user.PerfilId = Usuario.PerfilId;
+                        user.IdCadastrador = GuardaSessao.Id;
 
-                    user.EmailConfirmed = false;
-                    user.SecurityStamp = "";
-                    user.PhoneNumberConfirmed = false;
-                    user.TwoFactorEnabled = false;
-                    user.LockoutEnabled = false;
-                    user.LockoutEndDateUtc = DateTime.Now;
-                    user.AccessFailedCount = 0;
-                    string res = _usuario.Cadastrar(user);
-                    return RedirectToAction("Index", "Usuario");
+                        user.EmailConfirmed = false;
+                        user.SecurityStamp = "";
+                        user.PhoneNumberConfirmed = false;
+                        user.TwoFactorEnabled = false;
+                        user.LockoutEnabled = false;
+                        user.LockoutEndDateUtc = DateTime.Now;
+                        user.AccessFailedCount = 0;
+                        string res = _usuario.Cadastrar(user);
+                        return RedirectToAction("Index", "Usuario");
+                    }
+                    ModelState.AddModelError("X", "Erro");
+                    return RedirectToAction("Cadastrar");
                 }
-                ModelState.AddModelError("X", "Erro");
-                return RedirectToAction("Cadastrar");
+                catch (Exception e)
+                {
+                GuardaSessao.Erros = Convert.ToString(e);
+                return RedirectToAction("Erro", "Error");
+            }
             }
 
 
             public ActionResult Alterar(int id)
             {
-                var perfis = perfil.SelecionarTodosActivos();
-                ViewBag.perfil = new SelectList(perfis, "Id", "Name");
-                return View(_usuario.BuscarEntidadePorId(id));
+                try
+                {
+                    var perfis = perfil.SelecionarTodosActivos();
+                    ViewBag.perfil = new SelectList(perfis, "Id", "Name");
+                    return View(_usuario.BuscarEntidadePorId(id));
+                }
+                catch (Exception e)
+                {
+                GuardaSessao.Erros = Convert.ToString(e);
+                return RedirectToAction("Erro", "Error");
+            }
             }
 
             [HttpPost]
@@ -118,14 +150,24 @@ namespace Web.Controllers
 
             public ActionResult Detalhes(int id)
             {
-                var user = _usuario.BuscarEntidadePorId(id);
-                ViewData["Profile"] = new List<Role>(perfil.SelecionarTodos());
-                if (user is null)
-                    return HttpNotFound();
-                return View(user);
+                try
+                {
+                    ViewData["Profile"] = new List<Role>(perfil.SelecionarTodos());
+                    return View(_usuario.BuscarListaPeloId(id));
+                }
+                catch (Exception e)
+                {
+                    GuardaSessao.Erros = Convert.ToString(e);
+                    return RedirectToAction("Erro", "Error");
+                }
             }
 
-            public ActionResult TrocarSenha(string senhaActual, string NovaSenha)
+            #region Metodos Prrivados
+
+            
+
+            
+        public ActionResult TrocarSenha(string senhaActual, string NovaSenha)
             {
 
                 return View();
@@ -150,6 +192,7 @@ namespace Web.Controllers
                 string textoCriptografado = criptografia.Encrypt(textoAcriptografar);
                 return textoCriptografado;
             }
+            #endregion
         
     } 
 }

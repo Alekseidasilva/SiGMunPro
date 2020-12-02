@@ -14,36 +14,26 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult Dashboard()
         { string nUser="", nMunicipe="", nVelocipedes="", nOperacoes="";
-
-
-            ViewBag.TotalMunicipesCadastrados = _municipe.TotalMunicipesCadastrados();
-            ViewBag.TotalUsuariosCadastrados = _usuario.TotalUsuariosCadastrados();
-            ViewBag.TotalVelocipedesCadastrados = _velocipedes.TotalCadastrados();
-            ViewBag.TotalOperacoesRealizadas = _generico.TotalOperacoes();
             if (_usuario.TotalUsuariosCadastrados()<10)
-            {
                 nUser = "0" + _usuario.TotalUsuariosCadastrados();
-                ViewBag.TotalUsuariosCadastrados = nUser;
-               
-            }
+            else
+             nUser = _usuario.TotalUsuariosCadastrados().ToString();
             if (_municipe.TotalMunicipesCadastrados() < 10)
-            {
                 nMunicipe = "0" + _municipe.TotalMunicipesCadastrados();
-                ViewBag.TotalMunicipesCadastrados = nMunicipe;
-                
-            }
+            else
+                nMunicipe = _municipe.TotalMunicipesCadastrados().ToString();
             if (_velocipedes.TotalCadastrados() < 10)
-            {
                 nVelocipedes = "0" + _velocipedes.TotalCadastrados();
-                ViewBag.TotalCadastrados = nVelocipedes;
-
-            }
+            else
+              nVelocipedes = _velocipedes.TotalCadastrados().ToString();
             if (_generico.TotalOperacoes() < 10)
-            {
                 nOperacoes = "0" +_generico.TotalOperacoes();
-                ViewBag.TotalOperacoesRealizadas = nOperacoes;
-
-            }
+            else
+                nOperacoes = _generico.TotalOperacoes().ToString();
+            ViewBag.TotalMunicipesCadastrados =nMunicipe ;
+            ViewBag.TotalUsuariosCadastrados =nUser ;
+            ViewBag.TotalVelocipedesCadastrados =nVelocipedes;
+            ViewBag.TotalOperacoesRealizadas =nOperacoes;
 
             return View();
         }

@@ -45,7 +45,7 @@ namespace Web.Models.Contratos.Repositorios
                 _conexao.ExecutarManipulacao(CommandType.StoredProcedure, "SP_Morada_Alterar");
                 return string.Empty;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;

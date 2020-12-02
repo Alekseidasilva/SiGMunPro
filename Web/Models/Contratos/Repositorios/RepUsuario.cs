@@ -123,7 +123,7 @@ namespace Web.Models.Contratos.Repositorios
             }
         }
 
-        public List<User> BuscarListaPeloId(string id)
+        public List<User> BuscarListaPeloId(int id)
         {
             try
             {

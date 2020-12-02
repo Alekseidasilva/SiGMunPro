@@ -1,7 +1,6 @@
 ﻿@model Web.Models.Entidades.Velocipedes
-
 @{
-    ViewBag.Title = "Cadastrar velocipede";
+    ViewBag.Title = "Alterar velocipede";
 }
 
 <body lang="pt">
@@ -30,6 +29,7 @@
                                         <div class="card-body">
                                             <div class="form-row">
                                                 @Html.HiddenFor(p=>p.VelocipeMunicipeNm)
+                                                 @Html.HiddenFor(p=>p.Id)
                                                
                                                 <div class="form-group col-md-3">
                                                     <label class="input__label">Marca</label>
@@ -67,14 +67,18 @@
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label class="input__label">Cilindragem</label>
-                                                    @Html.EditorFor(model => model.VelocipeCilindragem, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "CC", title = "Cilindragem", required = "",type="number"}})
-                                               
+                                                    @Html.EditorFor(model => model.VelocipeCilindragem, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "CC", title = "Cilindragem", required = "" , type="number"}})
+                                                
                                                 </div>
-                                                 <div class="form-group col-md-2">
+                                                <div class="form-group col-md-2">
                                                     <label class="input__label">Cor</label>
                                                     @Html.EditorFor(model => model.VelocipeCor, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Cor", title = "Cor", required = ""}})
                                                     
                                                 </div>
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                  @Html.CheckBoxFor(model=>model.Estado,htmlAttributes: new { @class="custom-control-input", type="checkbox", id="customControlValidation1" })
+                                                  <label class="custom-control-label" for="customControlValidation1">Estado</label>                          
+                                                 </div>
                                             
                                             </div>
                                         </div>
@@ -136,7 +140,7 @@
         });
     } )
 </script>
-<script>
+@*<script>
     $(document).ready(function() {
         $("#VelocipeComSMotor").change(function() {
             var estado = $(this).val();
@@ -145,7 +149,7 @@
             }
         });
     })
-</script>
+</script>*@
 <script type='text/javascript'>
     $(function () {
         if ($("#VelocipeComSMotor").is(':checked')) {
@@ -155,4 +159,3 @@
   </script>
 
 </body>
-       

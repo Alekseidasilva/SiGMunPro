@@ -52,8 +52,12 @@
                         <li><b>Registado Por :</b> <span>@nomeCadastrador</span></li>
                     </ul>
                 </div>               
-                @Html.ActionLink("Alterar","Alterar",new {id=@item.VelocipeMunicipeNm},new {@class="btn btn-outline-warning fa fa-pencil"})
-                @Html.ActionLink("Alterar","Alterar",new {id=@item.VelocipeMunicipeNm},new {@class="btn btn-outline-danger fa fa-trash"})
+                @Html.ActionLink("Alterar","Alterar",new {id=@item.Id, nm=item.VelocipeMunicipeNm},new {@class="btn btn-outline-warning fa fa-pencil"})
+                @if (User.IsInRole("ADMINISTRADOR") || User.IsInRole("CHEFE DE DEPARTAMENTO"))
+                {
+                    @Html.ActionLink("Alterar","#",new {id=@item.VelocipeMunicipeNm},new {@class="btn btn-outline-danger fa fa-trash"})
+                }
+                
             </div>
         </div>  
             }
@@ -83,8 +87,11 @@
                         <li><b>Registado Por :</b> <span>@nomeCadastrador</span></li>
                     </ul>
                 </div>               
-                @Html.ActionLink("Alterar","Alterar",new {id=@item.VelocipeMunicipeNm},new {@class="btn btn-outline-warning fa fa-pencil"})
-                @Html.ActionLink("Alterar","Alterar",new {id=@item.VelocipeMunicipeNm},new {@class="btn btn-outline-danger fa fa-trash"})
+                @Html.ActionLink("Alterar","Alterar",new {id=@item.Id, nm=item.VelocipeMunicipeNm},new {@class="btn btn-outline-warning fa fa-pencil"})
+               @if (User.IsInRole("ADMINISTRADOR") || User.IsInRole("CHEFE DE DEPARTAMENTO"))
+                {
+                    @Html.ActionLink("Alterar","#",new {id=@item.VelocipeMunicipeNm},new {@class="btn btn-outline-danger fa fa-trash"})
+                }
             </div>
         </div>  
              }
