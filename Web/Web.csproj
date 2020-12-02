@@ -144,6 +144,7 @@
     <Content Include="Content\Extras\Municipe\Cadastro\jquery.webcam.js" />
     <Content Include="Content\Extras\Municipe\Cadastro\jscam.swf" />
     <Content Include="Content\Extras\Municipe\Table.css" />
+    <Content Include="Content\Extras\Operacoes\jquery-1.11.1.min.js" />
     <Content Include="Content\Extras\Operacoes\StyleSheet1.css" />
     <Content Include="Content\Extras\TabelaMunicipe.css" />
     <Content Include="Content\Extras\TelaDetalheUsuario.css" />
@@ -392,6 +393,7 @@
     <Content Include="Views\Velocipedes\partialMostrarModelosPorMarca.cshtml" />
     <Content Include="Views\Velocipedes\Alterar.cshtml" />
     <Content Include="Views\Operacoes\Listar.cshtml" />
+    <Content Include="Views\Operacoes\ExecutarNova.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
