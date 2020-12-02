@@ -7,6 +7,7 @@ using Web.Models.Entidades.Locais;
 
 namespace Web.Controllers
 {
+     [Authorize(Roles = PerfilAgrupamento.ADMIN_CD_FUNC)]
     public class MoradaController : Controller
     { 
     private readonly RepGenerico RepGenerico=new RepGenerico();
@@ -76,7 +77,7 @@ namespace Web.Controllers
         {
             return PartialView("PartialCadastrarRua");
         }
-        [HttpPost]
+        
         public ActionResult PartialCadastrarRua(Rua rua)
         {
             return PartialView("PartialCadastrarRua");

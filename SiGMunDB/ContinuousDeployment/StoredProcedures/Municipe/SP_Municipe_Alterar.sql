@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Municipe_Alterar]
-@Id int,
+@MunicipeNm varchar(20),
 @MunicipeNomeCompleto VARCHAR(100),
 @MunicipeDataNascimento date,
 @MunicipeNDocIdent VARCHAR(20),
@@ -14,7 +14,6 @@
 @MunicipeEmail VARCHAR(100),
 @MunicipeEstado bit,
 @MunicipeFoto VARCHAR(max)
-
 AS
 BEGIN
     UPDATE dbo.TB_Municipes SET
@@ -32,7 +31,6 @@ MunicipeTelefone2=@MunicipeTelefone2,
 MunicipeEmail=@MunicipeEmail,
 MunicipeEstado=@MunicipeEstado,
 MunicipeFoto=@MunicipeFoto
-
-
-WHERE MunicipeId=@Id
+WHERE MunicipeNm=@MunicipeNm
+select @MunicipeNm as retorno
 END

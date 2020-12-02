@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Web.Helpers;
 
 namespace Web.Controllers
 {
@@ -13,6 +14,12 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult NotFound()
         {
+            return View();
+        }
+
+        public ActionResult Erro()
+        {
+            ViewBag.erro = GuardaSessao.Erros;
             return View();
         }
     }

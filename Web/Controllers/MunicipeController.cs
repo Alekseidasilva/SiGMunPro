@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Web.Helpers;
@@ -9,11 +8,13 @@ using Web.Models.Entidades.Municipe;
 
 namespace Web.Controllers
 {
-    [Authorize(Roles = "ADMINISTRADOR")]
+    [Authorize(Roles = PerfilAgrupamento.ADMIN_CD_FUNC)]
     public class MunicipeController : Controller
     {
         private readonly RepMunicipe _municipe = new RepMunicipe();
         private readonly RepGenerico RepGenerico=new RepGenerico();
+
+        #region Principais
         // GET: Municipe
         public ActionResult Listar()
         {
@@ -95,16 +96,11 @@ namespace Web.Controllers
             ViewBag.listamunicipio = new SelectList(RepGenerico.CarregarMunicipiosPorProvincia(14), "Id", "Nome");
             //Carregar Genero
             ViewBag.genero = new SelectList(RepGenerico.CarregarGeneros(), "Id", "Nome");
-
             //Carregar EstadoCivil
             ViewBag.estadoCivil = new SelectList(RepGenerico.CarregarEstadoCivil(), "Id", "Nome");
-
-
             //Tipos de Documentos
             var tipoDocIdent = RepGenerico.SelecionarTodosTiposDocumentoIdentificacao();
             ViewBag.tipoDocIdent = new SelectList(tipoDocIdent, "Id", "Nome");
-
-
             return View( _municipe.BuscarEntidadePorId(id));
         }
 
@@ -116,7 +112,9 @@ namespace Web.Controllers
             {
                 Municipe mun = new Municipe();
                 mun.Id =municipe.Id ;
+                mun.MunicipeNm = municipe.MunicipeNm;
                 mun.Nome =municipe.Nome;
+                mun.MunicipeDataNascimento = municipe.MunicipeDataNascimento;
                 mun.MunicipeNDocIdent = municipe.MunicipeNDocIdent;
                 mun.MunicipeTipoDocIdentificacao = municipe.MunicipeTipoDocIdentificacao;
                 mun.MunicipeDocDataEmissao = municipe.MunicipeDocDataEmissao;
@@ -127,15 +125,14 @@ namespace Web.Controllers
                 mun.MunicipeTelefone1 = municipe.MunicipeTelefone1;
                 mun.MunicipeTelefone2 = municipe.MunicipeTelefone2;
                 mun.MunicipeEmail = municipe.MunicipeEmail;
-                mun.MunicipeFoto = municipe.MunicipeFoto;
-                mun.Estado = municipe.Estado;
+                mun.MunicipeFoto = "municipe.MunicipeFoto";
+                mun.Estado = true;
                 _municipe.Alterar(mun);
-
-                return RedirectToAction("Index");
+                return RedirectToAction("Listar");
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                return RedirectToAction("Erro/"+e,"Error");
             }
         }
 
@@ -160,10 +157,9 @@ namespace Web.Controllers
                 return View();
             }
         }
-        
-        
+        #endregion
 
-        
+        #region Locais
         public ActionResult GetComunas(int id)
         {
             //Carregar Municipios
@@ -188,7 +184,7 @@ namespace Web.Controllers
             return PartialView("mostrarRuas");
 
         }
-
+        #endregion
     
 
     }

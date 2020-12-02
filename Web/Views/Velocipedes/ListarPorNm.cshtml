@@ -1,0 +1,110 @@
+﻿@using Web.Models.Contratos.Repositorios
+@model IEnumerable<Web.Models.Entidades.Velocipedes>
+
+@{
+    ViewBag.Title = "Listargem de Velocipedes";
+}
+
+
+<body>
+<header>
+    <link href="~/Content/Extras/Moradas.css" rel="stylesheet" />
+</header>
+<div class="main-content">
+    <div class="container-fluid content-top-gap mt-4">
+
+        <div class="card card_border">
+           <div class="cards__heading">
+               <a href="@Url.Action("Cadastrar/"+ViewBag.nM)" class="btn btn-outline-success btn-sm ml-1"><i class="fa fa-motorcycle"></i> Cadastrar</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Velocipedes de  <span>@ViewBag.municipe</span></a>
+                   <a href="@Url.Action("#")" class="btn btn-outline-info pull-right btn-sm mr-1"><i class="fa fa-print"></i> Imprimir</a>
+            </div>
+            @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
+<section class="pt-2 ml-2 mr-2 pb-5" id="pricing">
+    <div class="row ">
+        @foreach (var item in  Model)
+        { 
+            RepUsuario user=new RepUsuario();
+            string nomeCadastrador = user.BuscarNomeDoCadastrador(item.Idcadastrador);
+            if (item.Estado)
+            {
+                <div class="col-3 mt-2 ">
+            <div class="single-price" style="background-color: #D1FFFF">
+                <div class="recomemded-price">
+                    @if (item.VelocipeComSMotor)
+                    {
+                        <img src="~/Content/images/New/motorcycle_1001px.png" width="100" height="100"/>
+                    }
+                    else
+                    {
+                        <img src="~/Content/images/New/motorcycle_100px.png" width="100" height="100"/>
+                    }
+                   
+                </div>
+                <div class="price-item">
+                    <ul>
+                         <li><b>Cilindragem:</b> <span>@item.VelocipeCilindragem C.C</span> </li>
+                        <li><b>Livrete Nº :</b> <span>@item.VelocipeNLivrete</span></li>
+                        <li><b>Matricula Nº :</b> <span>@item.VelocipeNChapa</span></li>
+                        <li><b>Nº Quadro:</b> <span>@item.VelocipeNQuadro</span></li>
+                        <li><b>Nº Motor :</b> <span>@item.VelocipeNMotor</span></li>
+                        <li><b>Marca/Modelo:</b> <span>@item.VelocipeMarca-@item.VelocipeModelo</span> </li>
+                        <li><b>Registado Por :</b> <span>@nomeCadastrador</span></li>
+                    </ul>
+                </div>               
+                @Html.ActionLink("Alterar","Alterar",new {id=@item.Id, nm=item.VelocipeMunicipeNm},new {@class="btn btn-outline-warning fa fa-pencil"})
+                @if (User.IsInRole("ADMINISTRADOR") || User.IsInRole("CHEFE DE DEPARTAMENTO"))
+                {
+                    @Html.ActionLink("Alterar","#",new {id=@item.VelocipeMunicipeNm},new {@class="btn btn-outline-danger fa fa-trash"})
+                }
+                
+            </div>
+        </div>  
+            }
+             else
+             {
+           <div class="col-3 mt-2 ">
+            <div class="single-price" style="background-color: #DC8D8D">
+                <div class="recomemded-price">
+                    @if (item.VelocipeComSMotor)
+                    {
+                        <img src="~/Content/images/New/motorcycle_1001px.png" width="100" height="100"/>
+                    }
+                    else
+                    {
+                        <img src="~/Content/images/New/motorcycle_100px.png" width="100" height="100"/>
+                    }
+                   
+                </div>
+                <div class="price-item">
+                    <ul>
+                         <li><b>Cilindragem:</b> <span>@item.VelocipeCilindragem C.C</span> </li>
+                        <li><b>Livrete Nº :</b> <span>@item.VelocipeNLivrete</span></li>
+                        <li><b>Matricula Nº :</b> <span>@item.VelocipeNChapa</span></li>
+                        <li><b>Nº Quadro:</b> <span>@item.VelocipeNQuadro</span></li>
+                        <li><b>Nº Motor :</b> <span>@item.VelocipeNMotor</span></li>
+                        <li><b>Marca/Modelo:</b> <span>@item.VelocipeMarca-@item.VelocipeModelo</span> </li>
+                        <li><b>Registado Por :</b> <span>@nomeCadastrador</span></li>
+                    </ul>
+                </div>               
+                @Html.ActionLink("Alterar","Alterar",new {id=@item.Id, nm=item.VelocipeMunicipeNm},new {@class="btn btn-outline-warning fa fa-pencil"})
+               @if (User.IsInRole("ADMINISTRADOR") || User.IsInRole("CHEFE DE DEPARTAMENTO"))
+                {
+                    @Html.ActionLink("Alterar","#",new {id=@item.VelocipeMunicipeNm},new {@class="btn btn-outline-danger fa fa-trash"})
+                }
+            </div>
+        </div>  
+             }
+       
+
+        }
+    </div>
+     
+</section>
+           <a href="@Url.Action("Listar","Municipe")" class="btn btn-outline-danger pull-right mr-2"><i class="fa fa-close"></i> Voltar a listagem de Munícipes</a>
+            @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
+        </div>
+       
+    </div>
+</div>
+</body>

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[TB_FormasPagamento]
 (
-	FormaPagamentoId INT NOT NULL,
+	FormaPagamentoId INT identity(1,1) NOT NULL,
 	FormaPagamentoNome VARCHAR(50) NOT NULL,
 	FormaPagamentoBancoId INT NOT NULL,
 	FormaPagamentoUsuarioId INT NOT NULL

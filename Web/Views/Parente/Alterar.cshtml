@@ -1,0 +1,138 @@
+﻿@model Web.Models.Entidades.Municipe.Parente
+
+@{
+    ViewBag.Title = "Alterar Dados de " + ViewBag.municipe;
+
+   
+}
+
+
+<body lang="pt">
+<div class="main-content">
+    <div class="container-fluid content-top-gap">
+        <div class="card card_border">
+            @using (Html.BeginForm())
+            {                
+<section id="tabs" class="project-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i style="font-size: x-large; color:#4755AB " class="fa fa-user"></i> Dados Pessoais</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i style="font-size: x-large; color:#4755AB " class="fa fa-camera"></i> Imagem</a>
+                               
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">                               
+                                <br/>
+                                <div class="card card_border py-2 mb-4">
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            
+                                                @Html.HiddenFor(model => model.MunicipeNm,new {htmlAttributes= new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar", title = "Nome do Munícipe", required = "campo obrigatorio"}})
+                                            
+                                            
+                                            <div class="form-group col-md-4">
+                                                <label class="input__label">Nome Completo</label>
+                                                @Html.EditorFor(model => model.Nome, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nome sem abreviar", title = "Nome do Munícipe", required = "campo obrigatorio"}})
+                                            </div>
+
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Data Nascimento</label>
+                                                @Html.EditorFor(model => model.MunicipeDataNascimento, new {htmlAttributes = new {@class = "form-control datepicker text-box single-line input-style", type = "date", required = "", title = "Data de Nascimento"}})
+
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Tipo Doc.</label>
+                                                @Html.DropDownListFor(mol => mol.MunicipeTipoDocIdentificacao, new List<SelectListItem>(ViewBag.tipoDocIdent), "Selecione...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Nº Documento</label>
+                                                @Html.EditorFor(model => model.MunicipeNDocIdent, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", required = "", title = "Nº documento de Identificação"}})
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Data Emissão</label>
+                                                @Html.EditorFor(model => model.MunicipeDocDataEmissao, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", Type = "date", required = "", title = "Data de Emissão do Documento"}})
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Data Validade</label>
+                                                @Html.EditorFor(model => model.MunicipeDocDataValidade, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "nº documento", Type = "date", required = "", title = "Data de Validade do Documento"}})
+
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Estado Civil</label>
+                                                @Html.DropDownListFor(mol => mol.MunicipeEstadoCivil, new List<SelectListItem>(ViewBag.estadoCivil), "Selecione...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Género</label>
+                                                @Html.DropDownListFor(mol => mol.MunicipeGenero, new List<SelectListItem>(ViewBag.genero), "Selecione...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Nº Contribuinte</label>
+                                                @Html.EditorFor(model => model.MunicipeNif, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "Nif", title = "Nº contribuinte", required = ""}})
+
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Nº Telefone 1</label>
+                                                @Html.EditorFor(model => model.MunicipeTelefone1, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "", @id = "phone", type = "text", required = ""}})
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Nº Telefone 2</label>
+                                                @Html.EditorFor(model => model.MunicipeTelefone2, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "", @id = "phone2", type = "phone", required = ""}})
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label class="input__label">Email</label>
+                                                @Html.EditorFor(model => model.MunicipeEmail, new {htmlAttributes = new {@class = "form-control input-style", PlaceHolder = "endereço E-mail", type = "email", title = "Nº contribuinte", required = ""}})
+
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label class="input__label">Grau Parentesco</label>
+                                                @Html.DropDownListFor(mol => mol.MunicipeGrauParentescoId, new List<SelectListItem>(ViewBag.grauParentesco), "Selecione...", htmlAttributes: new {@class = "form-control input-style", required = "", title = "Tipo de Documento"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                               
+
+                                <div class="panel-footer ">
+                                    <a class="btn btn-outline-danger  pull-right" href="@Url.Action("Listar")"><i class="fa fa-close"></i> Cancelar</a>
+                                    <button id="btnSave" type="submit" class="btn  btn-outline-success  pull-right"><i class="fa fa-save"></i>Guardar</button>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <br/>
+                                <div class="container">
+                                    <div class="row">
+                                        <div style="float: left; margin-left: 20px; border: 4px solid #ccc; padding: 5px" class="">
+                                            <img id="show" src="../../WebImages/User1.jpg"
+                                                 alt="" class="rounded mx-auto d-block user_img" title="Imagem do Munícipe" style="alignment: center">
+                                            <div id="Camera">
+                                            </div>
+                                                    
+                                            <br/>
+                                            <button value="Capture" onclick="webcam.capture();" class="btn btn-outline-warning" title="Carregar da camera"><i class="fa fa-camera" title="Carregar da camera"></i> Camera</button>
+                                            <button class="btn btn-outline-warning" title="Carregar do arquivo"><i class="fa fa-archive" title="Carregar do arquivo"></i> Arquivo</button>
+                                                    
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/><p></p>
+
+                                  <div class="panel-footer ">
+                                  <a class="btn btn-outline-danger  pull-right" href="@Url.Action("ListarPorNm/"+ViewBag.idMunicipe)"><i class="fa fa-close"></i> Cancelar</a>
+                                  <button id="btnSave" type="submit" class="btn  btn-outline-success  pull-right"><i class="fa fa-save"></i> Guardar</button>
+                                      
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            }
+        </div>
+    </div>
+</div>
+</body>

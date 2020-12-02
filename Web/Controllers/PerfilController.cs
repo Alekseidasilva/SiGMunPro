@@ -6,7 +6,7 @@ using Web.Models.Entidades.Perfis;
 
 namespace Web.Controllers
 {
-     [Authorize(Roles = "ADMINISTRADOR")]
+     [Authorize(Roles = PerfilAgrupamento.ADMIN_CD)]
     public class PerfilController : Controller
     {
         private readonly RepPerfil _perfil = new RepPerfil();

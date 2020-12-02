@@ -1,0 +1,130 @@
+﻿@using System.Web.UI.WebControls
+@using Web.Models.Contratos.Repositorios
+@model IEnumerable<Web.Models.Entidades.Operacoes>
+
+@{
+    ViewBag.Title = "Listagem de Operações";
+}
+<head>
+    
+</head>
+
+<body>
+    
+<div class="main-content mt-5">
+<div class="container-fluid content-top-gap mt-4">
+
+<div class="card card_border">
+<div class="form-inline align-content-center">
+    <a href="@Url.Action("ExecutarNova")" class="btn btn-outline-success ml-2"><i class="fa fa-plus"></i> Nova Emissão</a>
+    &nbsp;&nbsp;&nbsp;
+    NM&nbsp;<input type="radio" name="municipe" />&nbsp;&nbsp;&nbsp;
+    Tipo Documento&nbsp; <input type="radio" name="municipe" />&nbsp;&nbsp;&nbsp;
+    Finalidade&nbsp;<input type="radio" name="municipe" />&nbsp;&nbsp;&nbsp;
+    Form.Pag&nbsp; <input type="radio" name="municipe" />&nbsp;&nbsp;&nbsp;
+    
+ @using (Html.BeginForm("Listar", "Operacoes", FormMethod.Get))
+ {
+    @Html.TextBox("txtPesquisar", null, new {@class="form-control", PlaceHolder = "digite aqui...", title = "pode pesquisar: NM, Nome, Tipo de Documento, Finalidade e forma pagamento"})
+     <button type="submit" class="btn btn-primary"> <i class="fa fa-search"> Buscar</i></button>
+ }
+    
+    &nbsp;&nbsp;&nbsp;
+    <a href="@Url.Action("#")" class="btn btn-outline-info pull-right mr-2"><i class="fa fa-print"></i> Imprimir</a>
+
+</div>
+<br/><br/>
+   <table id="dtBasicExample" class="table table-striped table-bordered table-sm table-hover"  width="100%">
+  <thead>
+  <tr>
+      <th class="text-center">#</th>
+      <th class="text-center">
+          @Html.ActionLink("NM","Listar",new {ordenarPor="NM"})
+      </th>
+      <th class="text-center">Nome Completo</th>
+      <th class="text-center">Tipo Doc</th>
+      <th class="text-center">Finalidade</th>
+      <th class="text-center">Form. Pag</th>
+      <th class="text-center">Valor(Kzs)</th>
+      <th class="text-center">Data</th>
+      <th class="text-center">Utilizador</th>
+      <th class="text-center">Opções</th>
+  </tr>
+  </thead>
+  <tbody>
+  @foreach (var item in Model)
+  {RepMunicipe repMunicipe=new RepMunicipe();
+      string nomeMunicipe = repMunicipe.BuscarNomePeloId(item.OperacaoMunicipeNM);
+      RepFormasDePagamento repFormasDePagamento=new RepFormasDePagamento();
+      string nomeFormaPagamento = repFormasDePagamento.BuscarNomePeloId(item.OperacaoFormaPagamentoId);
+      RepFinalidades repFinalidades=new RepFinalidades();
+      string nomeFinalidade = repFinalidades.BuscarNomePeloId(item.OperacaoDocsFinalidadeId);
+      RepTiposDeDocumentos repTiposDeDocumentos=new RepTiposDeDocumentos();
+      string nomeDoTipoDocumento = repTiposDeDocumentos.BuscarNomePeloId(item.OperacaoTipoDocumentoId);
+      RepUsuario user=new RepUsuario();
+            string nomeCadastrador = user.BuscarNomeDoCadastrador(item.Idcadastrador);
+     <tr>
+         <td class="text-center">@item.Id</td>
+         <td class="text-center">@item.OperacaoMunicipeNM</td>
+         <td></td>
+         <td>@nomeDoTipoDocumento</td>
+         <td>@nomeFinalidade</td>
+         <td class="text-center">@nomeFormaPagamento</td>
+         <td class="text-right">@item.OperacaoValorTotal</td>
+         <td class="text-center">@item.DataCadastro.ToShortDateString()</td>
+         <td class="text-center">@nomeCadastrador</td>
+         <td class="text-center">
+             <a href="@Url.Action("#")" class="btn btn-success btn-sm fa fa-print"></a>
+         </td>
+      </tr>
+  }
+  </tbody>
+  <tfoot>
+    <tr>
+      <th class="text-center">#</th>
+      <th class="text-center">NM</th>
+      <th class="text-center">Nome Completo</th>
+      <th class="text-center">Tipo Doc</th>
+      <th class="text-center">Finalidade</th>
+      <th class="text-center">Form. Pag</th>
+      <th class="text-center">Valor(Kzs)</th>
+      <th class="text-center">Data</th>
+      <th class="text-center">Utilizador</th>
+      <th class="text-center">Opções</th>
+  </tr>
+  </tfoot>
+</table>
+     
+  
+
+  
+
+</div>
+
+</div>
+</div>
+
+
+</body>
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+        
+        
+        
+        

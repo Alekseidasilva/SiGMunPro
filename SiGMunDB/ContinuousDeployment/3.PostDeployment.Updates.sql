@@ -153,7 +153,7 @@ EXEC SP_Perfil_Inserir @Name = 'ADMINISTRADOR',@Estado = 1,@DataCadastro = '2020
 GO
 EXEC SP_Perfil_Inserir @Name = 'CHEFE DE DEPARTAMENTO',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
 GO
-EXEC SP_Perfil_Inserir @Name = 'FUNCIONÁRIO',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
+EXEC SP_Perfil_Inserir @Name = 'FUNCIONARIO',@Estado = 1,@DataCadastro = '2020-10-20' ,@Idcadastrador = 1
 GO
 INSERT INTO TB_TipoDocIdentificacao (Nome)
   VALUES ('B.I'),('OUTRO')
@@ -189,8 +189,8 @@ go
 ------------------------------Grau Parentesco-------------------------
 INSERT dbo.TB_GrauParentesco(GrauParentescoId,GrauParentescoIdNome)
 VALUES
-(1,'AVÓS(MATERNO)'),
-(2,'AVÓS(PATERNO)'),
+(1,'AVÓ(MATERNO)'),
+(2,'AVÓ(PATERNO)'),
 (3,'MÃE'),
 (4,'PAI'),
 (5,'FILHO(A)'),
@@ -398,4 +398,29 @@ go
 	(3, 'Rua Principal da Maxinde', 2, 1),
 	(4, 'Estrada direita da Guiné', 3, 1);
 	
-	
+	go
+	INSERT TB_TiposDocumentos (DocumentoNome, DocumentoUsuarioId)
+  VALUES ('ATESTADO DE RESIDÊNCIA', 1),('ATESTADO DE POBREZA', 1),('AGREGADO FAMILIAR', 1),
+  ('LICENÇA DE CONDUÇÃO', 1),('REGISTO DE VELOCIPEDES', 1),('CARTÃO CIM', 1);
+
+GO
+INSERT TB_Bancos (BancoNome, BancoSigla, BancoEstado)
+  VALUES ('BANCO DE POUPANÇA E CREDITO', 'BPC', 1);
+GO
+
+INSERT TB_FormasPagamento (FormaPagamentoNome, FormaPagamentoBancoId, FormaPagamentoUsuarioId)
+  VALUES ('TPA', 1, 1),('DEPOSITO', 1, 1),('TRANSFERÊNCIA', 1, 1);
+GO
+
+INSERT TB_DocsFinalidades (FinalidadeNome, FinalidadeTipoDocumento, FinalidadeValor, FinalidadeEstado, IdCadastrador)
+  VALUES ('CARTA DE CONDUÇÃO', 1, 500, 1, 1),('INGRESSO FUNÇÃO PÚBLICA', 1, 500, 1, 1),
+('MATRICULA ESCOLAR', 1, 500, 1, 1),
+  
+  ('PROPINA ESCOLAR', 2, 100, 1, 1),  ('FUNDO DE APOIO SOCIAL', 1, 100, 1, 1),
+  
+  ('FUNÇÃO PÚBLICA', 3, 1500, 1, 1),  ('APOSENTADORIA', 3, 2000, 1, 1),
+  
+  ('CONDUÇÃO DE VELOCIPEDES', 4, 2500, 1, 1),
+  ('REGISTO DE VELOCIPEDES', 5, 2000, 1, 1),
+  ('CARTA DE CONDUÇÃO', 6, 100, 1, 1);
+GO

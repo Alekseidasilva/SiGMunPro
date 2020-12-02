@@ -10,37 +10,23 @@
     <div class="main-content">
         <div class="container-fluid content-top-gap">
 
-            <div class="container">
-                <div class="row">
-
-                    <div class="btn-group show-on-hover">
-                        <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown">
-                            Action <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Já Cadastrado</a></li>
-                            <li><a href="#">Não Cadastrado</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-
-
-
-
-
-
-            <p>
-                @*@Html.ActionLink(" Cadastrar Novo", "Create", new { nM = ViewBag.Nm }, new { @class = "btn btn-outline-success dropdown-toggle",datatoggle="dropdown" })*@
-                
+           
+             <p >
+                    <div class="btn-group show-on-hover">                      
+                        @Html.ActionLink("Adicionar","ListarPorNm", new {nM=ViewBag.idMunicipe}, new { @class = "btn btn-outline-success fa fa-plus btn-sm dropdown-toggle mb-2",datatoggle="dropdown", type="button" })
+                        <ul class="dropdown-menu bg-success" role="menu">      
+                            <li>@Html.ActionLink("Já Cadastrado","JaCadastrado",new {nM=@ViewBag.idMunicipe},new { @class = "btn btn-outline-warning fa fa-plus-circle" })</li>
+                             <li>@Html.ActionLink("Novo Cadastro","Cadastrar",new {nM=@ViewBag.idMunicipe},new { @class = "btn btn-outline-secondary fa fa-plus-square" })</li>                                                       
+                        </ul>             
+                    </div>               
+                  
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Familiares de: <strong> @ViewBag.Nm</strong> - @ViewBag.municipe
+                Familiares de: <strong> @ViewBag.idMunicipe</strong> - @ViewBag.municipe              
                 @Html.ActionLink(" Imprimir Lista", "#", new { }, new { @class = "btn btn-outline-info fa fa-print mb-2 pull-right" })
             </p>
-            <table class="table user-list table-striped  table-hover">
+            
+            <table class="table user-list table-striped  table-hover ">
                 <thead class="bg-light">
                     <tr>
                         <th><span>Foto</span></th>
@@ -71,7 +57,7 @@
                             </td>
                             <td style="width: 15%;">
                                 <a title="Clique para ver Detalhes">@item.Nome</a><br />
-                                <span class="user-subhead">@item.MunicipeParenteNm</span>
+                                <span class="user-subhead">@item.MunicipeNm</span>
                             </td>
                             <td class="text-center">
                                 <span>@item.MunicipeDataNascimento.ToShortDateString()</span>
@@ -96,20 +82,9 @@
                                 @idade<br />
                                 <span class="user-subhead label label-success">@grauParentesco</span>
                             </td>
-                            <td style="width: 20%;" class="btn-group">
-                                <a href="@Url.Action("Alterar/"+ item.Id)" class="table-link text-warning" title="Alterar Dados">
-                                    <span class="fa-stack">
-                                        <i class="fa fa-square fa-stack-2x"></i>
-                                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                                <a href="@Url.Action("Alterar/"+ item.Id)" class="table-link text-danger" title="Excluir Familiar">
-                                    <span class="fa-stack">
-                                        <i class="fa fa-square fa-stack-2x"></i>
-                                        <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-
+                            <td style="width: 0%;"  >
+                                @Html.ActionLink("Alterar","Alterar",new {id=@ViewBag.idMunicipe,nM=item.MunicipeNm},new { @class = "btn btn-warning btn-block btn-sm " })
+                               @Html.ActionLink("Excluir","JaCadastrado",new {nM=@ViewBag.idMunicipe},new { @class = "btn btn-danger btn-block btn-sm " })                               
                             </td>
                         </tr>
 
@@ -119,6 +94,7 @@
 
 
         </div>
+        <a href="@Url.Action("Listar","Municipe")" class="btn btn-outline-danger pull-right mr-2"><i class="fa fa-close"></i> Voltar a listagem de Munícipes</a>
     </div>
    
     <script src="~/Scripts/jquery-3.5.1.min.js"></script>

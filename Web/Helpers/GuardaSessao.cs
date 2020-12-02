@@ -21,7 +21,7 @@ namespace Web.Helpers
 
 
 
-
+        public static string Erros { get; set; }
 
 
 

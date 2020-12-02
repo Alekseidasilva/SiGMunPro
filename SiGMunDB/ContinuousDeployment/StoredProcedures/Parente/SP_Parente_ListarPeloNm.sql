@@ -4,7 +4,7 @@ AS
 begin
 SELECT 
 tm.MunicipeId,
-tm.MunicipeParenteNM,
+tm.MunicipeNM,
 tm.MunicipeNomeCompleto,
 tm.MunicipeDataNascimento,
 tm.MunicipeNDocIdent,
@@ -19,8 +19,9 @@ tm.MunicipeTelefone2,
 tm.MunicipeEmail,
 tm.MunicipeEstado,
 tm.MunicipeDataCadastro,
+tm.MunicipeParenteNM,
 tm.MunicipeGrauParentescoId,
 tm.MunicipeFoto,
 tm.IdCadastrador 
-FROM TB_Municipes tm where MunicipeNm=@MunicipeNm
+FROM TB_Municipes tm where MunicipeParenteNM=@MunicipeNm AND tm.MunicipeGrauParentescoId!=16
 End

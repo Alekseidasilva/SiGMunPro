@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Web.Models.Entidades.Velocipedes>
+
+<option value="">Selecione o modelo</option>
+@if (ViewBag.modelos != null)
+
+{
+    foreach (var item in ViewBag.modelos)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}

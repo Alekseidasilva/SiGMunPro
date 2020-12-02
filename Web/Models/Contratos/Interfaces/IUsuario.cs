@@ -14,7 +14,7 @@ namespace Web.Models.Contratos.Interfaces
         int BuscarTentativas(string userName);
         Boolean BuscarEstado(string userName);
         string BuscarNomeDoCadastrador(int userid);
-        List<User> BuscarListaPeloId(string id);
+        List<User> BuscarListaPeloId(int id);
         void Tentativas(string userName, int tentativas);
         int TotalUsuariosCadastrados();
         Boolean AlterarSenha(int id, string senhaAntiga, string senhanova);
