@@ -35,7 +35,6 @@ namespace Web.Controllers
                         break;
 
                 }
-
                 return View(encontrados);
             }
             catch (Exception e)
