@@ -205,6 +205,44 @@ namespace Web.Models.Contratos.Repositorios
             }
         }
 
+        public Municipe BuscarPeloNMBarcodeQr(string txt)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@Txt", txt);
+                DataTable res = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_MunicipeBuscarPeloNMBarcodeQr");
+                Municipe municipe = new Municipe();
+                foreach (DataRow item in res.Rows)
+                {
+                    municipe.Id = Convert.ToInt32(item["MunicipeId"]);
+                    municipe.MunicipeNm = Convert.ToString(item["MunicipeNM"]);
+                    municipe.Nome = Convert.ToString(item["MunicipeNomeCompleto"]);
+                    municipe.MunicipeDataNascimento = Convert.ToDateTime(item["MunicipeDataNascimento"]);
+                    municipe.MunicipeNDocIdent = Convert.ToString(item["MunicipeNDocIdent"]);
+                    municipe.MunicipeTipoDocIdentificacao = Convert.ToInt32(item["MunicipeTipoDocIdentificacao"]);
+                    municipe.MunicipeDocDataEmissao = Convert.ToDateTime(item["MunicipeDocDataEmissao"]);
+                    municipe.MunicipeDocDataValidade = Convert.ToDateTime(item["MunicipeDocDataValidade"]);
+                    municipe.MunicipeNif = Convert.ToString(item["MunicipeNIF"]);
+                    municipe.MunicipeGenero = Convert.ToInt32(item["MunicipeGenero"]);
+                    municipe.MunicipeEstadoCivil = Convert.ToInt32(item["MunicipeEstadoCivil"]);
+                    municipe.MunicipeTelefone1 = Convert.ToString(item["MunicipeTelefone1"]);
+                    municipe.MunicipeTelefone2 = Convert.ToString(item["MunicipeTelefone2"]);
+                    municipe.MunicipeEmail = Convert.ToString(item["MunicipeEmail"]);
+                    municipe.DataCadastro = Convert.ToDateTime(item["MunicipeDataCadastro"]);
+                    municipe.MunicipeFoto = Convert.ToString(item["MunicipeFoto"]);
+                    municipe.Estado = Convert.ToBoolean(item["MunicipeEstado"]);
+                    municipe.Idcadastrador = Convert.ToInt32(item["IdCadastrador"]);
+                }
+                return municipe;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         public string Cadastrar(Municipe entidade)
         {
             throw new NotImplementedException();

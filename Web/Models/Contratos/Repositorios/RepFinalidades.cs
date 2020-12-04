@@ -66,6 +66,7 @@ namespace Web.Models.Contratos.Repositorios
             try
             {
                 _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@TipoDocumentoId",id);
                 DataTable m = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_DocsFinalidadeCarregarActivosPorTipoDocumento");
                 List<Finalidades> fins = new List<Finalidades>();
                 foreach (DataRow linha in m.Rows)

@@ -395,6 +395,8 @@
     <Content Include="Views\Velocipedes\Alterar.cshtml" />
     <Content Include="Views\Operacoes\Listar.cshtml" />
     <Content Include="Views\Operacoes\ExecutarNova.cshtml" />
+    <Content Include="Views\Shared\mostrarFinaliadesPeloTipoDocumento.cshtml" />
+    <Content Include="Views\Operacoes\mostrarDadosDoMunicipe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

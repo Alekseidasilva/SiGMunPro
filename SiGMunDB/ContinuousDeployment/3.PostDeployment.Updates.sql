@@ -399,9 +399,9 @@ go
 	(4, 'Estrada direita da Guiné', 3, 1);
 	
 	go
-	INSERT TB_TiposDocumentos (DocumentoNome, DocumentoUsuarioId)
-  VALUES ('ATESTADO DE RESIDÊNCIA', 1),('ATESTADO DE POBREZA', 1),('AGREGADO FAMILIAR', 1),
-  ('LICENÇA DE CONDUÇÃO', 1),('REGISTO DE VELOCIPEDES', 1),('CARTÃO CIM', 1);
+	INSERT TB_TiposDocumentos (DocumentoNome, DocumentoEstado, DocumentoUsuarioId)
+  VALUES   ('ATESTADO DE RESIDÊNCIA',1, 1),('ATESTADO DE POBREZA',1, 1),('AGREGADO FAMILIAR',1, 1),
+  ('LICENÇA DE CONDUÇÃO',1, 1),('REGISTO DE VELOCIPEDES',1, 1),('CARTÃO CIM',1, 1);
 
 GO
 INSERT TB_Bancos (BancoNome, BancoSigla, BancoEstado)
@@ -411,16 +411,17 @@ GO
 INSERT TB_FormasPagamento (FormaPagamentoNome, FormaPagamentoBancoId, FormaPagamentoUsuarioId)
   VALUES ('TPA', 1, 1),('DEPOSITO', 1, 1),('TRANSFERÊNCIA', 1, 1);
 GO
-
 INSERT TB_DocsFinalidades (FinalidadeNome, FinalidadeTipoDocumento, FinalidadeValor, FinalidadeEstado, IdCadastrador)
-  VALUES ('CARTA DE CONDUÇÃO', 1, 500, 1, 1),('INGRESSO FUNÇÃO PÚBLICA', 1, 500, 1, 1),
-('MATRICULA ESCOLAR', 1, 500, 1, 1),
-  
-  ('PROPINA ESCOLAR', 2, 100, 1, 1),  ('FUNDO DE APOIO SOCIAL', 1, 100, 1, 1),
-  
-  ('FUNÇÃO PÚBLICA', 3, 1500, 1, 1),  ('APOSENTADORIA', 3, 2000, 1, 1),
-  
-  ('CONDUÇÃO DE VELOCIPEDES', 4, 2500, 1, 1),
-  ('REGISTO DE VELOCIPEDES', 5, 2000, 1, 1),
-  ('CARTA DE CONDUÇÃO', 6, 100, 1, 1);
+  VALUES  
+('CARTA DE CONDUÇÃO', 1, 500, 1, 1),
+('INGRESSO FUNÇÃO PÚBLICA', 1, 500, 1, 1),
+('MATRICULA ESCOLAR', 1, 500, 1, 1),  
+('PROPINA ESCOLAR', 2, 100, 1, 1),
+('FUNDO DE APOIO SOCIAL', 1, 100, 1, 1),
+('FUNÇÃO PÚBLICA', 3, 1500, 1, 1),
+('APOSENTADORIA', 3, 2000, 1, 1),
+('CONDUÇÃO DE VELOCIPEDES', 4, 2500, 1, 1),
+('REGISTO DE VELOCIPEDES', 5, 2000, 1, 1),
+('CARTA DE CONDUÇÃO', 6, 100, 1, 1);
+
 GO

@@ -212,6 +212,7 @@
     <Build Include="ContinuousDeployment\StoredProcedures\Operações\SP_OperacaoOrdenarPeloTipoDeDocumento.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\TiposDeDocumentos\SP_TiposDeDocumentoCarregarActivos.sql" />
     <Build Include="ContinuousDeployment\StoredProcedures\DocsFinalidade\SP_DocsFinalidadeCarregarActivosPorTipoDocumento.sql" />
+    <Build Include="ContinuousDeployment\StoredProcedures\Municipe\SP_MunicipeBuscarPeloNMBarcodeQr.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />

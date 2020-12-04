@@ -6,5 +6,6 @@ namespace Web.Models.Contratos.Interfaces
     {
         string BuscarNomePeloId(string id);
         int TotalMunicipesCadastrados();
+        Municipe BuscarPeloNMBarcodeQr(string txt);
     }
 }

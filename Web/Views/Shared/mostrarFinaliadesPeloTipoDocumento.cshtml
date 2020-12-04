@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Web.Models.Entidades.Outras.Finalidades>
+
+<option value="">Selecione a finalidade</option>
+@if (ViewBag.Finalidades != null)
+
+{
+    foreach (var item in ViewBag.Finalidades)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}

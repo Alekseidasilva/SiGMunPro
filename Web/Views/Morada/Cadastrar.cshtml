@@ -86,7 +86,7 @@
     $(document).ready(function() {
         $("#MunicipioId").change(function() {
             var municipioId = $(this).val();
-            debugger 
+            debugger
             $.ajax({
                 type: "post",
                 url: "/Municipe/GetComunas?id=" + municipioId,
@@ -96,8 +96,8 @@
                     $("#ComunaId").empty();
                     $("#ComunaId").append(response);
                 }
-            })
-        } )
+            });
+        });
     } )
 </script>
 <!----DropDownList-----Bairros--------->
