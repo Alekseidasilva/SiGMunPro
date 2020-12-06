@@ -59,8 +59,10 @@
                                     </div>
                                 </div>
                             </div>
-                           
-                            @Html.Partial("mostrarDadosDoMunicipe")
+                            <!--Dados do Municipe-->
+                            <div id="divmunicipeEncontrado">
+                                a lista vai ser mostrada aqui
+                            </div>
                            
                             
                         </div>
@@ -188,7 +190,7 @@
     } )
 </script>
 
-<script >
+@*<script >
     $(document).ready(function() {
         $("#btnPesquisar").click(function() {
             var textoPesquisar = $("#txtPesquisar").val();            
@@ -197,9 +199,29 @@
                 type: "get",
                 url: "/Operacoes/PesquisarMunicipe?txtMunicipe="+textoPesquisar,
                 contentType:"html"
+            });
         });
     });
+</script>*@
+<script >
+    $(document).ready(function() {
+        $("#btnPesquisar").click(function() {
+            var textoPesquisar=$("#txtPesquisar").val(); 
+            $.ajax({
+                type: "GET",
+                url: "/Operacoes/PesquisarMunicipe",
+                data:{txtMunicipe:textoPesquisar},
+                success:function(data) {
+                    $("#divmunicipeEncontrado").html(data);
+                },
+                error:function() {
+                    alert("Municipe não encontrado");
+                }
+                
+            });
+        });
     });
+   
 </script>
 </body>
 

@@ -397,6 +397,7 @@
     <Content Include="Views\Operacoes\ExecutarNova.cshtml" />
     <Content Include="Views\Shared\mostrarFinaliadesPeloTipoDocumento.cshtml" />
     <Content Include="Views\Operacoes\mostrarDadosDoMunicipe.cshtml" />
+    <Content Include="Views\Operacoes\PesquisarMunicipe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

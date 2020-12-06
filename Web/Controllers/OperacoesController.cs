@@ -70,8 +70,7 @@ namespace Web.Controllers
             RepMunicipe repmunicipe = new RepMunicipe();
             List<Municipe> municipes = new List<Municipe>();
             municipes.Add(repmunicipe.BuscarPeloNMBarcodeQr("IAH00001"));
-            ViewData["Municipe"] = municipes;
-            return PartialView("mostrarDadosDoMunicipe");
+            return PartialView(municipes);
         }
         #endregion
 
