@@ -1,10 +1,32 @@
-﻿@model Web.Models.Entidades.Municipe.Municipe
+﻿@*@model IEnumerable<Web.Models.Entidades.Municipe.Municipe>*@
+@using Web.Models.Entidades.Municipe
 
 
+    <table>
+    <thead>
+        <tr>Nome</tr>       
+    </thead>
+        <tbody>
+            @if (ViewData["Municipe"]!=null)
+            {
+             foreach (var std in ViewData["Municipe"] as IList<Municipe>)
+             {
+             <tr>
+                <td>@std.Nome</td>
+            </tr>
 
+             }
+            } 
+            
+        </tbody>
+    </table>
     
-   
-<div>
+
+
+
+
+
+@*<div>
     <h4>Municipe</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -145,5 +167,5 @@
         </dd>
 
     </dl>
-</div>
+</div>*@
 

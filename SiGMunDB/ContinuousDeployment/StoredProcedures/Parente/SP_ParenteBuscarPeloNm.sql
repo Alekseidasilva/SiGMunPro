@@ -22,5 +22,5 @@ BEGIN
 		MunicipeEstado,
 		MunicipeGrauParentescoId, 
 		Idcadastrador
-	FROM TB_Municipes WHERE MunicipeNm=@nM
+	FROM TB_Municipes WHERE MunicipeNM=@nM
 end

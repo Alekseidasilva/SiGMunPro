@@ -47,7 +47,7 @@ namespace Web.Models.Contratos.Repositorios
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e);
                 throw;
             }
         }

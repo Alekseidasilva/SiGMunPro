@@ -20,5 +20,5 @@ SELECT
   tv.IdCadastrador
 	 FROM TB_Velocipedes tv
 		  WHERE
-               tv.VelocipedeId=@id
+               tv.VelocipedeId=@Id
 End

@@ -6,7 +6,7 @@ AS
 BEGIN
     UPDATE dbo.TB_Perfil 
 	SET 
-	name=@Name,
+	Name=@Name,
 	Estado=@Estado
 	
 	WHERE 

@@ -6,6 +6,6 @@ AS
 
 BEGIN
     SELECT id FROM dbo.TB_Usuarios
-	WHERE Username=@UserName AND PasswordHash=@Senha 
+	WHERE UserName=@UserName AND PasswordHash=@Senha 
 	
 END

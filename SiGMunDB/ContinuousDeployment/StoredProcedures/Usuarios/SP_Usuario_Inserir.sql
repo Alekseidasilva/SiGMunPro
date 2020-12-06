@@ -14,7 +14,7 @@
       @AccessFailedCount INT,
       @UserName NVARCHAR(MAX),
       @PerfilId INT,
-      @Idcadastrador int
+      @IdCadastrador int
   AS
   DECLARE @@UserId INT
   DECLARE @@UserIdNoPerfil INT
@@ -35,7 +35,7 @@
       LockoutEnabled,
       AccessFailedCount,
       UserName,
-	  Idcadastrador
+	  IdCadastrador
       )
   VALUES 
       (      
@@ -53,7 +53,7 @@
       @LockoutEnabled ,
       @AccessFailedCount,
       @UserName, 
-      @Idcadastrador);
+      @IdCadastrador);
       SELECT @@UserId=@@IDENTITY
       SELECT @UserName AS retorno
   END

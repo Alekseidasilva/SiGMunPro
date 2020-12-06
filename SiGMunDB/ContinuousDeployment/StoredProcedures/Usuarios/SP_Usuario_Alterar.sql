@@ -34,7 +34,7 @@
       AccessFailedCount=@AccessFailedCount,
       UserName=@UserName,
 	  IdCadastrador=@IdCadastrador
-      WHERE id=@Id
+      WHERE Id=@Id
       SELECT @UserName AS retorno
   END
   BEGIN  

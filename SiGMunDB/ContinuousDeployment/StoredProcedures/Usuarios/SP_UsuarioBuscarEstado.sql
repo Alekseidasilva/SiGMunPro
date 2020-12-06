@@ -3,5 +3,5 @@ CREATE PROCEDURE [dbo].[SP_UsuarioBuscarEstado]
 AS
 BEGIN
   SELECT Estado FROM TB_Usuarios tu
-	 WHERE Username=@UserName		
+	 WHERE UserName=@UserName		
 END

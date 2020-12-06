@@ -20,6 +20,6 @@ MunicipeEmail,
 MunicipeDataCadastro,
 MunicipeFoto,
 MunicipeEstado,
-Idcadastrador
+IdCadastrador
 FROM TB_Municipes WHERE MunicipeId=@Id
 END

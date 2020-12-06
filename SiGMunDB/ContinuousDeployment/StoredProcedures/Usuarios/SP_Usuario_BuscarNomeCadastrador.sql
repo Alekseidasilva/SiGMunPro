@@ -7,7 +7,7 @@ BEGIN
      SELECT @@idCadastrador=IdCadastrador FROM dbo.TB_Usuarios tu WHERE tu.Id= @UserId
 	 END
 	 BEGIN
-	     SELECT username FROM dbo.TB_Usuarios tu WHERE id=@@idCadastrador
+	     SELECT userName FROM dbo.TB_Usuarios tu WHERE id=@@idCadastrador
 	 END  
 END
 

@@ -8,7 +8,7 @@ BEGIN
   AccessFailedCount
  
 	FROM dbo.TB_Usuarios
-	WHERE Username=@UserName 
+	WHERE UserName=@UserName 
 	
 	
 END

@@ -34,6 +34,6 @@ MunicipeEmail=@MunicipeEmail,
 MunicipeEstado=@MunicipeEstado,
 MunicipeFoto=@MunicipeFoto,
 MunicipeGrauParentescoId=@MunicipeGrauParentescoId
-WHERE MunicipeNm=@MunicipeNm
-select @MunicipeNm as retorno
+WHERE MunicipeNM=@MunicipeNm
+select @MunicipeNM as retorno
 END

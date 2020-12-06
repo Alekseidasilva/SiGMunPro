@@ -62,26 +62,16 @@ namespace Web.Controllers
                 return RedirectToAction("Erro", "Error");
             }
         }
-        [HttpGet]
-        public JsonResult ListarTodos()
-        {
-            try
-            {
-                return Json(_operacoes.SelecionarTodos(),JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception e)
-            {
-                throw;
-                GuardaSessao.Erros = Convert.ToString(e);
-                //return RedirectToAction("Erro", "Error");
-            }
-        }
+        
+       
         [HttpGet]
         public ActionResult PesquisarMunicipe(string txtMunicipe)
         {
             RepMunicipe repmunicipe = new RepMunicipe();
-            ViewBag.nome="Aleksei da Silva";
-            return PartialView("mostrarDadosDoMunicipe",repmunicipe.BuscarPeloNMBarcodeQr(txtMunicipe));
+            List<Municipe> municipes = new List<Municipe>();
+            municipes.Add(repmunicipe.BuscarPeloNMBarcodeQr("IAH00001"));
+            ViewData["Municipe"] = municipes;
+            return PartialView("mostrarDadosDoMunicipe");
         }
         #endregion
 

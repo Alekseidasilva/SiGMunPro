@@ -2,5 +2,5 @@
 	@TipoDocId int
 AS
 BEGIN
-	SELECT Nome FROM dbo.TB_TipoDocIdentificacao where id=@TipoDocId
+	SELECT Nome FROM dbo.TB_TipoDocIdentificacao where Id=@TipoDocId
 END

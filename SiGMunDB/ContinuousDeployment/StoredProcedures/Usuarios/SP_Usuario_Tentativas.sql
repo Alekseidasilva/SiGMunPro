@@ -12,6 +12,6 @@ end
     update 
 	 dbo.TB_Usuarios set
 	 AccessFailedCount=@Tentativas
-	 WHERE Username=@UserName	 
+	 WHERE UserName=@UserName	 
 		
 END

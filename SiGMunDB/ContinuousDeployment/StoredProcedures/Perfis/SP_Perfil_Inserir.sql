@@ -6,7 +6,7 @@
 AS
 
 BEGIN
-    INSERT dbo.TB_Perfil(Name,Estado,DataCadastro,Idcadastrador)
+    INSERT dbo.TB_Perfil(Name,Estado,DataCadastro,IdCadastrador)
     VALUES (@Name,@Estado,@DataCadastro,@Idcadastrador)
     SELECT @Name as retorno
 END

@@ -5,5 +5,5 @@ BEGIN
 	SELECT MunicipioId
 		 ,MunicipioNome
 		 ,MunicipioProvinciaId FROM TB_Municipios
-		 WHERE MunicipioProvinciaId=@Id
+		 WHERE MunicipioProvinciaId=@id
 END
