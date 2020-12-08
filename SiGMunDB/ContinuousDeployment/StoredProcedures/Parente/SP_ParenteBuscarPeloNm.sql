@@ -4,7 +4,7 @@ AS
 BEGIN
 	SELECT	
 		MunicipeId,
-		MunicipeNm,
+		MunicipeNM,
 		MunicipeNomeCompleto,
 		MunicipeDataNascimento,
 		MunicipeNDocIdent,
@@ -21,6 +21,6 @@ BEGIN
 		MunicipeFoto,
 		MunicipeEstado,
 		MunicipeGrauParentescoId, 
-		Idcadastrador
+		IdCadastrador
 	FROM TB_Municipes WHERE MunicipeNM=@nM
 end

@@ -10,5 +10,6 @@ namespace Web.Models.Contratos.Interfaces
          List<Operacoes> OrdenarPeloNM();
          List<Operacoes> OrdenarPelTipoDocumento();
          List<Operacoes> OrdenarPelaData();
+        decimal BuscarPrecoFinalidade(int id);
      }
 }

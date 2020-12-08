@@ -31,6 +31,6 @@ MunicipeTelefone2=@MunicipeTelefone2,
 MunicipeEmail=@MunicipeEmail,
 MunicipeEstado=@MunicipeEstado,
 MunicipeFoto=@MunicipeFoto
-WHERE MunicipeNm=@MunicipeNm
+WHERE MunicipeNM=@MunicipeNm
 select @MunicipeNm as retorno
 END

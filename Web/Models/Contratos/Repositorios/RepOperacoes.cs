@@ -188,6 +188,27 @@ namespace Web.Models.Contratos.Repositorios
                 throw;
             }
         }
+        public decimal BuscarPrecoFinalidade(int id)
+        {
+            try
+            {
+                _conexao.LimparParametro();
+                _conexao.AdicionarParametros("@id", id);
+                DataTable tb = _conexao.ExecutarConsulta(CommandType.StoredProcedure, "SP_FinalidadeCarregarValor");
+                decimal valor = 0;
+                foreach (DataRow linha in tb.Rows)
+                {
+                    valor = Convert.ToDecimal(linha["FinalidadeValor"]);
+                }                
+                return valor;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         #endregion
         #region Não Implementados
         public string Cadastrar(Operacoes entidade)
@@ -214,6 +235,9 @@ namespace Web.Models.Contratos.Repositorios
         {
             throw new NotImplementedException();
         }
+
+        
+
 
 
         #endregion

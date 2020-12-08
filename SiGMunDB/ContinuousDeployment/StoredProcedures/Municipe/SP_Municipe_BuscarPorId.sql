@@ -4,14 +4,14 @@ AS
 BEGIN
 SELECT	
 MunicipeId,
-MunicipeNm,
+MunicipeNM,
 MunicipeNomeCompleto,
 MunicipeDataNascimento,
 MunicipeNDocIdent,
 MunicipeTipoDocIdentificacao,
 MunicipeDocDataEmissao,
 MunicipeDocDataValidade,
-MunicipeNif,
+MunicipeNIF,
 MunicipeGenero,
 MunicipeEstadoCivil,
 MunicipeTelefone1,

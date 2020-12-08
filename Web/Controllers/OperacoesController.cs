@@ -61,16 +61,27 @@ namespace Web.Controllers
                 GuardaSessao.Erros = Convert.ToString(e);
                 return RedirectToAction("Erro", "Error");
             }
-        }
-        
-       
+        }       
         [HttpGet]
         public ActionResult PesquisarMunicipe(string txtMunicipe)
         {
             RepMunicipe repmunicipe = new RepMunicipe();
             List<Municipe> municipes = new List<Municipe>();
-            municipes.Add(repmunicipe.BuscarPeloNMBarcodeQr("IAH00001"));
-            return PartialView(municipes);
+            var encontrado = repmunicipe.BuscarPeloNMBarcodeQr(txtMunicipe);
+            if (!string.IsNullOrEmpty(encontrado.MunicipeNm))
+            {
+                municipes.Add(repmunicipe.BuscarPeloNMBarcodeQr(txtMunicipe));
+                return PartialView(municipes);
+            }
+            ViewBag.msg =txtMunicipe.ToUpper();
+            return PartialView(null);
+        }
+        [HttpGet]
+        public ActionResult BuscarPrecoFinalidade(int id)
+        {
+            RepOperacoes repOperacoes = new RepOperacoes();
+            ViewBag.valoraCobrar = repOperacoes.BuscarPrecoFinalidade(id);
+            return PartialView();
         }
         #endregion
 

@@ -1,200 +1,143 @@
 ﻿@model IEnumerable<Web.Models.Entidades.Municipe.Municipe>
 
-
-@foreach (var item in Model)
+@if (Model !=null)
 {
-    <div class="container">
-      <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-              <div class="panel panel-info">
-            <div class="panel-heading">
-              <h2 class="panel-title">@item.Nome dfdf</h2>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                  <div class="col-md-4 col-lg-4 " align="center">
-                       <img alt="User Pic" src="~/Content/images/avatar1.jpg" class="img-rounded img-responsive" style="width: 150px;height: 150px">
-                  </div>
-                
-               
-                <div class=" col-md-8 col-lg-8 "> 
-                    <table class="table table-user-information">
-                        <tbody>
-                        <tr>
-                            <th>Nº Doc:</th>
-                            <td>@item.MunicipeNDocIdent</td>
-                        </tr>
-                        <tr>
-                            <td>Validade:</td>
-                            <td>@item.MunicipeDataNascimento</td>
-                        </tr>
-                        <tr>
-                            <td>D.Nasc:</td>
-                            <td>06/23/2013</td>
-                        </tr>
-                        <tr>
-                            <td>Estado Civil</td>
-                            <td>Casado</td>
-                        </tr>
-                        <tr>
-                            <td>Genero</td>
-                            <td>Masculino</td>
-                        </tr>
-                        <tr>
-                            <tr>
-                                <td>Gender</td>
-                                <td>Female</td>
-                            </tr>
-                            <tr>
-                                <td>Home Address</td>
-                                <td>Kathmandu,Nepal</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td>
-                                <td>aaa</td>
-                            </tr>
-                            <td>Telefones</td>
-                            <td>123-4567-890-555-4567-890
-                            </td>
-                        </tr>
-
-                        </tbody>
-                    </table>
-                  
-                 
-                </div>
-              </div>
-            </div>
-                
-            
-          </div>
+<div class="container bootstrap snippets bootdey">
+<div class="panel-body inf-content">
+    <div class="row">
+        @foreach (var item in Model)
+        {        
+        <div class="col-md-4">
+            <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="~/Content/images/avatar7.png" data-original-title="Usuario">             
         </div>
-      </div>
+        <div class="col-md-6">
+            <strong id="nomeMunicipe" class="" style="font-size:large;color:forestgreen">@item.Nome</strong><br>
+            <div class="table-responsive">
+            <table class="table table-user-information">
+                <tbody>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="fa fa-asterisk text-primary"></span>
+                                Munícipe Nº                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            @item.MunicipeNm     
+                        </td>
+                    </tr>
+                    <tr>    
+                        <td>
+                            <strong>
+                                <span class="fa fa-calendar  text-primary"></span>    
+                                Data Nascimento                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            @item.MunicipeDataNascimento.ToLongDateString()     
+                        </td>
+                    </tr>
+                      <tr>    
+                        <td>
+                            <strong>
+                                <span class="fa fa-bookmark  text-primary"></span>    
+                                Genero / Estado Civil                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            @item.MunicipeGenero / @item.MunicipeEstadoCivil     
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="fa fa-book text-primary"></span>  
+                                Tipo Doc/Nº                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            @item.MunicipeTipoDocIdentificacao / @item.MunicipeNDocIdent  
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="fa fa-calendar text-primary"></span> 
+                                Emissão / Validade                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                             @item.MunicipeDocDataEmissao.ToShortDateString() - @item.MunicipeDocDataValidade.ToShortDateString() 
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="fa fa-phone text-primary"></span> 
+                                Telefones                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            @item.MunicipeTelefone1 - @item.MunicipeTelefone2  
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="fa fa-envelope text-primary"></span> 
+                                Email                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            @item.MunicipeEmail  
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="fa fa-home text-primary"></span> 
+                                Casa Nº / Rua                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            S/N-Antonio José de Almeida
+                        </td>
+                    </tr>
+                    
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="fa fa-map-marker text-primary"></span>
+                                Bairro / Zona                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            Ritondo - 4
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="fa fa-map text-primary"></span>
+                                Comuna / Municipio                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                             Malanje / Malanje
+                        </td>
+                    </tr>                                    
+                </tbody>
+            </table>
+            </div>
+        </div>
+        }
     </div>
+</div>
+</div> 
 }
-
-    
-
-
-
-
-
-
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataCadastro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Idcadastrador)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeNm)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeDataNascimento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeNDocIdent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeTipoDocIdentificacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeDocDataEmissao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeDocDataValidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeNif)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeGenero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeEstadoCivil)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeTelefone1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeTelefone2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MunicipeFoto)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataCadastro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Idcadastrador)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeNm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeDataNascimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeNDocIdent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeTipoDocIdentificacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeDocDataEmissao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeDocDataValidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeNif)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeGenero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeEstadoCivil)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeTelefone1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeTelefone2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MunicipeFoto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+else
+{
+    <h2 class="text-danger text-center">Munícipe "@ViewBag.msg" não encontrado </h2>
 }
-
-</table>*@
+                                       
