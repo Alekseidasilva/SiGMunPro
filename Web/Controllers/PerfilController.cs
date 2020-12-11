@@ -14,7 +14,6 @@ namespace Web.Controllers
         public ActionResult Index()
         {
             var perfis = _perfil.SelecionarTodos();
-
             return View(perfis);
         }
 

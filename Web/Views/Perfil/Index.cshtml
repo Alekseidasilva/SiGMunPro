@@ -1,29 +1,24 @@
-﻿@using Web.Models.Entidades.Perfis
-@using Web.Models.Contratos.Repositorios
-@model IEnumerable<Web.Models.Entidades.Usuario.User>
-
+﻿@model IEnumerable<Web.Models.Entidades.Perfis.Role>
 
 @{
-    ViewBag.Title = "Listagem de Usuários";
+    ViewBag.Title = "Perfis de Usuário";
 }
+
 
 <body class="sidebar-menu-collapsed">
 <div class="se-pre-con"></div>
 <section>
     <!-- main content start -->
 <div class="main-content">
-
     <!-- content -->
     <div class="container-fluid content-top-gap">      
 <!-- people -->
-        <section class="people">
-           
+        <section class="people">           
             <!-- //people cards style 2 -->
             <div class="card card_border mb-5">
                 <div class="cards__heading">
-                     <h3>Usuários Cadastrados <span></span></h3>
-                    <div class="dropdown-divider"></div>
-                   <a href="@Url.Action("Cadastrar")" class="btn btn-outline-success"><i class="fa fa-plus"></i> Cadastrar</a>                   
+                     <h3>Perfis de Utilizadores <span></span></h3>                  
+                   @*<a href="@Url.Action("Cadastrar")" class="btn btn-outline-success"><i class="fa fa-plus"></i> Cadastrar</a>*@                   
                 </div>
                 <div class="card-body">
                     <div class="row px-2">
@@ -34,16 +29,10 @@
                             <div class="card text-center card_border py-2">
                                 <div class="card-body">
                                     <div class="team-main-19">
-                                        <a href="@Url.Action("Detalhes/"+item.Id)"><img class="rounded-circle" src="~/Content/images/New/UserMale.png" width="100px" alt=" "></a>
+                                        <a href="@Url.Action("Detalhes/"+item.Id)"><img class="rounded-circle" src="~/Content/images/New/UserProfile.png" width="100px" alt=" "></a>
                                         <div class="right-team-9">
                                             <div>
-                                                <h5><a href="@Url.Action("Detalhes/"+item.Id)" class="card__title mb-2 mt-3">@item.UserName</a></h5>
-                                                @foreach (var profile in(List<Role>)ViewData["Profile"])
-                                                 {
-                                                      if (item.PerfilId==profile.Id)
-                                                          {<p class="widget-user-desc">@profile.Name.ToUpper()</p>}
-                                                 }
-                                                
+                                                <h5><a href="@Url.Action("Detalhes/"+item.Id)" class="card__title mb-2 mt-3">@item.Name</a></h5>                                                                                             
                                                 <p class="">@item.DataCadastro.ToShortDateString()</p>
                                                @if (item.Estado)
                                                  {

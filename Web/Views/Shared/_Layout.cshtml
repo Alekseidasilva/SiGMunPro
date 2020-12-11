@@ -2,56 +2,37 @@
 @using WebHelpers.Mvc5.Enum
 <!DOCTYPE html>
 <html lang="pt-pt">
-<head >
-  <!-- Required meta tags -->
+<head >  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="~/Content/toastr.min.css" rel="stylesheet" />
- <title>
-    
+ <title>    
      SiGMun - 
         @if (!string.IsNullOrWhiteSpace(ViewBag.Title))
         {@ViewBag.Title}
     </title>
-  <link rel="icon" 
+  <link rel="icon"
       type="image/jpg" 
       href="~/Content/Icones/icons8_s_16.png" />
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="~/Content/css/style-starter.css">
-
- 
+  <link rel="stylesheet" href="~/Content/css/style-starter.css"> 
 </head>
 <body class="sidebar-menu-collapsed">
-
-    <div class="se-pre-con"></div>
-
+<div class="se-pre-con"></div>
     @Html.Partial("_Header")
     @Html.Partial("_Sidebar")
     <section id="container">
         @RenderBody()
-    </section>
-
-   
-
-
-
-
-    
+    </section>    
 <!-- move top -->
     <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
         <span class="fa fa-angle-up"></span>
     </button>
-
-
-
-
-
     <script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>
     <script src="@EnumHandler.HandlerUrl"></script>
     @Scripts.Render("~/Bundles/js")
     @RenderSection("ViewSpecificJavascript", required: false)
-
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {
@@ -73,15 +54,9 @@
         }
     </script>
     <!-- /move top -->
-
-
-
 <script src="~/Content/js/jquery-3.3.1.min.js"></script>
 <script src="~/Content/js/jquery-1.10.2.min.js"></script>
-
-
-
-
+    <script src="~/Scripts/toastr.min.js"></script>
     <!-- chart js -->
     <script src="~/Content/js/Chart.min.js"></script>
     <script src="~/Content/js/utils.js"></script>
@@ -90,11 +65,8 @@
     <script src="~/Content/js/bar.js"></script>
     <script src="~/Content/js/linechart.js"></script>
     <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
-
-
     <script src="~/Content/js/jquery.nicescroll.js"></script>
     <script src="~/Content/js/scripts.js"></script>
-
     <!-- close script -->
     <script>
         var closebtns = document.getElementsByClassName("close-grid");
@@ -131,9 +103,7 @@
 
 @*Criar Mascara criar nome de usuario*@
 @*<script type="text/javascript" src="/Scripts/jquery-3.0.0.min.js"  charset="utf-8"></script>*@
-<script type="text/javascript" src="/Scripts/jquery.maskedinput.min.js"></script>
-    
-
+<script type="text/javascript" src="/Scripts/jquery.maskedinput.min.js"></script> 
 <script type="text/javascript">
     $(function () {
         $("#phone").mask("(999) 999-999");
@@ -144,13 +114,6 @@
             $("#phone2").mask("(999) 999-999");
         });
 </script>
-<script src="~/Scripts/toastr.min.js"></script>
-
-    
-
-
-
-
 
 </body>
 </html>

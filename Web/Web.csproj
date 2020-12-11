@@ -157,11 +157,16 @@
     <Content Include="Content\Icones\icons8_s_16.png" />
     <Content Include="Content\Icones\more_info_250px.png" />
     <Content Include="Content\Icones\User1.jpg" />
-    <Content Include="Content\images\avatar7.png" />
     <Content Include="Content\images\down.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\New\Background Femenino.png" />
     <Content Include="Content\images\New\Background Masculino.png" />
+    <Content Include="Content\images\New\sgm.png" />
+    <Content Include="Content\images\New\SGM1.jpg" />
+    <Content Include="Content\images\New\SGM2.png" />
+    <Content Include="Content\images\New\sgm3.png" />
+    <Content Include="Content\images\New\user-info.png" />
+    <Content Include="Content\images\New\UserProfile.png" />
     <Content Include="Content\images\New\houseInactive.png" />
     <Content Include="Content\images\New\houseActive.png" />
     <Content Include="Content\images\New\motorcycle_1001px.png" />
@@ -229,7 +234,7 @@
     <Content Include="Content\Login_v3\vendor\select2\select2.min.js" />
     <Content Include="Content\regular.css" />
     <Content Include="Content\regular.min.css" />
-    <Content Include="Content\Sigmun Logo.png" />
+    <Content Include="Content\images\New\Sigmun Logo.png" />
     <Content Include="Content\solid.css" />
     <Content Include="Content\solid.min.css" />
     <Content Include="Content\svg-with-js.css" />
@@ -350,7 +355,6 @@
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
-    <Content Include="WebImages\User1.jpg" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
     <Content Include="Views\Morada\Cadastrar.cshtml" />
@@ -374,6 +378,7 @@
     <Content Include="Views\Shared\mostrarFinaliadesPeloTipoDocumento.cshtml" />
     <Content Include="Views\Operacoes\PesquisarMunicipe.cshtml" />
     <Content Include="Views\Operacoes\BuscarPrecoFinalidade.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -396,6 +401,7 @@
   <ItemGroup>
     <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\FotoController.cs" />
+    <Compile Include="Controllers\GestoresController.cs" />
     <Compile Include="Controllers\MoradaController.cs" />
     <Compile Include="Controllers\MunicipeController.cs" />
     <Compile Include="Controllers\OperacoesController.cs" />
@@ -441,6 +447,8 @@
     <Compile Include="Models\Entidades\Municipe\Parente.cs" />
     <Compile Include="Models\Entidades\Municipe\ParenteMorada.cs" />
     <Compile Include="Models\Entidades\Operacoes.cs" />
+    <Compile Include="Models\Entidades\Organismo\Gestores.cs" />
+    <Compile Include="Models\Entidades\Organismo\Organismo.cs" />
     <Compile Include="Models\Entidades\Outras\EstadoCivil.cs" />
     <Compile Include="Models\Entidades\Outras\Finalidades.cs" />
     <Compile Include="Models\Entidades\Outras\FormasDePagamento.cs" />
@@ -481,7 +489,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Perfil\" />
+    <Folder Include="Views\Gestores\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infra\Infra.csproj">
