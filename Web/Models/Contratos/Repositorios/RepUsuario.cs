@@ -421,7 +421,7 @@ namespace Web.Models.Contratos.Repositorios
         }
 
         public bool VerificarUsuario(string userName)
-        {
+        {//Depois da defesa
             try
             {
                 _conexao.LimparParametro();
