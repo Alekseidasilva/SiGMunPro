@@ -604,6 +604,7 @@
     <Content Include="Content\SimDash\sass\vector-map.scss" />
     <Content Include="Content\SimDash\sass\weather.scss" />
     <Content Include="Content\SimDash\sass\widget-stat.scss" />
+    <Content Include="projectFilesLoader.json" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="projectFilesLoader.json" />
     <None Include="Word\Monografia.docx" />
     <None Include="Word\Monografia1.docx" />
     <None Include="Word\Monografia2.docx" />

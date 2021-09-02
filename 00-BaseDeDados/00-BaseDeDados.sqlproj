@@ -120,5 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="00-BaseDeDados.publish.xml" />
+    <None Include="projectFilesLoader.json" />
   </ItemGroup>
 </Project>
